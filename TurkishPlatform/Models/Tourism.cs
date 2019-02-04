@@ -5,8 +5,8 @@ using System.Web;
 
 namespace TurkishPlatform.Models
 {
-	public class Forum
-	{
-		
-	}
+    public class Tourism
+    {
+        public List<TourismComment> Comments { get; set; }
+    }
 }

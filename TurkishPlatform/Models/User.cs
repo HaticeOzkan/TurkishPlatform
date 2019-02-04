@@ -12,7 +12,7 @@ namespace TurkishPlatform.Models
 		Female,
 		Male
 	}
-	public class Users
+	public class User
 	{
 		[Key]
 		public int UserId { get; set; }
@@ -28,17 +28,11 @@ namespace TurkishPlatform.Models
 		public int Password { get; set; }
 		[MaxLength(1000)]
 		public string ImageURL { get; set; }
-		public List<ForumComment> ForumComments { get; set; }
-		public List<RestaurantComment> RestaurantComments { get; set; }
 		public List<TourismComment> TourismComments { get; set; }
-		public List<AdviceComment> AdviceComments { get; set; }
-		public Location Location { get; set; }
+        public List<AdviceComment> AdviceComments { get; set; }
+        public List<TopicComment> TopicComments { get; set; }
+        public List<RestaurantComment> RestaurantComments { get; set; }
+        public Country Country { get; set; }
 	}
-
-	[ComplexType]
-	public class Location
-	{
-		public string Country { get; set; }
-		public string City { get; set; }
-	}
+    
 }
