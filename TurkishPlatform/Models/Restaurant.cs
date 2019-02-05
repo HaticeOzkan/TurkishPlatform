@@ -49,4 +49,3 @@ namespace TurkishPlatform.Models
 		public int RestaurantId { get; set; }
 	}
 }
-}

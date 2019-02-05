@@ -155,6 +155,7 @@
     <Compile Include="Models\Activity.cs" />
     <Compile Include="Models\Advice.cs" />
     <Compile Include="Models\Country.cs" />
+    <Compile Include="Models\PlatformContext.cs" />
     <Compile Include="Models\Restaurant.cs" />
     <Compile Include="Models\ForumComment.cs" />
     <Compile Include="Models\Tourism.cs" />
