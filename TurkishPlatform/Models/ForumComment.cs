@@ -12,6 +12,7 @@ namespace TurkishPlatform.Models
 		[Key]
 		public int CommentId { get; set; }
 		[Column(TypeName = "text")]
+		[Required]
 		public string Content { get; set; }
 		public DateTime Date { get; set; }
 		[ForeignKey("UserId")]
@@ -31,6 +32,8 @@ namespace TurkishPlatform.Models
 	{
 		[Key]
 		public int TopicId { get; set; }
+		[Required]
+		[MaxLength(200)]
 		public string TopicTitle { get; set; }
 		public List<ForumComment> ForumComments { get; set; }
 		public ForumCommentCategory CommentCategory { get; set; }
@@ -42,6 +45,8 @@ namespace TurkishPlatform.Models
 	{
 		[Key]
 		public int CategoryId { get; set; }
+		[Required]
+		[MaxLength(200)]
 		public string CategoryName { get; set; }
 		public List<ForumCommentTopic> CommentTopics { get; set; }
 		public Country Country { get; set; }

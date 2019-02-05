@@ -12,8 +12,12 @@ namespace TurkishPlatform.Models
         [Key]
         public int ActivityId { get; set; }
         public string ImageURL { get; set; }
-        public string Title { get; set; }
-        public string Content { get; set; }
+		[Required]
+		[MaxLength(200)]
+		public string Title { get; set; }
+		[Required]
+		[MaxLength(2000)]
+		public string Content { get; set; }
         public DateTime Date { get; set; }
         public TimeSpan Remaining { get; set; }
 		public Country Country { get; set; }

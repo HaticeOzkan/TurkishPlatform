@@ -11,7 +11,11 @@ namespace TurkishPlatform.Models
 	{
 		[Key]
 		public int AdviceId { get; set; }
+		[Required]
+		[MaxLength(200)]
 		public string Title { get; set; }
+		[Required]
+		[Column(TypeName = "text")]
 		public string Content { get; set; }
 		public string ImageURL { get; set; }
 		public DateTime Date { get; set; }
@@ -30,6 +34,8 @@ namespace TurkishPlatform.Models
 	{
 		[Key]
 		public string CategoryId { get; set; }
+		[Required]
+		[MaxLength(200)]
 		public string CategoryName { get; set; }
 		public Advice Advice { get; set; }
 		[ForeignKey("Advice")]
