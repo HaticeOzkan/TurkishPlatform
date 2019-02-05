@@ -28,11 +28,12 @@ namespace TurkishPlatform.Models
 		public int Password { get; set; }
 		[MaxLength(1000)]
 		public string ImageURL { get; set; }
-		public List<TourismComment> TourismComments { get; set; }
-        public List<AdviceComment> AdviceComments { get; set; }
-        public List<TopicComment> TopicComments { get; set; }
-        public List<RestaurantComment> RestaurantComments { get; set; }
         public Country Country { get; set; }
+		[ForeignKey("Country")]
+		public int CountryId { get; set; }
+		public List<LocationComment> TourismComments { get; set; }
+		public List<ForumComment> ForumComments { get; set; }
+		public List<RestaurantComment> RestaurantComments { get; set; }
 	}
     
 }
