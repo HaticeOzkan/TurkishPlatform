@@ -9,16 +9,16 @@ namespace TurkishPlatform.Models
     public class Country
     {
         [Key]
-        public string CountryId { get; set; }
+        public int CountryId { get; set; }
 		[Required]
 		[MaxLength(100)]
 		public string CountryName { get; set; }
-        public List<User> Users { get; set; }
-        public List<Activity> Activities { get; set; }
-        public List<Restaurant> Restaurants { get; set; }
-        public List<Tourism> Tourisms { get; set; }
-        public List<ForumCommentCategory> Topics { get; set; } 
-        public List<Advice> Advices { get; set; }
+        public virtual List<User> Users { get; set; }
+        public virtual List<Activity> Activities { get; set; }
+        public virtual List<Restaurant> Restaurants { get; set; }
+        public virtual List<Tourism> Tourisms { get; set; }
+        public virtual List<ForumCommentCategory> Topics { get; set; } 
+        public virtual List<Advice> Advices { get; set; }
 
     }
 }

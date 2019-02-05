@@ -22,7 +22,7 @@ namespace TurkishPlatform.Models
 		[ForeignKey("CountryId")]
 		public Country Country { get; set; }
 		public int CountryId { get; set; }
-		public List<AdviceTopic> AdviceTopics { get; set; }
+		public virtual List<AdviceTopic> AdviceTopics { get; set; }
 
 		public Advice()
 		{

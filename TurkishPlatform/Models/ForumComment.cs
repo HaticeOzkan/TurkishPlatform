@@ -48,7 +48,7 @@ namespace TurkishPlatform.Models
 		[Required]
 		[MaxLength(200)]
 		public string CategoryName { get; set; }
-		public List<ForumCommentTopic> CommentTopics { get; set; }
+		public virtual List<ForumCommentTopic> CommentTopics { get; set; }
 		public Country Country { get; set; }
 		[ForeignKey("Country")]
 		public int CountryId { get; set; }

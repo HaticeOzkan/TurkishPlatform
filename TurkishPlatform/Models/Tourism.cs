@@ -22,8 +22,8 @@ namespace TurkishPlatform.Models
 		public Country Country { get; set; }
 		[ForeignKey("Country")]
 		public int CountryId { get; set; }
-		public List<LocationImage> LocationImages { get; set; }
-		public List<LocationComment> locationComments { get; set; }
+		public virtual List<LocationImage> LocationImages { get; set; }
+		public virtual List<LocationComment> locationComments { get; set; }
     }
 	
 	public class LocationImage
@@ -40,6 +40,7 @@ namespace TurkishPlatform.Models
 
 	public class LocationComment
 	{
+        [Key]
 		public int CommentId { get; set; }
 		public string Content { get; set; }
 		public User User { get; set; }

@@ -25,15 +25,13 @@ namespace TurkishPlatform.Models
 		public string Email { get; set; }
 		[Required]
 		[MaxLength(15)]
-		public int Password { get; set; }
+		public string Password { get; set; }
 		[MaxLength(1000)]
 		public string ImageURL { get; set; }
-        public Country Country { get; set; }
-		[ForeignKey("Country")]
-		public int CountryId { get; set; }
-		public List<LocationComment> TourismComments { get; set; }
-		public List<ForumComment> ForumComments { get; set; }
-		public List<RestaurantComment> RestaurantComments { get; set; }
+		public int CountryNo { get; set; }
+		public virtual List<LocationComment> TourismComments { get; set; }
+		public virtual List<ForumComment> ForumComments { get; set; }
+		public virtual List<RestaurantComment> RestaurantComments { get; set; }
 	}
     
 }
