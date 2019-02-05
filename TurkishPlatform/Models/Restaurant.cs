@@ -11,8 +11,12 @@ namespace TurkishPlatform.Models
     {
 		[Key]
 		public int RestaurantId { get; set; }
+		[Required]
+		[MaxLength(200)]
 		public string RestaurantName { get; set; }
 		public string Content { get; set; }
+		[Required]
+		[MaxLength(500)]
 		public string Address { get; set; }
 		public Country Country { get; set; }
 		[ForeignKey("Country")]
@@ -25,6 +29,7 @@ namespace TurkishPlatform.Models
 	{
 		[Key]
 		public int ImageId { get; set; }
+		[Required]
 		public string ImageURL { get; set; }
 		public Restaurant Restaurant { get; set; }
 		[ForeignKey("Restaurant")]

@@ -153,10 +153,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Activity.cs" />
-    <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\Advice.cs" />
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\Restaurant.cs" />
-    <Compile Include="Models\Topic.cs" />
+    <Compile Include="Models\ForumComment.cs" />
     <Compile Include="Models\Tourism.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
