@@ -10,7 +10,9 @@ namespace TurkishPlatform.Models
     {
         [Key]
         public string CountryId { get; set; }
-        public string CountryName { get; set; }
+		[Required]
+		[MaxLength(100)]
+		public string CountryName { get; set; }
         public List<User> Users { get; set; }
         public List<Activity> Activities { get; set; }
         public List<Restaurant> Restaurants { get; set; }
