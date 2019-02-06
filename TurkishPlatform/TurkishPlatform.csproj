@@ -168,6 +168,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902061626042_Son.cs" />
+    <Compile Include="Migrations\201902061626042_Son.Designer.cs">
+      <DependentUpon>201902061626042_Son.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Activity.cs" />
     <Compile Include="Models\AdminProfil.cs" />
@@ -300,13 +304,10 @@
     <Content Include="Areas\Panel\Views\Restaurants\Edit.cshtml" />
     <Content Include="Areas\Panel\Views\Restaurants\Index.cshtml" />
     <Content Include="Areas\Panel\Views\Login\Index.cshtml" />
-<<<<<<< HEAD
     <Content Include="Areas\Panel\Views\Login\ForgotPassword.cshtml" />
     <Content Include="Areas\Panel\Views\Login\RenewalPassword.cshtml" />
-=======
     <Content Include="Areas\Panel\Views\ForgetPassword\ForgetPassword.cshtml" />
     <Content Include="Content\js\jquery.prettyPhoto.js.bk" />
->>>>>>> 68bd4c0b186e75a3a49b1ed336d772868cd2aac4
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -349,6 +350,11 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201902061626042_Son.resx">
+      <DependentUpon>201902061626042_Son.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

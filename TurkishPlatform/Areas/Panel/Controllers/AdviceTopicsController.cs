@@ -17,8 +17,7 @@ namespace TurkishPlatform.Areas.Panel.Controllers
         // GET: Panel/AdviceTopics
         public ActionResult Index()
         {
-            var adviceTopics = db.AdviceTopics.Include(a => a.Advice);
-            return View(adviceTopics.ToList());
+            return View(db.AdviceTopics.ToList());
         }
 
         // GET: Panel/AdviceTopics/Details/5
@@ -39,7 +38,6 @@ namespace TurkishPlatform.Areas.Panel.Controllers
         // GET: Panel/AdviceTopics/Create
         public ActionResult Create()
         {
-            ViewBag.AdviceId = new SelectList(db.Advices, "AdviceId", "Title");
             return View();
         }
 
@@ -48,7 +46,7 @@ namespace TurkishPlatform.Areas.Panel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CategoryId,CategoryName,AdviceId")] AdviceTopic adviceTopic)
+        public ActionResult Create([Bind(Include = "CategoryId,CategoryName")] AdviceTopic adviceTopic)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +55,6 @@ namespace TurkishPlatform.Areas.Panel.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.AdviceId = new SelectList(db.Advices, "AdviceId", "Title", adviceTopic.AdviceId);
             return View(adviceTopic);
         }
 
@@ -73,7 +70,6 @@ namespace TurkishPlatform.Areas.Panel.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.AdviceId = new SelectList(db.Advices, "AdviceId", "Title", adviceTopic.AdviceId);
             return View(adviceTopic);
         }
 
@@ -82,7 +78,7 @@ namespace TurkishPlatform.Areas.Panel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CategoryId,CategoryName,AdviceId")] AdviceTopic adviceTopic)
+        public ActionResult Edit([Bind(Include = "CategoryId,CategoryName")] AdviceTopic adviceTopic)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +86,6 @@ namespace TurkishPlatform.Areas.Panel.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.AdviceId = new SelectList(db.Advices, "AdviceId", "Title", adviceTopic.AdviceId);
             return View(adviceTopic);
         }
 

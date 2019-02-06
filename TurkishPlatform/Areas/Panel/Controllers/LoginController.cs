@@ -10,19 +10,27 @@ namespace TurkishPlatform.Areas.Panel.Controllers
     public class LoginController : Controller
     {
         // GET: Panel/Login
+        //Burası yöneticinin Giriş yaptıgı bölüm aşağıda şifremi unutuum kısmı var 
+        [HttpPost]
         public ActionResult Index(string UserName,string Password)
         {
-            bool IsTrue = true;
+            bool? IsTrue = true;
             ViewBag.Message = "Sorry. Your password was incorrect. Please double-check your password.";
             if (UserName == "Admin" && Password == "32078")
             {
                 return RedirectToAction("Index", "Countries");
             }
             else
-                IsTrue = false;
+                IsTrue = false;//eger şifresini yanlış girmişse
             return View(IsTrue);
         }
-      
+        [HttpGet]
+        public ActionResult Index()
+        {
+          
+            return View();
+        }
+        [HttpPost]
         public ActionResult ForgotPassword(string TextEmail)
         {
             MailMessage ePosta = new MailMessage();
@@ -43,7 +51,27 @@ namespace TurkishPlatform.Areas.Panel.Controllers
             //Girilen email alınacak bu email e mail gönderilcek mailde şifre yenileme linki olacak onu basınca şifre yenileme sayfası gelecek
             return View();
         }
+        [HttpGet]
+        public ActionResult ForgotPassword()
+        {
+            return View();
+        }
         //şifre yenileme sayfasına yönlendirilecek
+        [HttpPost]
+        public ActionResult RenewalPassword(string NewPassword,string NewPasswordRepeat)
+        {
+            bool? Control = false;
+            ViewBag.ControlPassword = "Must match the previous entry";
+            ViewBag.CorrectMatch = "Password matching";
+            if (NewPassword == NewPasswordRepeat)
+            {
+                Control = true;
+                RedirectToAction("RenewalPassword","Index");
+            }
+          
+            return View(Control);
+        }
+        [HttpGet]
         public ActionResult RenewalPassword()
         {
 

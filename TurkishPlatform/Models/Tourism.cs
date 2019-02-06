@@ -49,5 +49,10 @@ namespace TurkishPlatform.Models
 		public Tourism Location { get; set; }
 		[ForeignKey("Location")]
 		public int LocationId { get; set; }
+        public bool Share { get; set; }
+        public LocationComment()
+        {
+            Share = false;
+        }
 	}
 }
