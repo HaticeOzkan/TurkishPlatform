@@ -148,7 +148,6 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Areas\Areas\AreasAreaRegistration.cs" />
     <Compile Include="Areas\Panel\Controllers\ActivitiesController.cs" />
     <Compile Include="Areas\Panel\Controllers\AdvicesController.cs" />
     <Compile Include="Areas\Panel\Controllers\AdviceTopicsController.cs" />
@@ -193,7 +192,6 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Areas\Areas\Views\web.config" />
     <Content Include="Areas\Panel\Views\web.config" />
     <Content Include="Areas\Panel\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Panel\Views\Shared\_Layout.cshtml" />
@@ -297,9 +295,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Areas\Controllers\" />
-    <Folder Include="Areas\Areas\Models\" />
-    <Folder Include="Areas\Areas\Views\Shared\" />
     <Folder Include="Areas\Panel\Models\" />
   </ItemGroup>
   <ItemGroup>
