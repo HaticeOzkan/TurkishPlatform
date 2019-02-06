@@ -152,7 +152,6 @@
     <Compile Include="Areas\Panel\Controllers\AdvicesController.cs" />
     <Compile Include="Areas\Panel\Controllers\AdviceTopicsController.cs" />
     <Compile Include="Areas\Panel\Controllers\CountriesController.cs" />
-    <Compile Include="Areas\Panel\Controllers\ForgetPasswordController.cs" />
     <Compile Include="Areas\Panel\Controllers\ForumCommentCategoriesController.cs" />
     <Compile Include="Areas\Panel\Controllers\ForumCommentsController.cs" />
     <Compile Include="Areas\Panel\Controllers\ForumCommentTopicsController.cs" />
@@ -171,6 +170,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Activity.cs" />
+    <Compile Include="Models\AdminProfil.cs" />
     <Compile Include="Models\Advice.cs" />
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\PlatformContext.cs" />
@@ -266,7 +266,8 @@
     <Content Include="Areas\Panel\Views\Restaurants\Edit.cshtml" />
     <Content Include="Areas\Panel\Views\Restaurants\Index.cshtml" />
     <Content Include="Areas\Panel\Views\Login\Index.cshtml" />
-    <Content Include="Areas\Panel\Views\ForgetPassword\ForgetPassword.cshtml" />
+    <Content Include="Areas\Panel\Views\Login\ForgotPassword.cshtml" />
+    <Content Include="Areas\Panel\Views\Login\RenewalPassword.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

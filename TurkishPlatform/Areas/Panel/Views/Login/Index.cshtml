@@ -1,4 +1,4 @@
-﻿
+﻿@model bool
 @{
     Layout = null;
 }
@@ -190,14 +190,18 @@ a{
             <div class="login-show">
                 <h2>LOGIN</h2>
                 <form action="" method="post">
-                    <input type="text" name="Email" placeholder="Email">
+                    <input type="text" name="UserName" placeholder="UserName">
                     <input type="password" name="Password" placeholder="Password">
-                
+
                     <button type="submit" value="Login">Login</button>
-@*Burada input kısımları form içine aldım action actiona bişi demedim controllerda girilen email ve şifreyi control edip istediğim sayfaya yönlendireceğim ve methodunu belirttim inputların name ini verdim
-    bu belirrtiğimiz name leri logincontrollerda parametre olarak alacak*@ 
-                </form>              
-                <a href="~/Areas/Panel/Controllers/ForgetPasswordController.cs">Forgot password?</a>@*Burası yonlenmeli*@
+                    @if (Model == false)
+        {
+            <p>@ViewBag.Message</p>
+}
+            @*Burada input kısımları form içine aldım action actiona bişi demedim controllerda girilen email ve şifreyi control edip istediğim sayfaya yönlendireceğim ve methodunu belirttim inputların name ini verdim
+    bu belirrtiğimiz name leri logincontrollerda parametre olarak alacak*@
+                </form>               
+                <a href="/Panel/Login/ForgotPassword">Forgot password?</a>@*Burası yonlenmeli*@               
             </div>
             <div class="register-show">
                 <h2>REGISTER</h2>
