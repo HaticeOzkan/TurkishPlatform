@@ -148,9 +148,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-<<<<<<< HEAD
     <Compile Include="Areas\Areas\AreasAreaRegistration.cs" />
-=======
     <Compile Include="Areas\Panel\Controllers\ActivitiesController.cs" />
     <Compile Include="Areas\Panel\Controllers\AdvicesController.cs" />
     <Compile Include="Areas\Panel\Controllers\AdviceTopicsController.cs" />
@@ -168,7 +166,6 @@
     <Compile Include="Areas\Panel\Controllers\TourismController.cs" />
     <Compile Include="Areas\Panel\Controllers\UsersController.cs" />
     <Compile Include="Areas\Panel\PanelAreaRegistration.cs" />
->>>>>>> 4d12a834bed8ffb52a8f6ff17f6de00e6fa8064d
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -196,9 +193,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-<<<<<<< HEAD
     <Content Include="Areas\Areas\Views\web.config" />
-=======
     <Content Include="Areas\Panel\Views\web.config" />
     <Content Include="Areas\Panel\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Panel\Views\Shared\_Layout.cshtml" />
@@ -274,7 +269,6 @@
     <Content Include="Areas\Panel\Views\Restaurants\Index.cshtml" />
     <Content Include="Areas\Panel\Views\Login\Index.cshtml" />
     <Content Include="Areas\Panel\Views\ForgetPassword\ForgetPassword.cshtml" />
->>>>>>> 4d12a834bed8ffb52a8f6ff17f6de00e6fa8064d
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -303,13 +297,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-<<<<<<< HEAD
     <Folder Include="Areas\Areas\Controllers\" />
     <Folder Include="Areas\Areas\Models\" />
     <Folder Include="Areas\Areas\Views\Shared\" />
-=======
     <Folder Include="Areas\Panel\Models\" />
->>>>>>> 4d12a834bed8ffb52a8f6ff17f6de00e6fa8064d
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
