@@ -192,8 +192,8 @@
     <Content Include="Content\css\mobile.css" />
     <Content Include="Content\css\prettyPhoto.css" />
     <Content Include="Content\css\style.css" />
-    <Content Include="Content\images\amerika.jpg" />
-    <Content Include="Content\images\disneylandABD.jpg" />
+    <Content Include="Content\images\1.jpg" />
+    <Content Include="Content\images\3.jpg" />
     <Content Include="Content\images\favicon.ico" />
     <Content Include="Content\images\grabbing.png" />
     <Content Include="Content\images\londra.jpg" />
@@ -329,8 +329,6 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
