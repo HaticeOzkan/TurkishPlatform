@@ -1,0 +1,2183 @@
+/********************************************************************************************
+ 0. STYLES FOR MOBILE DEVICES - media screen max-width: 1024px (removes animation for mobile devices) (line 15)
+ 1. STYLES FOR MOBILE DEVICES - media screen max width: 400px (line 51)
+ 2. STYLES FOR MOBILE DEVICES - media screen min width: 400px / max width: 568px (line 287)
+ 3. STYLES FOR MOBILE DEVICES - media screen min width: 568px / max width: 600px (line 518)
+ 4. STYLES FOR MOBILE DEVICES - media screen min width: 600px / max width: 700px (line 742)
+ 5. STYLES FOR MOBILE DEVICES - media screen min width: 700px / max width: 768px (line 966)
+ 6. STYLES FOR MOBILE DEVICES - media screen min width: 768px / max width: 1024px (line 1192)
+ 7. STYLES FOR MOBILE DEVICES - media screen min width: 1024px / max width: 1280px (line 1418)
+ 8. STYLES FOR MOBILE DEVICES - media screen min width: 1280px / max width: 1366px (line 1666)
+ 9. STYLES FOR MOBILE DEVICES - media screen min width: 1336px / max width: 1536px (line 1678) 
+ 10. STYLES FOR MOBILE DEVICES - media screen min width: 1536px / max width: 1680px (line 1931)
+*********************************************************************************************/
+
+/*-- 0. STYLES FOR MOBILE DEVICES - media screen max-width: 1024px --*/
+/* -- removes animation for mobile devices --*/
+@media screen and (max-width: 1024px) {
+	
+	.animated {
+	-webkit-animation-fill-mode: none !important;
+	-moz-animation-fill-mode: none !important;
+	-ms-animation-fill-mode: none !important;
+	-o-animation-fill-mode: none !important;
+	animation-fill-mode: none !important;
+	-webkit-animation-duration: 0 !important;
+	-moz-animation-duration: 0 !important;
+	-ms-animation-duration: 0 !important;
+	-o-animation-duration: 0 !important;
+	animation-duration: 0 !important;
+	}
+	
+	.flash, .shake, .bounce, .tada, .swing, .wobble, .pulse, .animated.flip, .flipInX, .flipOutX, .flipInY, .flipOutY, .fadeIn, .fadeInUp, .fadeInDown, .fadeInLeft, .fadeInRight, .fadeInUpBig, .fadeInDownBig, .fadeInLeftBig, .fadeInRightBig, .fadeOut, .fadeOutUp, .fadeOutDown, .fadeOutLeft, .fadeOutRight, .fadeOutUpBig, .fadeOutDownBig, .fadeOutLeftBig, .fadeOutRightBig, .slideInDown, .slideInLeft, .slideInRight, .slideOutUp, .slideOutLeft, .slideOutRight, .bounceIn, .bounceInUp, .bounceInDown, .bounceInLeft, .bounceInRight, .bounceOut, .bounceOutUp, .bounceOutDown, .bounceOutLeft, .bounceOutRight, .rotateIn, .rotateInUpLeft, .rotateInDownLeft, .rotateInUpRight, .rotateInDownRight, .rotateOut, .rotateOutUpLeft, .rotateOutDownLeft, .rotateOutUpRight, .rotateOutDownRight, .lightSpeedIn, .lightSpeedOut, .hinge, .rollIn, .rollOut  {
+	-webkit-animation-name: none !important;
+	-moz-animation-name: none !important;
+	-o-animation-name: none !important;
+	animation-name: none !important;
+	}
+	
+	.story-content, ul#countdown, .timer-text, #parents, #godfathers, #maids, .events h2, .events-button, #ceremony, #party, .registry-text h2, .registry-logos, #album, .rsvp-text h2, .rsvp-text p, #form  {
+		visibility: visible;
+	}
+	
+	#timer, #events, #registry, #rsvp {
+		background-attachment: scroll;
+		z-index: -1000;
+	}
+	
+}
+
+
+/*-- 1. STYLES FOR MOBILE DEVICES - media screen max width: 400px --*/
+@media only screen and (max-width: 400px) {
+
+	body {
+		overflow-x: hidden;
+		font-size: 14px;
+	}
+
+	.heart.content-style {
+		width: 15%;
+		margin-top: 1em;
+	}
+
+	h1 {
+		font-size: 3.5em;
+		margin-top: 2.2em;
+	}
+	
+	h2 {
+		font-size: 2em;
+		padding: 1em 0;
+	}
+	
+	h3 {
+		font-size: 1.5em;
+		padding: 1.5em 0 0;
+	}
+	
+	p:first-child:first-letter { 
+		padding-top: 0.02em; 
+		padding-right: 0.2em;
+		padding-left: 0.05em; 
+	}
+	
+	label {
+		padding: 0;
+	}
+	
+	.container {
+		overflow-x: hidden;
+	}
+	
+	.header {
+		padding-top: 0;
+	}
+
+	.header-quote {
+		position: absolute;
+		width: 60%;
+		margin: 0.8em 3.5em;
+		font-size: 1em;
+	}
+	
+	#home {
+		min-height: 440px;
+		height: auto;
+	}
+
+	.backgroundsize .cbp-bislideshow li {
+		-webkit-background-size: auto 100%;
+		-moz-background-size: auto 100%;
+		background-size: auto 100%;
+		background-position: center center;
+	}
+	
+	.cbp-bislideshow li img {
+		display: block;
+		width: auto;
+	}
+	
+	#story {
+		min-height: 1200px;
+		height: auto;
+		padding: 1.5em 0;
+	}
+
+	#timer {
+		height: 640px;
+		min-height: auto;
+		padding: 4em 0;	
+	}
+	
+	ul#countdown li {  
+		padding: 0.6em 0 0 0;
+	} 
+	
+	#about {
+		min-height: 1360px;
+		height: auto;
+		padding: 1.5em 0;
+	}
+	
+	.parents {
+		margin: 4em auto;
+	}
+
+	.godfathers {
+		margin: 1em auto;
+	}
+	
+	.godfathers-text h2{
+		margin: 1.8em auto;
+		text-align: center;
+	}
+
+	.godfathers-text-women h4 {
+		margin: 1em auto;
+		padding: 0;
+		float: none;
+		color: #D65679;
+	}
+
+	.godfathers-text-women p {
+		margin: 0 auto;
+		padding: 0 0 1em 0;
+		float: none;
+		text-align: center;
+	}
+
+	.godfathers-text-men h4 {
+		margin: 1em auto;
+		padding: 0;
+		float: none;
+		color: #6E6E86;
+	}
+
+	.godfathers-text-men p {
+		margin: 0 auto;
+		padding: 0 0 1em 0;
+		float: none;
+		text-align: center;
+	}
+	
+	.maids {
+		margin: 4em auto;
+	}
+	
+	.bridesmaid {
+		float: right;
+	}
+
+	.bestman {
+		float: left;
+		margin-top: -24em;
+	}
+	
+	.groomsmen h4{
+		font-size: 1.2em;
+		color: #6E6E86;
+		padding: 1em  0 0 8em;
+	}
+	
+	#events {
+		min-height: 400px;
+		height: auto;
+		padding: 2em 0;
+
+	}
+	
+	.events h2 {
+		padding-top: 1.6em;
+		font-size: 2em;
+	}
+	
+	#wedding {
+		height: auto;
+		padding: 3em 0;
+	}
+	
+	.rslides {
+		width: 92%;
+	}
+	
+	.large-btns_nav.next {
+		right: 1.8em;
+	}
+	
+	#gmap {
+		width: 93%;
+	}
+
+	#registry {
+		height: 720px;
+		min-height: auto;
+		padding: 3em 0;
+	}
+	
+	.registry-text h2 {
+		font-size: 2em;
+	}
+	
+	#album {
+		min-height: 1060px;
+		height: auto;
+		padding: 3em 0;
+	}
+	
+	#rsvp {
+		min-height: 320px;
+		height: auto;
+		padding: 2.5em 0;
+	}
+	
+	.rsvp-text h2 {
+		font-size: 2em;
+	}
+	
+	.rsvp-text p {
+		font-size: 1em;
+		padding: 0.6em 0;
+		width: 260px;
+		margin: 1em auto;
+		text-align: center;
+		border: 2px solid #FFF;
+	}
+
+	#form {
+		min-height: 620px;
+		height: auto;
+		padding: 2em 0;
+	}
+	
+	.rsvp-image {
+		display: none;
+	}
+
+	.contact-form {
+		width: 260px;
+		margin: 0 auto;
+		padding-top: 1em;
+	}
+
+}
+
+
+/*-- 2. STYLES FOR MOBILE DEVICES - media screen min width: 400px / max width: 568px --*/
+@media screen and (min-width: 400px) and (max-width: 568px) {	
+
+	body {
+		overflow-x: hidden;
+		font-size: 14px;
+	}
+
+	.heart.content-style {
+		width: 20%;
+		margin-top: 1em;
+	}
+
+	h1 {
+		font-size: 3.5em;
+		margin-top: 2em;
+	}
+	
+	h2 {
+		font-size: 2em;
+		padding: 1em 0;
+	}
+	
+	h3 {
+		padding: 2em 0 0;
+	}
+
+	label {
+		padding: 0;
+	}
+	
+	.container {
+		overflow-x: hidden;
+	}
+	
+	.header {
+		padding-top: 0;
+	}
+
+	.header-quote {
+		position: absolute;
+		width: 80%;
+		margin: 0.8em 2.8em;
+		font-size: 1em;
+	}
+	
+	#home {
+		min-height: 400px;
+		height: auto;
+	}
+
+	.backgroundsize .cbp-bislideshow li {
+		-webkit-background-size: auto 100%;
+		-moz-background-size: auto 100%;
+		background-size: auto 100%;
+		background-position: center center;
+	}
+	
+	.cbp-bislideshow li img {
+		display: block;
+		width: auto;
+	}
+	
+	#story {
+		min-height: 1200px;
+		height: auto;
+		padding: 1.5em 0;
+	}
+
+	#timer {
+		min-height: 360px;
+		height: auto;
+		padding: 4em 0;	
+	}
+	
+	ul#countdown li {  
+		padding: 0.6em 0 0 0;
+	} 
+	
+	#about {
+		min-height: 1360px;
+		height: auto;
+		padding: 1.5em 0;
+	}
+	
+	.parents {
+		margin: 4em auto;
+	}
+
+	.godfathers {
+		margin: 1em auto;
+	}
+	
+	.godfathers-text h2{
+		margin: 1.8em auto;
+		text-align: center;
+	}
+
+	.godfathers-text-women h4 {
+		margin: 1em auto;
+		padding: 0;
+		float: none;
+		color: #D65679;
+	}
+
+	.godfathers-text-women p {
+		margin: 0 auto;
+		padding: 0 0 1em 0;
+		float: none;
+		text-align: center;
+	}
+
+	.godfathers-text-men h4 {
+		margin: 1em auto;
+		padding: 0;
+		float: none;
+		color: #6E6E86;
+	}
+
+	.godfathers-text-men p {
+		margin: 0 auto;
+		padding: 0 0 1em 0;
+		float: none;
+		text-align: center;
+	}
+	
+	.maids {
+		margin: 4em auto;
+	}
+	
+	.bridesmaid {
+		float: right;
+		margin-right: 2em;
+	}
+
+	.bestman {
+		float: left;
+		margin-top: -24em;
+		margin-left: 2em;
+	}
+	
+	.groomsmen h4{
+		font-size: 1.2em;
+		color: #6E6E86;
+		padding: 1em  0 0 8em;
+	}
+	
+	#events {
+		min-height: 400px;
+		height: auto;
+		padding: 2em 0;
+
+	}
+	
+	.events h2 {
+		padding-top: 1.6em;
+		font-size: 2em;
+	}
+	
+	#wedding {
+		height: auto;
+		padding: 3em 0;
+	}
+	
+	.rslides {
+		width: 96%;
+	}
+	
+	.large-btns_nav.next {
+		right: 1.4em;
+	}
+	
+	#gmap {
+		width: 95%;
+	}
+
+	#registry {
+		min-height: 600px;
+		height: auto;
+		padding: 3em 0;
+	}
+	
+	.registry-text h2 {
+		font-size: 2em;
+	}
+	
+	#album {
+		min-height: 1040px;
+		height: auto;
+		padding: 3em 0;
+	}
+	
+	#rsvp {
+		min-height: 320px;
+		height: auto;
+		padding: 2.5em 0;
+	}
+	
+	.rsvp-text h2 {
+		font-size: 2em;
+	}
+	
+	.rsvp-text p {
+		font-size: 1em;
+		padding: 0.6em 0;
+		width: 260px;
+		margin: 1em auto;
+		text-align: center;
+		border: 2px solid #FFF;
+	}
+
+	#form {
+		min-height: 700px;
+		height: auto;
+		padding: 2em 0;
+	}
+	
+	.rsvp-image {
+		display: none;
+	}
+
+	.contact-form {
+		width: 400px;
+		margin: 0 auto;
+		padding-top: 1em;
+	}
+
+}
+
+
+/*-- 3. STYLES FOR MOBILE DEVICES - media screen min width: 568px / max width: 600px --*/
+@media screen and (min-width: 568px) and (max-width: 600px) {	
+
+	body {
+		overflow-x: hidden;
+		font-size: 14px;
+	}
+
+	hr.content-style {
+		width: 20%;
+		}
+
+	h1 {
+		font-size: 3.5em;
+		margin-top: 2.5em;
+	}
+	
+	h2 {
+		font-size: 2em;
+		padding: 1em 0;
+	}
+
+	label {
+		padding: 0;
+	}
+	
+	.container {
+		overflow-x: hidden;
+	}
+
+	.header-quote {
+		position: absolute;
+		width: 80%;
+		margin: 1.4em 2.8em;
+		font-size: 1em;
+	}
+	
+	#home {
+		min-height: 400px;
+	}
+
+	.backgroundsize .cbp-bislideshow li {
+		-webkit-background-size: auto 100%;
+		-moz-background-size: auto 100%;
+		background-size: auto 100%;
+		background-position: center center;
+	}
+	
+	.cbp-bislideshow li img {
+		display: block;
+		width: auto;
+	}
+	
+	#story {
+		min-height: 1200px;
+		height: auto;
+		padding: 1.5em 0;
+	}
+
+	#timer {
+		min-height: 360px;
+		height: auto;
+		padding: 4em 0;	
+	}
+	
+	ul#countdown li {  
+		padding: 0.6em 0 0 0;
+	} 
+	
+	#about {
+		min-height: 1360px;
+		height: auto;
+		padding: 1.5em 0;
+	}
+	
+	.parents {
+		margin: 4em auto;
+	}
+
+	.godfathers {
+		margin: 1em auto;
+	}
+	
+	.godfathers-text h2{
+		margin: 1.8em auto;
+		text-align: center;
+	}
+
+	.godfathers-text-women h4 {
+		margin: 1em auto;
+		padding: 0;
+		float: none;
+		color: #D65679;
+	}
+
+	.godfathers-text-women p {
+		margin: 0 auto;
+		padding: 0 0 1em 0;
+		float: none;
+		text-align: center;
+	}
+
+	.godfathers-text-men h4 {
+		margin: 1em auto;
+		padding: 0;
+		float: none;
+		color: #6E6E86;
+	}
+
+	.godfathers-text-men p {
+		margin: 0 auto;
+		padding: 0 0 1em 0;
+		float: none;
+		text-align: center;
+	}
+	
+	.maids {
+		margin: 4em auto;
+	}
+	
+	.bridesmaid {
+		float: right;
+		margin-right: 5em;
+	}
+
+	.bestman {
+		float: left;
+		margin-top: -24em;
+		margin-left: 5em;
+	}
+	
+	.groomsmen h4{
+		font-size: 1.2em;
+		color: #6E6E86;
+		padding: 1em  0 0 8em;
+	}
+	
+	#events {
+		min-height: 380px;
+		height: auto;
+		padding: 2em 0;
+	}
+	
+	.events h2 {
+		padding: 2em 1em;
+		font-size: 2em;
+	}
+	
+	.events-button {
+		margin: 0 auto;
+	}
+	
+	#wedding {
+		height: auto;
+		padding: 3em 0;
+	}
+	
+	.rslides {
+		width: 96%;
+	}
+	
+	.large-btns_nav.next {
+		right: 1.6em;
+	}
+	
+	#gmap {
+		width: 96%;
+	}
+
+	#registry {
+		min-height: 600px;
+		height: auto;
+		padding: 3em 0;
+	}
+	
+	.registry-text h2 {
+		font-size: 2em;
+	}
+	
+	#album {
+		min-height: 1000px;
+		height: auto;
+		padding: 3em 0;
+	}
+	
+	#rsvp {
+		min-height: 320px;
+		height: auto;
+		padding: 2.5em 0;
+	}
+	
+	.rsvp-text h2 {
+		font-size: 2em;
+	}
+	
+	.rsvp-text p {
+		font-size: 1em;
+		padding: 0.6em 0;
+		width: 260px;
+		margin: 1em auto;
+		text-align: center;
+		border: 2px solid #FFF;
+	}
+
+	#form {
+		min-height: 700px;
+		height: auto;
+		padding: 2em 0;
+	}
+	
+	.rsvp-image {
+		display: none;
+	}
+
+	.contact-form {
+		width: 460px;
+		margin: 0 auto;
+		padding-top: 1em;
+	}
+
+}
+
+
+/*-- 4. STYLES FOR MOBILE DEVICES - media screen min width: 600px / max width: 700px --*/
+@media screen and (min-width: 600px) and (max-width: 700px) {	
+
+	body {
+		overflow-x: hidden;
+		font-size: 14px;
+	}
+
+	hr.content-style {
+		width: 20%;
+		}
+
+	h1 {
+		font-size: 6em;
+		margin-top: 1em;
+	}
+	
+	h2 {
+		font-size: 2.4em;
+		padding: 1em 0;
+	}
+
+	label {
+		padding: 0;
+	}
+	
+	.container {
+		overflow-x: hidden;
+	}
+
+	.header-quote {
+		position: absolute;
+		width: 80%;
+		margin: 1.4em 2.8em;
+		font-size: 1em;
+	}
+	
+	#home {
+		min-height: 400px;
+	}
+
+	.backgroundsize .cbp-bislideshow li {
+		-webkit-background-size: auto 100%;
+		-moz-background-size: auto 100%;
+		background-size: auto 100%;
+		background-position: center center;
+	}
+	
+	.cbp-bislideshow li img {
+		display: block;
+		width: auto;
+	}
+	
+	#story {
+		min-height: 1200px;
+		height: auto;
+		padding: 1.5em 0;
+	}
+
+	#timer {
+		min-height: 300px;
+		height: auto;
+		padding: 3em 0;	
+	}
+	
+	ul#countdown li {  
+		padding: 0.6em 0 0 0;
+	} 
+	
+	#about {
+		min-height: 1360px;
+		height: auto;
+		padding: 1.5em 0;
+	}
+	
+	.parents {
+		margin: 4em auto;
+	}
+
+	.godfathers {
+		margin: 1em auto;
+	}
+	
+	.godfathers-text h2{
+		margin: 1.8em auto;
+		text-align: center;
+	}
+
+	.godfathers-text-women h4 {
+		margin: 1em auto;
+		padding: 0;
+		float: none;
+		color: #D65679;
+	}
+
+	.godfathers-text-women p {
+		margin: 0 auto;
+		padding: 0 0 1em 0;
+		float: none;
+		text-align: center;
+	}
+
+	.godfathers-text-men h4 {
+		margin: 1em auto;
+		padding: 0;
+		float: none;
+		color: #6E6E86;
+	}
+
+	.godfathers-text-men p {
+		margin: 0 auto;
+		padding: 0 0 1em 0;
+		float: none;
+		text-align: center;
+	}
+	
+	.maids {
+		margin: 4em auto;
+	}
+	
+	.bridesmaid {
+		float: right;
+		margin-right: 6em;
+	}
+
+	.bestman {
+		float: left;
+		margin-top: -24em;
+		margin-left: 6em;
+	}
+	
+	.groomsmen h4{
+		font-size: 1.2em;
+		color: #6E6E86;
+		padding: 1em  0 0 8em;
+	}
+	
+	#events {
+		min-height: 380px;
+		height: auto;
+		padding: 2em 0;
+	}
+	
+	.events h2 {
+		padding: 2em 0;
+		font-size: 2.4em;
+	}
+	
+	.events-button {
+		margin: 0 auto;
+	}
+	
+	#wedding {
+		height: auto;
+		padding: 3em 0;
+	}
+	
+	.rslides {
+		width: 96%;
+	}
+	
+	.large-btns_nav.next {
+		right: 1.6em;
+	}
+	
+	#gmap {
+		width: 96%;
+	}
+
+	#registry {
+		min-height: 600px;
+		height: auto;
+		padding: 3em 0;
+	}
+	
+	.registry-text h2 {
+		font-size: 2.4em;
+	}
+	
+	#album {
+		min-height: 1000px;
+		height: auto;
+		padding: 3em 0;
+	}
+	
+	#rsvp {
+		min-height: 320px;
+		height: auto;
+		padding: 2.5em 0;
+	}
+	
+	.rsvp-text h2 {
+		font-size: 2.4em;
+	}
+	
+	.rsvp-text p {
+		font-size: 1em;
+		padding: 0.6em 0;
+		width: 260px;
+		margin: 1em auto;
+		text-align: center;
+		border: 2px solid #FFF;
+	}
+
+	#form {
+		min-height: 700px;
+		height: auto;
+		padding: 2em 0;
+	}
+	
+	.rsvp-image {
+		display: none;
+	}
+
+	.contact-form {
+		width: 500px;
+		margin: 0 auto;
+		padding-top: 1em;
+	}
+
+}
+
+
+/*-- 5. STYLES FOR MOBILE DEVICES - media screen min width: 700px / max width: 768px --*/
+@media screen and (min-width: 700px) and (max-width: 768px) {	
+
+	body {
+		overflow-x: hidden;
+		font-size: 16px;
+	}
+
+	hr.content-style {
+		width: 20%;
+		}
+
+	h1 {
+		font-size: 6em;
+		margin-top: 1em;
+	}
+	
+	h2 {
+		font-size: 2.4em;
+		padding: 1em 0;
+	}
+
+	label {
+		padding: 0;
+	}
+	
+	.container {
+		overflow-x: hidden;
+	}
+
+	.header-quote {
+		position: absolute;
+		width: 80%;
+		margin: 1.4em 2.8em;
+		font-size: 1em;
+	}
+	
+	#home {
+		min-height: 400px;
+	}
+
+	.backgroundsize .cbp-bislideshow li {
+		-webkit-background-size: auto 100%;
+		-moz-background-size: auto 100%;
+		background-size: auto 100%;
+		background-position: center center;
+	}
+	
+	.cbp-bislideshow li img {
+		display: block;
+		width: auto;
+	}
+	
+	#story {
+		min-height: 1200px;
+		height: auto;
+		padding: 1.5em 0;
+	}
+
+	#timer {
+		min-height: 300px;
+		height: auto;
+		padding: 4em 0;	
+	}
+	
+	ul#countdown li {  
+		padding: 0.6em 0 0 0;
+	} 
+	
+	ul#countdown li span {
+		font-size: 2.4em;
+		
+	}
+	
+	#about {
+		min-height: 1360px;
+		height: auto;
+		padding: 1.5em 0;
+	}
+	
+	.parents {
+		margin: 4em auto;
+	}
+
+	.godfathers {
+		margin: 1em auto;
+	}
+	
+	.godfathers-text h2{
+		margin: 1.8em auto;
+		text-align: center;
+	}
+
+	.godfathers-text-women h4 {
+		margin: 1em auto;
+		padding: 0;
+		float: none;
+		color: #D65679;
+	}
+
+	.godfathers-text-women p {
+		margin: 0 auto;
+		padding: 0 0 1em 0;
+		float: none;
+		text-align: center;
+	}
+
+	.godfathers-text-men h4 {
+		margin: 1em auto;
+		padding: 0;
+		float: none;
+		color: #6E6E86;
+	}
+
+	.godfathers-text-men p {
+		margin: 0 auto;
+		padding: 0 0 1em 0;
+		float: none;
+		text-align: center;
+	}
+	
+	.maids {
+		margin: 4em auto;
+	}
+	
+	.bridesmaid {
+		float: right;
+		margin-top: 2em;
+		margin-right:8em;
+	}
+
+	.bestman {
+		float: left;
+		margin-top: -22em;
+		margin-left: 8em;
+	}
+	
+	.groomsmen h4{
+		font-size: 1.2em;
+		color: #6E6E86;
+		padding: 1em  0 0 8em;
+	}
+	
+	#events {
+		min-height: 460px;
+		height: auto;
+		padding: 1em 0;
+	}
+	
+	.events h2 {
+		padding: 2em 0;
+		font-size: 2.4em;
+	}
+	
+	.events-button {
+		margin: 0 auto;
+	}
+	
+	#wedding {
+		height: auto;
+		padding: 3em 0;
+	}
+	
+	.rslides {
+		width: 96%;
+	}
+	
+	.large-btns_nav.next {
+		right: 1.6em;
+	}
+
+	#registry {
+		min-height: 600px;
+		height: auto;
+		padding: 3em 0;
+	}
+	
+	.registry-text h2 {
+		font-size: 2.4em;
+	}
+	
+	#album {
+		min-height: 1000px;
+		height: auto;
+		padding: 3em 0;
+	}
+	
+	#rsvp {
+		min-height: 320px;
+		height: auto;
+		padding: 1.5em 0;
+	}
+	
+	.rsvp-text h2 {
+		font-size: 2.2em;
+	}
+	
+	.rsvp-text p {
+		font-size: 1.2em;
+		padding: 0.6em;
+		width: 580px;
+		margin: 0 auto;
+		text-align: center;
+		border: 2px solid #FFF;
+	}
+
+	#form {
+		min-height: 700px;
+		height: auto;
+		padding: 2em 0;
+	}
+	
+	.rsvp-image {
+		display: none;
+	}
+
+	.contact-form {
+		width: 600px;
+		margin: 0 auto;
+		padding-top: 1em;
+	}
+
+}
+
+
+/*-- 6. STYLES FOR MOBILE DEVICES - media screen min width: 768px / max width: 1024px --*/
+@media screen and (min-width: 768px) and (max-width: 1024px) {	
+
+	body {
+		overflow-x: hidden;
+		font-size: 16px;
+	}
+
+	hr.content-style {
+		width: 20%;
+		}
+
+	h1 {
+		font-size: 6em;
+		margin-top: 0.6em;
+	}
+	
+	h2 {
+		font-size: 2.4em;
+		padding: 1em 0;
+	}
+
+	label {
+		padding: 0;
+	}
+	
+	.container {
+		overflow-x: hidden;
+	}
+
+	.header-quote {
+		position: absolute;
+		width: 80%;
+		margin: 1.4em 2.8em;
+		font-size: 1em;
+	}
+	
+	#home {
+		min-height: 460px;
+	}
+
+	.backgroundsize .cbp-bislideshow li {
+		-webkit-background-size: auto 100%;
+		-moz-background-size: auto 100%;
+		background-size: auto 100%;
+		background-position: center center;
+	}
+	
+	.cbp-bislideshow li img {
+		display: block;
+		width: auto;
+	}
+	
+	#story {
+		min-height: 1200px;
+		height: auto;
+		padding: 1.5em 0;
+	}
+
+	#timer {
+		min-height: 300px;
+		height: auto;
+		padding: 4em 0;	
+	}
+	
+	ul#countdown li {  
+		padding: 0.6em 0 0 0;
+	} 
+	
+	ul#countdown li span {
+		font-size: 2.4em;
+		
+	}
+	
+	#about {
+		min-height: 1360px;
+		height: auto;
+		padding: 1.5em 0;
+	}
+	
+	.parents {
+		margin: 4em auto;
+	}
+
+	.godfathers {
+		margin: 1em auto;
+	}
+	
+	.godfathers-text h2{
+		margin: 1.8em auto;
+		text-align: center;
+	}
+
+	.godfathers-text-women h4 {
+		margin: 1em auto;
+		padding: 0;
+		float: none;
+		color: #D65679;
+	}
+
+	.godfathers-text-women p {
+		margin: 0 auto;
+		padding: 0 0 1em 0;
+		float: none;
+		text-align: center;
+	}
+
+	.godfathers-text-men h4 {
+		margin: 1em auto;
+		padding: 0;
+		float: none;
+		color: #6E6E86;
+	}
+
+	.godfathers-text-men p {
+		margin: 0 auto;
+		padding: 0 0 1em 0;
+		float: none;
+		text-align: center;
+	}
+	
+	.maids {
+		margin: 4em auto;
+	}
+	
+	.bridesmaid {
+		float: right;
+		margin-top: 2em;
+		margin-right:8em;
+	}
+
+	.bestman {
+		float: left;
+		margin-top: -22em;
+		margin-left: 8em;
+	}
+	
+	.groomsmen h4{
+		font-size: 1.2em;
+		color: #6E6E86;
+		padding: 1em  0 0 8em;
+	}
+	
+	#events {
+		min-height: 460px;
+		height: auto;
+		padding: 1em 0;
+	}
+	
+	.events h2 {
+		padding: 2em 0;
+		font-size: 2.4em;
+	}
+	
+	.events-button {
+		margin: 0 auto;
+	}
+	
+	#wedding {
+		
+		height: auto;
+		padding: 3em 0;
+	}
+	
+	.rslides {
+		width: 96%;
+	}
+	
+	.large-btns_nav.next {
+		right: 1.8em;
+	}
+
+	#registry {
+		min-height: 600px;
+		height: auto;
+		padding: 3em 0;
+	}
+	
+	.registry-text h2 {
+		font-size: 2.4em;
+	}
+	
+	#album {
+		min-height: 1000px;
+		height: auto;
+		padding: 3em 0;
+	}
+	
+	#rsvp {
+		min-height: 320px;
+		height: auto;
+		padding: 1em 0;
+	}
+	
+	.rsvp-text h2 {
+		font-size: 2.2em;
+	}
+	
+	.rsvp-text p {
+		font-size: 1.2em;
+		padding: 0.6em;
+		width: 580px;
+		margin: 0 auto;
+		text-align: center;
+		border: 2px solid #FFF;
+	}
+
+	#form {
+		min-height: 700px;
+		height: auto;
+		padding: 2em 0;
+	}
+	
+	.rsvp-image {
+		display: none;
+	}
+
+	.contact-form {
+		width: 600px;
+		margin: 0 auto;
+		padding-top: 1em;
+	}
+
+}
+
+
+/*-- 7. STYLES FOR MOBILE DEVICES - media screen min width: 1024px / max width: 1280px --*/
+@media screen and (min-width: 1024px) and (max-width: 1280px) {	
+
+	body {
+		overflow-x: hidden;
+		font-size: 16px;
+	}
+
+	hr.content-style {
+		width: 10%;
+		}
+
+	h1 {
+		font-size: 6em;
+		margin-top: 0.2em;
+	}
+	
+	h2 {
+		font-size: 2.4em;
+		padding: 1em 0;
+	}
+
+	label {
+		padding: 0;
+	}
+	
+	.container {
+		overflow-x: hidden;
+	}
+
+	.header-quote {
+		position: absolute;
+		width: 80%;
+		margin: 1em 2.8em;
+		font-size: 1em;
+	}
+	
+	#home {
+		min-height: 760px;
+	}
+
+	.backgroundsize .cbp-bislideshow li {
+		-webkit-background-size: auto 100%;
+		-moz-background-size: auto 100%;
+		background-size: auto 100%;
+		background-position: center center;
+	}
+	
+	.cbp-bislideshow li img {
+		display: block;
+		width: auto;
+	}
+	
+	#story {
+		min-height: 800px;
+		height: auto;
+		padding: 1.5em 0;
+	}
+	
+	.col-md-6 {
+		z-index: 90;
+	}
+
+	#timer {
+		min-height: 420px;
+		height: auto;
+		padding: 5em 0 0;	
+	}
+	
+	ul#countdown li {  
+		padding: 0.6em 0 0 0;
+	} 
+	
+	ul#countdown li span {
+		font-size: 2.4em;
+	}
+	
+	#about {
+		min-height: 1400px;
+		height: auto;
+		padding: 1.5em 0;
+	}
+
+	.parents {
+		margin: 4em auto;
+		width: 160px;
+		height: 158px;
+	}
+		
+	.parents img {
+		width: 150px;
+		height: 150px;
+	}	
+		
+	.parents .overlay {
+		display:block;
+		width: 160px;
+		height: 160px;	
+	}
+	
+	.parents .overlay.hexagon {
+		background: url("../images/hexagon-parents-small.png");
+	}
+
+	.godfathers {
+		margin: 1em auto;
+		width: 158px;
+		height: 158px;
+	}
+		
+	.godfathers img {
+		width: 150px;
+		height: 150px;
+	}	
+		
+	.godfathers .overlay {
+		display:block;
+		width: 160px;
+		height: 160px;	
+	}
+	
+	.godfathers .overlay.hexagon {
+		background: url("../images/hexagon-godfathers-small.png");
+	}
+	
+	.godfathers-text h2{
+		margin: 1.8em auto;
+		text-align: center;
+	}
+
+	.godfathers-text-women h4 {
+		margin: 1em auto;
+		padding: 0;
+		float: none;
+		color: #D65679;
+	}
+
+	.godfathers-text-women p {
+		margin: 0 auto;
+		padding: 0 0 1em 0;
+		float: none;
+		text-align: center;
+	}
+
+	.godfathers-text-men h4 {
+		margin: 1em auto;
+		padding: 0;
+		float: none;
+		color: #6E6E86;
+	}
+
+	.godfathers-text-men p {
+		margin: 0 auto;
+		padding: 0 0 1em 0;
+		float: none;
+		text-align: center;
+	}
+
+	#maids {
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	.maids {
+		margin: 1em auto;
+	}
+
+	.bridesmaid {
+		float: right;
+		margin: 1em 4em 0 0;
+	}
+
+	.bestman {
+		float: left;
+		margin: 1em 0 0 4em;
+	}
+
+	.bridesmaids h4{
+		font-size: 1.2em;
+		color: #D65679;
+		padding: 0.4em 0;
+	}
+
+	.groomsmen h4{
+		font-size: 1.2em;
+		color: #6E6E86;
+		padding: 0.4em 0;
+	}
+	
+	#events {
+		min-height: 410px;
+		height: auto;
+		padding: 1em 0;
+	}
+	
+	.events h2 {
+		padding: 2em 0;
+		font-size: 2.4em;
+	}
+	
+	.events-button {
+		margin: 0 auto;
+	}
+	
+	#wedding {
+		
+		height: auto;
+		padding: 3em 0;
+	}
+	
+	.rslides {
+		margin-top: 3em;
+		width: 100%;
+	}
+	
+	.large-btns_nav.next {
+		right: 1em;
+	}
+
+	#registry {
+		min-height: 380px;
+		height: auto;
+		padding: 3em 0;
+	}
+	
+	.registry-text h2 {
+		font-size: 2.4em;
+	}
+	
+	#album {
+		min-height: 1000px;
+		height: auto;
+		padding: 3em 0;
+	}
+	
+	.rsvp-image {
+		display: inherit;
+	}
+
+	.contact-form {
+		width: 450px;
+		margin: 0 auto;
+		padding-top: 1em;
+	}
+
+}
+
+
+/*-- 8.STYLES FOR MOBILE DEVICES - media screen min width: 1280px / max width: 1366px --*/
+@media screen and (min-width: 1280px) and (max-width: 1366px) {	
+
+	.contact-form {
+		width: 580px;
+		margin: 0 auto;
+		padding-top: 1em;
+	}
+
+}
+
+
+/*-- 9.STYLES FOR MOBILE DEVICES - media screen min width: 1336px / max width: 1536px --*/
+@media screen and (min-width: 1366px) and (max-width: 1536px) {	
+
+	body {
+		overflow-x: hidden;
+		font-size: 16px;
+	}
+
+	hr.content-style {
+		width: 10%;
+		}
+
+	h1 {
+		font-size: 6em;
+		margin-top: 0.2em;
+	}
+	
+	h2 {
+		font-size: 2.4em;
+		padding: 1em 0;
+	}
+
+	label {
+		padding: 0;
+	}
+	
+	.container {
+		overflow-x: hidden;
+	}
+
+	.header-quote {
+		position: absolute;
+		width: 74%;
+		margin: 1em 2.8em;
+		font-size: 1em;
+	}
+	
+	#home {
+		min-height: 780px;
+	}
+
+	.backgroundsize .cbp-bislideshow li {
+		-webkit-background-size: auto 100%;
+		-moz-background-size: auto 100%;
+		background-size: auto 100%;
+		background-position: center center;
+	}
+	
+	.cbp-bislideshow li img {
+		display: block;
+		/*width: auto;*/
+		/*height: 500px !important;*/
+		height:auto;
+	}
+	
+	#story {
+		min-height: 740px;
+		height: auto;
+		padding: 1.5em 0;
+	}
+	
+	.col-md-6 {
+		z-index: 90;
+	}
+
+	#timer {
+		min-height: 450px;
+		height: auto;
+		padding: 6em 0 0;	
+	}
+	
+	ul#countdown li {  
+		padding: 0.6em 0 0 0;
+	} 
+	
+	ul#countdown li span {
+		font-size: 2.4em;
+	}
+	
+	#about {
+		min-height: 1440px;
+		height: auto;
+		padding: 1.5em 0;
+	}
+
+	.parents {
+		margin: 4em auto;
+		width: 190px;
+		height: 190px;
+	}
+		
+	.parents img {
+		width: 190px;
+		height: 190px;
+	}	
+		
+	.parents .overlay {
+		display:block;
+		width: 200px;
+		height: 200px;	
+	}
+	
+	.parents .overlay.hexagon {
+		background: url("../images/hexagon-parents.png");
+	}
+
+	.godfathers {
+		margin: 1em auto;
+		width: 190px;
+		height: 190px;
+	}
+		
+	.godfathers img {
+		width: 190px;
+		height: 190px;
+	}	
+		
+	.godfathers .overlay {
+		display:block; 
+		width: 200px;
+		height: 200px;	
+	}
+	
+	.godfathers .overlay.hexagon {
+		background: url("../images/hexagon-godfathers.png");
+	}
+	
+	.godfathers-text h2{
+		margin: 1.8em auto;
+		text-align: center;
+	}
+
+	.godfathers-text-women h4 {
+		margin: 1em auto;
+		padding: 0;
+		float: none;
+		color: #D65679;
+	}
+
+	.godfathers-text-women p {
+		margin: 0 auto;
+		padding: 0 0 1em 0;
+		float: none;
+		text-align: center;
+	}
+
+	.godfathers-text-men h4 {
+		margin: 1em auto;
+		padding: 0;
+		float: none;
+		color: #6E6E86;
+	}
+
+	.godfathers-text-men p {
+		margin: 0 auto;
+		padding: 0 0 1em 0;
+		float: none;
+		text-align: center;
+	}
+
+	#maids {
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	.maids {
+		margin: 1em auto;
+	}
+
+	.bridesmaid {
+		float: right;
+		margin: 1em 4em 0 0;
+	}
+
+	.bestman {
+		float: left;
+		margin: 1em 0 0 4em;
+	}
+
+	.bridesmaids h4{
+		font-size: 1.2em;
+		color: #D65679;
+		padding: 0.4em 0;
+	}
+
+	.groomsmen h4{
+		font-size: 1.2em;
+		color: #6E6E86;
+		padding: 0.4em 0;
+	}
+	
+	#events {
+		min-height: 410px;
+		height: auto;
+		padding: 1em 0;
+	}
+	
+	.events h2 {
+		padding: 2em 0;
+		font-size: 2.4em;
+	}
+	
+	.events-button {
+		margin: 0 auto;
+	}
+	
+	#wedding {
+		
+		height: auto;
+		padding: 3em 0;
+	}
+	
+	.rslides {
+		margin-top: 3em;
+		width: 100%;
+	}
+	
+	.large-btns_nav.next {
+		right: 1em;
+	}
+
+	#registry {
+		min-height: 380px;
+		height: auto;
+		padding: 3em 0;
+	}
+	
+	.registry-text h2 {
+		font-size: 2.4em;
+	}
+	
+	#album {
+		min-height: 1000px;
+		height: auto;
+		padding: 3em 0;
+	}
+	
+	#rsvp {
+		height: 380px;
+		padding: 2em 0;
+	}
+	
+	.rsvp-image {
+		display: inherit;
+	}
+
+	.contact-form {
+		width: 580px;
+		margin: 0 auto;
+		padding-top: 1em;
+	}
+
+}
+
+
+/*-- 10. STYLES FOR MOBILE DEVICES - media screen min width: 1536px / max width: 1680px --*/
+@media screen and (min-width: 1536px) and (max-width: 1680px) {	
+
+	body {
+		overflow-x: hidden;
+		font-size: 16px;
+	}
+
+	hr.content-style {
+		width: 10%;
+		}
+
+	h1 {
+		font-size: 6em;
+		margin-top: 0.2em;
+	}
+	
+	h2 {
+		font-size: 2.4em;
+		padding: 1em 0;
+	}
+
+	label {
+		padding: 0;
+	}
+	
+	.container {
+		overflow-x: hidden;
+	}
+
+	.header-quote {
+		position: absolute;
+		width: 60%;
+		margin: 1em 2.8em;
+		font-size: 1em;
+	}
+	
+	#home {
+		min-height: 780px;
+	}
+
+	.backgroundsize .cbp-bislideshow li {
+		-webkit-background-size: auto 100%;
+		-moz-background-size: auto 100%;
+		background-size: auto 100%;
+		background-position: center center;
+	}
+	
+	.cbp-bislideshow li img {
+		display: block;
+		width: auto;
+	}
+	
+	#story {
+		min-height: 740px;
+		height: auto;
+		padding: 1.5em 0;
+	}
+	
+	.col-md-6 {
+		z-index: 90;
+	}
+
+	#timer {
+		min-height: 450px;
+		height: auto;
+		padding: 6em 0 0;	
+	}
+	
+	ul#countdown li {  
+		padding: 0.6em 0 0 0;
+	} 
+	
+	ul#countdown li span {
+		font-size: 2.4em;
+	}
+	
+	#about {
+		min-height: 1440px;
+		height: auto;
+		padding: 1.5em 0;
+	}
+
+	.parents {
+		margin: 4em auto;
+		width: 190px;
+		height: 190px;
+	}
+		
+	.parents img {
+		width: 190px;
+		height: 190px;
+	}	
+		
+	.parents .overlay {
+		display:block;
+		width: 200px;
+		height: 200px;	
+	}
+	
+	.parents .overlay.hexagon {
+		background: url("../images/hexagon-parents.png");
+	}
+
+	.godfathers {
+		margin: 1em auto;
+		width: 190px;
+		height: 190px;
+	}
+		
+	.godfathers img {
+		width: 190px;
+		height: 190px;
+	}	
+		
+	.godfathers .overlay {
+		display:block; 
+		width: 200px;
+		height: 200px;	
+	}
+	
+	.godfathers .overlay.hexagon {
+		background: url("../images/hexagon-godfathers.png");
+	}
+	
+	.godfathers-text h2{
+		margin: 1.8em auto;
+		text-align: center;
+	}
+
+	.godfathers-text-women h4 {
+		margin: 1em auto;
+		padding: 0;
+		float: none;
+		color: #D65679;
+	}
+
+	.godfathers-text-women p {
+		margin: 0 auto;
+		padding: 0 0 1em 0;
+		float: none;
+		text-align: center;
+	}
+
+	.godfathers-text-men h4 {
+		margin: 1em auto;
+		padding: 0;
+		float: none;
+		color: #6E6E86;
+	}
+
+	.godfathers-text-men p {
+		margin: 0 auto;
+		padding: 0 0 1em 0;
+		float: none;
+		text-align: center;
+	}
+
+	#maids {
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	.maids {
+		margin: 1em auto;
+	}
+
+	.bridesmaid {
+		float: right;
+		margin: 1em 4em 0 0;
+	}
+
+	.bestman {
+		float: left;
+		margin: 1em 0 0 4em;
+	}
+
+	.bridesmaids h4{
+		font-size: 1.2em;
+		color: #D65679;
+		padding: 0.4em 0;
+	}
+
+	.groomsmen h4{
+		font-size: 1.2em;
+		color: #6E6E86;
+		padding: 0.4em 0;
+	}
+	
+	#events {
+		min-height: 410px;
+		height: auto;
+		padding: 1em 0;
+	}
+	
+	.events h2 {
+		padding: 2em 0;
+		font-size: 2.4em;
+	}
+	
+	.events-button {
+		margin: 0 auto;
+	}
+	
+	#wedding {
+		
+		height: auto;
+		padding: 3em 0;
+	}
+	
+	.rslides {
+		margin-top: 3em;
+		width: 100%;
+	}
+	
+	.large-btns_nav.next {
+		right: 1em;
+	}
+
+	#registry {
+		min-height: 380px;
+		height: auto;
+		padding: 3em 0;
+	}
+	
+	.registry-text h2 {
+		font-size: 2.4em;
+	}
+	
+	#album {
+		min-height: 1000px;
+		height: auto;
+		padding: 3em 0;
+	}
+	
+	#rsvp {
+		min-height: 380px;
+		height: auto;
+		padding: 2em 0;
+	}
+	
+	.rsvp-image {
+		display: inherit;
+	}
+	
+	.rsvp-text h2, .rsvp-text p {
+		visibility: visible;
+	}
+
+	.contact-form {
+		width: 580px;
+		margin: 0 auto;
+		padding-top: 1em;
+	}
+
+}
