@@ -30,10 +30,12 @@ namespace TurkishPlatform.Models
         public int UserId { get; set; }
         public User User { get; set; }
         public bool Permission { get; set; }
+        public bool Share { get; set; }
         public Activity()
         {
             Remaining = Date - DateTime.Now;
             Permission = false;
+            Share = false;
         }
        
     }

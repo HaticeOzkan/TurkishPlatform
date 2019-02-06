@@ -22,7 +22,8 @@ namespace TurkishPlatform.Models
 		[ForeignKey("CountryId")]
 		public Country Country { get; set; }
 		public int CountryId { get; set; }
-		public virtual List<AdviceTopic> AdviceTopics { get; set; }
+		public AdviceTopic AdviceTopic { get; set; }
+        public int AdviceTopicID { get; set; }
 
 		public Advice()
 		{
@@ -37,8 +38,6 @@ namespace TurkishPlatform.Models
 		[Required]
 		[MaxLength(200)]
 		public string CategoryName { get; set; }
-		public Advice Advice { get; set; }
-		[ForeignKey("Advice")]
-		public int AdviceId { get; set; }
+	    List<Advice> Advices { get; set; }
 	}
 }
