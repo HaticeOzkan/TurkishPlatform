@@ -1,0 +1,40 @@
+﻿@model IEnumerable<TurkishPlatform.Models.RestaurantImage>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<br /><br />
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Restaurant.RestaurantName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageURL)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Restaurant.RestaurantName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImageURL)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ImageId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ImageId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ImageId })
+            </td>
+        </tr>
+    }
+
+</table>
