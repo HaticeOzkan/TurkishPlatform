@@ -11,6 +11,7 @@ namespace TurkishPlatform.Controllers
 		public ActionResult Index()
 		{
 			return View();
+
 		}
 	}
 }
