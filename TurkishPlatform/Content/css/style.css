@@ -62,9 +62,10 @@ img {
 }
 
 a, a:hover, a:focus {
-	color: #FFF;
-	text-decoration: none;
-	outline: none;
+    color: #FFF;
+    text-decoration: none;
+    outline: none;
+    background-color: #FAF0E6; /*MENÜ ARKAPLAN RENGİ!!*/
 }
 
 ul, ol {
@@ -131,15 +132,15 @@ h1 {
 }
 
 h2 {
-	font-size: 2.4em;
-	color: #D65679;
-	line-height: 130%;
-	font-family: 'Great Vibes', cursive;
-	font-weight: normal;
-	padding: 1em 0;
-	text-align: center;
-	margin: 0 auto;
-	-webkit-font-smoothing: antialiased;
+    font-size: 2.4em;
+    color: #D8BFD8;
+    line-height: 130%;
+    font-family: 'Great Vibes', cursive;
+    font-weight: normal;
+    padding: 1em 0;
+    text-align: center;
+    margin: 0 auto;
+    -webkit-font-smoothing: antialiased;
 }
 
 h3 {
@@ -229,17 +230,17 @@ label {
 }
 
 .gn-menu-main {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 50px;
-	font-size: 1em;
-	font-weight: 400;
-	background: #D65679;
-	color: #FFF;
-	text-align: center;
-	z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    font-size: 1em;
+    font-weight: 400;
+    background: #FAF0E6;
+    color: #FFF;
+    text-align: center;
+    z-index: 1000;
 }
 
 .gn-menu-main a {
@@ -262,22 +263,22 @@ label {
 
 
 .trigger a {
-	background: #D65679 !important;
+    background: #FAF0E6 !important;
 }
 
-.trigger a:hover {
-	background: #D65679 !important;
-}
+    .trigger a:hover {
+        background: #FAF0E6 !important;
+    }
 
 .date {
 	font-size: 1.2em;
 }
 
-.no-touch .gn-menu-main  li a:hover, 
-.no-touch .gn-menu li.gn-search-item:hover, 
+.no-touch .gn-menu-main li a:hover,
+.no-touch .gn-menu li.gn-search-item:hover,
 .no-touch .gn-menu li.gn-search-item:hover a {
-	background: #6E6E86;
-	color: white;
+    background: #C3B091; /*MENÜ ÜZERİNE GELİNCE BACKGROUND RENGİ AYARLAMA KISMI*/
+    color: white;
 }
 
 .gn-menu-main > li {
@@ -334,10 +335,11 @@ label {
 }
 
 .gn-scroller {
-	position: absolute;
-	overflow-y: scroll;
-	width: 370px;
-	height: 100%;
+    position: absolute;
+    overflow-y: scroll;
+    width: 370px;
+    height: 100%;
+    background-color: #FAF0E6;
 }
 
 .gn-menu {
@@ -346,10 +348,10 @@ label {
 	font-size: 1.2em;
 }
 
-.gn-menu li:not(:first-child),
-.gn-menu li li {
-	box-shadow: inset 0 1px #e6e6e6;
-}
+    .gn-menu li:not(:first-child),
+    .gn-menu li li {
+        box-shadow: inset 0 1px #FAF0E6;
+    }
 
 .gn-submenu li {
 	overflow: hidden;
@@ -424,24 +426,24 @@ label {
 }
 
 .gn-icon-menu::before {
-	margin-left: -4px;
-	vertical-align: -6px;
-	width: 30px;
-	height: 4px;
-	background: #FFF;
-	box-shadow: 0 4px #D65679, 0 -8px #FFF, 0 -12px #D65679, 0 -16px #FFF;
-	content: '';
+    margin-left: -4px;
+    vertical-align: -6px;
+    width: 30px;
+    height: 4px;
+    background: #FFF;
+    box-shadow: 0 4px #FAF0E6, 0 -8px #FFF, 0 -12px #FAF0E6, 0 -16px #FFF;
+    content: '';
 }
 
 .no-touch .gn-icon-menu:hover::before,
 .no-touch .gn-icon-menu.gn-selected:hover::before {
-	background: #FFF;
-	box-shadow: 0 4px #D65679, 0 -8px #FFFFFF, 0 -12px #D65679, 0 -16px #FFFFFF;
+    background: #FFF;
+    box-shadow: 0 4px #FAF0E6, 0 -8px #FFFFFF, 0 -12px #FAF0E6, 0 -16px #FFFFFF;
 }
 
 .gn-icon-menu.gn-selected::before {
-	background: #FFF;
-	box-shadow: 0 4px #D65679, 0 -8px #FFFFFF, 0 -12px #D65679, 0 -16px #FFFFFF;
+    background: #FFF;
+    box-shadow: 0 4px #FAF0E6, 0 -8px #FFFFFF, 0 -12px #FAF0E6, 0 -16px #FFFFFF;
 }
 
 /* styles for opening menu */
@@ -456,9 +458,10 @@ label {
 	width: 340px
 }
 
-.gn-menu-wrapper.gn-open-all .gn-submenu li {
-	height: 50px;
-}
+    .gn-menu-wrapper.gn-open-all .gn-submenu li {
+        height: 50px;
+        background-color: #FAF0E6;
+    }
 
 @media screen and (max-width: 422px) { 
 	.gn-menu-wrapper.gn-open-all {
@@ -492,16 +495,15 @@ section::after {
 }
 
 .ss-style-bottom::before {
-	left: 0;
-	width: 100%;
-	height: 10px;
-	background-size: 13px 100%;
-	top: 0;
-	background-image: linear-gradient(583deg, #D65679 50%, transparent 50%), 
-					        linear-gradient(136deg, #D65679 50%, transparent 50%);
-	margin-top: 50px;
-	position: fixed;
-	z-index: 1000;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background-size: 13px 100%;
+    top: 0;
+    background-image: linear-gradient(583deg, #FAF0E6 50%, transparent 50%), linear-gradient(136deg, #FAF0E6 50%, transparent 50%); /*#D65679*/
+    margin-top: 50px;
+    position: fixed;
+    z-index: 1000;
 }
 
 
