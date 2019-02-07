@@ -1,1 +1,267 @@
 ﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
+    <style>
+        body *{   /*padding: 10px 200px;*/ text-align: center;   font-family: 'Shadows Into Light', cursive;  font-size: 20px;} 
+h2{
+font-size: 55px;
+}
+.social {
+    position: relative;
+    height: 3em;
+    width: 13.5em;
+    margin: 150px 450px;
+}
+
+.social li {
+    display: block;
+    height: 4em;
+    line-height: 4em;
+    margin: -2.2em;
+    position: absolute;
+    -webkit-transition: -webkit-transform .7s;
+    -moz-transition: -moz-transform .7s;
+    -ms-transition: -ms-transform .7s;
+    -o-transition: -o-transform .7s;
+    transition: transform .7s;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    text-align: center;
+    width: 4em;
+
+}
+
+.social a {
+    color: #fffdf0;
+    display: block;
+    height: 4em;
+    line-height: 6em;
+    text-align: center;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    width: 4em; 
+  
+}
+
+.social li:hover {
+  -webkit-transform: scale(1.3,1.3) rotate(45deg);
+    -moz-transform: scale(1.3,1.3) rotate(45deg);
+  -ms-transform: scale(1.3,1.3) rotate(45deg);
+    -o-transform: scale(1.3,1.3) rotate(45deg);
+  transform: scale(1.3,1.3) rotate(45deg);
+}
+
+.facebook {
+    background: #155b9d;
+    left: 0;
+    top: 0%;
+}
+
+.twitter {
+    background: #1a9ec4;
+    bottom: 0;
+    left: 25%;
+}
+.facebook2 {
+    background: #155b9d;
+    left: 50%;
+    top: 0%;
+}
+
+.twitter2 {
+    background: #1a9ec4;
+    bottom: 0;
+    left: 25%;
+}
+
+.pinterest {
+    background: #e11a30;
+    left: 50%;
+    top: 0%;
+}
+.behance {
+    background: #3f7aa3;
+    bottom: 0;
+    left: 75%;
+}
+.behance2 {
+    background: #3f7aa3;
+    top: 0%;
+    left: 50%;
+}
+.behance3 {
+    background: #3f7aa3;
+    bottom: 0;
+    left: 75%;
+}
+
+    </style>
+    <style>
+	 
+		.img_section figure:hover img {
+			transform: scale(1.3);
+		}
+		h2.zoom {
+    padding-bottom: 33px;
+    padding-left: 25px;
+}
+.img_section2 figure img {
+	width: 300px;
+	height: auto;
+	transition: .3s ease-in-out;
+
+}
+.img_section2:hover figure img{
+	width: 350px;
+}
+.img_section3 figure img{
+	margin-left: 30px;
+	width: 300px;
+	transition: .3s ease-in-out;
+}
+.img_section3:hover figure img{
+	margin-left: 0;
+	
+}
+.img_section4 figure img{
+	transform:  scale(1);
+	transition: .3s ease-in-out;
+}
+.img_section4:hover figure img{
+	transform: rotate(10deg) scale(1);
+	
+}
+.img_section5 figure img{
+	filter: blur(3px);
+	transition: .3s ease-in-out;
+}
+.img_section5:hover figure img{
+	filter: blur(0);
+	
+}
+.img_section6 figure img{
+	filter: grayscale(0) blur(0);
+	transition: .3s ease-in-out;
+	height: 300;
+	width: 200;
+}
+.img_section6:hover figure img{
+	filter: blur(3px) grayscale(100%);
+	
+}
+    </style>
+</head>
+
+<body>
+    
+    <div class="container">
+        <h2 class="zoom"> Sitemize kuşbalışıyla bakmaya ne dersin :)</h2>
+        <div class="row">
+            <div class="col-4">
+
+                <h1 style="font-size:50px">Restaurant</h1>
+                <p style="color:black">En uygun fiyatlar veya Helal ürünleri bulabileceğiniz restaurant lar artık bir tık ötenizde. Yorumları okuyarak mennuniyeti görebileceğiniz,cebinize göre secim yapabileceksiniz. Yeterki isteyin tüm imkanları sunuyoruz :)   </p>
+            </div>
+
+            <div class="col-8">
+                <div class="img_section4">
+                    
+                    <figure><img style="width:700px" src="https://ubereatslikeapp.com/wp-content/uploads/2018/02/uber-eats-like-blog.jpg"></figure>
+                </div>
+            </div>
+        </div>
+
+        <hr />
+        <br /><br /><br /><br />
+        <div class="row">
+            <div class="col-8">
+                <div class="img_section">
+                    <figure><img style="width:500px" src="https://www.arzusimsek.com/wp-content/uploads/2017/11/arzu-simsek-sorucevap.png"></figure>
+                </div>
+            </div>
+            <div class="col-4">
+                <h1 style="font-size:50px">Soru cevab</h1>
+                <p style="color:black">Merak ettiğiniz veya ihtiyacınız olan herşeyi üye olarak sorabilirsniz. Üyelerimiz bir tık ötenizde. Sadece okuyacam diyorsanız üye olamadanda imkan sunuyoruz. Ama bir tık ötenizdeki dünyamıza girmenizi,ailemize katılmanızı tavsiye ediyoruz.</p>
+            </div>
+
+        </div>
+         
+        <hr />
+        <br /><br /><br /><br />
+
+        <div class="row">
+            <div class="col-8">
+                <div class="img_section">
+                    <figure><img style="width:700px" src="https://yoldaolmak.com/wp-content/uploads/2017/12/londra-gezilecek-yerler-800x500.jpg"></figure>
+                </div>
+            </div>
+            <div class="col-4">
+                <h1 style="font-size:50px">Gezilecek yerler</h1>
+                <p style="color:black">Gezmek istiyorum ama tam olarak neleri diyorsanız veya tam olarak nerelere gideceğinizi bilmiyorsanız. Cevabınız bir tık ötede:) Yapılan yorumları okuyup mennun olma ihtimalinizi yükseltebilirsnz. memnun kalmadıysanız yorum olarak belirtenilirsiniz. </p>
+            </div>
+        </div>
+         
+        <hr />
+        <br /><br /><br /><br />
+        <div class="row">
+            <div class="col-4">
+                <h1 style="font-size:50px">Etkinlik</h1>
+                <p style="color:black">Yeni etkinlik oluşturabilir veya var olan bir etkinliğe katılabilirsiniz.Yalnız değilsiniz kocaman aileniz bir tık ötenizde:))</p>
+            </div>
+            <div class="col-8">
+                 
+                    <div class="img_section4">
+                        <figure><img style="width:700px" src="https://i0.wp.com/dergi.ituieee.com/wp-content/uploads/2015/03/14.jpg"></figure>
+                     
+                </div>
+            </div>
+        </div>
+
+        <hr />
+        <br /><br /><br /><br />
+
+   
+
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Sosyal medya hesaplarımız <br /> Keşfedelim:)))</h2>
+                <div class="col-md-6 .col-md-offset-3">
+                    <ul class="social">
+                        <li class="facebook"><a href="http://facebook.com/alterowo"><i class="fa fa-facebook fa-3x"></i></a></li>
+                        <li class="twitter"><a href="http://twitter.com/Kyokushinowa"><i class="fa fa-twitter fa-3x"></i></a></li>
+                        <li class="pinterest"><a href="https://www.behance.net/Kurnikowa"><i class="fa fa-behance fa-3x"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <h2>ENJOY!</h2><br>
+            @*<i class="fa fa-angellist fa-4x"></i>*@
+        </div>
+        <hr />
+        <br /><br />
+    </div>
+         
+ 
+</body>
+
+</html>
