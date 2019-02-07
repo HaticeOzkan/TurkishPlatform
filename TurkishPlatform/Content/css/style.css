@@ -484,7 +484,7 @@ label {
 section {
 	position: relative;
 	padding: 0;
-	background: #D65679;
+	background: #FAF0E6; /*#D65679*/
 	text-align: center;
 }
 
@@ -525,7 +525,7 @@ section::after {
 	background: transparent 50% 0 no-repeat fixed;
 	margin: 0 auto;
 	padding: 0;
-	height: 980px;
+	/*height: 980px;*/
 }
 
 #story {
