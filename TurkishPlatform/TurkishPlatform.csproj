@@ -204,6 +204,7 @@
     <Content Include="Content\images\rsvp-left.png" />
     <Content Include="Content\images\rsvp-right.png" />
     <Content Include="Content\images\slide-arrows.png" />
+    <Content Include="Content\images\turizm.jpg" />
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\cbpBGSlideshow.min.js" />
     <Content Include="Content\js\classie.js" />
