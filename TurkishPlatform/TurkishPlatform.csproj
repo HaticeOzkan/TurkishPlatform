@@ -180,6 +180,7 @@
     <Compile Include="Models\PlatformContext.cs" />
     <Compile Include="Models\Restaurant.cs" />
     <Compile Include="Models\ForumComment.cs" />
+    <Compile Include="Models\RestaurantViewModel.cs" />
     <Compile Include="Models\Tourism.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -331,6 +332,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Restaurans.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
