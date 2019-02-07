@@ -4,7 +4,7 @@
     }
     <!Doctype html>
     <html>
-    <header>
+    <head>
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -17,9 +17,9 @@
                 font-family: 'Mukta', sans-serif;
                 height: 100vh;
                 min-height: 550px;
-                background-image: url(http://www.planwallpaper.com/static/images/Free-Wallpaper-Nature-Scenes.jpg);
-                background-repeat: no-repeat;
-                background-size: cover;
+                background-color:#F5DEB3;
+               
+            
                 background-position: center;
                 position: relative;
                 overflow-y: hidden;
@@ -40,7 +40,7 @@
                 left: 0;
                 margin: auto;
                 height: 400px;
-                background-color: rgba(236, 48, 20, 0.9);
+                background-color: #900020;
             }
 
             .white-panel {
@@ -61,7 +61,7 @@
             }
 
             .login-reg-panel {
-                color: #B8B8B8;
+                color: #FAF0E6 !important; 
             }
 
                 .login-reg-panel #label-login,
@@ -184,7 +184,7 @@
                 color: #2c7715;
             }
         </style>
-    </header>
+    </head>
     <body>
 
         <div class="login-reg-panel">
@@ -206,17 +206,18 @@
                 <div class="login-show">
                     <h2>Administrator Login</h2>
                     <form action="" method="post">
+                        @Html.AntiForgeryToken()
                         <input type="text" name="UserName" placeholder="UserName">
                         <input type="password" name="Password" placeholder="Password">
 
                         <button type="submit" value="Login">Login</button>
 
                         @if (Model == false)
-                        {
-                            <p>@ViewBag.Message</p>
-                        }
-                        @*Burada input kısımları form içine aldım action actiona bişi demedim controllerda girilen email ve şifreyi control edip istediğim sayfaya yönlendireceğim ve methodunu belirttim inputların name ini verdim
-                          bu belirrtiğimiz name leri logincontrollerda parametre olarak alacak*@
+    {
+                    <p>@ViewBag.Message</p>
+}
+                    @*Burada input kısımları form içine aldım action actiona bişi demedim controllerda girilen email ve şifreyi control edip istediğim sayfaya yönlendireceğim ve methodunu belirttim inputların name ini verdim
+    bu belirrtiğimiz name leri logincontrollerda parametre olarak alacak*@
                     </form>
                   <a href="/Panel/Login/ForgotPassword">Forgot password?</a>@*Burası yonlenmeli*@
                 </div>
