@@ -149,6 +149,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Panel\Controllers\ActivitiesController.cs" />
+    <Compile Include="Areas\Panel\Controllers\AdminProfilsController.cs" />
     <Compile Include="Areas\Panel\Controllers\AdvicesController.cs" />
     <Compile Include="Areas\Panel\Controllers\AdviceTopicsController.cs" />
     <Compile Include="Areas\Panel\Controllers\CountriesController.cs" />
@@ -163,6 +164,7 @@
     <Compile Include="Areas\Panel\Controllers\RestaurantsController.cs" />
     <Compile Include="Areas\Panel\Controllers\TourismController.cs" />
     <Compile Include="Areas\Panel\Controllers\UsersController.cs" />
+    <Compile Include="Areas\Panel\Models\AdminView.cs" />
     <Compile Include="Areas\Panel\PanelAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -195,6 +197,7 @@
     <Content Include="Content\css\style.css" />
     <Content Include="Content\images\1.jpg" />
     <Content Include="Content\images\3.jpg" />
+    <Content Include="Content\images\beige014.jpg" />
     <Content Include="Content\images\favicon.ico" />
     <Content Include="Content\images\grabbing.png" />
     <Content Include="Content\images\londra.jpg" />
@@ -309,6 +312,11 @@
     <Content Include="Areas\Panel\Views\Login\RenewalPassword.cshtml" />
     <Content Include="Areas\Panel\Views\ForgetPassword\ForgetPassword.cshtml" />
     <Content Include="Content\js\jquery.prettyPhoto.js.bk" />
+    <Content Include="Areas\Panel\Views\AdminProfils\Create.cshtml" />
+    <Content Include="Areas\Panel\Views\AdminProfils\Delete.cshtml" />
+    <Content Include="Areas\Panel\Views\AdminProfils\Details.cshtml" />
+    <Content Include="Areas\Panel\Views\AdminProfils\Edit.cshtml" />
+    <Content Include="Areas\Panel\Views\AdminProfils\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -336,7 +344,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Panel\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
