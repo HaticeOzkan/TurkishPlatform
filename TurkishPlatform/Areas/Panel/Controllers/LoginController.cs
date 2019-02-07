@@ -4,14 +4,17 @@ using System.Linq;
 using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
+using TurkishPlatform.Models;
 
 namespace TurkishPlatform.Areas.Panel.Controllers
 {
     public class LoginController : Controller
     {
+
         // GET: Panel/Login
         //Burası yöneticinin Giriş yaptıgı bölüm aşağıda şifremi unutuum kısmı var 
         [HttpPost]
+        [ValidateAntiForgeryToken]//Güvenlik için bunu koymazsak postta javascript atakları yapıp verilerimize ulaşılabilir
         public ActionResult Index(string UserName,string Password)
         {
             bool? IsTrue = true;
@@ -30,9 +33,11 @@ namespace TurkishPlatform.Areas.Panel.Controllers
           
             return View();
         }
+        [ValidateAntiForgeryToken]
         [HttpPost]
         public ActionResult ForgotPassword(string TextEmail)
         {
+            
             MailMessage ePosta = new MailMessage();
             ePosta.From = new MailAddress("Ornek@gmail.com");
 
@@ -57,6 +62,7 @@ namespace TurkishPlatform.Areas.Panel.Controllers
             return View();
         }
         //şifre yenileme sayfasına yönlendirilecek
+        [ValidateAntiForgeryToken]
         [HttpPost]
         public ActionResult RenewalPassword(string NewPassword,string NewPasswordRepeat)
         {
@@ -65,7 +71,9 @@ namespace TurkishPlatform.Areas.Panel.Controllers
             ViewBag.CorrectMatch = "Password matching";
             if (NewPassword == NewPasswordRepeat)
             {
-                Control = true;
+                PlatformContext db = new PlatformContext();
+               // db.AdminProfils.Find() ????  id yi nasıl alıcam bir de mail yollamıyor
+               Control = true;
                 RedirectToAction("RenewalPassword","Index");
             }
           

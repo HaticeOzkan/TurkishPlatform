@@ -14,7 +14,7 @@ namespace TurkishPlatform.Models
         [MaxLength(100)]
         public string MailAdress { get; set; }
         [Required]
-        [MaxLength(15)]
+      
         public int Password { get; set; }
         [Required]
         [MaxLength(50)]
