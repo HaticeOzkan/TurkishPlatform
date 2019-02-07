@@ -21,11 +21,11 @@ namespace TurkishPlatform.Models
 		public ForumCommentTopic CommentTopic { get; set; }
 		[ForeignKey("CommentTopic")]
 		public int CommentTopicId { get; set; }
-        public bool Share { get; set; }
+        public bool Permission { get; set; }
 
-		public ForumComment()
+        public ForumComment()
 		{
-            Share = false;
+            Permission = false;
 			Date = DateTime.Now;
 		}
 	}

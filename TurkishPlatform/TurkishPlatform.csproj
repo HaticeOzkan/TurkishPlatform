@@ -148,6 +148,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Panel\Controllers\ActivitieController.cs" />
     <Compile Include="Areas\Panel\Controllers\ActivitiesController.cs" />
     <Compile Include="Areas\Panel\Controllers\AdminProfilsController.cs" />
     <Compile Include="Areas\Panel\Controllers\AdvicesController.cs" />
@@ -319,6 +320,11 @@
     <Content Include="Areas\Panel\Views\AdminProfils\Details.cshtml" />
     <Content Include="Areas\Panel\Views\AdminProfils\Edit.cshtml" />
     <Content Include="Areas\Panel\Views\AdminProfils\Index.cshtml" />
+    <Content Include="Areas\Panel\Views\Shared\_MyView.cshtml" />
+    <Content Include="Areas\Panel\Views\Activitie\Create.cshtml" />
+    <Content Include="Areas\Panel\Views\Shared\_LoginView.cshtml" />
+    <Content Include="Areas\Panel\Views\Activitie\Index.cshtml" />
+    <Content Include="Areas\Panel\Views\Activitie\Edit.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

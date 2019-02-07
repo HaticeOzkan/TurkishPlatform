@@ -1,0 +1,34 @@
+﻿@using TurkishPlatform.Models
+@model List<Activity>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Panel/Views/Shared/_MyView.cshtml";
+}
+
+<h2>Index</h2>
+<a href="Panel/Activitie/Create/" class="btn btn-primary">Add new Activity</a>
+<table>
+    <thead>
+        <tr>@*//satır*@
+            <th></th>@*//başlık gelecek hucreler bunlar yanyana*@
+            <th></th>
+            <th></th>
+        </tr>
+       
+    </thead>
+    <tbody>
+        <tr>
+            @foreach (Activity item in Model)
+            {
+                <td>@item.Country</td>
+               <td>@item.Title</td>
+               <td>@item.ImageURL</td>
+               <td>@item.User.NameSurname</td>
+               <td>@Html.Raw(item.ImageURL!=null?item.ImageURL:"-")</td>
+               <td>@item.</td>
+            }
+
+        </tr>
+    </tbody>
+</table>
+

@@ -48,10 +48,10 @@ namespace TurkishPlatform.Models
 		public Restaurant Restaurant { get; set; }
 		[ForeignKey("Restaurant")]
 		public int RestaurantId { get; set; }
-        public bool Share { get; set; }
+        public bool Permission { get; set; }
         public RestaurantComment()
         {
-            Share = false;
+            Permission= false;
         }
 	}
 }
