@@ -1708,7 +1708,7 @@
 	}
 	
 	#home {
-		min-height: 780px;
+		min-height: 510px;
 	}
 
 	.backgroundsize .cbp-bislideshow li {
@@ -1721,8 +1721,8 @@
 	.cbp-bislideshow li img {
 		display: block;
 		/*width: auto;*/
-		/*height: 500px !important;*/
-		height:auto;
+		height: 500px !important;
+		/*height:auto;*/
 	}
 	
 	#story {

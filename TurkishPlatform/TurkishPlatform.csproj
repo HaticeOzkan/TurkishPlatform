@@ -166,6 +166,7 @@
     <Compile Include="Areas\Panel\Controllers\UsersController.cs" />
     <Compile Include="Areas\Panel\Models\AdminView.cs" />
     <Compile Include="Areas\Panel\PanelAreaRegistration.cs" />
+    <Compile Include="Controllers\ActivityController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -206,6 +207,7 @@
     <Content Include="Content\images\rsvp-left.png" />
     <Content Include="Content\images\rsvp-right.png" />
     <Content Include="Content\images\slide-arrows.png" />
+    <Content Include="Content\images\turizm.jpg" />
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\cbpBGSlideshow.min.js" />
     <Content Include="Content\js\classie.js" />
@@ -341,6 +343,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Restaurans.cshtml" />
+    <Content Include="Views\Activity\Index.cshtml" />
+    <Content Include="Views\Activity\Save.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
