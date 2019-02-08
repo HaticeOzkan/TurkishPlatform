@@ -148,6 +148,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Panel\Controllers\ActivitieController.cs" />
     <Compile Include="Areas\Panel\Controllers\ActivitiesController.cs" />
     <Compile Include="Areas\Panel\Controllers\AdminProfilsController.cs" />
     <Compile Include="Areas\Panel\Controllers\AdvicesController.cs" />
@@ -174,6 +175,10 @@
     <Compile Include="Migrations\201902061626042_Son.cs" />
     <Compile Include="Migrations\201902061626042_Son.Designer.cs">
       <DependentUpon>201902061626042_Son.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902071801236_Son2.cs" />
+    <Compile Include="Migrations\201902071801236_Son2.Designer.cs">
+      <DependentUpon>201902071801236_Son2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Activity.cs" />
@@ -319,6 +324,11 @@
     <Content Include="Areas\Panel\Views\AdminProfils\Details.cshtml" />
     <Content Include="Areas\Panel\Views\AdminProfils\Edit.cshtml" />
     <Content Include="Areas\Panel\Views\AdminProfils\Index.cshtml" />
+    <Content Include="Areas\Panel\Views\Shared\_MyView.cshtml" />
+    <Content Include="Areas\Panel\Views\Activitie\Create.cshtml" />
+    <Content Include="Areas\Panel\Views\Shared\_LoginView.cshtml" />
+    <Content Include="Areas\Panel\Views\Activitie\Index.cshtml" />
+    <Content Include="Areas\Panel\Views\Activitie\Edit.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -366,6 +376,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201902061626042_Son.resx">
       <DependentUpon>201902061626042_Son.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902071801236_Son2.resx">
+      <DependentUpon>201902071801236_Son2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
