@@ -344,10 +344,11 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Restaurans.cshtml" />
     <Content Include="Views\Activity\Index.cshtml" />
-    <Content Include="Views\Activity\Save.cshtml" />
+    <Content Include="Views\Activity\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Uploads\Activity\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

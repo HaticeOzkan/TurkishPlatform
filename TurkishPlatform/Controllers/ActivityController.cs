@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TurkishPlatform.Models;
 
 namespace TurkishPlatform.Controllers
 {
@@ -11,11 +12,43 @@ namespace TurkishPlatform.Controllers
         // GET: Activity
         public ActionResult Index()
         {
+            PlatformContext db = new PlatformContext();
+            return View(db.Activities.ToList());
+        }
+        [HttpGet]
+        public ActionResult Create()
+        {
+            PlatformContext db = new PlatformContext();
+            //ViewBag.PossibleParents = db.Activities.ToList();
             return View();
         }
-        public ActionResult Save()
+        [HttpPost]
+        public ActionResult Create(string name,DateTime date,DateTime StartTime,DateTime FinishTime, HttpPostedFileBase Image,int CountryId,string Content,string Address)
         {
-            return View();
+             PlatformContext db = new PlatformContext();
+            string klasor = Server.MapPath("/Uploads/Activity/");
+            Image.SaveAs(klasor + Image.FileName);
+           
+            Activity activity = new Activity();
+            activity.Address = Address;
+            activity.Title = name;
+            activity.StartTime = StartTime;
+            activity.FinishTime = FinishTime;
+            activity.Date = date;
+            activity.CountryId = CountryId;
+            activity.Content = Content;
+            activity.ImageURL = "/Uploads/Activity/ImageURL" + Image.FileName;
+
+
+
+            if (ModelState.IsValid)
+            {
+                db.Activities.Add(activity);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            //ViewBag.PossibleParents = db.Activities.ToList();
+            return View( );
         }
     }
 }
