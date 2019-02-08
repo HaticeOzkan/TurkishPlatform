@@ -19,9 +19,15 @@ namespace TurkishPlatform.Areas.Panel.Controllers
         [HttpGet]
         public ActionResult Create()
         {
+            
+            Activity NewActivity = new Activity();
             return View();
         }
         [HttpPost]
+        public ActionResult Create()
+        {
+            return View();
+        }
         public ActionResult Edit()
         {
             return View();
