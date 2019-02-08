@@ -16,10 +16,12 @@ namespace TurkishPlatform.Areas.Panel.Controllers
             
             return View(Db.Activities.ToList());
         }
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
         }
+        [HttpPost]
         public ActionResult Edit()
         {
             return View();

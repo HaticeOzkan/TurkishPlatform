@@ -1,513 +1,547 @@
 ﻿
 @{
-    Layout = null;
+                /**/
+
+                Layout = null;
 }
 
+<!DOCTYPE html>
 
-<!------ Include the above in your HEAD tag ---------->
-<!doctype html>
-<html lang="en">
+<html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin Chat Panel</title>
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/font-awesome.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link rel="icon" type="img/ico" href='img/favicon-icon.png'>
-    <script src="js/jquery-3.1.1.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script src="js/bootstrap-hover-dropdown.min.js"></script>
-    <script src="js/admin.js"></script>
-    <script src="https://use.fontawesome.com/10a964325b.js"></script>
+    <meta name="viewport" content="width=device-width" />
+    <title>_Layout</title>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <style>
-        @@font-face {
-            font-family: 'TitilliumWeb';
-            src: url(../font-style/TitilliumWeb-Light.ttf) format('truetype');
+        h1.page-header {
+            margin-top: -5px;
         }
 
-        body {
-            font-family: 'TitilliumWeb';
-        }
-
-        ::selection {
-            color: #fff;
-            background: #8956cf;
-        }
-
-        ::-webkit-scrollbar-track {
-            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-            border-radius: 10px;
-            background-color: #F5F5F5;
-            display: none;
-        }
-
-        ::-webkit-scrollbar {
-            width: 6px;
-            background-color: #F5F5F5;
-            display: none;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            border-radius: 10px;
-            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-            background-color: #8956cf;
-            display: none;
+        .sidebar {
+            padding-left: 0;
         }
 
         .main-container {
-            position: relative;
-            display: block;
+            background: #FFF;
+            padding-top: 15px;
+            margin-top: -20px;
+        }
+
+        .footer {
             width: 100%;
         }
 
-        #content_body {
-            width: 100%;
-            display: block;
-            margin-left: 190px;
-            transition: all .3s cubic-bezier(.55,0,.1,1);
-        }
-
-        .margin_left {
-            margin-left: 0px !important;
-            transition: all .3s cubic-bezier(.55,0,.1,1);
-        }
-
-        /*===================TOP NAVBAR FIXED NAVBAR===================*/
-        .admin-navbar {
-            background-color: rgb(66, 133, 244);
-            border-color: rgb(66, 133, 244);
-            box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-        }
-
-        .navbar {
-            position: relative;
-            min-height: 64px;
-            margin-bottom: 20px;
-            border: 1px solid transparent;
-        }
-
-        .navbar-herader {
-            display: inline-block;
-        }
-
-        .navbar button:focus {
+        :focus {
             outline: none;
         }
 
-        .navbar button {
-            border: none;
-            width: 50px;
-            cursor: pointer;
-            height: 50px;
-            color: white;
-            padding: 11px 15px;
-            font-size: 21px;
-            border-radius: 100%;
-            background: #4284f4;
-            margin-top: 5px;
+        .side-menu {
             position: relative;
-        }
-        /* Ripple magic */
-        .navbar button {
-            position: relative;
-            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            background-color: #f8f8f8;
+            border-right: 1px solid #e7e7e7;
         }
 
-            .navbar button:after {
-                content: '';
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                width: 5px;
-                height: 5px;
-                background: rgba(255, 255, 255, .5);
-                opacity: 0;
-                border-radius: 100%;
-                transform: scale(1, 1) translate(-50%);
-                transform-origin: 50% 50%;
+            .side-menu .navbar {
+                border: none;
             }
 
-        @@keyframes ripple {
-            0% {
-                transform: scale(0, 0);
-                opacity: 1;
+            .side-menu .navbar-header {
+                width: 100%;
+                border-bottom: 1px solid #e7e7e7;
             }
 
-            20% {
-                transform: scale(25, 25);
-                opacity: 1;
-            }
-
-            100% {
-                opacity: 0;
-                transform: scale(40, 40);
-            }
-        }
-
-        .navbar button:focus:not(:active)::after {
-            animation: ripple 1s ease-out;
-        }
-
-        .admin-chat-logo img {
-            width: 50%;
-        }
-
-        .notification-btn {
-            color: #fff;
-            background-color: transparent;
-            border-color: transparent;
-            font-size: 21px;
-            margin-top: 10px;
-        }
-
-        .btn:hover, .btn:focus, .btn.focus {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        .btn:active, .btn.active {
-            box-shadow: none;
-        }
-
-        .notification-btn .badge {
-            color: #010101;
-            background-color: #fff;
-        }
-
-        button .badge {
-            position: relative;
-            top: -40px;
-            right: -10px;
-        }
-
-        @@media (min-width: 768px) {
-
-            .container > .navbar-header, .container-fluid > .navbar-header, .container > .navbar-collapse, .container-fluid > .navbar-collapse {
-                margin-right: 0;
-                margin-left: -10px;
-            }
-        }
-
-        /*********notification*********/
-
-        .pull-right > .dropdown-menu {
-            right: 0;
-            left: auto;
-            top: 60px;
-        }
-
-        .dropdown-menu {
-            position: absolute;
-            top: 107%;
-            left: 0;
-            z-index: 1000;
-            display: none;
-            float: left;
-            min-width: 280px;
-            padding: 0px;
-            margin: 2px 0 0;
-            font-size: 14px;
-            text-align: left;
-            list-style: none;
-            background-color: #fff;
-            -webkit-background-clip: padding-box;
-            background-clip: padding-box;
-            border: none;
-            border: 0px solid;
-            border-radius: 0px;
-            -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
-        }
-
-            .dropdown-menu:after {
-                border-bottom: 6px solid #ffffff;
-                border-left: 6px solid rgba(0, 0, 0, 0);
-                border-right: 6px solid rgba(0, 0, 0, 0);
-                content: "";
-                display: inline-block;
-                right: 24px;
-                position: absolute;
-                top: -6px;
-            }
-
-            .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
-                color: #262626;
-                text-decoration: none;
+            .side-menu .navbar-nav .active a {
                 background-color: transparent;
+                margin-right: -1px;
+                border-right: 5px solid #e7e7e7;
             }
 
-        .card-title-text {
-            padding-left: 15px;
-        }
-
-        .list-group-item {
-            position: relative;
-            display: block;
-            padding: 5px 0px;
-            margin-bottom: 0px;
-            background-color: #fff;
-            border: solid 0px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .media-object {
-            display: block;
-            border-radius: 50%;
-        }
-
-        .dropdown-menu > li > a {
-            display: block;
-            padding: 3px 15px;
-        }
-
-        .notifications_title {
-            font-size: 15px;
-            color: #4CAF50;
-            text-align: right;
-            padding: 3px;
-            padding-right: 10px;
-        }
-        /*******************TOP NAVBAR FIXED NAVBAR END*******************/
-
-
-        /*=======================SIDEBAR NAV START=======================*/
-        .hit_sidebar {
-            position: relative;
-            display: block;
-            min-height: 100%;
-            overflow-y: auto;
-            overflow-x: hidden;
-            overflow: hidden;
-            border: none;
-            transition: all .3s cubic-bezier(.55,0,.1,1);
-            padding-top: 64px;
-            background: #fff;
-            width: 280px;
-            background-color: #1f2f46;
-            /*    transform: translate3d(-280px,0,0);*/
-        }
-
-        .small_sidebar {
-            width: 80px;
-            min-width: 64px;
-            transform: translate3d(0px, 0px, 0px);
-            -webkit-transform: translate3d(0, 0, 0);
-            -moz-transform: translate3d(0, 0, 0);
-        }
-
-        .sidebar-open {
-            min-width: 274px;
-            width: 274px;
-            transform: translate3d(0,0,0);
-        }
-
-        .sidebar-slide-push {
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            z-index: 999;
-            left: -15px;
-        }
-
-
-        /************************SIDEBAR NAV START END************************/
-        aside ul {
-            margin: 0px;
-            padding: 0px;
-        }
-
-            aside ul li {
-                list-style-type: none;
+            .side-menu .navbar-nav li {
+                display: block;
+                width: 100%;
+                border-bottom: 1px solid #e7e7e7;
             }
 
-                aside ul li a {
-                    font-family: 'TitilliumWeb';
-                    display: block;
-                    text-decoration: none;
-                    text-align: left;
-                    color: #c8c8c8;
-                    background-color: transparent;
-                    font-size: 16px;
-                    padding: 18px 20px 16px;
-                    transition: all 0.5s ease;
-                    -moz-transition: all 0.5s ease;
-                    -webkit-transition: all 0.5s ease;
+                .side-menu .navbar-nav li a {
+                    padding: 15px;
                 }
 
-                    aside ul li a:hover {
-                        background-color: #1A293F;
-                        color: #fff;
-                        text-decoration: none;
+                    .side-menu .navbar-nav li a .glyphicon {
+                        padding-right: 10px;
                     }
 
-        a:focus {
-            outline: none;
-            outline-offset: none;
-        }
+            .side-menu #dropdown {
+                border: 0;
+                margin-bottom: 0;
+                border-radius: 0;
+                background-color: transparent;
+                box-shadow: none;
+            }
 
-        aside a:hover, a:focus {
-            color: #fff;
-            text-decoration: none;
-            background-color: #1A293F;
-        }
+                .side-menu #dropdown .caret {
+                    float: right;
+                    margin: 9px 5px 0;
+                }
 
-        aside ul li a .nav-icon {
-            margin-right: 15px;
-            font-size: 20px !important;
-        }
+                .side-menu #dropdown .indicator {
+                    float: right;
+                }
 
-        .remove_text {
-            transition-delay: 2s;
-        }
+                .side-menu #dropdown > a {
+                    border-bottom: 1px solid #e7e7e7;
+                }
 
-        .text_hide {
-            display: none;
-            transition-delay: 2s;
-        }
+                .side-menu #dropdown .panel-body {
+                    padding: 0;
+                    background-color: #f3f3f3;
+                }
 
-        aside ul li a span {
-            display: table-cell;
-            padding-left: 15px;
+                    .side-menu #dropdown .panel-body .navbar-nav {
+                        width: 100%;
+                    }
+
+                        .side-menu #dropdown .panel-body .navbar-nav li {
+                            padding-left: 15px;
+                            border-bottom: 1px solid #e7e7e7;
+                        }
+
+                            .side-menu #dropdown .panel-body .navbar-nav li:last-child {
+                                border-bottom: none;
+                            }
+
+                    .side-menu #dropdown .panel-body .panel > a {
+                        margin-left: -20px;
+                        padding-left: 35px;
+                    }
+
+                    .side-menu #dropdown .panel-body .panel-body {
+                        margin-left: -15px;
+                    }
+
+                        .side-menu #dropdown .panel-body .panel-body li {
+                            padding-left: 30px;
+                        }
+
+                            .side-menu #dropdown .panel-body .panel-body li:last-child {
+                                border-bottom: 1px solid #e7e7e7;
+                            }
+
+            .side-menu #search-trigger {
+                background-color: #f3f3f3;
+                border: 0;
+                border-radius: 0;
+                position: absolute;
+                top: 0;
+                right: 0;
+                padding: 15px 18px;
+            }
+
+            .side-menu .brand-name-wrapper {
+                min-height: 50px;
+            }
+
+                .side-menu .brand-name-wrapper .navbar-brand {
+                    display: block;
+                }
+
+            .side-menu #search {
+                position: relative;
+                z-index: 1000;
+            }
+
+                .side-menu #search .panel-body {
+                    padding: 0;
+                }
+
+                    .side-menu #search .panel-body .navbar-form {
+                        padding: 0;
+                        padding-right: 50px;
+                        width: 100%;
+                        margin: 0;
+                        position: relative;
+                        border-top: 1px solid #e7e7e7;
+                    }
+
+                        .side-menu #search .panel-body .navbar-form .form-group {
+                            width: 100%;
+                            position: relative;
+                        }
+
+                        .side-menu #search .panel-body .navbar-form input {
+                            border: 0;
+                            border-radius: 0;
+                            box-shadow: none;
+                            width: 100%;
+                            height: 50px;
+                        }
+
+                        .side-menu #search .panel-body .navbar-form .btn {
+                            position: absolute;
+                            right: 0;
+                            top: 0;
+                            border: 0;
+                            border-radius: 0;
+                            background-color: #f3f3f3;
+                            padding: 15px 18px;
+                        }
+        /* Main body section */
+        .side-body {
+            margin-left: 310px;
+        }
+        /* small screen */
+        @@media (max-width: 768px) {
+            .side-menu {
+                position: relative;
+                width: 100%;
+                height: 0;
+                border-right: 0;
+            }
+
+                .side-menu .navbar {
+                    z-index: 999;
+                    position: relative;
+                    height: 0;
+                    min-height: 0;
+                    background-color: none !important;
+                    border-color: none !important;
+                }
+
+                .side-menu .brand-name-wrapper .navbar-brand {
+                    display: inline-block;
+                }
+            /* Slide in animation */
+            @@-moz-keyframes slidein {
+                0% {
+                    left: -300px;
+                }
+
+                100% {
+                    left: 10px;
+                }
+            }
+
+            @@-webkit-keyframes slidein {
+                0% {
+                    left: -300px;
+                }
+
+                100% {
+                    left: 10px;
+                }
+            }
+
+            @@keyframes slidein {
+                0% {
+                    left: -300px;
+                }
+
+                100% {
+                    left: 10px;
+                }
+            }
+
+            @@-moz-keyframes slideout {
+                0% {
+                    left: 0;
+                }
+
+                100% {
+                    left: -300px;
+                }
+            }
+
+            @@-webkit-keyframes slideout {
+                0% {
+                    left: 0;
+                }
+
+                100% {
+                    left: -300px;
+                }
+            }
+
+            @@keyframes slideout {
+                0% {
+                    left: 0;
+                }
+
+                100% {
+                    left: -300px;
+                }
+            }
+            /* Slide side menu*/
+            /* Add .absolute-wrapper.slide-in for scrollable menu -> see top comment */
+            .side-menu-container > .navbar-nav.slide-in {
+                -moz-animation: slidein 300ms forwards;
+                -o-animation: slidein 300ms forwards;
+                -webkit-animation: slidein 300ms forwards;
+                animation: slidein 300ms forwards;
+                -webkit-transform-style: preserve-3d;
+                transform-style: preserve-3d;
+            }
+
+            .side-menu-container > .navbar-nav {
+                /* Add position:absolute for scrollable menu -> see top comment */
+                position: fixed;
+                left: -300px;
+                width: 300px;
+                top: 43px;
+                height: 100%;
+                border-right: 1px solid #e7e7e7;
+                background-color: #f8f8f8;
+                overflow: auto;
+                -moz-animation: slideout 300ms forwards;
+                -o-animation: slideout 300ms forwards;
+                -webkit-animation: slideout 300ms forwards;
+                animation: slideout 300ms forwards;
+                -webkit-transform-style: preserve-3d;
+                transform-style: preserve-3d;
+            }
+
+            @@-moz-keyframes bodyslidein {
+                0% {
+                    left: 0;
+                }
+
+                100% {
+                    left: 300px;
+                }
+            }
+
+            @@-webkit-keyframes bodyslidein {
+                0% {
+                    left: 0;
+                }
+
+                100% {
+                    left: 300px;
+                }
+            }
+
+            @@keyframes bodyslidein {
+                0% {
+                    left: 0;
+                }
+
+                100% {
+                    left: 300px;
+                }
+            }
+
+            @@-moz-keyframes bodyslideout {
+                0% {
+                    left: 300px;
+                }
+
+                100% {
+                    left: 0;
+                }
+            }
+
+            @@-webkit-keyframes bodyslideout {
+                0% {
+                    left: 300px;
+                }
+
+                100% {
+                    left: 0;
+                }
+            }
+
+            @@keyframes bodyslideout {
+                0% {
+                    left: 300px;
+                }
+
+                100% {
+                    left: 0;
+                }
+            }
+            /* Slide side body*/
+            .side-body {
+                margin-left: 5px;
+                margin-top: 70px;
+                position: relative;
+                -moz-animation: bodyslideout 300ms forwards;
+                -o-animation: bodyslideout 300ms forwards;
+                -webkit-animation: bodyslideout 300ms forwards;
+                animation: bodyslideout 300ms forwards;
+                -webkit-transform-style: preserve-3d;
+                transform-style: preserve-3d;
+            }
+
+            .body-slide-in {
+                -moz-animation: bodyslidein 300ms forwards;
+                -o-animation: bodyslidein 300ms forwards;
+                -webkit-animation: bodyslidein 300ms forwards;
+                animation: bodyslidein 300ms forwards;
+                -webkit-transform-style: preserve-3d;
+                transform-style: preserve-3d;
+            }
+            /* Hamburger */
+            .navbar-toggle-sidebar {
+                border: 0;
+                float: left;
+                padding: 18px;
+                margin: 0;
+                border-radius: 0;
+                background-color: #f3f3f3;
+            }
+            /* Search */
+            #search .panel-body .navbar-form {
+                border-bottom: 0;
+            }
+
+                #search .panel-body .navbar-form .form-group {
+                    margin: 0;
+                }
+
+            .side-menu .navbar-header {
+                /* this is probably redundant */
+                position: fixed;
+                z-index: 3;
+                background-color: #f8f8f8;
+            }
+            /* Dropdown tweek */
+            #dropdown .panel-body .navbar-nav {
+                margin: 0;
+            }
         }
     </style>
 </head>
 
 <body>
-    <!--////////////////TOP NAVBAR FIXED NAVBAR////////////////-->
-    <div class="main-container">
-        <nav class="navbar navbar-fixed-top admin-navbar">
-            <div class="container-fluid">
-                <div class="navbar-header" style="display: inline-block;">
-                    <button id="menu_icon"><i class="fa fa-bars" aria-hidden="true"></i></button>
-                    <a href="index.html" class="admin-chat-logo"><img src="https://lh3.googleusercontent.com/-N4NB2F966TU/WM7V1KYusRI/AAAAAAAADtA/fPvGVNzOkCo7ZMqLI6pPITE9ZF7NONmawCJoC/w185-h40-p-rw/logo.png"></a>
-                </div>
-                <div class="dropdown pull-right">
-                    <button class="notification-btn dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
-                        <i class="fa fa-bell-o" aria-hidden="true"></i><span class="badge">5</span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                        <h4 class="card-title-text">Notifications <a href="#" class="notifications_title pull-right">3 new Notifications</a></h4>
-                        <li class="list-group-item unread">
-                            <a href="javascript:void(0)">
-                                <div class="media">
-                                    <div class="media-left avatar-img40x40">
-                                        <img src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADso/ZGTVC0LVk1cFReheTbZzpGa2aawWyV8QACL0B/w140-d-h148-p-rw/profile-pic.jpg" class="media-object" style="width: 45px;margin-top: 2px;">
+
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle navbar-toggle-sidebar collapsed">
+                    MENU
+                </button>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    Administrator
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <form class="navbar-form navbar-left" method="GET" role="search">
+                    <div class="form-group">
+                        <input type="text" name="q" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="http://www.pingpong-labs.com" target="_blank">Visit Site</a></li>
+                    <li class="dropdown ">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            Account
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li class="dropdown-header">SETTINGS</li>
+                            <li class=""><a href="#">Other Link</a></li>
+                            <li class=""><a href="#">Other Link</a></li>
+                            <li class=""><a href="#">Other Link</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>  	<div class="container-fluid main-container">
+        <div class="col-md-2 sidebar">
+            <div class="row">
+                <!-- uncomment code for absolute positioning tweek see top comment in css -->
+                <div class="absolute-wrapper"> </div>
+                <!-- Menu -->
+                <div class="side-menu">
+                    <nav class="navbar navbar-default" role="navigation">
+                        <!-- Main Menu -->
+                        <div class="side-menu-container">
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="#"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
+                                <li><a href="/Panel/Categories"><span class="glyphicon glyphicon-plane"></span>Categories</a></li>
+                                <li><a href="/Panel/Recipes"><span class="glyphicon glyphicon-cloud"></span> Link</a></li>
+                                <!-- Dropdown-->
+                                <li class="panel panel-default" id="dropdown">
+                                    <a data-toggle="collapse" href="#dropdown-lvl1">
+                                        <span class="glyphicon glyphicon-user"></span> Sub Level <span class="caret"></span>
+                                    </a>
+                                    <!-- Dropdown level 1 -->
+                                    <div id="dropdown-lvl1" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <ul class="nav navbar-nav">
+                                                <li><a href="#">Link</a></li>
+                                                <li><a href="#">Link</a></li>
+                                                <li><a href="#">Link</a></li>
+                                                <!-- Dropdown level 2 -->
+                                                <li class="panel panel-default" id="dropdown">
+                                                    <a data-toggle="collapse" href="#dropdown-lvl2">
+                                                        <span class="glyphicon glyphicon-off"></span> Sub Level <span class="caret"></span>
+                                                    </a>
+                                                    <div id="dropdown-lvl2" class="panel-collapse collapse">
+                                                        <div class="panel-body">
+                                                            <ul class="nav navbar-nav">
+                                                                <li><a href="#">Link</a></li>
+                                                                <li><a href="#">Link</a></li>
+                                                                <li><a href="#">Link</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                    <div class="media-body">
-                                        <h4 class="media-heading">John Doe</h4>
-                                        <p>Lorem ipsum...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="list-group-item unread">
-                            <a href="javascript:void(0)">
-                                <div class="media">
-                                    <div class="media-left avatar-img40x40">
-                                        <img src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADso/ZGTVC0LVk1cFReheTbZzpGa2aawWyV8QACL0B/w140-d-h148-p-rw/profile-pic.jpg" class="media-object" style="width: 45px;margin-top: 2px;">
-                                    </div>
-                                    <div class="media-body">
-                                        <h4 class="media-heading">John Doe</h4>
-                                        <p>Lorem ipsum...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="list-group-item unread">
-                            <a href="javascript:void(0)">
-                                <div class="media">
-                                    <div class="media-left avatar-img40x40">
-                                        <img src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADso/ZGTVC0LVk1cFReheTbZzpGa2aawWyV8QACL0B/w140-d-h148-p-rw/profile-pic.jpg" class="media-object" style="width: 45px;margin-top: 2px;">
-                                    </div>
-                                    <div class="media-body">
-                                        <h4 class="media-heading">John Doe</h4>
-                                        <p>Lorem ipsum...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="list-group-item unread">
-                            <a href="javascript:void(0)">
-                                <div class="media">
-                                    <div class="media-left avatar-img40x40">
-                                        <img src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADso/ZGTVC0LVk1cFReheTbZzpGa2aawWyV8QACL0B/w140-d-h148-p-rw/profile-pic.jpg" class="media-object" style="width: 45px;margin-top: 2px;">
-                                    </div>
-                                    <div class="media-body">
-                                        <h4 class="media-heading">John Doe</h4>
-                                        <p>Lorem ipsum...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
+                                </li>
+                                <li><a href="#"><span class="glyphicon glyphicon-signal"></span> Link</a></li>
+                            </ul>
+                        </div><!-- /.navbar-collapse -->
+                    </nav>
                 </div>
             </div>
-        </nav>
-        <aside class="hit_sidebar open_sidbar sidebar-slide-push">
-            <ul>
-                <li>
-                    <a href="#">
-                        <span class="nav-icon"><i class="fa fa-user-circle" aria-hidden="true"></i></span>
-                        <span class="remove_text">Admin</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="activ">
-                        <span class="nav-icon"><i class="fa fa-tachometer" aria-hidden="true"></i></span>
-                        <span class="remove_text">Dashboard</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="nav-icon"><i class="fa fa-inbox" aria-hidden="true"></i></span>
-                        <span class="remove_text"> Inbox</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="nav-icon"><i class="fa fa-bell-o" aria-hidden="true"></i></span>
-                        <span class="remove_text"> Notification</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="nav-icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
-                        <span class="remove_text"> Spam</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="nav-icon"><i class="fa fa-cogs" aria-hidden="true"></i></span>
-                        <span class="remove_text">Seting</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="nav-icon"><i class="fa fa-power-off" aria-hidden="true"></i></span>
-                        <span class="remove_text">Logout</span>
-                    </a>
-                </li>
-            </ul>
-        </aside>
-        <section id="content_body">
-            <div class="container">
-                <div class="row">
+        </div>
+        <div class="col-md-10 content">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    @ViewBag.Title @*//burayi viewbagdan getircem*@
+                </div>
+                <div class="panel-body">
                     @RenderBody()
                 </div>
             </div>
-        </section>
-
+        </div>
+        <footer class="pull-left footer">
+            <p class="col-md-12">
+                <hr class="divider">
+                Copyright &COPY; 2015 <a href="http://www.pingpong-labs.com">Gravitano</a>
+            </p>
+        </footer>
     </div>
     <script>
-        $(document).ready(function () {
-            $("#menu_icon").click(function () {
-                $(".open_sidbar").toggleClass("small_sidebar");
-                $('.remove_text').toggleClass('text_hide');
-                $('#content_body').toggleClass('margin_left');
+        $(function () {
+            $('.navbar-toggle-sidebar').click(function () {
+                $('.navbar-nav').toggleClass('slide-in');
+                $('.side-body').toggleClass('body-slide-in');
+                $('#search').removeClass('in').addClass('collapse').slideUp(200);
+            });
+
+            $('#search-trigger').click(function () {
+                $('.navbar-nav').removeClass('slide-in');
+                $('.side-body').removeClass('body-slide-in');
+                $('.search-input').focus();
             });
         });
     </script>
