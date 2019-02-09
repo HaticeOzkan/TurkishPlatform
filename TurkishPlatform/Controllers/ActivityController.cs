@@ -16,7 +16,8 @@ namespace TurkishPlatform.Controllers
         {
             PlatformContext db = new PlatformContext();
             ViewBag.SiteTitle = "Activity";
-           // ViewBag.Activity = db.Activities.First();
+            ViewBag.Activity = db.Activities.First();
+            var a = @ViewBag.Activity.ImageURL;
             return View();
         }
         [HttpGet]

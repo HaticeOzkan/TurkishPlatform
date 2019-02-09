@@ -2,7 +2,8 @@
 @model List<Activity>
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
+    //Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -466,8 +467,9 @@
                             <span class="year">2014</span>
                             <span class="time">ALL DAY</span> 
                         </time>
-                        <img alt="Independence Day" src="https://farm4.staticflickr.com/3100/2693171833_3545fb852c_q.jpg" />
+                        <img alt="Independence Day" src="@ViewBag.Activity.ImageURL" />
                         <div class="info">
+                          
                             <h2 class="title">@ViewBag.Activity.Title</h2>
                             <p class="desc">@ViewBag.Activity.Content </p>
                             <h3>@ViewBag.Activity.Date </h3>
