@@ -15,8 +15,27 @@
 
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <style>
-        * {
-            font-family: 'Open Sans', sans-serif;
+        #label {
+            color: black;
+            font-size: 21px;
+            text-align: center;
+            margin-left: 33%;
+        }
+
+        textarea {
+            margin-left: 105%;
+            height: 100px;
+        }
+
+        input {
+            margin-left: 105%;
+            height: 100px;
+        }
+
+        select {
+            margin-left: 105%;
+            height: 100px;
+            text-align: center;
         }
     </style>
 </head>
@@ -33,52 +52,54 @@
         @Html.AntiForgeryToken()
         <fieldset>
             <!-- Form Name -->
-            <h2 class="text-center" style="margin-top:200px">  Etkinlik Oluştur </h2>
+            <h2 class="text-center" style="margin-top:50px"> <b> Etkinlik Oluştur </b></h2>
+            <span> @DateTime.Now- Datetime.time</span>
+            <hr style="width:500px; color:black" />
             <!-- Text input-->
-            <div class="form-group" style="margin-top:50px">
-                <label class="col-md-4 control-label" for="event_name">Etkinlik İsmi</label>
-                <div class="col-md-4">
-                    <input id="event_name" name="name" type="text" placeholder="Etkinlik İsmi" class="form-control input-md">
+            <div class="form-group" style="margin-top:50px;">
+                <label id="label" class="col-md-4 control-label text-center" for="event_name">Etkinlik İsmi</label><br /><br />
+                <div class="col-md-4" margin-left:auto; margin-right:auto;>
+                    <input id="event_name" name="name" type="text" placeholder="Etkinlik İsmi" class="form-control input-md text-center">
 
                 </div>
             </div>
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="textinput">Etkinlik Günü</label>
+                <label id="label" class="col-md-4 control-label" for="textinput">Etkinlik Günü</label><br /><br />
                 <div class="col-md-4">
-                    <input id="textinput" name="date" type="date" placeholder="Etkinlik Günü" class="form-control input-md">
+                    <input id="textinput" name="date" type="date" placeholder="Etkinlik Günü" class="form-control input-md text-center">
                     @*<span class="help-block">help</span>*@
                 </div>
             </div>
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="textinput">Başlama Saati</label>
+                <label id="label" class="col-md-4 control-label" for="textinput">Başlama Saati</label><br /><br /><br />
                 <div class="col-md-4">
-                    <input id="textinput" name="StartTime" type="time" placeholder="Başlama Saati" class="form-control input-md">
+                    <input id="textinput" name="StartTime" type="time" placeholder="Başlama Saati" class="form-control input-md text-center">
                     @*<span class="help-block">help</span>*@
                 </div>
             </div>
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="textinput">Bitiş Saati</label>
+                <label id="label" class="col-md-4 control-label" for="textinput">Bitiş Saati</label><br /><br /><br />
                 <div class="col-md-4">
-                    <input id="textinput" name="FinishTime" type="time" placeholder="Bitiş Saati" class="form-control input-md">
+                    <input id="textinput" name="FinishTime" type="time" placeholder="Bitiş Saati" class="form-control input-md text-center">
                     @*<span class="help-block">help</span>*@
                 </div>
             </div>
             <!-- Textarea -->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="textarea">Resim Seç</label>
+                <label id="label" class="col-md-4 control-label" for="textarea">Resim Seç</label><br /><br /><br />
                 <div class="col-md-4">
-                    <input id="textinput" name="Image" type="file" placeholder="Resim" class="form-control input-md">
+                    <input id="textinput" name="Image" type="file" placeholder="Resim" class="form-control input-md text-center">
                 </div>
             </div>
             <!-- Select Basic -->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="selectbasic">Ülke</label>
+                <label id="label" class="col-md-4 control-label" for="selectbasic">Ülke</label><br /><br /><br />
                 <div class="col-md-4">
-                    <select id="selectbasic" name="CountryId" class="form-control">
+                    <select id="selectbasic" name="CountryId" class="form-control text-center">
                         <option value="1">Option one</option>
                         <option value="2">Option two</option>
                     </select>
@@ -86,29 +107,29 @@
             </div>
             <!-- Textarea -->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="textarea">İçerik</label>
+                <label id="label" class="col-md-4 control-label" for="textarea">İçerik</label><br /><br /><br /><br />
                 <div class="col-md-4">
-                    <textarea class="form-control" id="textarea" name="Content"></textarea>
+                    <textarea class="form-control text-center" id="textarea" placeholder="İcerik" name="Content"></textarea>
                 </div>
             </div>
             <!-- Textarea -->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="textarea">Adres</label>
+                <label id="label" class="col-md-4 control-label" for="textarea">Adres</label><br /><br /><br />
                 <div class="col-md-4">
-                    <textarea class="form-control" id="textarea" name="Address"></textarea>
+                    <textarea class="form-control text-center" id="textarea" name="Address" placeholder="Adres"></textarea>
                 </div>
             </div>
 
             <!-- Textarea -->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="textarea">Fiyat Bilgisi</label>
+                <label id="label" class="col-md-4 control-label" for="textarea">Fiyat Bilgisi</label><br /><br /><br />
                 <div class="col-md-4">
-                    <textarea class="form-control" id="textarea" name="Price"></textarea>
+                    <textarea class="form-control" id="textarea" placeholder="Fiyat" name="Price"></textarea>
                 </div>
             </div>
 
             <div class="form-group">
-                <button class="btn btn-success " name="Insert" style="width: 32%; margin-right: 786px;}">Kaydet</button>
+                <button class="btn btn-success" name="Insert" style="width:32%; margin-right: 786px; ">Kaydet</button>
 
             </div>
 

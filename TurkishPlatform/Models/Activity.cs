@@ -38,7 +38,7 @@ namespace TurkishPlatform.Models
       
         public Activity()
         {
-            //Remaining = Convert.ToDateTime(Date - DateTime.Now).TimeOfDay;
+          Remaining = Date - DateTime.Now;
 
             Permission = false;
             
