@@ -10,112 +10,112 @@ using TurkishPlatform.Models;
 
 namespace TurkishPlatform.Areas.Panel.Controllers
 {
-    public class ForumCommentTopicsController : Controller
+    public class ForumTopicTitlesController : Controller
     {
         private PlatformContext db = new PlatformContext();
 
-        // GET: Panel/ForumCommentTopics
+        // GET: Panel/ForumTopicTitles
         public ActionResult Index()
         {
-            var forumCommentTopics = db.ForumCommentTopics.Include(f => f.ForumTopicTitle);
-            return View(forumCommentTopics.ToList());
+            var forumTopicTitles = db.ForumTopicTitles.Include(f => f.CommentCategory);
+            return View(forumTopicTitles.ToList());
         }
 
-        // GET: Panel/ForumCommentTopics/Details/5
+        // GET: Panel/ForumTopicTitles/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ForumCommentTopic forumCommentTopic = db.ForumCommentTopics.Find(id);
-            if (forumCommentTopic == null)
+            ForumTopicTitle forumTopicTitle = db.ForumTopicTitles.Find(id);
+            if (forumTopicTitle == null)
             {
                 return HttpNotFound();
             }
-            return View(forumCommentTopic);
+            return View(forumTopicTitle);
         }
 
-        // GET: Panel/ForumCommentTopics/Create
+        // GET: Panel/ForumTopicTitles/Create
         public ActionResult Create()
         {
-            ViewBag.ForumTopicTitleId = new SelectList(db.ForumTopicTitles, "TitleId", "Text");
+            ViewBag.CommentCategoryId = new SelectList(db.ForumCommentCategories, "CategoryId", "CategoryName");
             return View();
         }
 
-        // POST: Panel/ForumCommentTopics/Create
+        // POST: Panel/ForumTopicTitles/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TopicId,TopicTitle,ForumTopicTitleId")] ForumCommentTopic forumCommentTopic)
+        public ActionResult Create([Bind(Include = "TitleId,Text,CommentCategoryId")] ForumTopicTitle forumTopicTitle)
         {
             if (ModelState.IsValid)
             {
-                db.ForumCommentTopics.Add(forumCommentTopic);
+                db.ForumTopicTitles.Add(forumTopicTitle);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ForumTopicTitleId = new SelectList(db.ForumTopicTitles, "TitleId", "Text", forumCommentTopic.ForumTopicTitleId);
-            return View(forumCommentTopic);
+            ViewBag.CommentCategoryId = new SelectList(db.ForumCommentCategories, "CategoryId", "CategoryName", forumTopicTitle.CommentCategoryId);
+            return View(forumTopicTitle);
         }
 
-        // GET: Panel/ForumCommentTopics/Edit/5
+        // GET: Panel/ForumTopicTitles/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ForumCommentTopic forumCommentTopic = db.ForumCommentTopics.Find(id);
-            if (forumCommentTopic == null)
+            ForumTopicTitle forumTopicTitle = db.ForumTopicTitles.Find(id);
+            if (forumTopicTitle == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.ForumTopicTitleId = new SelectList(db.ForumTopicTitles, "TitleId", "Text", forumCommentTopic.ForumTopicTitleId);
-            return View(forumCommentTopic);
+            ViewBag.CommentCategoryId = new SelectList(db.ForumCommentCategories, "CategoryId", "CategoryName", forumTopicTitle.CommentCategoryId);
+            return View(forumTopicTitle);
         }
 
-        // POST: Panel/ForumCommentTopics/Edit/5
+        // POST: Panel/ForumTopicTitles/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TopicId,TopicTitle,ForumTopicTitleId")] ForumCommentTopic forumCommentTopic)
+        public ActionResult Edit([Bind(Include = "TitleId,Text,CommentCategoryId")] ForumTopicTitle forumTopicTitle)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(forumCommentTopic).State = EntityState.Modified;
+                db.Entry(forumTopicTitle).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ForumTopicTitleId = new SelectList(db.ForumTopicTitles, "TitleId", "Text", forumCommentTopic.ForumTopicTitleId);
-            return View(forumCommentTopic);
+            ViewBag.CommentCategoryId = new SelectList(db.ForumCommentCategories, "CategoryId", "CategoryName", forumTopicTitle.CommentCategoryId);
+            return View(forumTopicTitle);
         }
 
-        // GET: Panel/ForumCommentTopics/Delete/5
+        // GET: Panel/ForumTopicTitles/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ForumCommentTopic forumCommentTopic = db.ForumCommentTopics.Find(id);
-            if (forumCommentTopic == null)
+            ForumTopicTitle forumTopicTitle = db.ForumTopicTitles.Find(id);
+            if (forumTopicTitle == null)
             {
                 return HttpNotFound();
             }
-            return View(forumCommentTopic);
+            return View(forumTopicTitle);
         }
 
-        // POST: Panel/ForumCommentTopics/Delete/5
+        // POST: Panel/ForumTopicTitles/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            ForumCommentTopic forumCommentTopic = db.ForumCommentTopics.Find(id);
-            db.ForumCommentTopics.Remove(forumCommentTopic);
+            ForumTopicTitle forumTopicTitle = db.ForumTopicTitles.Find(id);
+            db.ForumTopicTitles.Remove(forumTopicTitle);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
