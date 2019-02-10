@@ -15,10 +15,10 @@ namespace TurkishPlatform.Controllers
         public ActionResult Index()
         {
             PlatformContext db = new PlatformContext();
-            ViewBag.SiteTitle = "Activity";
-            ViewBag.Activity = db.Activities.First();
-            var a = @ViewBag.Activity.ImageURL;
-            return View();
+            //ViewBag.SiteTitle = "Activity";
+            //  ViewBag.Activity = db.Activities.First();
+            //   var a = @ViewBag.Activity.ImageURL;
+            return View(db.Activities.ToList());
         }
         [HttpGet]
         public ActionResult Create()
@@ -42,9 +42,9 @@ namespace TurkishPlatform.Controllers
             activity.Date = date;
             activity.CountryId = 2;
             activity.Content = Content;
-            activity.ImageURL = "/Uploads/Activity/ImageURL" + Image.FileName;
+            activity.ImageURL = "/Uploads/Activity/" + Image.FileName;
             activity.UserId = 3;
-            
+
 
 
             if (ModelState.IsValid)
@@ -56,24 +56,41 @@ namespace TurkishPlatform.Controllers
                     {
                         db.SaveChanges();
                     }
-                    catch (DbUpdateException ex1) {
+                    catch (DbUpdateException ex1)
+                    {
                         var b = ex1.InnerException;
 
                     }
 
-               
-            }
+
+                }
                 catch (DbEntityValidationException ex)
 
-            {
-                  var a=  ex.EntityValidationErrors;
+                {
+                    var a = ex.EntityValidationErrors;
+                }
+
+                return RedirectToAction("Index");
             }
 
-            return RedirectToAction("Index");
-            }
+            //ViewBag.PossibleParents = db.Activities.ToList();
+            return View();
+        }
+        public ActionResult ActivityDetails(int id,HttpPostedFileBase Image)
+        {
+            PlatformContext db = new PlatformContext();
+            int AvtivityId = (from b in db.Activities
+                              where b.ActivityId == id
+                              select b.ActivityId).FirstOrDefault();
+            ViewBag.Id = id;
+            List<Activity> Activities = (from a in db.Activities
+                                         where a.ActivityId == id
+                                         select a).ToList();
 
-                //ViewBag.PossibleParents = db.Activities.ToList();
-                return View();
-            }
+           
+
+            return View(Activities);
         }
     }
+
+}

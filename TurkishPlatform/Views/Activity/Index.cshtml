@@ -433,6 +433,7 @@
             }
         }
     </style>
+
 </head>
 <body>
     <div class="topnav">
@@ -459,24 +460,59 @@
         <div class="row">
             <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
                 <ul class="event-list">
-                   
-                    <li>
-                        <time datetime="2014-07-20">
-                            <span class="day">4</span>
-                            <span class="month">Jul</span>
-                            <span class="year">2014</span>
-                            <span class="time">ALL DAY</span> 
-                        </time>
-                        <img alt="Independence Day" src="@ViewBag.Activity.ImageURL" />
-                        <div class="info">
-                          
-                            <h2 class="title">@ViewBag.Activity.Title</h2>
-                            <p class="desc">@ViewBag.Activity.Content </p>
-                            <h3>@ViewBag.Activity.Date </h3>
-                        </div>
+                    @foreach (var item in Model)
+                    {
+                        if (item.Permission == true)
+                        {
+                            DateTime baslamaTarihi = item.Date;
+                            DateTime simdi = DateTime.Today;
 
-                    </li>
+
+                            TimeSpan kalangun = baslamaTarihi - simdi;//Sonucu zaman olarak döndürür
+                            double toplamGun = kalangun.TotalDays;// kalanGun den TotalDays ile sadece toplam gun değerini çekiyoruz.
+                            
+
+
+                            <li id="Activity"> 
+                                <time datetime="@item.Date">
+                                    <span class="day">@item.Date.Day</span>
+                                    <span class="month">@item.Date.Month.ToString()</span>
+                                    <span class="year">2014</span>
+                                    <span class="time">ALL DAY</span>
+                                   
+                                </time>
+
+                               
+                                <img alt="Independence Day" src="@item.ImageURL" />
+                                <div class="info">
+                                    <h2 class="title">@item.Title</h2>
+                                    <br /> 
+                                    @*<p class="desc">@item.Content </p>*@
+                                    <p>Etkinliğe kalan  @toplamGun gün </p>
+                                    <a href="/Activity/ActivityDetails?id=@item.ActivityId"style="color:black"> 
+                                    Etkinlik Ayrıntılarını Gör</a>
+                                    <h3>@item.Date.ToShortDateString() </h3>
+                                    <ul>
+                                        <li style="width:33%;">1 <span class="glyphicon glyphicon-ok"></span></li> 
+                                        <li style="width:33%;">103 <span class="glyphicon glyphicon-remove" ></span></li>
+                                        <li style="width:34%;">3 <span class="fa fa-question"></span></li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="social">
+                                    <ul>
+                                        <li class="facebook" style="width:33%;"><a href="#facebook"><span class="fa fa-facebook"></span></a></li>
+                                        <li class="twitter" style="width:34%;"><a href="#twitter"><span class="fa fa-twitter"></span></a></li>
+                                        <li class="google-plus" style="width:33%;"><a href="#google-plus"><span class="fa fa-google-plus"></span></a></li>
+                                    </ul>
+                                </div>
+
+                            </li>
+
  
+                        }
+                    }
+
                 </ul>
             </div>
         </div>
