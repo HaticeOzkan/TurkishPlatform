@@ -18,3 +18,8 @@ function hayalkapat() {
     var ac = document.getElementById("Activity");
     ac.onclick = acbtn;
 }
+function Guncelleme() {
+
+    var katil = document.getElementById("katil");
+    var katilmiyorum = document.getElementById("Katilmiyorum");
+}

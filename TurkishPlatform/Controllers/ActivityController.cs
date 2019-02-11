@@ -76,15 +76,21 @@ namespace TurkishPlatform.Controllers
             //ViewBag.PossibleParents = db.Activities.ToList();
             return View();
         }
-        public ActionResult ActivityDetails(int id,HttpPostedFileBase Image)
+        public ActionResult ActivityDetails(int id,HttpPostedFileBase Image,int kullaniciId)
         {
             PlatformContext db = new PlatformContext();
             int AvtivityId = (from b in db.Activities
                               where b.ActivityId == id
                               select b.ActivityId).FirstOrDefault();
+            int KullaniciId = (from b in db.Activities
+                               where b.UserId == kullaniciId
+                               select b.UserId).FirstOrDefault();
             ViewBag.Id = id;
+            ViewBag.KullaniciId = KullaniciId;
+
+
             List<Activity> Activities = (from a in db.Activities
-                                         where a.ActivityId == id
+                                         where a.ActivityId == id & a.UserId==kullaniciId
                                          select a).ToList();
 
            
