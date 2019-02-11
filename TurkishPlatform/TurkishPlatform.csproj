@@ -186,6 +186,10 @@
     <Compile Include="Migrations\201902090754554_Son3.Designer.cs">
       <DependentUpon>201902090754554_Son3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902111021120_son4.cs" />
+    <Compile Include="Migrations\201902111021120_son4.Designer.cs">
+      <DependentUpon>201902111021120_son4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Activity.cs" />
     <Compile Include="Models\AdminProfil.cs" />
@@ -616,6 +620,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902090754554_Son3.resx">
       <DependentUpon>201902090754554_Son3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902111021120_son4.resx">
+      <DependentUpon>201902111021120_son4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
