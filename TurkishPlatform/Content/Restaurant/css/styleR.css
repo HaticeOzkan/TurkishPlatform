@@ -162,7 +162,7 @@ a:focus {
   outline: 0 none;
 }
 img {
-  max-width: 100%;
+  /*max-width: 100%;*/
   height: auto;
 }
 ul {
