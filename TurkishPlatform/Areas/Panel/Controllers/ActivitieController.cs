@@ -24,10 +24,10 @@ namespace TurkishPlatform.Areas.Panel.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Create()
-        {
-            return View();
-        }
+        //public ActionResult Create()
+        //{
+        //    return View();
+        //}
         public ActionResult Edit()
         {
             return View();

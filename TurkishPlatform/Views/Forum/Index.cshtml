@@ -1,0 +1,297 @@
+﻿
+
+@using TurkishPlatform.Models
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    @@import url('https://fonts.googleapis.com/css?family=Pacifico');
+    @@import url('https://fonts.googleapis.com/css?family=Lato');
+    @@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+    @@import url('https://fonts.googleapis.com/css?family=Zeyada');
+
+    *, :after, :before {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box
+    }
+
+    .wrapper {
+        margin: 0 -5px;
+        text-align: center;
+        width: 730px;
+    }
+
+    .bubble {
+        margin: 0 auto;
+        width: 80px;
+        text-align: center;
+        background-color: rgba(229,229,229,1);
+        padding: 10px;
+        display: inline-block;
+        vertical-align: top;
+        margin-right: -1px;
+        position: relative;
+        box-sizing: content-box;
+    }
+
+        .bubble .details {
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s linear 0.5s,opacity 0.5s linear;
+            width: 80px;
+            margin-bottom: 10px;
+            margin-top: -40px;
+            background: rgba(255,255,255,.2);
+            font: 10px 'Roboto Condensed';
+            text-transform: uppercase;
+            border-radius: 0 0 5px 5px;
+            -webkit-transition: all 500ms ease-in-out;
+            -moz-transition: all 500ms ease-in-out;
+            -ms-transition: all 500ms ease-in-out;
+            -o-transition: all 500ms ease-in-out;
+            transition: all 500ms ease-in-out;
+        }
+
+        .bubble:hover .details {
+            visibility: visible;
+            opacity: 1;
+            transition-delay: 0s;
+            margin-top: -10px;
+            -webkit-transition: all 500ms ease-in-out;
+            -moz-transition: all 500ms ease-in-out;
+            -ms-transition: all 500ms ease-in-out;
+            -o-transition: all 500ms ease-in-out;
+            transition: all 500ms ease-in-out;
+        }
+
+    .filter-me {
+        filter: blur(1px) grayscale(100%);
+        -webkit-filter: blur(1px) grayscale(100%);
+        -webkit-transition: all 500ms ease-in;
+        -moz-transition: all 500ms ease-in;
+        -ms-transition: all 500ms ease-in;
+        -o-transition: all 500ms ease-in;
+        transition: all 500ms ease-in;
+    }
+
+        .filter-me:hover {
+            filter: blur(0px) grayscale(20%);
+            -webkit-filter: blur(0px) grayscale(20%);
+            -webkit-transition: all 500ms ease-in;
+            -moz-transition: all 500ms ease-in;
+            -ms-transition: all 500ms ease-in;
+            -o-transition: all 500ms ease-in;
+            transition: all 500ms ease-in;
+        }
+
+        .filter-me img {
+            display: inline-block;
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            width: 39px;
+            border: 0;
+            -webkit-transition: all 500ms ease-in;
+            -moz-transition: all 500ms ease-in;
+            -ms-transition: all 500ms ease-in;
+            -o-transition: all 500ms ease-in;
+            transition: all 500ms ease-in;
+        }
+
+            .filter-me img:first-child {
+                margin-right: -5px;
+                transform: rotate(10deg);
+            }
+
+            .filter-me img:last-child {
+                transform: rotate(-7deg);
+            }
+
+        .filter-me:hover img:first-child {
+            margin-right: -5px;
+            transform: rotate(-10deg);
+        }
+
+        .filter-me:hover img:last-child {
+            transform: rotate(7deg);
+        }
+
+        .filter-me:hover img {
+            border-radius: 10px;
+            -webkit-border-radius: 10px;
+            -webkit-transition: all 500ms ease-in;
+            -moz-transition: all 500ms ease-in;
+            -ms-transition: all 500ms ease-in;
+            -o-transition: all 500ms ease-in;
+            transition: all 500ms ease-in;
+        }
+
+    /* MAISONS - font + mep */
+    .house {
+        font-family: Permanent Marker;
+        font-size: 18px;
+        text-shadow: 1px 1px 0px rgba(255,255,255,0.5);
+        border-bottom: 1px solid;
+        margin-bottom: 5px;
+    }
+
+    /* CLASSEMENT */
+    .first {
+        height: 220px;
+    }
+
+    .second {
+        height: 200px;
+    }
+
+    .third {
+        height: 180px;
+    }
+
+    .fourth {
+        height: 160px;
+    }
+
+    .fifth {
+        height: 140px;
+    }
+
+    .sixth {
+        height: 120px;
+    }
+
+    .seventh {
+        height: 100px;
+    }
+
+    /* COULEURS MAISONS -- ILH */
+    .cabot {
+        color: #CC72BD;
+    }
+
+    .dunster {
+        color: #B39B00;
+    }
+
+    .eliot {
+        color: #509EED;
+    }
+
+    .lowell {
+        color: #965BEF;
+    }
+
+    .mather {
+        color: #76AD23;
+    }
+
+    .quincy {
+        color: #ED7B34;
+    }
+
+    .winthrop {
+        color: #C92724;
+    }
+
+    /* BACKGROUND MAISONS */
+    .bubble.cabot {
+        background-color: rgba(204, 114, 189,0.3);
+    }
+
+    .bubble.dunster {
+        background-color: rgba(176, 155, 0,0.3);
+    }
+
+    .bubble.eliot {
+        background-color: rgba(80, 158, 237,0.3);
+    }
+
+    .bubble.lowell {
+        background-color: rgba(150, 91, 239,0.3);
+    }
+
+    .bubble.mather {
+        background-color: rgba(118, 173, 35,0.3);
+    }
+
+    .bubble.quincy {
+        background-color: rgba(237, 123, 52, 0.3);
+    }
+
+    .bubble.winthrop {
+        background-color: rgba(201, 39, 36, 0.3);
+    }
+
+    .arrow_bottom {
+        box-sizing: border-box;
+        border-top: 20px solid;
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+        position: absolute;
+        bottom: -20px;
+        left: 0px;
+        opacity: 0.3;
+    }
+
+    /* POINTS */
+    .points {
+        font-family: 'Lato';
+        font-size: 14px;
+        opacity: 0.5;
+        color: #222;
+    }
+</style>
+<div class="row" style="width:500px; margin:auto">
+    @*Buraya kategoriler eklenecek*@
+    <div class="wrapper">
+        @foreach (ForumCommentCategory item in ViewBag.CategoryList)
+        {
+
+            <div class="bubble cabot third del" rel="@item.CountryId">
+                <div class="details">
+                    @item.Explain<br>
+                    flood + #FFF
+                </div>
+                <div class="filter-me">
+                    <img src="~/Content/images/ForumImage/hastane1.jpg" />@*//burayı kaydederken seçmemiz gerekecek şimdilik koydum resim*@
+                </div>
+                <div class="house cabot">@item.CategoryName</div>
+                <span class="points">@item.ForumTopicTitles.Count() Tane Konu</span>
+                <div class="arrow_bottom"></div>
+            </div>
+        }
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-9"></div>
+    <div class="col-xs-3">
+        @*//Burassı tamamlanacak*@
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+
+        $(".del").click(function () {
+
+            var btn = $(this);//bu butonun id sini alalım
+            var id = btn.attr("rel");//id bize rel attr den gelecek
+            $.ajax({
+                //nereye istek atacağız?
+                url: "/Forum/Index/" + id,
+                method: "POST",//BUYUK HARFLE YAZMALIYIM AJAXIM POST METODUYLA GİDECEK
+                success: function (IsTrue) {
+                    if (IsTrue) {
+
+
+                    } else {
+                        alert("Bir Hata oluştu");
+                    }
+                }//donus aldıgımızda napacaz? biz diğer taraftan true false dndurmuştuk ondan bahsetmek için temsili isim verdik fonksiyon parametresine
+            });
+        });//del classına sahip olan herhangiirşeye tıklandıgında şu işi yap
+    });//readin
+</script>
+
+

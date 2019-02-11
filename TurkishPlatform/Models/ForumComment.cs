@@ -37,11 +37,25 @@ namespace TurkishPlatform.Models
 		[Required]
 		[MaxLength(200)]
 		public string TopicTitle { get; set; }
-		public List<ForumComment> ForumComments { get; set; }
-		public ForumCommentCategory CommentCategory { get; set; }
-		[ForeignKey("CommentCategory")]
-		public int CommentCategoryId { get; set; }
+		public virtual List<ForumComment> ForumComments { get; set; }
+		public ForumTopicTitle ForumTopicTitle { get; set; }
+		[ForeignKey("ForumTopicTitle")]
+		public int ForumTopicTitleId{ get; set; }
 	}
+    public class ForumTopicTitle
+    {
+        [Key]
+        public int TitleId { get; set; }
+        [Required]
+        [MaxLength(200)]
+        public string Text { get; set; }
+        public virtual List<ForumCommentTopic> CommentTopics { get; set; }
+        public ForumCommentCategory CommentCategory { get; set; }
+        [ForeignKey("CommentCategory")]
+        public int CommentCategoryId { get; set; }
+
+
+    }
 
 	public class ForumCommentCategory
 	{
@@ -50,10 +64,11 @@ namespace TurkishPlatform.Models
 		[Required]
 		[MaxLength(200)]
 		public string CategoryName { get; set; }
-		public virtual List<ForumCommentTopic> CommentTopics { get; set; }
+		public virtual List<ForumTopicTitle> ForumTopicTitles { get; set; }
 		public Country Country { get; set; }
 		[ForeignKey("Country")]
 		public int CountryId { get; set; }
+        public string Explain { get; set; }
 
 	}
 

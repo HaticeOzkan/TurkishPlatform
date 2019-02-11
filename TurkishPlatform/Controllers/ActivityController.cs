@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -13,6 +15,9 @@ namespace TurkishPlatform.Controllers
         public ActionResult Index()
         {
             PlatformContext db = new PlatformContext();
+            //ViewBag.SiteTitle = "Activity";
+            //  ViewBag.Activity = db.Activities.First();
+            //   var a = @ViewBag.Activity.ImageURL;
             return View(db.Activities.ToList());
         }
         [HttpGet]
@@ -23,32 +28,69 @@ namespace TurkishPlatform.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Create(string name,DateTime date,DateTime StartTime,DateTime FinishTime, HttpPostedFileBase Image,int CountryId,string Content,string Address)
+        public ActionResult Create(string name, DateTime date, DateTime StartTime, DateTime FinishTime, HttpPostedFileBase Image, int CountryId, string Content, string Address)
         {
-             PlatformContext db = new PlatformContext();
+            PlatformContext db = new PlatformContext();
             string klasor = Server.MapPath("/Uploads/Activity/");
             Image.SaveAs(klasor + Image.FileName);
-           
+
             Activity activity = new Activity();
             activity.Address = Address;
             activity.Title = name;
             activity.StartTime = StartTime;
             activity.FinishTime = FinishTime;
             activity.Date = date;
-            activity.CountryId = CountryId;
+            activity.CountryId = 2;
             activity.Content = Content;
-            activity.ImageURL = "/Uploads/Activity/ImageURL" + Image.FileName;
+            activity.ImageURL = "/Uploads/Activity/" + Image.FileName;
+            activity.UserId = 3;
 
 
 
             if (ModelState.IsValid)
             {
-                db.Activities.Add(activity);
-                db.SaveChanges();
+                try
+                {
+                    db.Activities.Add(activity);
+                    try
+                    {
+                        db.SaveChanges();
+                    }
+                    catch (DbUpdateException ex1)
+                    {
+                        var b = ex1.InnerException;
+
+                    }
+
+
+                }
+                catch (DbEntityValidationException ex)
+
+                {
+                    var a = ex.EntityValidationErrors;
+                }
+
                 return RedirectToAction("Index");
             }
+
             //ViewBag.PossibleParents = db.Activities.ToList();
-            return View( );
+            return View();
+        }
+        public ActionResult ActivityDetails(int id,HttpPostedFileBase Image)
+        {
+            PlatformContext db = new PlatformContext();
+            int AvtivityId = (from b in db.Activities
+                              where b.ActivityId == id
+                              select b.ActivityId).FirstOrDefault();
+            ViewBag.Id = id;
+            List<Activity> Activities = (from a in db.Activities
+                                         where a.ActivityId == id
+                                         select a).ToList();
+
+           
+
+            return View(Activities);
         }
     }
+
 }

@@ -148,7 +148,6 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Areas\Panel\Controllers\ActivitieController.cs" />
     <Compile Include="Areas\Panel\Controllers\ActivitiesController.cs" />
     <Compile Include="Areas\Panel\Controllers\AdminProfilsController.cs" />
     <Compile Include="Areas\Panel\Controllers\AdvicesController.cs" />
@@ -157,6 +156,7 @@
     <Compile Include="Areas\Panel\Controllers\ForumCommentCategoriesController.cs" />
     <Compile Include="Areas\Panel\Controllers\ForumCommentsController.cs" />
     <Compile Include="Areas\Panel\Controllers\ForumCommentTopicsController.cs" />
+    <Compile Include="Areas\Panel\Controllers\ForumTopicTitlesController.cs" />
     <Compile Include="Areas\Panel\Controllers\LocationCommentsController.cs" />
     <Compile Include="Areas\Panel\Controllers\LocationImagesController.cs" />
     <Compile Include="Areas\Panel\Controllers\LoginController.cs" />
@@ -168,7 +168,9 @@
     <Compile Include="Areas\Panel\Models\AdminView.cs" />
     <Compile Include="Areas\Panel\PanelAreaRegistration.cs" />
     <Compile Include="Controllers\ActivityController.cs" />
+    <Compile Include="Controllers\ForumController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RestaurantController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -179,6 +181,10 @@
     <Compile Include="Migrations\201902071801236_Son2.cs" />
     <Compile Include="Migrations\201902071801236_Son2.Designer.cs">
       <DependentUpon>201902071801236_Son2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902090754554_Son3.cs" />
+    <Compile Include="Migrations\201902090754554_Son3.Designer.cs">
+      <DependentUpon>201902090754554_Son3.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Activity.cs" />
@@ -194,6 +200,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\ActivityDetails.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\animate.css" />
@@ -205,6 +212,17 @@
     <Content Include="Content\images\3.jpg" />
     <Content Include="Content\images\beige014.jpg" />
     <Content Include="Content\images\favicon.ico" />
+    <Content Include="Content\images\ForumImage\avm.jpg" />
+    <Content Include="Content\images\ForumImage\egitim1.jpg" />
+    <Content Include="Content\images\ForumImage\egitim2.jpg" />
+    <Content Include="Content\images\ForumImage\hastane1.jpg" />
+    <Content Include="Content\images\ForumImage\hastane2.jpg" />
+    <Content Include="Content\images\ForumImage\hukuk1.jpg" />
+    <Content Include="Content\images\ForumImage\hukuk2.jpg" />
+    <Content Include="Content\images\ForumImage\is1.png" />
+    <Content Include="Content\images\ForumImage\market.jpg" />
+    <Content Include="Content\images\ForumImage\pasaport1.jpg" />
+    <Content Include="Content\images\ForumImage\pasaport2.jpg" />
     <Content Include="Content\images\grabbing.png" />
     <Content Include="Content\images\londra.jpg" />
     <Content Include="Content\images\londra2.jpeg" />
@@ -513,7 +531,6 @@
     <Content Include="Areas\Panel\Views\AdminProfils\Edit.cshtml" />
     <Content Include="Areas\Panel\Views\AdminProfils\Index.cshtml" />
     <Content Include="Areas\Panel\Views\Shared\_MyView.cshtml" />
-    <Content Include="Areas\Panel\Views\Activitie\Create.cshtml" />
     <Content Include="Areas\Panel\Views\Shared\_LoginView.cshtml" />
     <Content Include="Areas\Panel\Views\Activitie\Index.cshtml" />
     <Content Include="Areas\Panel\Views\Activitie\Edit.cshtml" />
@@ -536,6 +553,11 @@
     <Content Include="Content\Restaurant\webfonts\fa-solid-900.ttf" />
     <Content Include="Content\Restaurant\webfonts\fa-solid-900.woff" />
     <Content Include="Content\Restaurant\webfonts\fa-solid-900d41d.eot" />
+    <Content Include="Areas\Panel\Views\ForumTopicTitles\Create.cshtml" />
+    <Content Include="Areas\Panel\Views\ForumTopicTitles\Delete.cshtml" />
+    <Content Include="Areas\Panel\Views\ForumTopicTitles\Details.cshtml" />
+    <Content Include="Areas\Panel\Views\ForumTopicTitles\Edit.cshtml" />
+    <Content Include="Areas\Panel\Views\ForumTopicTitles\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -547,7 +569,10 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Uploads\Activity\exit.png" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -559,14 +584,15 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Restaurans.cshtml" />
+    <Content Include="Views\Restaurant\Restaurans.cshtml" />
     <Content Include="Views\Activity\Index.cshtml" />
     <Content Include="Views\Activity\Create.cshtml" />
+    <Content Include="Views\Forum\Index.cshtml" />
+    <Content Include="Views\Activity\ActivityDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Menu\" />
-    <Folder Include="Uploads\Activity\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -587,6 +613,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902071801236_Son2.resx">
       <DependentUpon>201902071801236_Son2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902090754554_Son3.resx">
+      <DependentUpon>201902090754554_Son3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

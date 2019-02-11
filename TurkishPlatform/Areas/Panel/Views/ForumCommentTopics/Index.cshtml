@@ -5,14 +5,14 @@
 }
 
 <h2>Index</h2>
-<br /><br />
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.CommentCategory.CategoryName)
+            @Html.DisplayNameFor(model => model.ForumTopicTitle.Text)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.TopicTitle)
@@ -20,21 +20,20 @@
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CommentCategory.CategoryName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TopicTitle)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.TopicId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.TopicId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.TopicId })
-            </td>
-        </tr>
-    }
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ForumTopicTitle.Text)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TopicTitle)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TopicId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TopicId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TopicId })
+        </td>
+    </tr>
+}
 
 </table>

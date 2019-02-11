@@ -26,19 +26,20 @@ namespace TurkishPlatform.Models
         [Required]
         public string Address { get; set; }
         public TimeSpan Remaining { get; set; }
-        [Required]
-        public Country Country { get; set; }
+         
+        public virtual Country Country { get; set; }
 		[ForeignKey("Country")]
 		public int CountryId { get; set; }
         [ForeignKey("User")]
         public int UserId { get; set; }
-        [Required]
-        public User User { get; set; }
+       
+        public virtual User User { get; set; }
         public bool Permission { get; set; }
       
         public Activity()
         {
-            Remaining = Date - DateTime.Now;
+          Remaining = Date - DateTime.Now;
+
             Permission = false;
             
         }
