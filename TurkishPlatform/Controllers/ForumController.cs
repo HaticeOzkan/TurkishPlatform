@@ -13,8 +13,17 @@ namespace TurkishPlatform.Controllers
         // GET: Forum
         public ActionResult Index()
         {
-            ViewBag.CategoryList = Db.ForumCommentCategories.ToList();          
+            ViewBag.CategoryList = Db.ForumCommentCategories.ToList();
+           
             return View();
+        }
+        public JsonResult Topics(int ID)
+        {
+          var TitleList= Db.ForumTopicTitles.Where(x => x.CommentCategoryId == ID).Select(x => new {
+
+                x.Text
+            }).ToList();
+            return Json(TitleList);
         }
     }
 }

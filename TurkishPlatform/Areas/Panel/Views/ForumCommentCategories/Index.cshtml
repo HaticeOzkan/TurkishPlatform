@@ -17,6 +17,12 @@
         <th>
             @Html.DisplayNameFor(model => model.CategoryName)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Explain)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageUrl)
+        </th>
         <th></th>
     </tr>
 
@@ -27,6 +33,12 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CategoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Explain)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ImageUrl)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.CategoryId }) |

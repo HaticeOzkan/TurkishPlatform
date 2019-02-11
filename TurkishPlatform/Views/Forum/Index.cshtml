@@ -248,7 +248,7 @@
         @foreach (ForumCommentCategory item in ViewBag.CategoryList)
         {
 
-            <div class="bubble cabot third del" rel="@item.CountryId">
+            <div class="bubble cabot third del" rel="@item.CategoryId">
                 <div class="details">
                     @item.Explain<br>
                     flood + #FFF
@@ -262,12 +262,14 @@
             </div>
         }
 
+        <br /><br />
     </div>
 </div>
 <div class="row">
     <div class="col-xs-9"></div>
-    <div class="col-xs-3">
-        @*//Burassı tamamlanacak*@
+    <div class="col-xs-3 Title">
+     
+       
     </div>
 </div>
 <script>
@@ -280,14 +282,13 @@
             $.ajax({
                 //nereye istek atacağız?
                 url: "/Forum/Index/" + id,
-                method: "POST",//BUYUK HARFLE YAZMALIYIM AJAXIM POST METODUYLA GİDECEK
-                success: function (IsTrue) {
-                    if (IsTrue) {
+                method: "GET",//BUYUK HARFLE YAZMALIYIM AJAXIM POST METODUYLA GİDECEK
+                success: function (TitleList) {
+                    for (var i = 0; i < TitleList.count; i++) {
 
-
-                    } else {
-                        alert("Bir Hata oluştu");
+                        $('.Title').append('<h2>'+TitleList[i]+'</h2>'); 
                     }
+                
                 }//donus aldıgımızda napacaz? biz diğer taraftan true false dndurmuştuk ondan bahsetmek için temsili isim verdik fonksiyon parametresine
             });
         });//del classına sahip olan herhangiirşeye tıklandıgında şu işi yap
