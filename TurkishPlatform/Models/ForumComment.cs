@@ -69,7 +69,7 @@ namespace TurkishPlatform.Models
 		[ForeignKey("Country")]
 		public int CountryId { get; set; }
         public string Explain { get; set; }
-        public string ImageUrl { get; set; }
+        public string ImagePath { get; set; }
 
 	}
 
