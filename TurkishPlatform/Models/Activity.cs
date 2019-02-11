@@ -25,7 +25,7 @@ namespace TurkishPlatform.Models
         public DateTime FinishTime { get; set; }
         [Required]
         public string Address { get; set; }
-        public TimeSpan Remaining { get; set; }
+       
          
         public virtual Country Country { get; set; }
 		[ForeignKey("Country")]
@@ -38,11 +38,16 @@ namespace TurkishPlatform.Models
       
         public Activity()
         {
-          Remaining = Date - DateTime.Now;
+         
 
             Permission = false;
-            
+            participation = false;
+
+
         }
-       
+        public bool participation { get; set; }
+        public int NumberofParticipations { get; set; }
+
+
     }
 }
