@@ -46,7 +46,7 @@ namespace TurkishPlatform.Models
 
         }
         public bool Participation { get; set; }
-        public int NumberofParticipations { get; set; }
+   //  public int NumberofParticipations { get; set; }
 
 
     }
