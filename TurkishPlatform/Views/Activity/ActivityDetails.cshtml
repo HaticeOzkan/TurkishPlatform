@@ -228,20 +228,30 @@
 
                 TimeSpan kalangun = baslamaTarihi - simdi;//Sonucu zaman olarak döndürür
                 double toplamGun = kalangun.TotalDays;// kalanGun den TotalDays ile sadece toplam gun değerini çekiyoruz.
-               
-            }
-        }
-    
-        <div class="buttonHolder">
-            <a href="#" id="katil" class="button tick"></a> 
-            <a href="#" id="Katilmiyorum" class="button cross"></a>
-            @*<a href="#" id="bilmiyorum" class="button heart"></a>*@
-           <a href="#" id="bilmiyorum" class="button flower"></a> 
-        </div>
 
+            }
+        
+            <form>
+                <div class="buttonHolder">
+                    <a href="#" id="katil" class="button tick"></a>
+                    <a href="#" id="Katilmiyorum" class="button cross"></a>
+                    @*<a href="#" id="bilmiyorum" class="button heart"></a>*@
+                    <a href="#" id="bilmiyorum" class="button flower"></a>
+                </div>
+                     if(@item.UserId== ViewBag.KullaniciId){
+                @item.Participation=1; 
+
+                            }
+                 
+        </form>
+
+        }
+           
+       
 
     </div>
     <script src="~/Content/ActivityDetails.js"></script>
+
  
 </body>
 

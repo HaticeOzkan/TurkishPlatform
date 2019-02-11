@@ -10,6 +10,7 @@ namespace TurkishPlatform.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(TurkishPlatform.Models.PlatformContext context)

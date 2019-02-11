@@ -12,16 +12,13 @@ namespace TurkishPlatform.Controllers
         // GET: Restaurant
         public ActionResult Index()
         {
-            return View();
-        }
-
-		public ActionResult Create()
-		{
 			PlatformContext db = new PlatformContext();
 			RestaurantViewModel data = new RestaurantViewModel();
 			data.RestaurantId = db.Restaurants.Select(x => x.RestaurantId).FirstOrDefault();
 			data.RestaurantName = db.Restaurants.Select(x => x.RestaurantName).FirstOrDefault();
 			data.Address = db.Restaurants.Select(x => x.Address).FirstOrDefault();
+
+			ViewBag.AllRestaurant = db.Restaurants.ToList();
 
 			return View(data);
 		}

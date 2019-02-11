@@ -374,7 +374,7 @@
                                     <br /> 
                                     @*<p class="desc">@item.Content </p>*@
                                     <p>Etkinliğe kalan  @toplamGun gün </p>
-                                    <a href="/Activity/ActivityDetails?id=@item.ActivityId"style="color:black"> 
+                                    <a href="/Activity/ActivityDetails?id=@item.ActivityId&kullaniciId=@item.UserId" style="color:black"> 
                                     Etkinlik Ayrıntılarını Gör</a>
                                     <h3>@item.Date.ToShortDateString() </h3>
                                     <ul>
