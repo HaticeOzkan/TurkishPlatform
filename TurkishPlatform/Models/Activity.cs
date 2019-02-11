@@ -41,11 +41,11 @@ namespace TurkishPlatform.Models
          
 
             Permission = false;
-            participation = false;
+            Participation = false;
 
 
         }
-        public bool participation { get; set; }
+        public bool Participation { get; set; }
         public int NumberofParticipations { get; set; }
 
 
