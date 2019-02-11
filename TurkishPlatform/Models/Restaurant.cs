@@ -18,6 +18,7 @@ namespace TurkishPlatform.Models
 		[Required]
 		[MaxLength(500)]
 		public string Address { get; set; }
+		public string CoverImageURL { get; set; }
 		public Country Country { get; set; }
 		[ForeignKey("Country")]
 		public int CountryId { get; set; }
