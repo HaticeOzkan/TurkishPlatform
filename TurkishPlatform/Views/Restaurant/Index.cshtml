@@ -15,9 +15,57 @@
 	<link href="~/Content/Restaurant/css/owl.carousel.min.css" rel="stylesheet" />
 	<link href="~/Content/Restaurant/css/owl.theme.default.min.css" rel="stylesheet" />
 	<link href="~/Content/Restaurant/css/styleR.css" rel="stylesheet" />
+
+	<style>
+		.resim {
+			width: 65% !important;
+		}
+	</style>
 }
 
-<div class="restorant row">
+<section class="restorant">
+	<div class="row">
+		@foreach (Restaurant item in ViewBag.AllRestaurant)
+		{
+			<div class="col-md-6 resim">
+				<div class="product-box-layout3">
+					<figure class="item-figure">
+						<a href="single-recipe1.html">
+							<img src="/Content/Restaurant/img/product/product14.jpg" alt="Product" />
+						</a>
+					</figure>
+					<div class="item-content">
+						<span class="sub-title">SALAD</span>
+						<h3 class="item-title"><a href="single-recipe1.html">@item.RestaurantName</a></h3>
+						<ul class="item-rating">
+							<li class="star-fill"><i class="fas fa-star"></i></li>
+							<li class="star-fill"><i class="fas fa-star"></i></li>
+							<li class="star-fill"><i class="fas fa-star"></i></li>
+							<li class="star-fill"><i class="fas fa-star"></i></li>
+							<li class="star-empty"><i class="fas fa-star"></i></li>
+							<li><span>9<span> / 10</span></span> </li>
+						</ul>
+						<p>
+							Pro sint falli definitiones noel ei verear intellegatpri civibus
+							consequat efficiantue.Vestibulum ante ipsum primis in fau
+							cibus orci luctus et ultrices posuere cubilia Curae; Nunc
+							mattis turpis id aliquet.
+						</p>
+						<ul class="entry-meta">
+							<li><a href="#"><i class="fas fa-clock"></i>15 Mins</a></li>
+							<li><a href="#"><i class="fas fa-heart"></i><span>02</span> Likes</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6"></div>
+		}
+
+	</div>
+</section>
+
+
+<div class="footer row">
 	@section Footer{
 		<!-- Instagram Start Here -->
 		<section class="instagram-feed-wrap">
@@ -51,4 +99,21 @@
 		</section>
 		<!-- Instagram End Here -->
 	}
+
 </div>
+
+
+
+<script src="js/jquery-3.3.1.min.js"></script>
+
+<script src="js/popper.min.js"></script>
+
+<script src="js/bootstrap.min.js"></script>
+
+<script src="js/plugins.js"></script>
+
+<script src="js/owl.carousel.min.js"></script>
+
+<script src="js/smoothscroll.min.js"></script>
+
+<script src="js/main.js"></script>
