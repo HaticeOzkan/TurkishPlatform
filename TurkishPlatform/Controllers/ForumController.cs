@@ -21,9 +21,22 @@ namespace TurkishPlatform.Controllers
         {
           var TitleList= Db.ForumTopicTitles.Where(x => x.CommentCategoryId == ID).Select(x => new {
 
-                x.Text
+                x.Text,
+                x.TitleId
+                
             }).ToList();
-            return Json(TitleList);
+            return Json(TitleList, JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult Title(int ID)
+        {
+            var TopicList = Db.ForumCommentTopics.Where(x => x.ForumTopicTitleId == ID).Select(x => new {
+                x.TopicTitle,
+                x.TopicId }).ToList();
+            return Json(TopicList, JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult Comment()
+        {
+            return View();
         }
     }
 }

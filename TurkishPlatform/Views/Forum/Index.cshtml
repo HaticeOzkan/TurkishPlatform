@@ -266,10 +266,9 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-xs-9"></div>
+    <div class="col-xs-9 Topic"></div>
     <div class="col-xs-3 Title">
-     
-       
+   
     </div>
 </div>
 <script>
@@ -278,21 +277,39 @@
         $(".del").click(function () {
 
             var btn = $(this);//bu butonun id sini alalım
-            var id = btn.attr("rel");//id bize rel attr den gelecek
+            var ID = btn.attr("rel");//id bize rel attr den gelecek
             $.ajax({
                 //nereye istek atacağız?
-                url: "/Forum/Index/" + id,
+                url: "/Forum/Topics/" + ID,
                 method: "GET",//BUYUK HARFLE YAZMALIYIM AJAXIM POST METODUYLA GİDECEK
                 success: function (TitleList) {
-                    for (var i = 0; i < TitleList.count; i++) {
-
-                        $('.Title').append('<h2>'+TitleList[i]+'</h2>'); 
+                    for (var i = 0; i < TitleList.length; i++) {
+                        
+                        $('.Title').append('<h2 rel="'+TitleList[i].TitleId+'">'+TitleList[i].Text+'</h2>'); 
                     }
                 
                 }//donus aldıgımızda napacaz? biz diğer taraftan true false dndurmuştuk ondan bahsetmek için temsili isim verdik fonksiyon parametresine
             });
         });//del classına sahip olan herhangiirşeye tıklandıgında şu işi yap
+
+        $(document).on(".Title h2","click",function () {
+            var btn = $(this);
+            var ID = btn.attr("rel");
+            $.ajax({
+                url: "/Forum/Title/" + ID,
+                method: "GET",
+                success: function (TopicList) {
+                    for (var i = 0; i < TopicList.length; i++) {
+
+                        $('.Topic').append('<a href=Forum/Comment?ID="' + TopicList[i].TopicId + '">' + TopicList[i].TopicTitle + '</a>');
+                    }
+                }
+            });
+
+        });
     });//readin
+
+
 </script>
 
 
