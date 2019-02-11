@@ -14,15 +14,5 @@ namespace TurkishPlatform.Controllers
 			return View();
 		}
 
-        public ActionResult Restaurans()
-        {
-            PlatformContext db = new PlatformContext();
-            RestaurantViewModel data = new RestaurantViewModel();
-            data.RestaurantId = db.Restaurants.Select(x => x.RestaurantId).FirstOrDefault();
-            data.RestaurantName = db.Restaurants.Select(x => x.RestaurantName).FirstOrDefault();
-            data.Address = db.Restaurants.Select(x => x.Address).FirstOrDefault();
-
-            return View(data);
-        }
 	}
 }
