@@ -91,7 +91,8 @@
 
 		<footer class="copyright">
 			<div class="container">
-				Copyright &copy; 2019 - All rigths reserved.
+				@RenderSection("Footer", true)
+				<p>&copy; @DateTime.Now.Year - All Right Reserved</p>
 			</div>
 		</footer>
 	</div>
