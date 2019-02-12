@@ -6,7 +6,7 @@
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<tite>Restaurans</tite>
+
 @section CSS{
 	<img src="~/Content/Restaurant/img/favicon.png" />
 	<link href="~/Content/Restaurant/css/fontawesome-all.min.css" rel="stylesheet" />
@@ -20,6 +20,10 @@
 		.resim {
 			width: 65% !important;
 		}
+
+			.resim img {
+				height: 100% !important;
+			}
 	</style>
 }
 
@@ -31,12 +35,12 @@
 				<div class="product-box-layout3">
 					<figure class="item-figure">
 						<a href="single-recipe1.html">
-							<img src="/Content/Restaurant/img/product/product14.jpg" alt="Product" />
+							<img src="@item.CoverImageURL" alt="Product" />
 						</a>
 					</figure>
 					<div class="item-content">
 						<span class="sub-title">SALAD</span>
-						<h3 class="item-title"><a href="single-recipe1.html">@item.RestaurantName</a></h3>
+						<h3 class="item-title restName" rel="@item.RestaurantId"><a href="single-recipe1.html">@item.RestaurantName</a></h3>
 						<ul class="item-rating">
 							<li class="star-fill"><i class="fas fa-star"></i></li>
 							<li class="star-fill"><i class="fas fa-star"></i></li>
@@ -65,35 +69,35 @@
 </section>
 
 
-<div class="footer row">
+<div>
 	@section Footer{
 		<!-- Instagram Start Here -->
 		<section class="instagram-feed-wrap">
 			<div class="instagram-feed-title"><a href="#"><i class="fab fa-instagram"></i>Follow On Instagram</a></div>
 			<ul class="instagram-feed-figure">
 				<li>
-					<a href="single-recipe1.html"><img src="Content/Restaurant/img/social-figure/social-figure1.jpg" alt="Social"></a>
+					<a href="single-recipe1.html"><img src="/Content/Restaurant/img/social-figure/social-figure1.jpg" alt="Social"></a>
 				</li>
 				<li>
-					<a href="single-recipe1.html"><img src="Content/Restaurant/img/social-figure/social-figure2.jpg" alt="Social"></a>
+					<a href="single-recipe1.html"><img src="/Content/Restaurant/img/social-figure/social-figure2.jpg" alt="Social"></a>
 				</li>
 				<li>
-					<a href="single-recipe1.html"><img src="Content/Restaurant/img/social-figure/social-figure3.jpg" alt="Social"></a>
+					<a href="single-recipe1.html"><img src="/Content/Restaurant/img/social-figure/social-figure3.jpg" alt="Social"></a>
 				</li>
 				<li>
-					<a href="single-recipe1.html"><img src="Content/Restaurant/img/social-figure/social-figure4.jpg" alt="Social"></a>
+					<a href="single-recipe1.html"><img src="/Content/Restaurant/img/social-figure/social-figure4.jpg" alt="Social"></a>
 				</li>
 				<li>
-					<a href="single-recipe1.html"><img src="Content/Restaurant/img/social-figure/social-figure5.jpg" alt="Social"></a>
+					<a href="single-recipe1.html"><img src="/Content/Restaurant/img/social-figure/social-figure5.jpg" alt="Social"></a>
 				</li>
 				<li>
-					<a href="single-recipe1.html"><img src="Content/Restaurant/img/social-figure/social-figure6.jpg" alt="Social"></a>
+					<a href="single-recipe1.html"><img src="/Content/Restaurant/img/social-figure/social-figure6.jpg" alt="Social"></a>
 				</li>
 				<li>
-					<a href="single-recipe1.html"><img src="Content/Restaurant/img/social-figure/social-figure7.jpg" alt="Social"></a>
+					<a href="single-recipe1.html"><img src="/Content/Restaurant/img/social-figure/social-figure7.jpg" alt="Social"></a>
 				</li>
 				<li>
-					<a href="single-recipe1.html"><img src="Content/Restaurant/img/social-figure/social-figure8.jpg" alt="Social"></a>
+					<a href="single-recipe1.html"><img src="/Content/Restaurant/img/social-figure/social-figure8.jpg" alt="Social"></a>
 				</li>
 			</ul>
 		</section>
@@ -105,15 +109,23 @@
 
 
 <script src="js/jquery-3.3.1.min.js"></script>
-
 <script src="js/popper.min.js"></script>
-
 <script src="js/bootstrap.min.js"></script>
-
 <script src="js/plugins.js"></script>
-
 <script src="js/owl.carousel.min.js"></script>
-
 <script src="js/smoothscroll.min.js"></script>
-
 <script src="js/main.js"></script>
+
+<script>
+	$(".restName").click(function () {
+		var btn = $(this);
+		var id = btn.attr("rel");
+		$.ajax({
+			url: "/Restaurant/RestaurantDetail/" + id,
+			method: "GET",
+			success: function (rest) {
+				//burayı doldur
+			}
+			});
+	});
+</script>

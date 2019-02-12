@@ -247,7 +247,7 @@ label {
 	display: block;
 	height: 100%;
 	color: black !important;
-	text-decoration: none;
+	text-decoration: none !important;
 	cursor: pointer;
 	font-size: 0.8em;
 }
@@ -1739,5 +1739,5 @@ figure.photostack-current::after {
 	text-align: center;
 	padding: 1em 0;
 	margin: 1em 0 0 0;
-	background: #6E6E86;
+	background: black;
 }

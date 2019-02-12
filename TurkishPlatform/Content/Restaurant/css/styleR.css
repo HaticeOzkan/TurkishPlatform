@@ -167,8 +167,8 @@ img {
 }
 ul {
   list-style: outside none none;
-  margin: 0;
-  padding: 0;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 [class^="flaticon-"]:before,
 [class*=" flaticon-"]:before,
@@ -1694,6 +1694,7 @@ ul {
   -ms-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+  text-decoration:none !important;
 }
 .instagram-feed-title a i {
   margin-right: 8px;

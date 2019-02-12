@@ -10,5 +10,7 @@ namespace TurkishPlatform.Models
         public int RestaurantId { get; set; }
         public string RestaurantName { get; set; }
         public string Address { get; set; }
-    }
+		public string CoverImageURL { get; set; }
+
+	}
 }
