@@ -1,8 +1,8 @@
 ﻿@using TurkishPlatform.Models
-@model  List<Activity>
+@model  Activity
 @{
     ViewBag.Title = "ActivityDetails";
-    Layout =null;
+    Layout = null;
     //Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -11,63 +11,71 @@
 <head>
     <meta charset="UTF-8">
     <title>Title of the document</title>
+    
+
     <style>
+        #aa{
+            font-size:20px;
+        }
+          #bb{
+            font-size:20px;
+        }
         #perde {
-    background-color: black;
-    width: 100%;
-    height: 100%;
-    opacity: 0.7;
-    position: fixed;
-    left: 0;
-    top: 0;
-    display: none;
-    z-index: 100;
-}
+            background-color: black;
+            width: 100%;
+            height: 100%;
+            opacity: 0.7;
+            position: fixed;
+            left: 0;
+            top: 0;
+            display: none;
+            z-index: 100;
+        }
 
-#ActivityDetails {
-    background-color:rgb(189, 206, 138);
-    height: 900px;
-    width: 600px;
-    position: absolute;
-    top:0px;
-    display: none;
-    left:850px;
-    border-radius: 15px;
-    top: 130px;
-    z-index: 110;
-    color:white;
-}
-
-     #kapatbtn {
+        #ActivityDetails {
+            background-color:#E91E63;
+            height: 1000px;
+            width: 700px;
             position: absolute;
-            top:8px;
+            top: -10px;
+            display: none;
+            left: 850px;
+            border-radius: 15px;
+            top: 130px;
+            z-index: 110;
+            color: white;
+        }
+
+        #kapatbtn {
+            position: absolute;
+            top: 8px;
             right: 12px;
             cursor: pointer;
             font-size: 50px;
-            color:white;
+            color: white;
         }
-     #resim111{
-         width:550px;
-         height:200px;
-         margin-top:10px;
-         /*display:inline-block;*/
-         margin-left:25px;
-     }
-     h1{
-          /*display:inline-block;*/
-          /*position:absolute;*/
-          margin-left:220px;
-          margin-top:20px;
 
-     }
-     * p{
-         font-size:30px;
-         margin-left:25px;
-     }
+        #resim111 {
+            width: 630px;
+            height: 213px;
+            margin-top: -18px;
+            /*display:inline-block;*/
+            margin-left: 25px;
+        }
 
+        h1 {
+            /*display:inline-block;*/
+            /*position:absolute;*/
+            margin-left: 276px;
+            margin-top: 6px;
+        }
+
+        * p {
+            font-size: 30px;
+            margin-left: 25px;
+        }
     </style>
     <style>
-           
         html, body {
             min-height: 100%;
         }
@@ -111,7 +119,6 @@
                 text-shadow: 0px -1px 1px #bdb5b4, 1px 1px 1px white;
                 position: absolute;
                 width: 30px;
-                
             }
 
 
@@ -119,14 +126,14 @@
             content: "✿❤";
             left: 21px;
             top: 16px;
-            font-size:50px;
+            font-size: 50px;
         }
 
         .flower:after {
             content: "?";
             left: 23px;
             top: 10px;
-              font-size:50px;
+            font-size: 50px;
         }
 
         .tick:after {
@@ -179,82 +186,129 @@
                 color: #dbd2d2;
                 text-shadow: 0px -1px 1px #bdb5b4, 0px 1px 1px white;
             }
-            #katil{
-                margin-left:-400px;
-                margin-top:730px;
-            }
-           #Katilmiyorum{
-                  margin-left:-300px;
-                margin-top:730px;
-           }
-           #bilmiyorum{
+
+        #katil {
+            margin-left: -430px;
+            margin-top: 839px;
+        }
+
+        #Katilmiyorum {
+            margin-left: -308px;
+            margin-top: 839px;
+        }
+        /*#bilmiyorum{
                 margin-left:-200px;
                 margin-top:730px;
 
-           }
+           }*/
     </style>
-   
-</head>
 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+
+</head>
 <body>
     <h2>ActivityDetails</h2>
     <div id="perde">
     </div>
     <div id="ActivityDetails">
-     
+
 
         <a href="/Activity/Index"> <img id="kapatbtn" src="~/Uploads/Activity/exit.png" /></a>
-        @foreach (Activity item in Model)
-        {
-            if (item.ActivityId == ViewBag.Id)
+        @*@foreach (Activity item in Model)
+            {*@
 
-            {
-                       <h1 class="text-center">@item.Title</h1>
-
-                <img id="resim111" alt="Independence Day" src="@item.ImageURL" />  
-               
-                
-                <p><b>İçerik: </b>  @item.Content</p>
-                <p> <b>Etkinlik Günü</b> @item.Date.ToShortDateString()</p>
-
-
-                <p><b>Başlama Saati:</b>  @item.StartTime.Hour:@item.StartTime.Minute </p>
-                <p><b>Bitiş Saati:</b>  @item.FinishTime.Hour:@item.FinishTime.Minute</p>
-                <p><b>Adres:</b> @item.Address</p>
-
-                DateTime baslamaTarihi = item.Date;
-                DateTime simdi = DateTime.Today;
-
-
-                TimeSpan kalangun = baslamaTarihi - simdi;//Sonucu zaman olarak döndürür
-                double toplamGun = kalangun.TotalDays;// kalanGun den TotalDays ile sadece toplam gun değerini çekiyoruz.
-
-            }
-        
-            <form>
-                <div class="buttonHolder">
-                    <a href="#" id="katil" class="button tick"></a>
-                    <a href="#" id="Katilmiyorum" class="button cross"></a>
-                    @*<a href="#" id="bilmiyorum" class="button heart"></a>*@
-                    <a href="#" id="bilmiyorum" class="button flower"></a>
-                </div>
-                     if(@item.UserId== ViewBag.KullaniciId){
-                @item.Participation=1; 
-
-                            }
-                 
-        </form>
-
+        @{
+            var item = Model;
         }
-           
-       
+        @if (item.ActivityId == ViewBag.Id)
+
+        {
+            <h1 class="text-center">@item.Title</h1>
+
+            <img id="resim111" alt="Independence Day" src="@item.ImageURL" />
+
+
+            <p><b>İçerik: </b>  @item.Content</p>
+            <p> <b>Etkinlik Günü</b> @item.Date.ToShortDateString()</p>
+
+
+            <p><b>Başlama Saati:</b>  @item.StartTime.Hour:@item.StartTime.Minute </p>
+            <p><b>Bitiş Saati:</b>  @item.FinishTime.Hour:@item.FinishTime.Minute</p>
+            <p><b>Adres:</b> @item.Address</p>
+
+
+
+            <form method="post">
+                <div class="buttonHolder">
+                    <span id="katil" name="katiliyorum" class="button tick"></span>
+                    <div class="alert alert-success" id="aa">     
+                    </div>
+                    <div class="alert alert-danger" id="bb">
+                        
+                    </div>
+                    
+                    <span id="Katilmiyorum" class="button cross"></span>
+                    @*<a href="#" id="bilmiyorum" class="button heart"></a>*@
+                    @*<a href="#" id="bilmiyorum" class="button flower"></a>*@
+                </div>
+            </form>
+        }
 
     </div>
     <script src="~/Content/ActivityDetails.js"></script>
 
- 
+    <script>
+        $(document).ready(function () {
+            //debugger;
+            $("#katil").click(function () {
+                
+                var sonuc = 1;
+                $.ajax({ 
+                    url: "/Activity/AcceptDeny/?id="+@Model.ActivityId +"&kullaniciId=" + 3 + "&sonuc=" + 1 + "   ",
+                    //data: {"id": @Model.ActivityId,"kullaniciId": 1, "sonuc": 1 },
+                    type: "POST",
+                    dataType: "json",
+                    data: { KatilmaId: sonuc },
+                    success: function (data) {
+                        if (sonuc == 1) {
+                             debugger;
+                            sonuc = 1;
+                            $("#aa").text("Kaydınız oluştu")
+                            $("#bb").text("")
+                        }
+                        //else
+                        //    alert("Tıklama Başarısız!");
+                    }
+                });
+
+            });
+
+            $("#Katilmiyorum").click(function () {
+                var sonuc = 0;
+                $.ajax({
+                    url: "/Activity/AcceptDeny/?id="+@Model.ActivityId +"&kullaniciId=" + 3 + "&sonuc=" + 0 + "   ",
+                    
+                    type: "POST",
+                    dataType: "json",
+                    data: { KatilmaId: sonuc },
+                    success: function (data)  {
+                         debugger;
+                        if (sonuc == 0){
+                            $("#aa").text("")
+                            $("#bb").text("Katılmıyorsunuz")
+                        }
+                        //else
+                        //    alert("Güncelleme işlemi başarısız!");
+                    }
+                });
+
+            });
+        }
+            );
+    </script>
+
 </body>
 
 </html>
-
-

@@ -6,7 +6,7 @@
     var kapatbtn = document.getElementById("kapatbtn")
     kapatbtn.onclick = hayalkapat;
     var ac = document.getElementById("Activity");
-    ac.onclick = acbtn;
+    //ac.onclick = acbtn;
 }
 window.setTimeout(acbtn, 10);
 

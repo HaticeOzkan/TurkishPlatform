@@ -327,20 +327,21 @@
 
 </head>
 <body>
+   
     <div class="topnav">
-        <a @*class="active"*@ href="#">Geçmiş Etkinlikler</a>
+        @*<a @*class="active"*@ @*href="#">Geçmiş Etkinlikler</a>*@
        
         <a href="/Activity/Create">Etkinlik Oluştur</a>
         <a href="#about">Hakkımızda</a>
         <a href="#">İçerik</a>
         <div class="search-container">
-            <form action="/action_page.php">
-                <input type="text" placeholder="Etkinlik Ara" name="search">
-                <button type="submit">Ara</button>
+            <form  class="form-horizontal" method="post" enctype="multipart/form-data">
+                <input type="text" placeholder="Etkinlik Ara" name="Search">
+                <button type="submit" name="search" >Ara</button>
             </form>
         </div>
     </div>
-     
+ 
     <div class="container">
         <div class="row">
             <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
@@ -378,9 +379,9 @@
                                     Etkinlik Ayrıntılarını Gör</a>
                                     <h3>@item.Date.ToShortDateString() </h3>
                                     <ul>
-                                        <li style="width:33%;">1 <span class="glyphicon glyphicon-ok"></span></li> 
-                                        <li style="width:33%;">103 <span class="glyphicon glyphicon-remove" ></span></li>
-                                        <li style="width:34%;">3 <span class="fa fa-question"></span></li>
+                                        <li style="width:40%;">1 <span class="glyphicon glyphicon-ok"></span></li> 
+                                        <li style="width:40%;">103 <span class="glyphicon glyphicon-remove" ></span></li>
+                                        @*<li style="width:34%;">3 <span class="fa fa-question"></span></li>*@
                                     </ul>
                                 </div>
                                 
