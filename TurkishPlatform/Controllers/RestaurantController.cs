@@ -9,10 +9,10 @@ namespace TurkishPlatform.Controllers
 {
     public class RestaurantController : Controller
     {
-        // GET: Restaurant
-        public ActionResult Index()
+		// GET: Restaurant
+		PlatformContext db = new PlatformContext();
+		public ActionResult Index()
         {
-			PlatformContext db = new PlatformContext();
 			RestaurantViewModel data = new RestaurantViewModel();
 			data.RestaurantId = db.Restaurants.Select(x => x.RestaurantId).FirstOrDefault();
 			data.RestaurantName = db.Restaurants.Select(x => x.RestaurantName).FirstOrDefault();
@@ -24,22 +24,11 @@ namespace TurkishPlatform.Controllers
 			return View(data);
 		}
 
-		[HttpPost]
-		public ActionResult RestaurantDetail(int id, HttpPostedFileBase Image)
+		
+		public JsonResult RestaurantDetail(int id)
 		{
-			PlatformContext db = new PlatformContext();
-			int RestaurantId = (from b in db.Restaurants
-							  where b.RestaurantId == id
-							  select b.RestaurantId).FirstOrDefault();
-			ViewBag.Id = id;
-
-
-			List<Restaurant> Restaurants = (from a in db.Restaurants
-										 where a.RestaurantId == id
-										 select a).ToList();
-			
-			
-			return View(Restaurants);
+			Restaurant r = db.Restaurants.Where(x => x.RestaurantId == id).FirstOrDefault();
+			return Json(r, JsonRequestBehavior.AllowGet);
 		}
     }
 }
