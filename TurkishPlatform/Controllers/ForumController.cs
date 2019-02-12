@@ -14,7 +14,7 @@ namespace TurkishPlatform.Controllers
         public ActionResult Index()
         {
             ViewBag.CategoryList = Db.ForumCommentCategories.ToList();
-         
+           
             return View();
         }
         public JsonResult Topics(int ID)

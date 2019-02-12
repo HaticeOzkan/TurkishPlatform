@@ -459,43 +459,13 @@
                                 <div class="table-container">
                                     <table class="table table-filter">
                                         <tbody>
-                                            <tr data-status="pagado">
-                                                <td>
-                                                  
-                                                </td>
-                                                <td>
-                                                    <a href="javascript:;" class="star">
-                                                        <i class="far fa-heart Bos"></i>
-                                                       
-                                                    </a>
-                                                </td>
-                                                <td>
-                                                    <div class="media">
-                                                        <a href="#" class="pull-left">
-                                                            <img src="https://s3.amazonaws.com/uifaces/faces/twitter/fffabs/128.jpg" class="media-photo">
-                                                        </a>
-                                                        <div class="media-body">
-                                                            <span class="media-meta pull-right">Febrero 13, 2016</span>
-                                                            <h4 class="title">
-                                                                Lorem Impsum
-                                                             
-                                                            </h4>
-                                                            <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                           
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
-                        <div class="content-footer">
-                            <p>
-                                Page © - 2016 <br>
-                                Powered By <a href="https://www.facebook.com/tavo.qiqe.lucero" target="_blank">TavoQiqe</a>
-                            </p>
-                        </div>
+                       
                     </div>
                 </section>
 
@@ -519,7 +489,7 @@
                 success: function (TitleList) {
                     for (var i = 0; i < TitleList.length; i++) {
 
-                        $('.Title').append('<h2 rel="' + TitleList[i].TitleId + '">' + TitleList[i].Text + '</h2>');
+                        $('.Title').append('<h2 style='' rel="' + TitleList[i].TitleId + '">' + TitleList[i].Text + '</h2>');
                     }
 
                 }//donus aldıgımızda napacaz? biz diğer taraftan true false dndurmuştuk ondan bahsetmek için temsili isim verdik fonksiyon parametresine
@@ -536,9 +506,25 @@
             success: function (TopicList) {
                 for (var i = 0; i < TopicList.length; i++) {
 
+                    var sablon = `<tr data-status='pagado'>
 
-                    $('.Topic').append('<a style="display:inline-block" href=Forum/Comment?ID="' + TopicList[i].TopicId + '">' + TopicList[i].TopicTitle + '</a>');
-                    $('.Topic').append('<br/><br/>')
+                        <td>
+                            <div class='media'>
+                                <a href='#' class='pull-left'>
+                                    <img src='https://s3.amazonaws.com/uifaces/faces/twitter/fffabs/128.jpg' class='media-photo'>
+                                                        </a>
+                                    <div class='media-body'>
+                                        <span class='media-meta pull-right'>Febrero 13, 2016</span>
+                                        <h4 class='title'></h4>
+                                        <p class='summary'>`+ TopicList[i].TopicTitle+`</p>
+                                    </div>
+                                                    </div>
+                                                </td>
+                                            </tr>`;
+                    //$('.Topic').append('<a style="display:inline-block" href=Forum/Comment?ID="' + TopicList[i].TopicId + '">' + TopicList[i].TopicTitle + '</a>');
+                    //$('.Topic').append('<br/><br/>')
+
+                    $("table tbody").append(sablon);
 
 
                 }
@@ -548,21 +534,6 @@
     });
     $(document).ready(function () {
 
-        $('.star').on('click', function () {
-            $(this).toggleClass('star-checked');
-          
-        });
-        $('.star').on('click', function () {
-            $(this).append("<i class='fas fa-heart dolu'></i>");
-            $(this).find('.Bos').remove();
-        });
-        $('.star').on('click', function () {
-            if ($('.star').find('.dolu').length != 0) {//hiçbir elemanı yoksa
-                $(this).append("<i class='far fa - heart Bos'></i>");
-                $(this).find('.dolu').remove();
-            }
-          
-        });
 
         $('.ckbox label').on('click', function () {
             $(this).parents('tr').toggleClass('selected');
