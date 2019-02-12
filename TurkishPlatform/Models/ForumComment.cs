@@ -41,6 +41,8 @@ namespace TurkishPlatform.Models
 		public ForumTopicTitle ForumTopicTitle { get; set; }
 		[ForeignKey("ForumTopicTitle")]
 		public int ForumTopicTitleId{ get; set; }
+       
+       
 	}
     public class ForumTopicTitle
     {
