@@ -24,6 +24,7 @@ namespace TurkishPlatform.Controllers
 			return View(data);
 		}
 
+		[HttpPost]
 		public ActionResult RestaurantDetail(int id, HttpPostedFileBase Image)
 		{
 			PlatformContext db = new PlatformContext();

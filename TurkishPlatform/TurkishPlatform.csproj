@@ -598,6 +598,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Menu\" />
+    <Folder Include="Content\NewFolder1\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
