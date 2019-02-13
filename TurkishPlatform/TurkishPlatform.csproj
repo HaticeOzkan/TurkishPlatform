@@ -171,6 +171,7 @@
     <Compile Include="Controllers\ForumController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RestaurantController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -594,6 +595,7 @@
     <Content Include="Views\Activity\ActivityDetails.cshtml" />
     <Content Include="Views\Restaurant\Index.cshtml" />
     <Content Include="Views\Forum\Comment.cshtml" />
+    <Content Include="Views\User\Access.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

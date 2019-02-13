@@ -37,8 +37,20 @@ namespace TurkishPlatform.Controllers
         [HttpGet]
         public ActionResult Comment(int ID)
         {
+           
+          
             var CommentList = Db.ForumComments.Where(x => x.CommentTopicId == ID).ToList();
             return View(CommentList);
+        }
+        [HttpPost]
+        public ActionResult Comment(string Comment)
+        {
+            ForumComment Com = new ForumComment();
+            Com.Content = Comment;
+           //user id eklenecek
+            Db.ForumComments.Add(Com);
+            Db.SaveChanges();
+            return RedirectToAction("Comment");
         }
       
     }

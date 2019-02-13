@@ -31,11 +31,7 @@ namespace TurkishPlatform.Models
 		public int CountryNo { get; set; }
 		public virtual List<LocationComment> TourismComments { get; set; }
 		public virtual List<ForumComment> ForumComments { get; set; }
-		public virtual List<RestaurantComment> RestaurantComments { get; set; }
-      
-        
-
-        
+		public virtual List<RestaurantComment> RestaurantComments { get; set; }  
 	}
     
 }

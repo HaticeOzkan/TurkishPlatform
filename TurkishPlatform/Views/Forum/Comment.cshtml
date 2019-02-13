@@ -113,76 +113,42 @@
                 </div>
                 <div class="panel-body body-panel">
                     <ul class="chat">
-                        <li class="left clearfix">
-                            <span class="chat-img pull-left">
-                                <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
-                            </span>
-                            <div class="chat-body clearfix">
-                                <div class="header">
-                                    <strong class="primary-font">Jack Sparrow</strong> <small class="pull-right text-muted">
-                                        <span class="glyphicon glyphicon-time"></span>12 mins ago
-                                    </small>
+                        @foreach (ForumComment item in Model)
+                        {
+                            <li class="left clearfix">
+                                <span class="chat-img pull-left">
+                                    <img src="" alt="User Avatar" class="img-circle" />
+                                    <br />
+                                    <a href=""> <strong class="primary-font">@item.ByUser.NameSurname</strong></a>
+                                </span>
+                                <div class="chat-body clearfix">
+                                    <div class="header">
+                                         <small class="pull-right text-muted">
+                                            <span class="glyphicon glyphicon-time"></span>@item.Permission
+                                        </small>
+                                    </div>
+                                    <p>
+                                       @item.Content
+                                    </p>
                                 </div>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                    dolor, quis ullamcorper ligula sodales.
-                                </p>
-                            </div>
-                        </li>
-                        <li class="right clearfix">
-                            <span class="chat-img pull-right">
-                                <img src="http://placehold.it/50/FA6F57/fff&text=ME" alt="User Avatar" class="img-circle" />
-                            </span>
-                            <div class="chat-body clearfix">
-                                <div class="header">
-                                    <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>13 mins ago</small>
-                                    <strong class="pull-right primary-font">Bhaumik Patel</strong>
-                                </div>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                    dolor, quis ullamcorper ligula sodales.
-                                </p>
-                            </div>
-                        </li>
-                        <li class="left clearfix">
-                            <span class="chat-img pull-left">
-                                <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
-                            </span>
-                            <div class="chat-body clearfix">
-                                <div class="header">
-                                    <strong class="primary-font">Jack Sparrow</strong> <small class="pull-right text-muted">
-                                        <span class="glyphicon glyphicon-time"></span>14 mins ago
-                                    </small>
-                                </div>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                    dolor, quis ullamcorper ligula sodales.
-                                </p>
-                            </div>
-                        </li>
-                        <li class="right clearfix">
-                            <span class="chat-img pull-right">
-                                <img src="http://placehold.it/50/FA6F57/fff&text=ME" alt="User Avatar" class="img-circle" />
-                            </span>
-                            <div class="chat-body clearfix">
-                                <div class="header">
-                                    <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>15 mins ago</small>
-                                    <strong class="pull-right primary-font">Bhaumik Patel</strong>
-                                </div>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                    dolor, quis ullamcorper ligula sodales.
-                                </p>
-                            </div>
-                        </li>
+                            </li>
+                        }
+
+
                     </ul>
                 </div>
-                <div class="panel-footer clearfix">
-                    <textarea class="form-control" rows="3"></textarea>
-                    <span class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-xs-12" style="margin-top: 10px">
-                        <button class="btn btn-warning btn-lg btn-block" id="btn-chat">Send</button>
-                    </span>
-                </div>
+                <form method="post">
+                    <div class="panel-footer clearfix">
+
+                        <input class="form-control" rows="5" name="Comment">
+                        @*<//buraya kimin yazdıgı input hidden eklenmeli*@
+                        <span class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-xs-12" style="margin-top: 10px">
+                            <button class="btn btn-warning btn-lg btn-block" id="btn-chat">Send</button>
+                        </span>
+                         </div>
+                </form>
+               
+               
             </div>
         </div>
     </div>
