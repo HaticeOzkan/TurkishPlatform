@@ -411,6 +411,29 @@
     .table-filter .media .summary {
         font-size: 14px;
     }
+    /***********************List group***********************/
+    .material_list_group .material_list_group_item {
+        color: #fff;
+        font-weight: 400;
+        border-radius: 0;
+        background-color: #4092d9;
+        -webkit-transition: background-color 0.2s ease-out 0s;
+        transition: background-color 0.2s ease-out 0s;
+    }
+
+        .material_list_group .material_list_group_item:hover {
+            background-color: #336ea1;
+        }
+
+    .material_list_group .disabled:hover {
+        background-color: #4092d9;
+        color: #ffffff;
+    }
+
+    .material_list_group .material_badge {
+        background-color: #fff;
+        border-color: #ffffff;
+    }
 </style>
 <div class="row" style="width:500px; margin:auto">
     @*Buraya kategoriler eklenecek*@
@@ -445,112 +468,120 @@
             <div class="row">
 
                 <section class="content">
-                    <h1>Table Filter</h1>
+                
                     <div class="col-md-8 col-md-offset-2">
                         <div class="panel panel-default">
                             <div class="panel-body">
                                 <div class="pull-right">
                                     <div class="btn-group">
-                                       
-                                        <button type="button" class="btn btn-warning btn-filter" data-target="pendiente">Pendiente</button>
-                                        
+                                        <button type="button" class="btn btn-warning btn-filter" data-target="pendiente">Konu Başlat</button>
+
                                     </div>
                                 </div>
                                 <div class="table-container">
                                     <table class="table table-filter">
-                                        <tbody>
-                                           
-                                        </tbody>
+                                        <tbody></tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
-                       
+
                     </div>
                 </section>
 
             </div>
         </div>
-        <div class="col-xs-3 Title">
 
-        </div>
+    </div>   <div class="col-xs-3 Title">
+
     </div>
-<script>
-    $(document).ready(function () {
+    </div>
+    <script>
+        $(document).ready(function () {
 
-        $(".del").click(function () {
+            $(".del").click(function () {
 
-            var btn = $(this);//bu butonun id sini alalım
-            var ID = btn.attr("rel");//id bize rel attr den gelecek
+                var btn = $(this);//bu butonun id sini alalım
+                var ID = btn.attr("rel");//id bize rel attr den gelecek
+                $.ajax({
+                    //nereye istek atacağız?
+                    url: "/Forum/Topics/" + ID,
+                    method: "GET",//BUYUK HARFLE YAZMALIYIM AJAXIM POST METODUYLA GİDECEK
+                    success: function (TitleList) {
+
+
+                        $('.Title').find('ul').remove();
+                        for (var i = 0; i < TitleList.length; i++) {
+
+                            var sablon = `<ul class="list-group material_list_group">
+                                 <li class="list-group-item material_list_group_item " rel="`+ TitleList[i].TitleId + `">` + TitleList[i].Text + `</li>
+
+                                </ul>`;
+                           
+                            $('.Title').append(sablon);
+                        }
+                        //$('.Title').append('<h2 rel="' + TitleList[i].TitleId + '">' + TitleList[i].Text + '</h2>');
+
+                    }//donus aldıgımızda napacaz? biz diğer taraftan true false dndurmuştuk ondan bahsetmek için temsili isim verdik fonksiyon parametresine
+                });
+            });//del classına sahip olan herhangiirşeye tıklandıgında şu işi yap
+
+        });//readin
+        $(document).on("click", ".Title li", function () {
+            var btn = $(this);
+            var ID = btn.attr("rel");
             $.ajax({
-                //nereye istek atacağız?
-                url: "/Forum/Topics/" + ID,
-                method: "GET",//BUYUK HARFLE YAZMALIYIM AJAXIM POST METODUYLA GİDECEK
-                success: function (TitleList) {
-                    for (var i = 0; i < TitleList.length; i++) {
+                url: "/Forum/Title/" + ID,
+                method: "GET",
+                success: function (TopicList) {
+                    $("table tbody").find('*').remove();
+                    for (var i = 0; i < TopicList.length; i++) {
 
-                        $('.Title').append('<h2 style='' rel="' + TitleList[i].TitleId + '">' + TitleList[i].Text + '</h2>');
+                        var sablon = `<tr data-status='pagado'>
+
+                <td>
+                    <div class='media'>
+                      
+                         
+                      
+                        <div class='media-body'>
+                            <span class='media-meta pull-right'>Febrero 13, 2016</span>
+                            <h4 class='title'></h4>
+                            <p class='summary'> <a style="background-color:white; color:Black;" href='/Forum/Comment/`+ TopicList[i].TopicId + `' class='pull-left'>` + TopicList[i].TopicTitle + `  </a></p>
+                        </div>
+                    </div>
+                </td>
+            </tr>`;
+                        //$('.Topic').append('<a style="display:inline-block" href=Forum/Comment?ID ="' + TopicList[i].TopicId + '">' + TopicList[i].TopicTitle + '</a>');
+                        //$('.Topic').append('<br /><br />')
+                     
+                        $("table tbody").append(sablon);
+
+
                     }
-
-                }//donus aldıgımızda napacaz? biz diğer taraftan true false dndurmuştuk ondan bahsetmek için temsili isim verdik fonksiyon parametresine
-            });
-        });//del classına sahip olan herhangiirşeye tıklandıgında şu işi yap
-
-    });//readin
-    $(document).on("click", ".Title h2", function () {
-        var btn = $(this);
-        var ID = btn.attr("rel");
-        $.ajax({
-            url: "/Forum/Title/" + ID,
-            method: "GET",
-            success: function (TopicList) {
-                for (var i = 0; i < TopicList.length; i++) {
-
-                    var sablon = `<tr data-status='pagado'>
-
-                        <td>
-                            <div class='media'>
-                                <a href='#' class='pull-left'>
-                                    <img src='https://s3.amazonaws.com/uifaces/faces/twitter/fffabs/128.jpg' class='media-photo'>
-                                                        </a>
-                                    <div class='media-body'>
-                                        <span class='media-meta pull-right'>Febrero 13, 2016</span>
-                                        <h4 class='title'></h4>
-                                        <p class='summary'>`+ TopicList[i].TopicTitle+`</p>
-                                    </div>
-                                                    </div>
-                                                </td>
-                                            </tr>`;
-                    //$('.Topic').append('<a style="display:inline-block" href=Forum/Comment?ID="' + TopicList[i].TopicId + '">' + TopicList[i].TopicTitle + '</a>');
-                    //$('.Topic').append('<br/><br/>')
-
-                    $("table tbody").append(sablon);
-
-
                 }
-            }
+            });
+
+        });
+        $(document).ready(function () {
+
+
+            $('.ckbox label').on('click', function () {
+                $(this).parents('tr').toggleClass('selected');
+            });
+
+            $('.btn-filter').on('click', function () {
+                var $target = $(this).data('target');
+                if ($target != 'all') {
+                    $('.table tr').css('display', 'none');
+                    $('.table tr[data-status="' + $target + '"]').fadeIn('slow');
+                } else {
+                    $('.table tr').css('display', 'none').fadeIn('slow');
+                }
+            });
+
         });
 
-    });
-    $(document).ready(function () {
-
-
-        $('.ckbox label').on('click', function () {
-            $(this).parents('tr').toggleClass('selected');
-        });
-
-        $('.btn-filter').on('click', function () {
-            var $target = $(this).data('target');
-            if ($target != 'all') {
-                $('.table tr').css('display', 'none');
-                $('.table tr[data-status="' + $target + '"]').fadeIn('slow');
-            } else {
-                $('.table tr').css('display', 'none').fadeIn('slow');
-            }
-        });
-
-    });
-
-</script>
+    </script>
 
 

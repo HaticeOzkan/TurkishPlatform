@@ -593,6 +593,7 @@
     <Content Include="Views\Forum\Index.cshtml" />
     <Content Include="Views\Activity\ActivityDetails.cshtml" />
     <Content Include="Views\Restaurant\Index.cshtml" />
+    <Content Include="Views\Forum\Comment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
