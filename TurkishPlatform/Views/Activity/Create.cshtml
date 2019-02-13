@@ -3,44 +3,45 @@
 
 @{
     ViewBag.Title = "Create";
-    Layout= null;
-    //Layout = "~/Views/Shared/_Layout.cshtml";
+    //Layout= null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
-<html>
-<head>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    @section CSS{
+       
     <style>
-        #label {
+       .activitycreate #label {
             color: black;
             font-size: 21px;
             text-align: center;
             margin-left: 33%;
         }
 
-        textarea {
+       .activitycreate textarea {
             margin-left: 105%;
             height: 100px;
         }
 
-        input {
+       .activitycreate input {
             margin-left: 105%;
             height: 100px;
         }
 
-        select {
+       .activitycreate select {
             margin-left: 105%;
             height: 100px;
             text-align: center;
         }
-    </style>
-</head>
-<body>
+       .activitycreate .ulke{
+            text-align:center !important;
+        }
+    </style>    
+    }
+ 
+
+
+<div class="activitycreate">
 
     @if (!ViewData.ModelState.IsValid)
     {
@@ -69,7 +70,7 @@
             <div class="form-group">
                 @*<label id="label" class="col-md-4 control-label" for="textinput">Etkinlik Günü</label><br /><br />*@
                 <div class="col-md-4">
-                    <input id="textinput" name="date" type="date" style="height:50px" placeholder="Etkinlik Günü" class="form-control input-md text-center">
+                    <input id="textinput" name="date" type="text" onclick="this.type='date'" onblur="this.type=date" style="height:50px" placeholder="Etkinlik Günü" class="form-control input-md text-center">
                     @*<span class="help-block">help</span>*@
                 </div>
             </div>
@@ -83,24 +84,24 @@
             </div>
             <!-- Text input-->
             <div class="form-group">
-                <label id="label" class="col-md-4 control-label" for="textinput">Başlama Saati</label><br /><br /><br />
+                @*<label id="label" class="col-md-4 control-label" for="textinput">Başlama Saati</label><br /><br /><br />*@
                 <div class="col-md-4">
-                    <input id="textinput" name="StartTime" type="time" style="height:50px" class="form-control input-md text-center a">
+                    <input id="textinput" name="StartTime" type="text" onclick="this.type='time'" onblur="this.type='text'" style="height:50px"  placeholder="Başlangıç Saati" class="form-control input-md text-center a">
                     @*<span class="help-block">help</span>*@
                 </div>
             </div>
             <!-- Text input-->
             <div class="form-group">
-                <label id="label" class="col-md-4 control-label" for="textinput">Bitiş Saati</label><br /><br /><br />
+                @*<label id="label" class="col-md-4 control-label" for="textinput">Bitiş Saati</label><br /><br /><br />*@
                 <div class="col-md-4">
-                    <input id="textinput" name="FinishTime" type="time" style="height:50px"  placeholder="Bitiş Saati" class="form-control input-md text-center">
+                    <input id="textinput" name="FinishTime" type="text" onclick="this.type='time'" onblur="this.type='text'" style="height:50px"  placeholder="Bitiş Saati" class="form-control input-md text-center">
                     @*<span class="help-block">help</span>*@
                 </div>
             </div>
             <!-- Textarea -->
             <div class="form-group">
                 @*<label id="label" class="col-md-4 control-label" for="textarea">Resim Seç</label>*@@*<br /><br /><br />*@
-                <div class="col-md-4 ">
+                <div class="col-md-4 text-center">
                     <input id="textinput" name="Image" type="file" placeholder="Resim" style="height:50px" class="form-control input-md text-center">
                 </div>
             </div>
@@ -108,7 +109,7 @@
             <div class="form-group">
                 @*<label id="label" class="col-md-4 control-label" for="selectbasic">Ülke</label><br /><br /><br />*@
                 <div class="col-md-4">
-                    <select id="selectbasic" style="height:50px" name="CountryId" class="form-control text-center">
+                    <select id="selectbasic" style="height:50px" name="CountryId" class="form-control  ulke">
                         <option class="text-center" value="1">Ülke Sec</option>
                         <option value="2">Option two</option>
                     </select>
@@ -138,15 +139,6 @@
         </fieldset>
 
     </form>
-    <script>
-        $(document).ready(function () {
-            document.getElementById(".a").placeholder = "Type name here..";
-        });
- 
-    
-       
-        
-    </script>
-</body>
-</html>
+
+</div> 
 
