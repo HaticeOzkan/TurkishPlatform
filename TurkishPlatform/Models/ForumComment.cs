@@ -14,9 +14,10 @@ namespace TurkishPlatform.Models
 		[Column(TypeName = "text")]
 		[Required]
 		public string Content { get; set; }
+        
 		public DateTime Date { get; set; }
 		[ForeignKey("UserId")]
-		public User ByUser { get; set; }
+		public virtual User ByUser { get; set; }
 		public int UserId { get; set; }
 		public ForumCommentTopic CommentTopic { get; set; }
 		[ForeignKey("CommentTopic")]

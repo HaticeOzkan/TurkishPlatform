@@ -34,9 +34,24 @@ namespace TurkishPlatform.Controllers
                 x.TopicId }).ToList();
             return Json(TopicList, JsonRequestBehavior.AllowGet);
         }
-        public ActionResult Comment()
+        [HttpGet]
+        public ActionResult Comment(int ID)
         {
-            return View();
+           
+          
+            var CommentList = Db.ForumComments.Where(x => x.CommentTopicId == ID).ToList();
+            return View(CommentList);
         }
+        [HttpPost]
+        public ActionResult Comment(string Comment)
+        {
+            ForumComment Com = new ForumComment();
+            Com.Content = Comment;
+           //user id eklenecek
+            Db.ForumComments.Add(Com);
+            Db.SaveChanges();
+            return RedirectToAction("Comment");
+        }
+      
     }
 }
