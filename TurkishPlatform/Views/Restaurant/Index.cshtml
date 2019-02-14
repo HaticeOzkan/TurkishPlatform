@@ -40,7 +40,7 @@
 					</figure>
 					<div class="item-content">
 						<span class="sub-title">SALAD</span>
-						<h3 class="item-title restName" rel="@item.RestaurantId"><a href="single-recipe1.html">@item.RestaurantName</a></h3>
+						<h3 class="item-title " ><a class="restName" href="single-recipe1.html" rel="@item.RestaurantId">@item.RestaurantName</a></h3>
 						<ul class="item-rating">
 							<li class="star-fill"><i class="fas fa-star"></i></li>
 							<li class="star-fill"><i class="fas fa-star"></i></li>
@@ -109,16 +109,16 @@
 
 @*jquery ekle*@
 
-@*<script>
+<script>
 	$(".restName").click(function () {
 		var btn = $(this);
 		var id = btn.attr("rel");
 		$.ajax({
 			url: "/Restaurant/RestaurantDetail/" + id,
 			method: "GET",
-			success: function (rest) {
-				//burayı doldur
+            success: function (r) {
+                alert(r);
 			}
 			});
 	});
-</script>*@
+</script>

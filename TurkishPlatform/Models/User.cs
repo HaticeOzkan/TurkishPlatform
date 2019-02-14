@@ -28,6 +28,7 @@ namespace TurkishPlatform.Models
 		public string Password { get; set; }
 		[MaxLength(1000)]
 		public string ImageURL { get; set; }
+
 		public int CountryNo { get; set; }
 		public virtual List<LocationComment> TourismComments { get; set; }
 		public virtual List<ForumComment> ForumComments { get; set; }
