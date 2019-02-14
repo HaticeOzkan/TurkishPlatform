@@ -25,12 +25,12 @@ namespace TurkishPlatform.Controllers
 		}
 
 		
-		public JsonResult RestaurantDetail(int id)
+		public ActionResult RestaurantDetail(int id)
 		{
 			Restaurant r = db.Restaurants.FirstOrDefault(x => x.RestaurantId == id);
-			ViewBag.Details = r;
+			ViewBag.RestaurantId = r.RestaurantId;
 
-			return Json(r, JsonRequestBehavior.AllowGet);
+			return View(r);
 		}
     }
 }

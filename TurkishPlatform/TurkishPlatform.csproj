@@ -597,6 +597,7 @@
     <Content Include="Views\Restaurant\Index.cshtml" />
     <Content Include="Views\Forum\Comment.cshtml" />
     <Content Include="Views\User\Access.cshtml" />
+    <Content Include="Views\Restaurant\RestaurantDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
