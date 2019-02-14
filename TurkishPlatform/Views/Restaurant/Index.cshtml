@@ -15,6 +15,7 @@
 	<link href="~/Content/Restaurant/css/owl.carousel.min.css" rel="stylesheet" />
 	<link href="~/Content/Restaurant/css/owl.theme.default.min.css" rel="stylesheet" />
 	<link href="~/Content/Restaurant/css/styleR.css" rel="stylesheet" />
+	<script src="~/Content/Restaurant/js/jquery-3.3.1.min.js"></script>
 
 	<style>
 		.resim {
@@ -40,7 +41,14 @@
 					</figure>
 					<div class="item-content">
 						<span class="sub-title">SALAD</span>
-						<h3 class="item-title restName" rel="@item.RestaurantId"><a href="single-recipe1.html">@item.RestaurantName</a></h3>
+						<h3 class="item-title restName" rel="@item.RestaurantId" style="cursor:pointer;">@item.RestaurantName</h3>
+
+
+						<div class="newDetail" style="position:absolute; z-index:2;">
+							
+						</div>
+
+
 						<ul class="item-rating">
 							<li class="star-fill"><i class="fas fa-star"></i></li>
 							<li class="star-fill"><i class="fas fa-star"></i></li>
@@ -107,18 +115,20 @@
 </div>
 
 
-@*jquery ekle*@
 
-@*<script>
-	$(".restName").click(function () {
-		var btn = $(this);
-		var id = btn.attr("rel");
-		$.ajax({
-			url: "/Restaurant/RestaurantDetail/" + id,
-			method: "GET",
-			success: function (rest) {
-				//burayı doldur
-			}
+<script>
+	$(document).ready(function () {
+		$(".restName").click(function () {
+			var btn = $(this);
+			var id = btn.attr("rel");
+			$.ajax({
+				url: "/Restaurant/RestaurantDetail/" + id,
+				method: "GET",
+				success: function (r) {
+					$(".newDetail")
+					
+				}
 			});
+		});
 	});
-</script>*@
+</script>
