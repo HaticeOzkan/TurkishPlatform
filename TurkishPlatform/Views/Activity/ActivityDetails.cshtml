@@ -2,8 +2,8 @@
 @model  Activity
 @{
     ViewBag.Title = "ActivityDetails";
-    Layout = null;
-    //Layout = "~/Views/Shared/_Layout.cshtml";
+    //Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -11,15 +11,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Title of the document</title>
-    
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
 
     <style>
-        #aa{
-            font-size:20px;
+        #aa {
+            font-size: 20px;
         }
-          #bb{
-            font-size:20px;
-        }
+
         #perde {
             background-color: black;
             width: 100%;
@@ -33,17 +35,17 @@
         }
 
         #ActivityDetails {
-            background-color:#E91E63;
+            background-color: #FAF0E6;
             height: 1000px;
             width: 700px;
             position: absolute;
-            top: -10px;
+            top: -10%;
             display: none;
-            left: 850px;
+            left: 33%;
             border-radius: 15px;
             top: 130px;
             z-index: 110;
-            color: white;
+            color: white; 
         }
 
         #kapatbtn {
@@ -56,23 +58,22 @@
         }
 
         #resim111 {
-            width: 630px;
-            height: 213px;
-            margin-top: -18px;
-            /*display:inline-block;*/
-            margin-left: 25px;
+            width: 490px;
+            height: 190px;
+            margin-top: 0px;
+            margin-left: 9px;
         }
 
-        h1 {
-            /*display:inline-block;*/
-            /*position:absolute;*/
+        h1 { 
             margin-left: 276px;
             margin-top: 6px;
         }
 
         * p {
-            font-size: 30px;
+            margin-top:15px;
+            font-size: 20px;
             margin-left: 25px;
+            margin-right:10px;
         }
     </style>
     <style>
@@ -90,6 +91,10 @@
             width: 400px;
         }
 
+        #ActivityDetails h1 {
+            margin-left: 50px;
+            color: black;
+        }
 
         .button {
             position: absolute !important;
@@ -144,7 +149,7 @@
 
         .cross:after {
             content: "✖";
-            left: 24px;
+            left: 21px;
             top: 15px;
         }
 
@@ -193,7 +198,7 @@
         }
 
         #Katilmiyorum {
-            margin-left: -308px;
+            margin-left: -246px;
             margin-top: 839px;
         }
         /*#bilmiyorum{
@@ -225,7 +230,9 @@
         @if (item.ActivityId == ViewBag.Id)
 
         {
-            <h1 class="text-center">@item.Title</h1>
+            <div class="alert alert-warning" id="aa">
+            </div>
+            <p><b>@item.Title</b></p>
 
             <img id="resim111" alt="Independence Day" src="@item.ImageURL" />
 
@@ -243,16 +250,15 @@
             <form method="post">
                 <div class="buttonHolder">
                     <span id="katil" name="katiliyorum" class="button tick"></span>
-                    <div class="alert alert-success" id="aa">     
-                    </div>
-                    <div class="alert alert-danger" id="bb">
-                        
-                    </div>
-                    
                     <span id="Katilmiyorum" class="button cross"></span>
+
                     @*<a href="#" id="bilmiyorum" class="button heart"></a>*@
                     @*<a href="#" id="bilmiyorum" class="button flower"></a>*@
                 </div>
+
+                <!------ Include the above in your HEAD tag ---------->
+                <br>
+
             </form>
         }
 
@@ -261,25 +267,26 @@
 
     <script>
         $(document).ready(function () {
-            //debugger;
+
+
             $("#katil").click(function () {
-                
+
                 var sonuc = 1;
-                $.ajax({ 
-                    url: "/Activity/AcceptDeny/?id="+@Model.ActivityId +"&kullaniciId=" + 3 + "&sonuc=" + 1 + "   ",
+                $.ajax({
+                    url: "/Activity/AcceptDeny/?id=" +@Model.ActivityId +"&kullaniciId=" + 3 + "&sonuc=" + 1 + "   ",
                     //data: {"id": @Model.ActivityId,"kullaniciId": 1, "sonuc": 1 },
                     type: "POST",
                     dataType: "json",
                     data: { KatilmaId: sonuc },
                     success: function (data) {
                         if (sonuc == 1) {
-                             debugger;
+                            debugger;
                             sonuc = 1;
+
                             $("#aa").text("Kaydınız oluştu")
-                            $("#bb").text("")
+
                         }
-                        //else
-                        //    alert("Tıklama Başarısız!");
+
                     }
                 });
 
@@ -287,20 +294,21 @@
 
             $("#Katilmiyorum").click(function () {
                 var sonuc = 0;
+
+
                 $.ajax({
-                    url: "/Activity/AcceptDeny/?id="+@Model.ActivityId +"&kullaniciId=" + 3 + "&sonuc=" + 0 + "   ",
-                    
+                    url: "/Activity/AcceptDeny/?id=" +@Model.ActivityId +"&kullaniciId=" + 3 + "&sonuc=" + 0 + "   ",
+
                     type: "POST",
                     dataType: "json",
                     data: { KatilmaId: sonuc },
-                    success: function (data)  {
-                         debugger;
-                        if (sonuc == 0){
-                            $("#aa").text("")
-                            $("#bb").text("Katılmıyorsunuz")
+                    success: function (data) {
+                        debugger;
+                        if (sonuc == 0) {
+
+                            $("#aa").text("Katılmıyorsunuz")
                         }
-                        //else
-                        //    alert("Güncelleme işlemi başarısız!");
+
                     }
                 });
 

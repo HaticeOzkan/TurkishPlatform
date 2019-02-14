@@ -15,6 +15,7 @@
 	<link href="~/Content/Restaurant/css/owl.carousel.min.css" rel="stylesheet" />
 	<link href="~/Content/Restaurant/css/owl.theme.default.min.css" rel="stylesheet" />
 	<link href="~/Content/Restaurant/css/styleR.css" rel="stylesheet" />
+	<script src="~/Content/Restaurant/js/jquery-3.3.1.min.js"></script>
 
 	<style>
 		.resim {
@@ -40,7 +41,18 @@
 					</figure>
 					<div class="item-content">
 						<span class="sub-title">SALAD</span>
+<<<<<<< HEAD
 						<h3 class="item-title " ><a class="restName" href="single-recipe1.html" rel="@item.RestaurantId">@item.RestaurantName</a></h3>
+=======
+						<h3 class="item-title restName" rel="@item.RestaurantId" style="cursor:pointer;">@item.RestaurantName</h3>
+
+
+						<div class="newDetail" style="position:absolute; z-index:2;">
+							
+						</div>
+
+
+>>>>>>> d9a8ebe44784533866643116fb2fc53df2c78dc0
 						<ul class="item-rating">
 							<li class="star-fill"><i class="fas fa-star"></i></li>
 							<li class="star-fill"><i class="fas fa-star"></i></li>
@@ -107,9 +119,9 @@
 </div>
 
 
-@*jquery ekle*@
 
 <script>
+<<<<<<< HEAD
 	$(".restName").click(function () {
 		var btn = $(this);
 		var id = btn.attr("rel");
@@ -119,6 +131,20 @@
             success: function (r) {
                 alert(r);
 			}
+=======
+	$(document).ready(function () {
+		$(".restName").click(function () {
+			var btn = $(this);
+			var id = btn.attr("rel");
+			$.ajax({
+				url: "/Restaurant/RestaurantDetail/" + id,
+				method: "GET",
+				success: function (r) {
+					$(".newDetail")
+					
+				}
+>>>>>>> d9a8ebe44784533866643116fb2fc53df2c78dc0
 			});
+		});
 	});
 </script>
