@@ -206,6 +206,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\ActivityDetails.js" />
+    <Content Include="Content\Login\Camp.jpg" />
     <Content Include="Content\Menu\bootstrap.css" />
     <Content Include="Content\Menu\bootstrap.min.css" />
     <Content Include="Content\Menu\css\animate.css" />
@@ -598,9 +599,13 @@
     <Content Include="Views\Forum\Comment.cshtml" />
     <Content Include="Views\User\Access.cshtml" />
     <Content Include="Views\Restaurant\RestaurantDetail.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Login\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\CompetitorAnalysis\" />
+    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
