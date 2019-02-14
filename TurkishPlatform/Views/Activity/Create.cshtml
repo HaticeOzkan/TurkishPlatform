@@ -9,8 +9,14 @@
 
 
     @section CSS{
-       
+    
+      
+@*<img style="opacity:0.7" src="~/Uploads/Activity/cappadocia-3825974_1280.jpg" />*@     
     <style>
+        /*#background {
+           opacity:0.7;
+            background-image: url('../../Uploads/Activity/cappadocia-3825974_1280.jpg');
+        }*/
         .activitycreate{
             margin-top:350px;
         }
@@ -34,7 +40,7 @@
        .activitycreate select {
             margin-left: 105%;
             height: 100px;
-            text-align: center;
+            text-align: center !important;
         }
        .activitycreate .ulke{
             text-align:center !important;
@@ -44,7 +50,7 @@
  
 
 
-<div class="activitycreate">
+<div class="activitycreate" id="background">
 
     @if (!ViewData.ModelState.IsValid)
     {
@@ -53,7 +59,7 @@
         </div>
     }
 
-    <form class="form-horizontal" method="post" enctype="multipart/form-data">
+    <form class="form-horizontal" method="post" enctype="multipart/form-data" id="background">
         @Html.AntiForgeryToken()
         <fieldset>
             <!-- Form Name -->
@@ -64,7 +70,7 @@
             <div class="form-group" style="margin-top:50px;">
                 @*<label id="label" class="col-md-4 control-label text-center" for="event_name">Etkinlik İsmi</label><br /><br />*@
                 <div class="col-md-4">
-                    <input id="event_name" name="name" type="text" placeholder="Etkinlik İsmi" style="height:50px" class="form-control input-md text-center"/>
+                    <input id="event_name" name="name" type="text" required placeholder="Etkinlik İsmi" style="height:50px" class="form-control input-md text-center"/>
 
                 </div>
             </div>
@@ -72,8 +78,8 @@
             <!-- Text input-->
             <div class="form-group">
                 @*<label id="label" class="col-md-4 control-label" for="textinput">Etkinlik Günü</label><br /><br />*@
-                <div class="col-md-4">
-                    <input id="textinput" name="date" type="text" onclick="this.type='date'" onblur="this.type=date" style="height:50px" placeholder="Etkinlik Günü" class="form-control input-md text-center">
+                <div class="col-md-4"> @*bunu kaldırıp değişiklik vererek yapabilirsn*@
+                    <input id="textinput" name="date" type="text" required onclick="this.type='date'" onblur="this.type=date" style="height:50px" placeholder="Etkinlik Günü" class="form-control input-md text-center">
                     @*<span class="help-block">help</span>*@
                 </div>
             </div>
@@ -81,7 +87,7 @@
             <div class="form-group">
                 @*<label id="label" class="col-md-4 control-label" for="textinput">Kontejyan</label>*@@*<br /><br /><br />*@
                 <div class="col-md-4">
-                    <input id="textinput" name="Kontejyan" type="number" style="height:50px" placeholder="Kontejyan" class="form-control input-md text-center">
+                    <input id="textinput"required  name="Kontejyan" type="number" style="height:50px" placeholder="Kontejyan" class="form-control input-md text-center">
                     @*<span class="help-block">help</span>*@
                 </div>
             </div>
@@ -89,7 +95,7 @@
             <div class="form-group">
                 @*<label id="label" class="col-md-4 control-label" for="textinput">Başlama Saati</label><br /><br /><br />*@
                 <div class="col-md-4">
-                    <input id="textinput" name="StartTime" type="text" onclick="this.type='time'" onblur="this.type='text'" style="height:50px"  placeholder="Başlangıç Saati" class="form-control input-md text-center a">
+                    <input id="textinput" name="StartTime" type="text"onclick="this.type='time'" onblur="this.type='text'" style="height:50px"  placeholder="Başlangıç Saati" class="form-control input-md text-center a">
                     @*<span class="help-block">help</span>*@
                 </div>
             </div>
@@ -97,41 +103,45 @@
             <div class="form-group">
                 @*<label id="label" class="col-md-4 control-label" for="textinput">Bitiş Saati</label><br /><br /><br />*@
                 <div class="col-md-4">
-                    <input id="textinput" name="FinishTime" type="text" onclick="this.type='time'" onblur="this.type='text'" style="height:50px"  placeholder="Bitiş Saati" class="form-control input-md text-center">
+                    <input id="textinput"  name="FinishTime" type="text" required onclick="this.type='time'" onblur="this.type='text'" style="height:50px"  placeholder="Bitiş Saati" class="form-control input-md text-center">
                     @*<span class="help-block">help</span>*@
                 </div>
             </div>
             <!-- Textarea -->
             <div class="form-group">
                 @*<label id="label" class="col-md-4 control-label" for="textarea">Resim Seç</label>*@@*<br /><br /><br />*@
-                <div class="col-md-4 text-center">
-                    <input id="textinput" name="Image" type="file" placeholder="Resim" style="height:50px" class="form-control input-md text-center">
+                <div  class= "text-center"  style="width:550px;text-align-last: center; ">
+                    <input id="textinput" required name="Image" type="file" placeholder="Resim" style="height:50px;margin-left: 586px;    width: 540px;"   class="form-control input-md text-center">
                 </div>
             </div>
             <!-- Select Basic -->
-            <div class="form-group">
-                @*<label id="label" class="col-md-4 control-label" for="selectbasic">Ülke</label><br /><br /><br />*@
-                <div class="col-md-4">
-                    <select id="selectbasic" style="height:50px" name="CountryId" class="form-control  ulke">
-                        <option class="text-center" value="1">Ülke Sec</option>
-                        <option value="2">Option two</option>
+            @*<div class="form-group">
+                
+                <div  class="text-center" style="width:550px;text-align-last: center;">
+                    <select id="CountryId" style="height:50px" name="CountryId" class="form-control  ulke">
+                        <option class="text-center" value="">Ülke Sec</option>
+                        @foreach ( Activity item in ViewBag.Ukeler)
+                        {
+                            <option value="@item.CountryId">@item.Country.CountryId</option>
+                        }
+                       
                     </select>
                 </div>
-            </div>
+            </div>*@
 
 
             <!-- Textarea -->
             <div class="form-group">
                 @*<label id="label" class="col-md-4 control-label" for="textarea">İçerik</label><br /><br /><br /><br />*@
                 <div class="col-md-4">
-                    <textarea class="form-control text-center" id="textarea" placeholder="İcerik" name="Content" style="height:150px"></textarea>
+                    <textarea class="form-control text-center" id="textarea" placeholder="İcerik" required name="Content" style="height:150px"></textarea>
                 </div>
             </div>
             <!-- Textarea -->
             <div class="form-group">
                 @*<label id="label" class="col-md-4 control-label" for="textarea" >Adres</label><br /><br /><br />*@
                 <div class="col-md-4">
-                    <textarea class="form-control text-center" id="textarea" name="Address" style="height:150px" placeholder="Adres"></textarea>
+                    <textarea class="form-control text-center" id="textarea" name="Address" style="height:150px" required placeholder="Adres"></textarea>
                 </div>
             </div> 
             <div class="form-group">

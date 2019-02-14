@@ -42,6 +42,9 @@ namespace TurkishPlatform.Controllers
         public ActionResult Create()
         {
             PlatformContext db = new PlatformContext();
+            
+            ViewBag.Ukeler = db.Activities.ToList();
+
             //ViewBag.PossibleParents = db.Activities.ToList();
             return View();
         }
@@ -49,7 +52,8 @@ namespace TurkishPlatform.Controllers
         public ActionResult Create(string name, DateTime date, DateTime StartTime, DateTime FinishTime, HttpPostedFileBase Image, int CountryId, string Content, string Address, int Kontejyan)
         {
             PlatformContext db = new PlatformContext();
-            string klasor = Server.MapPath("/Uploads/Activity/");
+           
+                string klasor = Server.MapPath("/Uploads/Activity/");
             Image.SaveAs(klasor + Image.FileName);
 
             Activity activity = new Activity();

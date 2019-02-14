@@ -2,16 +2,17 @@
 @model List<Activity>
 @{
     ViewBag.Title = "Index";
-    Layout = null;
-   // Layout = "~/Views/Shared/_Layout.cshtml";
+   
+     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
-<html>
-<head>
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+@*<!DOCTYPE html>
+<html>*@
+@*<head>*@
+    @*<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>*@
+    @section CSS{
     <style>
         @@import url("http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,400italic");
         @@import url("//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css");
@@ -324,87 +325,88 @@
             }
         }
     </style>
+        }
+@*</head>*@
+@*<body  >*@
+    <div style="margin-top:350px;  ">
+        <div class="topnav">
+            @*<a @*class="active"*@ @*href="#">Geçmiş Etkinlikler</a>*@
 
-</head>
-<body>
-   
-    <div class="topnav">
-        @*<a @*class="active"*@ @*href="#">Geçmiş Etkinlikler</a>*@
-       
-        <a href="/Activity/Create">Etkinlik Oluştur</a>
-        <a href="#about">Hakkımızda</a>
-        <a href="#">İçerik</a>
-        <div class="search-container">
-            <form  class="form-horizontal" method="post" enctype="multipart/form-data">
-                <input type="text" placeholder="Etkinlik Ara" name="Search">
-                <button type="submit" name="search" >Ara</button>
-            </form>
+            <a href="/Activity/Create">Etkinlik Oluştur</a>
+            <a href="#about">Hakkımızda</a>
+            <a href="#">İçerik</a>
+            <div class="search-container">
+                <form class="form-horizontal" method="post" enctype="multipart/form-data">
+                    <input type="text" placeholder="Etkinlik Ara" name="Search">
+                    <button type="submit" name="search">Ara</button>
+                </form>
+            </div>
         </div>
-    </div>
- 
-    <div class="container">
-        <div class="row">
-            <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
-                <ul class="event-list">
-                    @foreach (var item in Model)
-                    {
-                        if (item.Permission == true)
+
+        <div class="container">
+            <div class="row">
+                <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
+                    <ul class="event-list">
+                        @foreach (var item in Model)
                         {
-                            DateTime baslamaTarihi = item.Date;
-                            DateTime simdi = DateTime.Today;
+                            if (item.Permission == true)
+                            {
+                                DateTime baslamaTarihi = item.Date;
+                                DateTime simdi = DateTime.Today;
 
 
-                            TimeSpan kalangun = baslamaTarihi - simdi;//Sonucu zaman olarak döndürür
-                            double toplamGun = kalangun.TotalDays;// kalanGun den TotalDays ile sadece toplam gun değerini çekiyoruz.
-                            
+                                TimeSpan kalangun = baslamaTarihi - simdi;//Sonucu zaman olarak döndürür
+                                double toplamGun = kalangun.TotalDays;// kalanGun den TotalDays ile sadece toplam gun değerini çekiyoruz.
 
 
-                            <li id="Activity"> 
-                                <time datetime="@item.Date">
-                                    <span class="day">@item.Date.Day</span>
-                                    <span class="month">@item.Date.ToString("MMMM")</span>
-                                    <span class="year">2014</span>
-                                    <span class="time">ALL DAY</span>
-                                   
-                                </time>
 
-                               
-                                <img alt="Independence Day" src="@item.ImageURL" />
-                                <div class="info">
-                                    <h2 class="title">@item.Title</h2>
-                                    <br /> 
-                                    @*<p class="desc">@item.Content </p>*@
-                                    <p>Etkinliğe kalan  @toplamGun gün </p>
-                                    <a href="/Activity/ActivityDetails?id=@item.ActivityId&kullaniciId=@item.UserId" style="color:black"> 
-                                    Etkinlik Ayrıntılarını Gör</a>
-                                    <h3>@item.Date.ToShortDateString() </h3>
-                                    <ul>
-                                        <li style="width:40%;">1 <span class="glyphicon glyphicon-ok"></span></li> 
-                                        <li style="width:40%;">103 <span class="glyphicon glyphicon-remove" ></span></li>
-                                        @*<li style="width:34%;">3 <span class="fa fa-question"></span></li>*@
-                                    </ul>
-                                </div>
-                                
-                                <div class="social">
-                                    <ul>
-                                        <li class="facebook" style="width:33%;"><a href="#facebook"><span class="fa fa-facebook"></span></a></li>
-                                        <li class="twitter" style="width:34%;"><a href="#twitter"><span class="fa fa-twitter"></span></a></li>
-                                        <li class="google-plus" style="width:33%;"><a href="#google-plus"><span class="fa fa-google-plus"></span></a></li>
-                                    </ul>
-                                </div>
+                                <li id="Activity">
+                                    <time datetime="@item.Date">
+                                        <span class="day">@item.Date.Day</span>
+                                        <span class="month">@item.Date.ToString("MMMM")</span>
+                                        <span class="year">2014</span>
+                                        <span class="time">ALL DAY</span>
 
-                            </li>
+                                    </time>
 
- 
+
+                                    <img alt="Independence Day" src="@item.ImageURL" />
+                                    <div class="info">
+                                        <h2 class="title">@item.Title</h2>
+                                        <br />
+                                        @*<p class="desc">@item.Content </p>*@
+                                        <p>Etkinliğe kalan  @toplamGun gün </p>
+                                        <a href="/Activity/ActivityDetails?id=@item.ActivityId&kullaniciId=@item.UserId" style="color:black; margin:163px ;background-color:#F5F5F5">
+                                            Etkinlik Ayrıntılarını Gör
+                                        </a>
+                                        <h3>@item.Date.ToShortDateString() </h3>
+                                        <ul>
+                                            <li style="width:40%;">1 <span class="glyphicon glyphicon-ok"></span></li>
+                                            <li style="width:40%;">103 <span class="glyphicon glyphicon-remove"></span></li>
+                                            @*<li style="width:34%;">3 <span class="fa fa-question"></span></li>*@
+                                        </ul>
+                                    </div>
+
+                                    <div class="social">
+                                        @*<ul>
+                                            <li class="facebook" style="width:33%;"><a href="#facebook"><span class="fa fa-facebook"></span></a></li>
+                                            <li class="twitter" style="width:34%;"><a href="#twitter"><span class="fa fa-twitter"></span></a></li>
+                                            <li class="google-plus" style="width:33%;"><a href="#google-plus"><span class="fa fa-google-plus"></span></a></li>
+                                        </ul>*@
+                                    </div>
+
+                                </li>
+
+
+                            }
                         }
-                    }
 
-                </ul>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
-
-</body>
-</html>
+@*</body>*@
+@*</html>*@
 
 
