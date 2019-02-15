@@ -243,14 +243,15 @@ label {
     z-index: 1000;
 }
 
-.gn-menu-main a {
-	display: block;
-	height: 100%;
-	color: black !important;
-	text-decoration: none !important;
-	cursor: pointer;
-	font-size: 0.8em;
-}
+	.gn-menu-main a {
+		display: block;
+		height: 100%;
+		color: black !important;
+		text-decoration: none !important;
+		cursor: pointer;
+		font-size: 0.8em;
+		background-color: #FAF0E6;
+	}
 
 .back a {
 	color: #FFF;
