@@ -1,4 +1,4 @@
-﻿
+﻿@using TurkishPlatform.Models
 @{
     ViewBag.Title = "Index";
     Layout = null;
@@ -7,7 +7,7 @@
 
 <h2>Index</h2>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-
+<link href="~/Content/jQuery-File-Upload-9.28.0/css/jquery.fileupload.css" rel="stylesheet" />
 <style>
     @@import url('https://fonts.googleapis.com/css?family=Mukta');
 
@@ -185,7 +185,7 @@
 </style>
 <!------ Include the above in your HEAD tag ---------->
 
-    
+
 
 <div class="login-reg-panel">
     <div class="login-info-box">
@@ -210,7 +210,58 @@
             <input type="button" value="Login">
             <a href="">Forgot password?</a>
         </div>
-      @Html.Action("Register")
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="alert alert-danger">
+                @Html.ValidationSummary()
+            </div>@*Bu alertin içinde ne kadr hata varsa yazsın dogrulaa ile ilgili nekadar hata varsa onları yazıyor*@
+        }
+        <form method="post" id="FormID" enctype="multipart/form-data">
+            @Html.AntiForgeryToken()
+            <div class="register-show">
+                <h2>REGISTER</h2>@*/image seçilecek chexbox konulacak*@
+                <div class="form-group">
+                    <input placeholder="UserName" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <input placeholder="Email" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Password" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Confirm Password" class="form-control">
+                </div>
+                <div style="margin-left:6px;" class="row">
+                    <div class="form-group">
+                        <label>Femail</label>   <input type="radio" name="Gender" value="0" style="display:inline-block;" />
+                        <label>Maile</label> <input type="radio" name="Gender" value="1" style="display:inline-block;" />
+                    </div>
+                    <select style="width:90px; height:30px; margin-left:30px;" value="CountryNo">
+                        @foreach (Country item in ViewBag.Countries)
+                        {
+                            <option value="@item.CountryId">@item.CountryName</option>
+                        }
+                    </select>
+                    <div style="margin-left:30px;" class="form-group">
+                        @*kopayaldıgımız spandan geldigel bende olmayan ları ekliyom gerek olmayanları eklemiyom *@
+                        <!-- The fileinput-button span is used to style the file input field as button -->
+                        <span class="btn btn-success fileinput-button">
+                            <i class="glyphicon glyphicon-plus"></i>
+                            <span>Select files...</span>
+                            <!-- The file input field used as target for the filupload widget files[] vardı name dee   -->
+                            <input id="fileupload" type="file" name="UserImage" multiple>
+                            @*<input type="hidden" name="Id" value="@Model" />*@
+                        </span> @*kopayaldıgımız yerden geldi*@
+                        <div id="progress" class="progress">
+                            <div class="progress-bar progress-bar-success"></div>
+                            <div id="files" class="files"></div>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-success del">Register</button>
+            </div>
+        </form>
     </div>
 </div>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -244,6 +295,61 @@
             $('.register-show').removeClass('show-log-panel');
         }
     });
+
+
+</script>
+<script src="~/Content/jQuery-File-Upload-9.28.0/js/vendor/jquery.ui.widget.js"></script>
+<script src="~/Content/jQuery-File-Upload-9.28.0/js/jquery.iframe-transport.js"></script>
+<script src="~/Content/jQuery-File-Upload-9.28.0/js/jquery.fileupload.js"></script>
+<script>
+    /*jslint unparam: true */
+    /*global window, $ */
+    $(function () {
+        'use strict';
+
+        // Change this to the location of your server-side upload handler:
+        var url = "/User/Index";//window.location.hostname === 'blueimp.github.io' ?
+        //    '//jquery-file-upload.appspot.com/' : 'server/php/';//burda bizim sayamıza gitmeli değiştirdik
+        $('#fileupload').fileupload({
+            url: url,
+            dataType: 'json',
+            done: function (e, data) {
+                $.each(data.result.files, function (index, file) {
+                    $('<p/>').text(file.name).appendTo('#files');
+                });
+            },
+            progressall: function (e, data) {
+                var progress = parseInt(data.loaded / data.total * 100, 10);
+                $('#progress .progress-bar').css(
+                    'width',
+                    progress + '%'
+                );
+            }
+        }).prop('disabled', !$.support.fileInput)
+            .parent().addClass($.support.fileInput ? undefined : 'disabled');
+    });
+
+    $(document).ready(function () {
+        $('.del').click(function () {
+
+           var Form= $('#FormID').serialize();
+            $.ajax({
+                url: "/User/Registery",
+                data: Form,
+                method: "POST",
+                success: function (OlduMu) {
+                    if (OlduMu) {
+                        alert("Kayıt Başarılı");
+                    }
+                    else {
+                        alert("Bir Hata Oluştu");
+                    }
+                }
+            });
+        });
+    });
+
+
 
 
 </script>

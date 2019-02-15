@@ -196,6 +196,7 @@
     <Compile Include="Models\AdminProfil.cs" />
     <Compile Include="Models\Advice.cs" />
     <Compile Include="Models\Country.cs" />
+    <Compile Include="Models\FileViewModel.cs" />
     <Compile Include="Models\PlatformContext.cs" />
     <Compile Include="Models\Restaurant.cs" />
     <Compile Include="Models\ForumComment.cs" />
@@ -206,6 +207,49 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\ActivityDetails.js" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\.gitignore" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\angularjs.html" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\basic-plus.html" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\basic.html" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\bower-version-update.js" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\cors\postmessage.html" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\cors\result.html" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\css\jquery-ui-demo-ie8.css" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\css\jquery-ui-demo.css" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\css\jquery.fileupload-noscript.css" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\css\jquery.fileupload-ui-noscript.css" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\css\jquery.fileupload-ui.css" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\css\jquery.fileupload.css" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\css\style.css" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\img\loading.gif" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\img\progressbar.gif" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\index.html" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\jquery-ui.html" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\js\app.js" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\js\cors\jquery.postmessage-transport.js" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\js\cors\jquery.xdr-transport.js" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\js\jquery.fileupload-angular.js" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\js\jquery.fileupload-audio.js" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\js\jquery.fileupload-image.js" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\js\jquery.fileupload-jquery-ui.js" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\js\jquery.fileupload-process.js" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\js\jquery.fileupload-ui.js" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\js\jquery.fileupload-validate.js" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\js\jquery.fileupload-video.js" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\js\jquery.fileupload.js" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\js\jquery.iframe-transport.js" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\js\main.js" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\js\vendor\jquery.ui.widget.js" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\LICENSE.txt" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\server\gae-go\static\favicon.ico" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\server\gae-go\static\robots.txt" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\server\gae-python\static\favicon.ico" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\server\gae-python\static\robots.txt" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\server\php\files\.gitignore" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\server\php\index.php" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\server\php\UploadHandler.php" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\test\index.html" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\test\test.js" />
     <Content Include="Content\Login\Camp.jpg" />
     <Content Include="Content\Menu\bootstrap.css" />
     <Content Include="Content\Menu\bootstrap.min.css" />
@@ -564,6 +608,21 @@
     <Content Include="Areas\Panel\Views\ForumTopicTitles\Details.cshtml" />
     <Content Include="Areas\Panel\Views\ForumTopicTitles\Edit.cshtml" />
     <Content Include="Areas\Panel\Views\ForumTopicTitles\Index.cshtml" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\.jshintrc" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\.npmignore" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\bower.json" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\CONTRIBUTING.md" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\package.json" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\README.md" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\SECURITY.md" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\server\gae-go\app.yaml" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\server\gae-go\main.go" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\server\gae-python\app.yaml" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\server\gae-python\main.py" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\server\php\docker-compose.yml" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\server\php\Dockerfile" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\server\php\files\.htaccess" />
+    <Content Include="Content\jQuery-File-Upload-9.28.0\VULNERABILITIES.md" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -597,13 +656,11 @@
     <Content Include="Views\Activity\ActivityDetails.cshtml" />
     <Content Include="Views\Restaurant\Index.cshtml" />
     <Content Include="Views\Forum\Comment.cshtml" />
-    <Content Include="Views\Login\Index.cshtml" />
-    <Content Include="Views\Login\Register.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\CompetitorAnalysis\" />
-    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
