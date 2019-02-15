@@ -41,18 +41,7 @@
 					</figure>
 					<div class="item-content">
 						<span class="sub-title">SALAD</span>
-<<<<<<< HEAD
 						<h3 class="item-title restName"><a href="/Restaurant/RestaurantDetail/?id=@item.RestaurantId">@item.RestaurantName</a></h3>
-=======
-<<<<<<< HEAD
-						<h3 class="item-title " ><a class="restName" href="single-recipe1.html" rel="@item.RestaurantId">@item.RestaurantName</a></h3>
-=======
-						<h3 class="item-title restName" rel="@item.RestaurantId" style="cursor:pointer;">@item.RestaurantName</h3>
->>>>>>> d3459e6deecadb342a9f7a63942f14580ab139c5
-
-
-
-
 
 						<ul class="item-rating">
 							<li class="star-fill"><i class="fas fa-star"></i></li>
@@ -121,18 +110,7 @@
 
 
 
-<script>
-<<<<<<< HEAD
-	$(".restName").click(function () {
-		var btn = $(this);
-		var id = btn.attr("rel");
-		$.ajax({
-			url: "/Restaurant/RestaurantDetail/" + id,
-			method: "GET",
-            success: function (r) {
-                alert(r);
-			}
-=======
+@*<script>
 	$(document).ready(function () {
 		$(".restName").click(function () {
 			var btn = $(this);
@@ -144,8 +122,7 @@
 					$(".newDetail")
 					
 				}
->>>>>>> d9a8ebe44784533866643116fb2fc53df2c78dc0
 			});
 		});
 	});
-</script>
+</script>*@
