@@ -656,7 +656,14 @@
     <Content Include="Views\Activity\ActivityDetails.cshtml" />
     <Content Include="Views\Restaurant\Index.cshtml" />
     <Content Include="Views\Forum\Comment.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\User\Index.cshtml" />
+=======
+    <Content Include="Views\User\Access.cshtml" />
+    <Content Include="Views\Restaurant\RestaurantDetail.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Login\Register.cshtml" />
+>>>>>>> a63388a2e1cf698139f43c9e7887d7859cb2f958
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

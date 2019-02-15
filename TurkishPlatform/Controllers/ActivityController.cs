@@ -17,9 +17,9 @@ namespace TurkishPlatform.Controllers
         public ActionResult Index()
         {
             PlatformContext db = new PlatformContext();
-            //ViewBag.SiteTitle = "Activity";
-            //  ViewBag.Activity = db.Activities.First();
-            //   var a = @ViewBag.Activity.ImageURL;
+
+            //ViewBag.ParticipationF = db.Activities.Where(x => x.Participation == false).Count();
+       
             return View(db.Activities.ToList());
         }
         [HttpPost]

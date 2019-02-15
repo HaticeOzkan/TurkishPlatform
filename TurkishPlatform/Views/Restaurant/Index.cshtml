@@ -25,11 +25,15 @@
 			.resim img {
 				height: 100% !important;
 			}
+
+		.restBoyut {
+			margin-right: -190px;
+		}
 	</style>
 }
 
 <section class="restorant">
-	<div class="row">
+	<div class="row restBoyut">
 		@foreach (Restaurant item in ViewBag.AllRestaurant)
 		{
 			<div class="col-md-6 resim">
@@ -41,18 +45,8 @@
 					</figure>
 					<div class="item-content">
 						<span class="sub-title">SALAD</span>
-<<<<<<< HEAD
-						<h3 class="item-title " ><a class="restName" href="single-recipe1.html" rel="@item.RestaurantId">@item.RestaurantName</a></h3>
-=======
-						<h3 class="item-title restName" rel="@item.RestaurantId" style="cursor:pointer;">@item.RestaurantName</h3>
+						<h3 class="item-title restName"><a href="/Restaurant/RestaurantDetail/?id=@item.RestaurantId">@item.RestaurantName</a></h3>
 
-
-						<div class="newDetail" style="position:absolute; z-index:2;">
-							
-						</div>
-
-
->>>>>>> d9a8ebe44784533866643116fb2fc53df2c78dc0
 						<ul class="item-rating">
 							<li class="star-fill"><i class="fas fa-star"></i></li>
 							<li class="star-fill"><i class="fas fa-star"></i></li>
@@ -120,18 +114,7 @@
 
 
 
-<script>
-<<<<<<< HEAD
-	$(".restName").click(function () {
-		var btn = $(this);
-		var id = btn.attr("rel");
-		$.ajax({
-			url: "/Restaurant/RestaurantDetail/" + id,
-			method: "GET",
-            success: function (r) {
-                alert(r);
-			}
-=======
+@*<script>
 	$(document).ready(function () {
 		$(".restName").click(function () {
 			var btn = $(this);
@@ -143,8 +126,7 @@
 					$(".newDetail")
 					
 				}
->>>>>>> d9a8ebe44784533866643116fb2fc53df2c78dc0
 			});
 		});
 	});
-</script>
+</script>*@
