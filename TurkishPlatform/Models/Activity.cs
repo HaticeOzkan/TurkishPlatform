@@ -34,6 +34,7 @@ namespace TurkishPlatform.Models
         public int UserId { get; set; }
        
         public virtual User User { get; set; }
+        public virtual List<User> Participants { get; set; }
         public bool Permission { get; set; }
       
         public Activity()
