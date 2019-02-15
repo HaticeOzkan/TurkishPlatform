@@ -20,7 +20,7 @@ namespace TurkishPlatform.Models
 		public string Address { get; set; }
 		[Required]
 		public string CoverImageURL { get; set; }
-		public Country Country { get; set; }
+		public virtual Country Country { get; set; }
 		[ForeignKey("Country")]
 		public int CountryId { get; set; }
 		public virtual List<RestaurantImage> RestaurantImages { get; set; }
@@ -33,7 +33,7 @@ namespace TurkishPlatform.Models
 		public int ImageId { get; set; }
 		[Required]
 		public string ImageURL { get; set; }
-		public Restaurant Restaurant { get; set; }
+		public virtual Restaurant Restaurant { get; set; }
 		[ForeignKey("Restaurant")]
 		public int RestaurantId { get; set; }
 
