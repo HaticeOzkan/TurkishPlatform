@@ -163,12 +163,13 @@ a:focus {
 }
 img {
   /*max-width: 100%;*/
-  height: auto;
+  /*height: auto;*/
+  height:340px;
 }
 ul {
   list-style: outside none none;
   margin: 0 !important;
-  padding: 0 !important;
+  padding: 4px !important;
 }
 [class^="flaticon-"]:before,
 [class*=" flaticon-"]:before,
@@ -3983,6 +3984,7 @@ ul {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  margin-left: 330px;
 }
 @media only screen and (max-width: 1199px) {
   .product-box-layout3 {
@@ -4010,7 +4012,7 @@ ul {
   width: 50%;
   text-align: left;
   padding: 0;
-  margin-left: 30px;
+  margin-left: 95px;
 }
 @media only screen and (max-width: 1199px) {
   .product-box-layout3 .item-content {
@@ -5420,6 +5422,7 @@ ul {
   height: 100%;
   padding: 12px 5px;
   align-items: center;
+  margin-right:-250px;
 }
 .single-recipe-layout1 .item-feature ul li .feature-icon {
   font-size: 24px;
@@ -5437,10 +5440,12 @@ ul {
   font-weight: 600;
 }
 .single-recipe-layout1 .item-description {
-  font-size: 17px;
-  color: #444444;
-  line-height: 1.8;
-  font-weight: 500;
+	font-size: 17px;
+	color: #444444;
+	line-height: 1.8;
+	font-weight: 500;
+	margin-left: 100px;
+	margin-right: 100px;
 }
 .single-recipe-layout1 .making-elements-wrap .item-title {
   font-weight: 700;

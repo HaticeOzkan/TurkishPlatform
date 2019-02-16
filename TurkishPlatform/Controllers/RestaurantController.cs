@@ -27,7 +27,7 @@ namespace TurkishPlatform.Controllers
 		
 		public ActionResult RestaurantDetail(int id)
 		{
-			Restaurant r = db.Restaurants.FirstOrDefault(x => x.RestaurantId == id);
+			Restaurant r = db.Restaurants.Include("Country").FirstOrDefault(x => x.RestaurantId == id);
 			ViewBag.RestaurantId = r.RestaurantId;
 
 			return View(r);

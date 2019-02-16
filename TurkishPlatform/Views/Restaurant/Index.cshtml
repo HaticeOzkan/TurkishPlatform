@@ -25,11 +25,15 @@
 			.resim img {
 				height: 100% !important;
 			}
+
+		.restBoyut {
+			margin-right: -190px;
+		}
 	</style>
 }
 
 <section class="restorant">
-	<div class="row">
+	<div class="row restBoyut">
 		@foreach (Restaurant item in ViewBag.AllRestaurant)
 		{
 			<div class="col-md-6 resim">

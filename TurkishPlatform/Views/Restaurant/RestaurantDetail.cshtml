@@ -18,26 +18,41 @@
 
 @section CSS {
 	<!-- Favicon -->
-	<link rel="shortcut icon" href="/Restaurant/img/favicon.png">
+	<link rel="shortcut icon" href="/Content/Restaurant/img/favicon.png">
 	<!-- Normalize Css -->
-	<link rel="stylesheet" href="/Restaurant/css/normalize.css">
+	<link rel="stylesheet" href="/Content/Restaurant/css/normalize.css">
 	<!-- Main Css -->
-	<link rel="stylesheet" href="/Restaurant/css/main.css">
+	<link rel="stylesheet" href="/Content/Restaurant/css/main.css">
 	<!-- Bootstrap Css -->
-	<link rel="stylesheet" href="/Restaurant/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/Content/Restaurant/css/bootstrap.min.css">
 	<!-- Animate CSS -->
-	<link rel="stylesheet" href="/Restaurant/css/animate.min.css">
+	<link rel="stylesheet" href="/Content/Restaurant/css/animate.min.css">
 	<!-- Fontawesome CSS -->
-	<link rel="stylesheet" href="/Restaurant/css/fontawesome-all.min.css">
+	<link rel="stylesheet" href="/Content/Restaurant/css/fontawesome-all.min.css">
 	<!-- Flaticon CSS -->
-	<link rel="stylesheet" href="fonts/flaticon.css">
+	@*<link rel="stylesheet" href="/Content/Restaurant/css/fonts/flaticon.css">*@
 	<!-- Owl Carousel CSS -->
-	<link rel="stylesheet" href="/Restaurant/css/owl.carousel.min.css">
-	<link rel="stylesheet" href="/Restaurant/css/owl.theme.default.min.css">
+	<link rel="stylesheet" href="/Content/Restaurant/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="/Content/Restaurant/css/owl.theme.default.min.css">
 	<!-- Custom Css -->
-	<link rel="stylesheet" href="/Restaurant/css/styleR.css">
+	<link rel="stylesheet" href="/Content/Restaurant/css/styleR.css">
 	<!-- Modernizr Js -->
-	<script src="js/modernizr-3.6.0.min.js"></script>
+	<script src="/Content/Restaurant/js/modernizr-3.6.0.min.js"></script>
+
+	<style>
+		.single-recipe-layout1 {
+			margin-left: 150px;
+			margin-right: -300px;
+		}
+
+		.action-share-wrap {
+			display: none;
+		}
+
+		.action-share-hover:hover .action-share-wrap {
+			display: block;
+		}
+	</style>
 }
 
 <section class="single-recipe-wrap-layout1 padding-top-74 padding-bottom-50">
@@ -45,22 +60,20 @@
 		<div class="row gutters-60">
 			<div class="col-lg-8">
 				<div class="single-recipe-layout1">
-					<div class="ctg-name">PASTA</div>
-					<h2 class="item-title">Chanterelle and Porcini Mushroom Recipes</h2>
+					@*<div class="ctg-name">PASTA</div>*@
+					<h2 class="item-title">@Model.RestaurantName</h2>
 					<div class="row mb-4">
 						<div class="col-xl-9 col-12">
 							<ul class="entry-meta">
 								<li class="single-meta">
 									<a href="#">
-										<i class="far fa-calendar-alt"></i>Nov 14,
-										2018
+										<i class="far fa-calendar-alt"></i>Country gelecek!
 									</a>
 								</li>
 								<li class="single-meta">
 									<a href="#">
 										<i class="fas fa-user"></i>by <span>
-											Kazi
-											Fahim
+											Admin
 										</span>
 									</a>
 								</li>
@@ -74,18 +87,10 @@
 										<li><span>9<span> / 10</span></span> </li>
 									</ul>
 								</li>
-								<li class="single-meta">
-									<a href="#">
-										<i class="fas fa-heart"></i><span>02</span>
-										Likes
-									</a>
-								</li>
 							</ul>
 						</div>
 						<div class="col-xl-3 col-12">
 							<ul class="action-item">
-								<li><button><i class="fas fa-print"></i></button></li>
-								<li><button><i class="fas fa-expand-arrows-alt"></i></button></li>
 								<li class="action-share-hover">
 									<button><i class="fas fa-share-alt"></i></button>
 									<div class="action-share-wrap">
@@ -101,7 +106,7 @@
 						</div>
 					</div>
 					<div class="item-figure">
-						<img src="img/product/single-product1.jpg" alt="Product">
+						<img src="/Content/Restaurant/img/product/single-product1.jpg" alt="Product">
 					</div>
 					<div class="item-feature">
 						<ul>
@@ -112,8 +117,11 @@
 											<i class="far fa-clock"></i>
 										</div>
 										<div class="media-body space-sm">
-											<div class="feature-title">PREP TIME</div>
-											<div class="feature-sub-title">45 Mins</div>
+											<div class="feature-title">@Model.Address</div>
+											@{
+												string go = "https://www.google.com/maps/place/" + Model.RestaurantName;
+											}
+											<a href="@go" class="feature-sub-title">Go!</a>
 										</div>
 									</div>
 								</div>
