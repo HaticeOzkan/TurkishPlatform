@@ -614,6 +614,10 @@
     <Content Include="Views\Restaurant\RestaurantDetail.cshtml" />
     <Content Include="Views\Restaurant\RestaurantDetail.cshtml" />
     <Content Include="Views\TourismTravel\Index.cshtml" />
+<<<<<<< HEAD
+=======
+    <Content Include="Views\TourismTravel\TourismTravelDetails.cshtml" />
+>>>>>>> 2009781249fd8c732b78a89975c645e40e79894c
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Mail;
 using System.Web;
@@ -110,11 +111,35 @@ namespace TurkishPlatform.Controllers
             return View();
         }
         //şimdi yeni bir şifre girdi onu guncellemem için kişinin id si lazım ki o kişiyi getireyim ajax kullandım
+<<<<<<< HEAD
 
      
         public JsonResult Registery(User user)
         {
             Session["UserID"] = User.UserId;
+=======
+        //public JsonResult Image(HttpPostedFileBase UserImage)//buraya alırken file[] dizi olması sıkıntı oldu recipe image yaptık
+        //{
+        //    //if (UserImage != null && UserImage.ContentLength != 0)
+        //    //{
+        //    //    var path = Server.MapPath("/Content/Login/");
+        //    //    UserImage.SaveAs(path + UserImage.FileName);
+
+        //    //    FileList flist = new FileList();
+        //    //    var files = flist.files;
+
+        //    //    File f = new File();
+        //    //    f.name = UserImage.FileName;
+        //    //    f.url = "Content/Login/" + UserImage.FileName;
+        //    //    f.thumbnailUrl = f.url;
+        //    //    files.Add(f);
+        //    //    return Json(files);
+        //    //}
+        //    return Json(/*false*/);
+        //}
+        public JsonResult Registery(User user)
+        {
+>>>>>>> 2009781249fd8c732b78a89975c645e40e79894c
             
 
             if (ModelState.IsValid)
@@ -126,6 +151,7 @@ namespace TurkishPlatform.Controllers
             }          
             return Json(false);
         }
+<<<<<<< HEAD
         public JsonResult Image(HttpPostedFileBase UserImage)//buraya alırken file[] dizi olması sıkıntı oldu recipe image yaptık
         {
             if (UserImage != null && UserImage.ContentLength != 0)
@@ -145,6 +171,8 @@ namespace TurkishPlatform.Controllers
             }
             return Json(false);
         }
+=======
+>>>>>>> 2009781249fd8c732b78a89975c645e40e79894c
 
     }
 
