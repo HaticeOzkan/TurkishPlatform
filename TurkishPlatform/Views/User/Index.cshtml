@@ -221,13 +221,13 @@
             <div class="register-show">
                 <h2>REGISTER</h2>@*/image seçilecek chexbox konulacak*@
                 <div class="form-group">
-                    <input placeholder="UserName" class="form-control" />
+                    <input placeholder="UserName" class="form-control" name="NameSurname"/>
                 </div>
                 <div class="form-group">
-                    <input placeholder="Email" class="form-control">
+                    <input placeholder="Email" class="form-control" name="Email">
                 </div>
                 <div class="form-group">
-                    <input type="password" placeholder="Password" class="form-control">
+                    <input type="password" placeholder="Password" class="form-control" name="Password">
                 </div>
                 <div class="form-group">
                     <input type="password" placeholder="Confirm Password" class="form-control">
@@ -237,7 +237,7 @@
                         <label>Femail</label>   <input type="radio" name="Gender" value="0" style="display:inline-block;" />
                         <label>Maile</label> <input type="radio" name="Gender" value="1" style="display:inline-block;" />
                     </div>
-                    <select style="width:90px; height:30px; margin-left:30px;" value="CountryNo">
+                    <select style="width:90px; height:30px; margin-left:30px;" name="CountryNo" >
                         @foreach (Country item in ViewBag.Countries)
                         {
                             <option value="@item.CountryId">@item.CountryName</option>
@@ -250,7 +250,7 @@
                             <i class="glyphicon glyphicon-plus"></i>
                             <span>Select files...</span>
                             <!-- The file input field used as target for the filupload widget files[] vardı name dee   -->
-                            <input id="fileupload" type="file" name="UserImage" multiple>
+                            <input id="fileupload" type="file" name="UserImage" >
                             @*<input type="hidden" name="Id" value="@Model" />*@
                         </span> @*kopayaldıgımız yerden geldi*@
                         <div id="progress" class="progress">
@@ -259,7 +259,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-success del">Register</button>
+                <button class="btn btn-success del" type="button">Register</button>
             </div>
         </form>
     </div>
@@ -304,11 +304,11 @@
 <script>
     /*jslint unparam: true */
     /*global window, $ */
-    $(function () {
+    $(function () {//IMAGE JSONRESULTA GİDEN YER
         'use strict';
 
         // Change this to the location of your server-side upload handler:
-        var url = "/User/Index";//window.location.hostname === 'blueimp.github.io' ?
+        var url = "/User/Image";//window.location.hostname === 'blueimp.github.io' ? //JSON RESULT İSMİM
         //    '//jquery-file-upload.appspot.com/' : 'server/php/';//burda bizim sayamıza gitmeli değiştirdik
         $('#fileupload').fileupload({
             url: url,
@@ -328,7 +328,7 @@
         }).prop('disabled', !$.support.fileInput)
             .parent().addClass($.support.fileInput ? undefined : 'disabled');
     });
-
+  
     $(document).ready(function () {
         $('.del').click(function () {
 
@@ -340,6 +340,7 @@
                 success: function (OlduMu) {
                     if (OlduMu) {
                         alert("Kayıt Başarılı");
+                        
                     }
                     else {
                         alert("Bir Hata Oluştu");

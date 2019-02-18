@@ -48,6 +48,7 @@ namespace TurkishPlatform.Controllers
         [HttpGet]
         public ActionResult Index()
         {
+            ViewBag.Countries = Db.Countries.ToList();
 
             return View();
         }
@@ -109,27 +110,11 @@ namespace TurkishPlatform.Controllers
             return View();
         }
         //şimdi yeni bir şifre girdi onu guncellemem için kişinin id si lazım ki o kişiyi getireyim ajax kullandım
-        public JsonResult Image(HttpPostedFileBase UserImage)//buraya alırken file[] dizi olması sıkıntı oldu recipe image yaptık
-        {
-            if (UserImage != null && UserImage.ContentLength != 0)
-            {
-                var path = Server.MapPath("/Content/Login/");
-                UserImage.SaveAs(path + UserImage.FileName);
 
-                FileList flist = new FileList();
-                var files = flist.files;
-
-                File f = new File();
-                f.name = UserImage.FileName;
-                f.url = "Content/Login/" + UserImage.FileName;
-                f.thumbnailUrl = f.url;
-                files.Add(f);
-                return Json(files);
-            }
-            return Json(false);
-        }
+     
         public JsonResult Registery(User user)
         {
+            Session["UserID"] = User.UserId;
             
 
             if (ModelState.IsValid)
@@ -139,6 +124,25 @@ namespace TurkishPlatform.Controllers
                 RedirectToAction("Index");
                 return Json(true);
             }          
+            return Json(false);
+        }
+        public JsonResult Image(HttpPostedFileBase UserImage)//buraya alırken file[] dizi olması sıkıntı oldu recipe image yaptık
+        {
+            if (UserImage != null && UserImage.ContentLength != 0)
+            {
+                var path = Server.MapPath("/Content/Login/");
+                UserImage.SaveAs(path + Session["UserID"]);
+
+                FileList flist = new FileList();
+                var files = flist.files;
+
+                File f = new File();
+                f.name = UserImage.FileName;
+                f.url = "Content/Login/" + Session["UserID"];//KAYDOLUCAGI KISIM
+                f.thumbnailUrl = f.url;
+                files.Add(f);
+                return Json(files);
+            }
             return Json(false);
         }
 
