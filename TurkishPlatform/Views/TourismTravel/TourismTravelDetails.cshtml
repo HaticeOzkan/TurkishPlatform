@@ -1,13 +1,11 @@
 ﻿@using TurkishPlatform.Models
-@model List<Tourism>
-
-
+@model Country
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "TourismTravelDetails";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Tourism</h2>
+<h2>TourismTravelDetails</h2>
 
 
 @section CSS{
@@ -29,43 +27,14 @@
             }
     </style>
 }
-<section class="restorant">
+<div class="container">
     <div class="row">
-        @foreach (Tourism item in Model)
-        {
-            <div class="col-md-6 resim text-center">
-                <div class="product-box-layout3" style="margin-left: 220px;
-    width: 118%;">
-                    <figure class="item-figure">
-                        <a href="single-recipe1.html"> 
-                            <img src="~/Uploads/Tourism/hasankeyf.jpg" /> 
-                        </a>
-                    </figure>
-                    <div class="item-content text-center">
-                        @*<span class="sub-title">SALAD</span>*@
-                        <h3 class="item-title restName text-center" style="margin-top: -81px;">  @*href="/Restaurant/RestaurantDetail/?id=@item.LocationId"* @*@  @item.LocationName </h3>
-                        @*<ul class="item-rating">
-                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                            <li class="star-empty"><i class="fas fa-star"></i></li>
-                            <li><span>9<span> / 10</span></span> </li>
-                        </ul>*@ 
-                        <p>
-                           @item.Content
-                        </p>
-                        <a href="/TourismTravel/TourismTravelDetails/?id=@item.CountryId" style="margin-left:35%;color:black"><b>Ayrıntılarını Gör</b></a>
-                        @*<ul class="entry-meta">
-                            <li><a href="#"><i class="fas fa-clock"></i>15 Mins</a></li>
-                            <li><a href="#"><i class="fas fa-heart"></i><span>02</span> Likes</a></li>
-                        </ul>*@
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6"></div>}
+        <div class="resim"></div>
+        <div > </div>
+
     </div>
-</section>
+
+</div>
 
 <div>
     @section Footer{
@@ -88,11 +57,11 @@
                         <img src="~/Uploads/Tourism/3.jpg" alt="Social" />
                     </a>
                 </li>
-                 
+
                 <li>
                     <a href="single-recipe1.html">
-    <img src="~/Uploads/Tourism/4.jpg" alt="Social" />
-</a>
+                        <img src="~/Uploads/Tourism/4.jpg" alt="Social" />
+                    </a>
                 </li>
                 <li>
                     <a href="single-recipe1.html">
