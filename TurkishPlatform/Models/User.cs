@@ -25,14 +25,12 @@ namespace TurkishPlatform.Models
 		public string Email { get; set; }
 		[Required]
 		[MaxLength(15)]
-		public string Password { get; set; }
-		[MaxLength(1000)]
-		public string ImageURL { get; set; }
-
+		public string Password { get; set; }     
 		public int CountryNo { get; set; }
 		public virtual List<LocationComment> TourismComments { get; set; }
 		public virtual List<ForumComment> ForumComments { get; set; }
 		public virtual List<RestaurantComment> RestaurantComments { get; set; }  
+        public virtual List<File> Files { get; set; }
 	}
     
 }

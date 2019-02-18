@@ -5,7 +5,7 @@ using System.Web;
 using System.Data.Entity;
 namespace TurkishPlatform.Models
 {
-    public class PlatformContext: DbContext
+    public class PlatformContext : DbContext
     {
         public virtual DbSet<Activity> Activities { get; set; }
         public virtual DbSet<Advice> Advices { get; set; }

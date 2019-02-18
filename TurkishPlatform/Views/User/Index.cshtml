@@ -1,4 +1,5 @@
 ﻿@using TurkishPlatform.Models
+@model bool?
 @{
     ViewBag.Title = "Index";
     Layout = null;
@@ -205,10 +206,21 @@
     <div class="white-panel">
         <div class="login-show">
             <h2>LOGIN</h2>
-            <input type="text" placeholder="Email">
-            <input type="password" placeholder="Password">
-            <input type="button" value="Login">
-            <a href="">Forgot password?</a>
+            <form action="" method="post">
+                @Html.AntiForgeryToken()
+                <input type="text" name="Email" placeholder="Email">
+                <input type="password" name="Password" placeholder="Password">
+
+                <button type="submit">Login</button>
+
+                @if (Model == false)
+                {
+                    <p>@ViewBag.Message</p>
+                }
+                @*Burada input kısımları form içine aldım action actiona bişi demedim controllerda girilen email ve şifreyi control edip istediğim sayfaya yönlendireceğim ve methodunu belirttim inputların name ini verdim
+            bu belirrtiğimiz name leri logincontrollerda parametre olarak alacak*@
+            </form>
+            <a href="/User/ForgotPassword">Forgot password?</a>@*Burası yonlenmeli*@
         </div>
         @if (!ViewData.ModelState.IsValid)
         {
@@ -221,23 +233,23 @@
             <div class="register-show">
                 <h2>REGISTER</h2>@*/image seçilecek chexbox konulacak*@
                 <div class="form-group">
-                    <input placeholder="UserName" class="form-control" />
+                    <input placeholder="UserName" class="form-control" name="NameSurname"/>
                 </div>
                 <div class="form-group">
-                    <input placeholder="Email" class="form-control">
+                    <input placeholder="Email" class="form-control" name="Email">
                 </div>
                 <div class="form-group">
-                    <input type="password" placeholder="Password" class="form-control">
+                    <input type="password" placeholder="Password" class="form-control" name="Password">
                 </div>
                 <div class="form-group">
                     <input type="password" placeholder="Confirm Password" class="form-control">
                 </div>
                 <div style="margin-left:6px;" class="row">
                     <div class="form-group">
-                        <label>Femail</label>   <input type="radio" name="Gender" value="0" style="display:inline-block;" />
-                        <label>Maile</label> <input type="radio" name="Gender" value="1" style="display:inline-block;" />
+                        <label>Female</label><input type="radio" name="Gender" value="0" style="display:inline-block;" />
+                        <label>Male</label> <input type="radio" name="Gender" value="1" style="display:inline-block;" />
                     </div>
-                    <select style="width:90px; height:30px; margin-left:30px;" value="CountryNo">
+                    <select style="width:90px; height:30px; margin-left:30px;" name="CountryNo" >
                         @foreach (Country item in ViewBag.Countries)
                         {
                             <option value="@item.CountryId">@item.CountryName</option>
@@ -250,7 +262,7 @@
                             <i class="glyphicon glyphicon-plus"></i>
                             <span>Select files...</span>
                             <!-- The file input field used as target for the filupload widget files[] vardı name dee   -->
-                            <input id="fileupload" type="file" name="UserImage" multiple>
+                            <input id="fileupload" type="file" name="UserImage" >@*//kaydedilen resimler dosyaya kaydediliyor veritabanına değil*@
                             @*<input type="hidden" name="Id" value="@Model" />*@
                         </span> @*kopayaldıgımız yerden geldi*@
                         <div id="progress" class="progress">
@@ -259,7 +271,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-success del">Register</button>
+                <button class="btn btn-success del" type="button">Register</button>
             </div>
         </form>
     </div>
@@ -304,11 +316,12 @@
 <script>
     /*jslint unparam: true */
     /*global window, $ */
-    $(function () {
+   
+    $(function () {//IMAGE JSONRESULTA GİDEN YER
         'use strict';
-
+       
         // Change this to the location of your server-side upload handler:
-        var url = "/User/Index";//window.location.hostname === 'blueimp.github.io' ?
+        var url = "/User/AddImage";//window.location.hostname === 'blueimp.github.io' ? //JSON RESULT İSMİM
         //    '//jquery-file-upload.appspot.com/' : 'server/php/';//burda bizim sayamıza gitmeli değiştirdik
         $('#fileupload').fileupload({
             url: url,
@@ -328,7 +341,7 @@
         }).prop('disabled', !$.support.fileInput)
             .parent().addClass($.support.fileInput ? undefined : 'disabled');
     });
-
+  
     $(document).ready(function () {
         $('.del').click(function () {
 
@@ -340,6 +353,7 @@
                 success: function (OlduMu) {
                     if (OlduMu) {
                         alert("Kayıt Başarılı");
+                        
                     }
                     else {
                         alert("Bir Hata Oluştu");
