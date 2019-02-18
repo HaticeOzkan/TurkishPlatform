@@ -1,0 +1,116 @@
+﻿@using TurkishPlatform.Models
+@model List<Tourism>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+
+@section CSS{
+    <img src="~/Content/Restaurant/img/favicon.png" />
+    <link href="~/Content/Restaurant/css/fontawesome-all.min.css" rel="stylesheet" />
+    <link href="~/Content/Restaurant/css/main.css" rel="stylesheet" />
+    <link href="~/Content/Restaurant/css/normalize.css" rel="stylesheet" />
+    <link href="~/Content/Restaurant/css/owl.carousel.min.css" rel="stylesheet" />
+    <link href="~/Content/Restaurant/css/owl.theme.default.min.css" rel="stylesheet" />
+    <link href="~/Content/Restaurant/css/styleR.css" rel="stylesheet" />
+    <script src="~/Content/Restaurant/js/jquery-3.3.1.min.js"></script>
+    <style>
+        .resim {
+            width: 65% !important;
+        }
+
+            .resim img {
+                height: 100% !important;
+            }
+    </style>
+}
+<section class="restorant">
+    <div class="row">
+        @foreach (Tourism item in Model)
+        {
+            <div class="col-md-6 resim text-center">
+                <div class="product-box-layout3" style="margin-left: 400px">
+                    <figure class="item-figure">
+                        <a href="single-recipe1.html"> 
+                            <img src="~/Uploads/Tourism/hasankeyf.jpg" /> 
+                        </a>
+                    </figure>
+                    <div class="item-content text-center">
+                        @*<span class="sub-title">SALAD</span>*@
+                        <h3 class="item-title restName text-center"><a href="/Restaurant/RestaurantDetail/?id=@item.LocationId">@item.LocationName</a></h3>
+                        @*<ul class="item-rating">
+                            <li class="star-fill"><i class="fas fa-star"></i></li>
+                            <li class="star-fill"><i class="fas fa-star"></i></li>
+                            <li class="star-fill"><i class="fas fa-star"></i></li>
+                            <li class="star-fill"><i class="fas fa-star"></i></li>
+                            <li class="star-empty"><i class="fas fa-star"></i></li>
+                            <li><span>9<span> / 10</span></span> </li>
+                        </ul>*@
+                        <p>
+                           @item.Content. 
+                        </p>
+                        @*<ul class="entry-meta">
+                            <li><a href="#"><i class="fas fa-clock"></i>15 Mins</a></li>
+                            <li><a href="#"><i class="fas fa-heart"></i><span>02</span> Likes</a></li>
+                        </ul>*@
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6"></div>}
+    </div>
+</section>
+
+<div>
+    @section Footer{
+        <!-- Instagram Start Here -->
+        <section class="instagram-feed-wrap">
+            <div class="instagram-feed-title"><a href="#"><i class="fab fa-instagram"></i>Follow On Instagram</a></div>
+            <ul class="instagram-feed-figure">
+                <li>
+                    <a href="single-recipe1.html">
+                        <img src="~/Uploads/Tourism/1.jpg" alt="Social" />
+                    </a>
+                </li>
+                <li>
+                    <a href="single-recipe1.html">
+                        <img src="~/Uploads/Tourism/2.jpg" alt="Social" />
+                    </a>
+                </li>
+                <li>
+                    <a href="single-recipe1.html">
+                        <img src="~/Uploads/Tourism/3.jpg" alt="Social" />
+                    </a>
+                </li>
+                 
+                <li>
+                    <a href="single-recipe1.html">
+    <img src="~/Uploads/Tourism/4.jpg" alt="Social" />
+</a>
+                </li>
+                <li>
+                    <a href="single-recipe1.html">
+                        <img src="~/Uploads/Tourism/5.jpg" alt="Social" />
+                    </a>
+                </li>
+                <li>
+                    <a href="single-recipe1.html">
+                        <img src="~/Uploads/Tourism/6.jpg" alt="Social" />
+                    </a>
+                </li>
+                <li>
+                    <a href="single-recipe1.html">
+                        <img src="~/Uploads/Tourism/7.jpg" alt="Social" />
+                    </a>
+                </li>
+            </ul>
+        </section>
+        <!-- Instagram End Here -->
+    }
+</div>
+
+
