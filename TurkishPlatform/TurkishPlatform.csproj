@@ -609,6 +609,10 @@
     <Content Include="Views\Activity\ActivityDetails.cshtml" />
     <Content Include="Views\Restaurant\Index.cshtml" />
     <Content Include="Views\Forum\Comment.cshtml" />
+<<<<<<< HEAD
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\Restaurant\RestaurantDetail.cshtml" />
+=======
     <Content Include="Views\User\Access.cshtml" />
     <Content Include="Views\Restaurant\RestaurantDetail.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />

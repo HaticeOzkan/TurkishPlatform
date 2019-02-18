@@ -44,7 +44,7 @@ namespace TurkishPlatform.Controllers
                 }
                 else
                     IsTrue = false;//eger şifresini yanlış girmişse
-                return View(IsTrue);
+                return View();
         }
         [HttpGet]
         public ActionResult Index()
@@ -131,7 +131,8 @@ namespace TurkishPlatform.Controllers
         //}
         public JsonResult Registery(User user)
         {
-        
+            
+
             if (ModelState.IsValid)
             {
                 Db.Users.Add(user);
