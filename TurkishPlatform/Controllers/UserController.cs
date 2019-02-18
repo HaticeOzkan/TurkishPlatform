@@ -12,38 +12,39 @@ namespace TurkishPlatform.Controllers
     // GET: User
     public class UserController : Controller
     {
-        User User = new User();//birden çok admin olabilir
+       //birden çok admin olabilir
         PlatformContext Db = new PlatformContext();
         // GET: Panel/Login
         //Burası yöneticinin Giriş yaptıgı bölüm aşağıda şifremi unutuum kısmı var 
 
         [HttpPost]
         [ValidateAntiForgeryToken]//Güvenlik için bunu koymazsak postta javascript atakları yapıp verilerimize ulaşılabilir bunu koydugumuz çin view kısmına formdan sonra  @Html.AntiForgeryToken() koymalıyız
-        public ActionResult Index(string UserName, string Password)
+        public ActionResult Index(string Email, string Password)
         {
             ViewBag.Countries = Db.Countries.ToList();
-            bool? IsTrue = true;
-
+            bool? IsTrue = false;
+            User User = new User();
             List<User> ListProfile = Db.Users.ToList();
             foreach (var item in ListProfile)
             {
-                if (UserName == item.NameSurname)
+                if (Email == item.Email)
                 {
-                    User.NameSurname = item.NameSurname;
-                    User.Password = item.Password;
-                    User.Email = item.Email;
-
+                    if (Password == item.Password)
+                    {
+                        IsTrue = true;
+                        Session["CountryId"] = item.CountryNo;                      
+                        Session["EnterID"] = item.UserId;
+                        Session["ImageURL"] = "Content/Login/" + Session["EnterID"];
+                        Session["Email"] = item.Email;
+                        Session["Gender"] = item.Gender;
+                        Session["NameSurname"] = item.NameSurname;                       
+                        return RedirectToAction("Index", "Home");
+                        
+                    }
                 }
             }
             ViewBag.Message = "Sorry. Your password or name was incorrect. Please double-check your password.";
-            if (UserName == User.NameSurname && Password == User.Password)
-            {
-                return RedirectToAction("Index");
-
-            }
-            else
-                IsTrue = false;//eger şifresini yanlış girmişse
-            return View();
+            return View(IsTrue);
         }
         [HttpGet]
         public ActionResult Index()
@@ -72,7 +73,7 @@ namespace TurkishPlatform.Controllers
             smtp.Host = "smtp.gmail.com";
             smtp.EnableSsl = true;
             smtp.Send(ePosta);
-
+            
             //Girilen email alınacak bu email e mail gönderilcek mailde şifre yenileme linki olacak onu basınca şifre yenileme sayfası gelecek
             return View(true);
 
@@ -121,6 +122,7 @@ namespace TurkishPlatform.Controllers
                 File f = new File();
                 f.name = UserImage.FileName;
                 f.url = "Content/Login/" + Session["UserID"];//KAYDOLUCAGI KISIM
+                Session["ImageURL"] = f.url;
                 f.thumbnailUrl = f.url;
                 files.Add(f);
                 return Json(files);
@@ -136,6 +138,8 @@ namespace TurkishPlatform.Controllers
                 Db.Users.Add(user);               
                 Db.SaveChanges();
                 Session["UserID"] = user.UserId;
+            
+                
                 RedirectToAction("Index");
                 return Json(true);
             }

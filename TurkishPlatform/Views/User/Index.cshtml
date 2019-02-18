@@ -1,4 +1,5 @@
 ﻿@using TurkishPlatform.Models
+@model bool?
 @{
     ViewBag.Title = "Index";
     Layout = null;
@@ -205,10 +206,21 @@
     <div class="white-panel">
         <div class="login-show">
             <h2>LOGIN</h2>
-            <input type="text" placeholder="Email">
-            <input type="password" placeholder="Password">
-            <input type="button" value="Login">
-            <a href="">Forgot password?</a>
+            <form action="" method="post">
+                @Html.AntiForgeryToken()
+                <input type="text" name="Email" placeholder="Email">
+                <input type="password" name="Password" placeholder="Password">
+
+                <button type="submit">Login</button>
+
+                @if (Model == false)
+                {
+                    <p>@ViewBag.Message</p>
+                }
+                @*Burada input kısımları form içine aldım action actiona bişi demedim controllerda girilen email ve şifreyi control edip istediğim sayfaya yönlendireceğim ve methodunu belirttim inputların name ini verdim
+            bu belirrtiğimiz name leri logincontrollerda parametre olarak alacak*@
+            </form>
+            <a href="/User/ForgotPassword">Forgot password?</a>@*Burası yonlenmeli*@
         </div>
         @if (!ViewData.ModelState.IsValid)
         {

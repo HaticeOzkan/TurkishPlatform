@@ -197,7 +197,7 @@
     <Compile Include="Models\AdminProfil.cs" />
     <Compile Include="Models\Advice.cs" />
     <Compile Include="Models\Country.cs" />
-    <Compile Include="Models\FileViewModel.cs" />
+    <Compile Include="Models\File.cs" />
     <Compile Include="Models\PlatformContext.cs" />
     <Compile Include="Models\Restaurant.cs" />
     <Compile Include="Models\ForumComment.cs" />
@@ -627,6 +627,8 @@
     <Content Include="Views\Restaurant\RestaurantDetail.cshtml" />
     <Content Include="Views\TourismTravel\Index.cshtml" />
     <Content Include="Views\TourismTravel\TourismTravelDetails.cshtml" />
+    <Content Include="Views\User\ForgotPassword.cshtml" />
+    <Content Include="Views\User\RenewalPassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
