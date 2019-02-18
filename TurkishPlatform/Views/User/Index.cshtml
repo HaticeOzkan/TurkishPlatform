@@ -234,8 +234,8 @@
                 </div>
                 <div style="margin-left:6px;" class="row">
                     <div class="form-group">
-                        <label>Femail</label>   <input type="radio" name="Gender" value="0" style="display:inline-block;" />
-                        <label>Maile</label> <input type="radio" name="Gender" value="1" style="display:inline-block;" />
+                        <label>Female</label><input type="radio" name="Gender" value="0" style="display:inline-block;" />
+                        <label>Male</label> <input type="radio" name="Gender" value="1" style="display:inline-block;" />
                     </div>
                     <select style="width:90px; height:30px; margin-left:30px;" name="CountryNo" >
                         @foreach (Country item in ViewBag.Countries)
@@ -250,7 +250,7 @@
                             <i class="glyphicon glyphicon-plus"></i>
                             <span>Select files...</span>
                             <!-- The file input field used as target for the filupload widget files[] vardı name dee   -->
-                            <input id="fileupload" type="file" name="UserImage" >
+                            <input id="fileupload" type="file" name="UserImage" >@*//kaydedilen resimler dosyaya kaydediliyor veritabanına değil*@
                             @*<input type="hidden" name="Id" value="@Model" />*@
                         </span> @*kopayaldıgımız yerden geldi*@
                         <div id="progress" class="progress">
@@ -304,11 +304,12 @@
 <script>
     /*jslint unparam: true */
     /*global window, $ */
+   
     $(function () {//IMAGE JSONRESULTA GİDEN YER
         'use strict';
-
+       
         // Change this to the location of your server-side upload handler:
-        var url = "/User/Image";//window.location.hostname === 'blueimp.github.io' ? //JSON RESULT İSMİM
+        var url = "/User/AddImage";//window.location.hostname === 'blueimp.github.io' ? //JSON RESULT İSMİM
         //    '//jquery-file-upload.appspot.com/' : 'server/php/';//burda bizim sayamıza gitmeli değiştirdik
         $('#fileupload').fileupload({
             url: url,

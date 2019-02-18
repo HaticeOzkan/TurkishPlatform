@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Net.Mail;
 using System.Web;
@@ -25,26 +24,26 @@ namespace TurkishPlatform.Controllers
             ViewBag.Countries = Db.Countries.ToList();
             bool? IsTrue = true;
 
-                List<User> ListProfile = Db.Users.ToList();
-                foreach (var item in ListProfile)
+            List<User> ListProfile = Db.Users.ToList();
+            foreach (var item in ListProfile)
+            {
+                if (UserName == item.NameSurname)
                 {
-                    if (UserName == item.NameSurname)
-                    {
-                        User.NameSurname = item.NameSurname;
-                        User.Password = item.Password;
-                        User.Email = item.Email;
-
-                    }
-                }
-                ViewBag.Message = "Sorry. Your password or name was incorrect. Please double-check your password.";
-                if (UserName == User.NameSurname && Password == User.Password)
-                {
-                    return RedirectToAction("Index");
+                    User.NameSurname = item.NameSurname;
+                    User.Password = item.Password;
+                    User.Email = item.Email;
 
                 }
-                else
-                    IsTrue = false;//eger şifresini yanlış girmişse
-                return View();
+            }
+            ViewBag.Message = "Sorry. Your password or name was incorrect. Please double-check your password.";
+            if (UserName == User.NameSurname && Password == User.Password)
+            {
+                return RedirectToAction("Index");
+
+            }
+            else
+                IsTrue = false;//eger şifresini yanlış girmişse
+            return View();
         }
         [HttpGet]
         public ActionResult Index()
@@ -111,65 +110,14 @@ namespace TurkishPlatform.Controllers
             return View();
         }
         //şimdi yeni bir şifre girdi onu guncellemem için kişinin id si lazım ki o kişiyi getireyim ajax kullandım
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-
-     
-        public JsonResult Registery(User user)
-        {
-            Session["UserID"] = User.UserId;
-=======
->>>>>>> 61c11cc4032e63cb7c0517ca2fcfc9515ac0427f
-        //public JsonResult Image(HttpPostedFileBase UserImage)//buraya alırken file[] dizi olması sıkıntı oldu recipe image yaptık
-        //{
-        //    //if (UserImage != null && UserImage.ContentLength != 0)
-        //    //{
-        //    //    var path = Server.MapPath("/Content/Login/");
-        //    //    UserImage.SaveAs(path + UserImage.FileName);
-
-        //    //    FileList flist = new FileList();
-        //    //    var files = flist.files;
-
-        //    //    File f = new File();
-        //    //    f.name = UserImage.FileName;
-        //    //    f.url = "Content/Login/" + UserImage.FileName;
-        //    //    f.thumbnailUrl = f.url;
-        //    //    files.Add(f);
-        //    //    return Json(files);
-        //    //}
-        //    return Json(/*false*/);
-        //}
-        public JsonResult Registery(User user)
-        {
-<<<<<<< HEAD
-=======
->>>>>>> 2009781249fd8c732b78a89975c645e40e79894c
->>>>>>> 61c11cc4032e63cb7c0517ca2fcfc9515ac0427f
-            
-
-            if (ModelState.IsValid)
-            {
-                Db.Users.Add(user);
-                Db.SaveChanges();
-                RedirectToAction("Index");
-                return Json(true);
-            }          
-            return Json(false);
-        }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-        public JsonResult Image(HttpPostedFileBase UserImage)//buraya alırken file[] dizi olması sıkıntı oldu recipe image yaptık
+        public JsonResult AddImage(HttpPostedFileBase UserImage)//buraya alırken file[] dizi olması sıkıntı oldu recipe image yaptık
         {
             if (UserImage != null && UserImage.ContentLength != 0)
             {
                 var path = Server.MapPath("/Content/Login/");
                 UserImage.SaveAs(path + Session["UserID"]);
-
                 FileList flist = new FileList();
                 var files = flist.files;
-
                 File f = new File();
                 f.name = UserImage.FileName;
                 f.url = "Content/Login/" + Session["UserID"];//KAYDOLUCAGI KISIM
@@ -179,10 +127,21 @@ namespace TurkishPlatform.Controllers
             }
             return Json(false);
         }
-=======
->>>>>>> 2009781249fd8c732b78a89975c645e40e79894c
->>>>>>> 61c11cc4032e63cb7c0517ca2fcfc9515ac0427f
 
+        public JsonResult Registery(User user)
+        {         
+
+            if (ModelState.IsValid)
+            {              
+                Db.Users.Add(user);               
+                Db.SaveChanges();
+                Session["UserID"] = user.UserId;
+                RedirectToAction("Index");
+                return Json(true);
+            }
+            return Json(false);
+        }
+
+    
     }
-
 }
