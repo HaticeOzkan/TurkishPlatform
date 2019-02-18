@@ -620,12 +620,22 @@
     <Content Include="Views\Restaurant\Index.cshtml" />
     <Content Include="Views\Forum\Comment.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\User\Access.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Login\Register.cshtml" />
     <Content Include="Views\TourismTravel\Index.cshtml" />
     <Content Include="Views\Restaurant\RestaurantDetail.cshtml" />
     <Content Include="Views\TourismTravel\TourismTravelDetails.cshtml" />
+=======
+    <Content Include="Views\Restaurant\RestaurantDetail.cshtml" />
+    <Content Include="Views\Restaurant\RestaurantDetail.cshtml" />
+    <Content Include="Views\TourismTravel\Index.cshtml" />
+<<<<<<< HEAD
+=======
+    <Content Include="Views\TourismTravel\TourismTravelDetails.cshtml" />
+>>>>>>> 2009781249fd8c732b78a89975c645e40e79894c
+>>>>>>> 61c11cc4032e63cb7c0517ca2fcfc9515ac0427f
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
