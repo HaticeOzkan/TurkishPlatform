@@ -12,16 +12,21 @@ namespace TurkishPlatform.Controllers
         // GET: TourismTravel
         public ActionResult Index()
         {
-            PlatformContext db = new PlatformContext();
-
+            PlatformContext db = new PlatformContext(); 
             ViewBag.AllTourism = db.Tourisms.ToList();
             return View(db.Tourisms.ToList());
         }
-        public ActionResult TourismTravelDetails(int id)
+        public ActionResult TourismTravelDetails(int id/*,int UserId,int locationId*/)
         {
+            //if (UserId == null)
+            //{
+            //    RedirectToAction("ındex");
+            //}
+            //db.Countries.Where(x => x.CountryId == id);
             PlatformContext db = new PlatformContext();
-            ViewBag.Country = db.Countries.Where(x => x.CountryId == id);
+            ViewBag.Tourism = db.Tourisms.Where(x => x.CountryId == id);
             Country countries =( from c in db.Countries where c.CountryId==id select c).FirstOrDefault();
+            //ViewBag.Comments = db.LocationComments.Where(x => x.LocationId == locationId && x.UserId == UserId);
             return View(countries);
         }
     }
