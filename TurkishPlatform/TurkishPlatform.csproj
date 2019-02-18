@@ -625,6 +625,7 @@
     <Content Include="Views\Login\Register.cshtml" />
     <Content Include="Views\TourismTravel\Index.cshtml" />
     <Content Include="Views\Restaurant\RestaurantDetail.cshtml" />
+    <Content Include="Views\TourismTravel\TourismTravelDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
