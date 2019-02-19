@@ -112,12 +112,15 @@ namespace TurkishPlatform.Controllers
         }
         //şimdi yeni bir şifre girdi onu guncellemem için kişinin id si lazım ki o kişiyi getireyim ajax kullandım
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 
      
         public JsonResult Registery(User user)
         {
             Session["UserID"] = User.UserId;
 =======
+>>>>>>> 61c11cc4032e63cb7c0517ca2fcfc9515ac0427f
         //public JsonResult Image(HttpPostedFileBase UserImage)//buraya alırken file[] dizi olması sıkıntı oldu recipe image yaptık
         //{
         //    //if (UserImage != null && UserImage.ContentLength != 0)
@@ -139,7 +142,10 @@ namespace TurkishPlatform.Controllers
         //}
         public JsonResult Registery(User user)
         {
+<<<<<<< HEAD
+=======
 >>>>>>> 2009781249fd8c732b78a89975c645e40e79894c
+>>>>>>> 61c11cc4032e63cb7c0517ca2fcfc9515ac0427f
             
 
             if (ModelState.IsValid)
@@ -151,6 +157,8 @@ namespace TurkishPlatform.Controllers
             }          
             return Json(false);
         }
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
         public JsonResult Image(HttpPostedFileBase UserImage)//buraya alırken file[] dizi olması sıkıntı oldu recipe image yaptık
         {
@@ -173,6 +181,7 @@ namespace TurkishPlatform.Controllers
         }
 =======
 >>>>>>> 2009781249fd8c732b78a89975c645e40e79894c
+>>>>>>> 61c11cc4032e63cb7c0517ca2fcfc9515ac0427f
 
     }
 
