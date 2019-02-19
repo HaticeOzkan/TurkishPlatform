@@ -1,5 +1,5 @@
 ﻿@using TurkishPlatform.Models
-@model Country
+@model  Tourism
 @{
     ViewBag.Title = "TourismTravelDetails";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -30,7 +30,20 @@
 <div class="container">
     <div class="row">
         <div class="resim"></div>
-        <div > </div>
+        <div class="mesaj">
+            @foreach (Tourism item in ViewBag.Tourism)
+
+            {  <p>@item.Content</p>
+        
+
+            }
+        </div> 
+
+        <div class="col-md-4 text-center " style="">
+            @*bunu kaldırıp değişiklik vererek yapabilirsn*@
+            <input id="textinput" name="date" type="text" onblur="this.type=date" style="height:80px;width: 206%;margin-left: 244px;" placeholder="Yorum Yap" class="form-control input-md text-center "><br />
+            <button class="input-md btn btn-success" name="Insert" style="width:205%;margin-left: 244px;float:none;">Yorum Yap</button>
+        </div>
 
     </div>
 

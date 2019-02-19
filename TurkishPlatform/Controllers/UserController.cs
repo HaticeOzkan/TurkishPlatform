@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Net.Mail;
 using System.Web;
@@ -13,38 +12,39 @@ namespace TurkishPlatform.Controllers
     // GET: User
     public class UserController : Controller
     {
-        User User = new User();//birden çok admin olabilir
+       //birden çok admin olabilir
         PlatformContext Db = new PlatformContext();
         // GET: Panel/Login
         //Burası yöneticinin Giriş yaptıgı bölüm aşağıda şifremi unutuum kısmı var 
 
         [HttpPost]
         [ValidateAntiForgeryToken]//Güvenlik için bunu koymazsak postta javascript atakları yapıp verilerimize ulaşılabilir bunu koydugumuz çin view kısmına formdan sonra  @Html.AntiForgeryToken() koymalıyız
-        public ActionResult Index(string UserName, string Password)
+        public ActionResult Index(string Email, string Password)
         {
             ViewBag.Countries = Db.Countries.ToList();
-            bool? IsTrue = true;
-
-                List<User> ListProfile = Db.Users.ToList();
-                foreach (var item in ListProfile)
+            bool? IsTrue = false;
+            User User = new User();
+            List<User> ListProfile = Db.Users.ToList();
+            foreach (var item in ListProfile)
+            {
+                if (Email == item.Email)
                 {
-                    if (UserName == item.NameSurname)
+                    if (Password == item.Password)
                     {
-                        User.NameSurname = item.NameSurname;
-                        User.Password = item.Password;
-                        User.Email = item.Email;
-
+                        IsTrue = true;
+                        Session["CountryId"] = item.CountryNo;                      
+                        Session["EnterID"] = item.UserId;
+                        Session["ImageURL"] = "Content/Login/" + Session["EnterID"];
+                        Session["Email"] = item.Email;
+                        Session["Gender"] = item.Gender;
+                        Session["NameSurname"] = item.NameSurname;                       
+                        return RedirectToAction("Index", "Home");
+                        
                     }
                 }
-                ViewBag.Message = "Sorry. Your password or name was incorrect. Please double-check your password.";
-                if (UserName == User.NameSurname && Password == User.Password)
-                {
-                    return RedirectToAction("Index");
-
-                }
-                else
-                    IsTrue = false;//eger şifresini yanlış girmişse
-                return View();
+            }
+            ViewBag.Message = "Sorry. Your password or name was incorrect. Please double-check your password.";
+            return View(IsTrue);
         }
         [HttpGet]
         public ActionResult Index()
@@ -73,7 +73,7 @@ namespace TurkishPlatform.Controllers
             smtp.Host = "smtp.gmail.com";
             smtp.EnableSsl = true;
             smtp.Send(ePosta);
-
+            
             //Girilen email alınacak bu email e mail gönderilcek mailde şifre yenileme linki olacak onu basınca şifre yenileme sayfası gelecek
             return View(true);
 
@@ -111,78 +111,41 @@ namespace TurkishPlatform.Controllers
             return View();
         }
         //şimdi yeni bir şifre girdi onu guncellemem için kişinin id si lazım ki o kişiyi getireyim ajax kullandım
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-
-     
-        public JsonResult Registery(User user)
-        {
-            Session["UserID"] = User.UserId;
-=======
->>>>>>> 61c11cc4032e63cb7c0517ca2fcfc9515ac0427f
-        //public JsonResult Image(HttpPostedFileBase UserImage)//buraya alırken file[] dizi olması sıkıntı oldu recipe image yaptık
-        //{
-        //    //if (UserImage != null && UserImage.ContentLength != 0)
-        //    //{
-        //    //    var path = Server.MapPath("/Content/Login/");
-        //    //    UserImage.SaveAs(path + UserImage.FileName);
-
-        //    //    FileList flist = new FileList();
-        //    //    var files = flist.files;
-
-        //    //    File f = new File();
-        //    //    f.name = UserImage.FileName;
-        //    //    f.url = "Content/Login/" + UserImage.FileName;
-        //    //    f.thumbnailUrl = f.url;
-        //    //    files.Add(f);
-        //    //    return Json(files);
-        //    //}
-        //    return Json(/*false*/);
-        //}
-        public JsonResult Registery(User user)
-        {
-<<<<<<< HEAD
-=======
->>>>>>> 2009781249fd8c732b78a89975c645e40e79894c
->>>>>>> 61c11cc4032e63cb7c0517ca2fcfc9515ac0427f
-            
-
-            if (ModelState.IsValid)
-            {
-                Db.Users.Add(user);
-                Db.SaveChanges();
-                RedirectToAction("Index");
-                return Json(true);
-            }          
-            return Json(false);
-        }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-        public JsonResult Image(HttpPostedFileBase UserImage)//buraya alırken file[] dizi olması sıkıntı oldu recipe image yaptık
+        public JsonResult AddImage(HttpPostedFileBase UserImage)//buraya alırken file[] dizi olması sıkıntı oldu recipe image yaptık
         {
             if (UserImage != null && UserImage.ContentLength != 0)
             {
                 var path = Server.MapPath("/Content/Login/");
                 UserImage.SaveAs(path + Session["UserID"]);
-
                 FileList flist = new FileList();
                 var files = flist.files;
-
                 File f = new File();
                 f.name = UserImage.FileName;
                 f.url = "Content/Login/" + Session["UserID"];//KAYDOLUCAGI KISIM
+                Session["ImageURL"] = f.url;
                 f.thumbnailUrl = f.url;
                 files.Add(f);
                 return Json(files);
             }
             return Json(false);
         }
-=======
->>>>>>> 2009781249fd8c732b78a89975c645e40e79894c
->>>>>>> 61c11cc4032e63cb7c0517ca2fcfc9515ac0427f
 
+        public JsonResult Registery(User user)
+        {         
+
+            if (ModelState.IsValid)
+            {              
+                Db.Users.Add(user);               
+                Db.SaveChanges();
+                Session["UserID"] = user.UserId;
+            
+                
+                RedirectToAction("Index");
+                return Json(true);
+            }
+            return Json(false);
+        }
+
+    
     }
-
 }
