@@ -29,7 +29,7 @@ namespace TurkishPlatform.Controllers
 		{
 			Restaurant r = db.Restaurants.Include("Country").FirstOrDefault(x => x.RestaurantId == id);
 			ViewBag.RestaurantId = r.RestaurantId;
-            ViewBag.Comment = db.RestaurantComments;
+            ViewBag.Comment = db.RestaurantComments.ToList();
 
 			return View(r);
 		}
