@@ -65,7 +65,7 @@ namespace TurkishPlatform.Controllers
             activity.CountryId = 2;
             activity.Content = Content;
             activity.ImageURL = "/Uploads/Activity/" + Image.FileName;
-            activity.UserId = 3;
+            activity.UserId = 35;
             activity.NumberofParticipations = Kontejyan;
 
 

@@ -612,13 +612,20 @@
     <Content Include="Views\Forum\Comment.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Restaurant\RestaurantDetail.cshtml" />
+<<<<<<< HEAD
+=======
+    <Content Include="Views\User\Access.cshtml" />
+>>>>>>> 0274a48a06df23bbbd9fb6650093da542a1c7034
     <Content Include="Views\Restaurant\RestaurantDetail.cshtml" />
     <Content Include="Views\TourismTravel\Index.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Restaurant\RestaurantDetail.cshtml" />
     <Content Include="Views\TourismTravel\TourismTravelDetails.cshtml" />
     <Content Include="Views\Restaurant\RestaurantDetail.cshtml" />
     <Content Include="Views\Restaurant\RestaurantDetail.cshtml" />
     <Content Include="Views\TourismTravel\Index.cshtml" />
+=======
+>>>>>>> 0274a48a06df23bbbd9fb6650093da542a1c7034
     <Content Include="Views\TourismTravel\TourismTravelDetails.cshtml" />
     <Content Include="Views\User\ForgotPassword.cshtml" />
     <Content Include="Views\User\RenewalPassword.cshtml" />
