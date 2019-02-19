@@ -116,12 +116,12 @@ namespace TurkishPlatform.Controllers
             if (UserImage != null && UserImage.ContentLength != 0)
             {
                 var path = Server.MapPath("/Content/Login/");
-                UserImage.SaveAs(path + Session["UserID"]);
+                UserImage.SaveAs(path + Session["UserID"]+".jpg");
                 FileList flist = new FileList();
                 var files = flist.files;
                 File f = new File();
                 f.name = UserImage.FileName;
-                f.url = "Content/Login/" + Session["UserID"];//KAYDOLUCAGI KISIM
+                f.url = "Content/Login/" + Session["UserID"]+".jpg";//KAYDOLUCAGI KISIM
                 Session["ImageURL"] = f.url;
                 f.thumbnailUrl = f.url;
                 files.Add(f);
