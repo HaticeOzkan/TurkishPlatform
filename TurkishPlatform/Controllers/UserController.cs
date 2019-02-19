@@ -34,7 +34,7 @@ namespace TurkishPlatform.Controllers
                         IsTrue = true;
                         Session["CountryId"] = item.CountryNo;                      
                         Session["EnterID"] = item.UserId;
-                        Session["ImageURL"] = "Content/Login/" + Session["EnterID"];
+                        Session["ImageURL"] = "/Content/Login/" + Session["EnterID"]+".jpg";
                         Session["Email"] = item.Email;
                         Session["Gender"] = item.Gender;
                         Session["NameSurname"] = item.NameSurname;                       
@@ -138,9 +138,7 @@ namespace TurkishPlatform.Controllers
                 Db.Users.Add(user);               
                 Db.SaveChanges();
                 Session["UserID"] = user.UserId;
-            
-                
-                RedirectToAction("Index");
+              
                 return Json(true);
             }
             return Json(false);

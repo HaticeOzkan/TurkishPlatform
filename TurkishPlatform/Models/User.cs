@@ -13,30 +13,26 @@ namespace TurkishPlatform.Models
 		Female,
 		Male
 	}
-	public class User
-	{
-		[Key]
-		public int UserId { get; set; }
-		[MaxLength(200)]
-		[Required]
-		public string NameSurname { get; set; }
-		public Gender Gender { get; set; }
-		[Required]
-		[MaxLength(250)]
-		public string Email { get; set; }
-		[Required]
-		[MaxLength(15)]
-		public string Password { get; set; }     
-		public int CountryNo { get; set; }
-		public virtual List<LocationComment> TourismComments { get; set; }
-		public virtual List<ForumComment> ForumComments { get; set; }
-		public virtual List<RestaurantComment> RestaurantComments { get; set; }  
-<<<<<<< HEAD
+    public class User
+    {
+        [Key]
+        public int UserId { get; set; }
+        [MaxLength(200)]
+        [Required]
+        public string NameSurname { get; set; }
+        public Gender Gender { get; set; }
+        [Required]
+        [MaxLength(250)]
+        public string Email { get; set; }
+        [Required]
+        [MaxLength(15)]
+        public string Password { get; set; }
+        public int CountryNo { get; set; }
+        public virtual List<LocationComment> TourismComments { get; set; }
+        public virtual List<ForumComment> ForumComments { get; set; }
+        public virtual List<RestaurantComment> RestaurantComments { get; set; }
         public virtual List<File> Files { get; set; }
 
-=======
-       public virtual List<File> Files { get; set; }
->>>>>>> 0274a48a06df23bbbd9fb6650093da542a1c7034
-	}
-    
+
+    }
 }
