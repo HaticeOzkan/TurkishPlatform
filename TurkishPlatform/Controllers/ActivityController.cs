@@ -49,7 +49,7 @@ namespace TurkishPlatform.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Create(string name, DateTime date, DateTime StartTime, DateTime FinishTime, HttpPostedFileBase Image, int CountryId, string Content, string Address, int Kontejyan)
+        public ActionResult Create(string name, DateTime date, DateTime StartTime, DateTime FinishTime, HttpPostedFileBase Image, string Content, string Address, int Kontejyan)
         {
             PlatformContext db = new PlatformContext();
            
