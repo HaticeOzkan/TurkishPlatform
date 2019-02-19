@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.IO;
 using System.Linq;
 using System.Web;
 
@@ -30,7 +31,12 @@ namespace TurkishPlatform.Models
 		public virtual List<LocationComment> TourismComments { get; set; }
 		public virtual List<ForumComment> ForumComments { get; set; }
 		public virtual List<RestaurantComment> RestaurantComments { get; set; }  
+<<<<<<< HEAD
         public virtual List<File> Files { get; set; }
+
+=======
+       public virtual List<File> Files { get; set; }
+>>>>>>> 0274a48a06df23bbbd9fb6650093da542a1c7034
 	}
     
 }
