@@ -5,7 +5,7 @@
 }
 
 <h2>Index</h2>
-<br /><br />
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -23,30 +23,35 @@
         <th>
             @Html.DisplayNameFor(model => model.Address)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CoverImageURL)
+        </th>
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Country.CountryName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RestaurantName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Content)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.RestaurantId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.RestaurantId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.RestaurantId })
-            </td>
-        </tr>
-    }
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Country.CountryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RestaurantName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Content)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CoverImageURL)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.RestaurantId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.RestaurantId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RestaurantId })
+        </td>
+    </tr>
+}
 
 </table>

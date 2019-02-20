@@ -5,7 +5,7 @@
 }
 
 <h2>Index</h2>
-<br /><br />
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -20,27 +20,32 @@
         <th>
             @Html.DisplayNameFor(model => model.Content)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Permission)
+        </th>
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Location.LocationName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.User.NameSurname)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Content)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.CommentId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.CommentId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.CommentId })
-            </td>
-        </tr>
-    }
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location.LocationName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.NameSurname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Content)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Permission)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CommentId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CommentId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CommentId })
+        </td>
+    </tr>
+}
 
 </table>

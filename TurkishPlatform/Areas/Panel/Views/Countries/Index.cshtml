@@ -5,9 +5,8 @@
 }
 
 <h2>Index</h2>
-<br /><br />
+
 <p>
-   
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
@@ -18,18 +17,17 @@
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CountryName)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.CountryId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.CountryId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.CountryId })
-            </td>
-        </tr>
-    }
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CountryName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CountryId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CountryId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CountryId })
+        </td>
+    </tr>
+}
 
 </table>

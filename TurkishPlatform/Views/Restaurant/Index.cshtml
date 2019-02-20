@@ -118,14 +118,15 @@
 		$(".restName").click(function () {
 			var btn = $(this);
 			var id = btn.attr("rel");
-			$.ajax({
-				url: "/Restaurant/RestaurantDetail/" + id,
-				method: "GET",
-				success: function (r) {
-					$(".newDetail")
+			@Session["RestaurantID"] = id;
+			//$.ajax({
+			//	url: "/Restaurant/RestaurantDetail/" + id,
+			//	method: "GET",
+			//	success: function (r) {
+			//		$(".newDetail")
 					
-				}
-			});
+			//	}
+			//});
 		});
 	});
 </script>*@

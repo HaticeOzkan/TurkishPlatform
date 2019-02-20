@@ -49,7 +49,7 @@ namespace TurkishPlatform.Areas.Panel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CommentId,Content,UserId,LocationId")] LocationComment locationComment)
+        public ActionResult Create([Bind(Include = "CommentId,Content,UserId,LocationId,Permission")] LocationComment locationComment)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace TurkishPlatform.Areas.Panel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CommentId,Content,UserId,LocationId")] LocationComment locationComment)
+        public ActionResult Edit([Bind(Include = "CommentId,Content,UserId,LocationId,Permission")] LocationComment locationComment)
         {
             if (ModelState.IsValid)
             {

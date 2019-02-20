@@ -7,12 +7,12 @@ using TurkishPlatform.Models;
 
 namespace TurkishPlatform.Controllers
 {
-    public class RestaurantController : Controller
-    {
+	public class RestaurantController : Controller
+	{
 		// GET: Restaurant
 		PlatformContext db = new PlatformContext();
 		public ActionResult Index()
-        {
+		{
 			RestaurantViewModel data = new RestaurantViewModel();
 			data.RestaurantId = db.Restaurants.Select(x => x.RestaurantId).FirstOrDefault();
 			data.RestaurantName = db.Restaurants.Select(x => x.RestaurantName).FirstOrDefault();
@@ -24,20 +24,30 @@ namespace TurkishPlatform.Controllers
 			return View(data);
 		}
 
-		
+
 		public ActionResult RestaurantDetail(int id)
 		{
 			Restaurant r = db.Restaurants.Include("Country").FirstOrDefault(x => x.RestaurantId == id);
 			ViewBag.RestaurantId = r.RestaurantId;
-            ViewBag.Comment = db.RestaurantComments.ToList();
+			ViewBag.Comment = db.RestaurantComments.Where(x => x.RestaurantId == id).ToList();
 
 			return View(r);
 		}
 
-        [HttpPost]
-        public ActionResult RestaurantDetail(RestaurantComment newComment)
-        {
-            return View();
-        }
-    }
+		[HttpPost]
+		public ActionResult RestaurantDetail(string Content, int id)
+		{
+			
+			RestaurantComment rComment = new RestaurantComment();
+		
+			rComment.Content = Content;
+			rComment.RestaurantId = id;
+			rComment.User.UserId = Convert.ToInt32(Session["EnterID"]);
+
+			db.RestaurantComments.Add(rComment);
+			db.SaveChanges();
+
+			return View(rComment);
+		}
+	}
 }

@@ -10,116 +10,107 @@ using TurkishPlatform.Models;
 
 namespace TurkishPlatform.Areas.Panel.Controllers
 {
-    public class ActivitiesController : Controller
+    public class Users1Controller : Controller
     {
         private PlatformContext db = new PlatformContext();
 
-        // GET: Panel/Activities
+        // GET: Panel/Users1
         public ActionResult Index()
         {
-            var activities = db.Activities.Include(a => a.Country).Include(a => a.User);
-            return View(activities.ToList());
+            return View(db.Users.ToList());
         }
 
-        // GET: Panel/Activities/Details/5
+        // GET: Panel/Users1/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Activity activity = db.Activities.Find(id);
-            if (activity == null)
+            User user = db.Users.Find(id);
+            if (user == null)
             {
                 return HttpNotFound();
             }
-            return View(activity);
+            return View(user);
         }
 
-        // GET: Panel/Activities/Create
+        // GET: Panel/Users1/Create
         public ActionResult Create()
         {
-            ViewBag.CountryId = new SelectList(db.Countries, "CountryId", "CountryName");
-            ViewBag.UserId = new SelectList(db.Users, "UserId", "NameSurname");
             return View();
         }
 
-        // POST: Panel/Activities/Create
+        // POST: Panel/Users1/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ActivityId,ImageURL,Title,Content,Date,StartTime,FinishTime,Address,CountryId,UserId,Permission,Participation,NumberofParticipations")] Activity activity)
+        public ActionResult Create([Bind(Include = "UserId,NameSurname,Gender,Email,Password,CountryNo,ImageURL")] User user)
         {
             if (ModelState.IsValid)
             {
-                db.Activities.Add(activity);
+                db.Users.Add(user);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CountryId = new SelectList(db.Countries, "CountryId", "CountryName", activity.CountryId);
-            ViewBag.UserId = new SelectList(db.Users, "UserId", "NameSurname", activity.UserId);
-            return View(activity);
+            return View(user);
         }
 
-        // GET: Panel/Activities/Edit/5
+        // GET: Panel/Users1/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Activity activity = db.Activities.Find(id);
-            if (activity == null)
+            User user = db.Users.Find(id);
+            if (user == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.CountryId = new SelectList(db.Countries, "CountryId", "CountryName", activity.CountryId);
-            ViewBag.UserId = new SelectList(db.Users, "UserId", "NameSurname", activity.UserId);
-            return View(activity);
+            return View(user);
         }
 
-        // POST: Panel/Activities/Edit/5
+        // POST: Panel/Users1/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ActivityId,ImageURL,Title,Content,Date,StartTime,FinishTime,Address,CountryId,UserId,Permission,Participation,NumberofParticipations")] Activity activity)
+        public ActionResult Edit([Bind(Include = "UserId,NameSurname,Gender,Email,Password,CountryNo,ImageURL")] User user)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(activity).State = EntityState.Modified;
+                db.Entry(user).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CountryId = new SelectList(db.Countries, "CountryId", "CountryName", activity.CountryId);
-            ViewBag.UserId = new SelectList(db.Users, "UserId", "NameSurname", activity.UserId);
-            return View(activity);
+            return View(user);
         }
 
-        // GET: Panel/Activities/Delete/5
+        // GET: Panel/Users1/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Activity activity = db.Activities.Find(id);
-            if (activity == null)
+            User user = db.Users.Find(id);
+            if (user == null)
             {
                 return HttpNotFound();
             }
-            return View(activity);
+            return View(user);
         }
 
-        // POST: Panel/Activities/Delete/5
+        // POST: Panel/Users1/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Activity activity = db.Activities.Find(id);
-            db.Activities.Remove(activity);
+            User user = db.Users.Find(id);
+            db.Users.Remove(user);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
