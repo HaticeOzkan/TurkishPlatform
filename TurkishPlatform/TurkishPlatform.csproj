@@ -164,7 +164,6 @@
     <Compile Include="Areas\Panel\Controllers\RestaurantImagesController.cs" />
     <Compile Include="Areas\Panel\Controllers\RestaurantsController.cs" />
     <Compile Include="Areas\Panel\Controllers\TourismController.cs" />
-    <Compile Include="Areas\Panel\Controllers\Users1Controller.cs" />
     <Compile Include="Areas\Panel\Controllers\UsersController.cs" />
     <Compile Include="Areas\Panel\Models\AdminView.cs" />
     <Compile Include="Areas\Panel\PanelAreaRegistration.cs" />
@@ -461,6 +460,7 @@
     <Content Include="Content\Restaurant\webfonts\fa-solid-900.html" />
     <Content Include="Content\Restaurant\webfonts\fa-solid-900.svg" />
     <Content Include="Content\Restourant.png" />
+    <Content Include="Content\Site.css" />
     <Content Include="Content\Tourism.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -581,6 +581,7 @@
     <Content Include="Areas\Panel\Views\Users1\Details.cshtml" />
     <Content Include="Areas\Panel\Views\Users1\Edit.cshtml" />
     <Content Include="Areas\Panel\Views\Users1\Index.cshtml" />
+    <Content Include="Areas\Panel\Views\Shared\_Layout.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

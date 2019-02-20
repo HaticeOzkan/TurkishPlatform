@@ -46,7 +46,7 @@ namespace TurkishPlatform.Areas.Panel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "UserId,NameSurname,Gender,Email,Password,ImageURL,CountryNo")] User user)
+        public ActionResult Create([Bind(Include = "UserId,NameSurname,Gender,Email,Password,CountryNo,ImageURL")] User user)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace TurkishPlatform.Areas.Panel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UserId,NameSurname,Gender,Email,Password,ImageURL,CountryNo")] User user)
+        public ActionResult Edit([Bind(Include = "UserId,NameSurname,Gender,Email,Password,CountryNo,ImageURL")] User user)
         {
             if (ModelState.IsValid)
             {

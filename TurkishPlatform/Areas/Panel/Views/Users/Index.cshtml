@@ -5,7 +5,7 @@
 }
 
 <h2>Index</h2>
-<br /><br />
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -24,10 +24,10 @@
             @Html.DisplayNameFor(model => model.Password)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ImageURL)
+            @Html.DisplayNameFor(model => model.CountryNo)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CountryNo)
+            @Html.DisplayNameFor(model => model.ImageURL)
         </th>
         <th></th>
     </tr>
@@ -47,10 +47,10 @@
             @Html.DisplayFor(modelItem => item.Password)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ImageURL)
+            @Html.DisplayFor(modelItem => item.CountryNo)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.CountryNo)
+            @Html.DisplayFor(modelItem => item.ImageURL)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.UserId }) |
