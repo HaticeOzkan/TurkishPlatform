@@ -48,8 +48,10 @@
                         <p>
                            @item.Content
                         </p>
-                     
-                        <a href="/TourismTravel/TourismTravelDetails/?id=@item.CountryId&UserId=35&locationId=@item.LocationId" style="margin-left:35%;color:black"><b>Ayrıntılarını Gör</b></a>
+                    @{ 
+                        int Id = (int)Session["EnterID"];
+                    }
+                        <a href="/TourismTravel/TourismTravelDetails/?id=@item.CountryId&UserId=@Id&locationId=@item.LocationId"  style="margin-left:35%;color:black"><b>Ayrıntılarını Gör</b></a>
                        
                     </div>
                 </div>

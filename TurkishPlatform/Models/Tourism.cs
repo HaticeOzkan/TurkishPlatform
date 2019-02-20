@@ -43,10 +43,10 @@ namespace TurkishPlatform.Models
         [Key]
 		public int CommentId { get; set; }
 		public string Content { get; set; }
-		public User User { get; set; }
+		public virtual User User { get; set; }
 		[ForeignKey("User")]
 		public int UserId { get; set; }
-		public Tourism Location { get; set; }
+		public virtual Tourism Location { get; set; }
 		[ForeignKey("Location")]
 		public int LocationId { get; set; }
         public bool Permission { get; set; }

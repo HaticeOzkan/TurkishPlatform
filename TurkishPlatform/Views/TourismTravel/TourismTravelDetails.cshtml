@@ -30,7 +30,7 @@
 <div class="container">
     <div class="row">
         <div class="resim"></div>
-        <div class="mesaj">
+        <div class="icerik">
             @foreach (Tourism item in ViewBag.Tourism)
 
             {  <p>@item.Content</p>
@@ -39,10 +39,37 @@
             }
         </div> 
 
+
+        @*<ItemTemplate>
+            <div class="msj">
+                <strong><%#Eval("AdSoyad") %></strong>
+                <span class="sil btn btn-danger" mesajid="<%#Eval(" Id") %>">Sil</span>
+                <br />
+                <p><%#Eval("Icerik") %></p>
+                <i><%#Eval("YazilmaZamani") %></i>
+                <hr />
+            </div>
+        </ItemTemplate>*@
+
+        
+       <div class="mesaj">
+         @foreach (LocationComment item in ViewBag.Comment)
+         {
+            
+
+          
+           <strong>@item.User.NameSurname</strong> 
+           <span class="sil btn btn-danger" mesajid="@item.CommentId"> Sil</span> 
+           <p>@item.Content</p>
+            
+         }
+           </div>
         <div class="col-md-4 text-center " style="">
             @*bunu kaldırıp değişiklik vererek yapabilirsn*@
-            <input id="textinput" name="date" type="text" onblur="this.type=date" style="height:80px;width: 206%;margin-left: 244px;" placeholder="Yorum Yap" class="form-control input-md text-center "><br />
-            <button class="input-md btn btn-success" name="Insert" style="width:205%;margin-left: 244px;float:none;">Yorum Yap</button>
+            <form method="post">
+                <input id="textinput" name="comment" type="text" onblur="this.type=date" style="height:80px;width: 206%;margin-left: 244px;" placeholder="Yorum Yap" class="form-control input-md text-center "><br />
+                <button class="input-md btn btn-success" name="Insert" style="width:205%;margin-left: 244px;float:none;">Yorum Yap</button>
+            </form>
         </div>
 
     </div>

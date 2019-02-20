@@ -17,14 +17,13 @@ namespace TurkishPlatform.Controllers
 
             return View(db.Tourisms.ToList());
         }
-        public ActionResult TourismTravelDetails(int id ,int UserId,int locationId)
-        {
-            //if (UserId == null)
-            //{
-            //    RedirectToAction("ındex");
-            //}
-            //db.Countries.Where(x => x.CountryId == id);
+        public ActionResult TourismTravelDetails(LocationComment d, int id ,int UserId,int locationId)
+        { 
+            int a = (int)Session["EnterID"];
+            
             PlatformContext db = new PlatformContext();
+            ViewBag.user = db.Users.Find(id);
+            ViewBag.Comment = db.LocationComments.ToList();
             ViewBag.Tourism = db.Tourisms.Where(x => x.CountryId == id);
             Tourism countries =( from c in db.Tourisms where c.CountryId==id select c).FirstOrDefault();
              ViewBag.Comments = db.LocationComments.Where(x => x.LocationId == locationId & x.UserId == UserId);
