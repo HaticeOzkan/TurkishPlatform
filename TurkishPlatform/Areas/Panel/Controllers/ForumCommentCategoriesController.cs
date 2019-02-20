@@ -48,7 +48,7 @@ namespace TurkishPlatform.Areas.Panel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CategoryId,CategoryName,CountryId,Explain,ImagePath")] ForumCommentCategory forumCommentCategory)
+        public ActionResult Create([Bind(Include = "CategoryId,CategoryName,CountryId")] ForumCommentCategory forumCommentCategory)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +82,7 @@ namespace TurkishPlatform.Areas.Panel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CategoryId,CategoryName,CountryId,Explain,ImagePath")] ForumCommentCategory forumCommentCategory)
+        public ActionResult Edit([Bind(Include = "CategoryId,CategoryName,CountryId")] ForumCommentCategory forumCommentCategory)
         {
             if (ModelState.IsValid)
             {
