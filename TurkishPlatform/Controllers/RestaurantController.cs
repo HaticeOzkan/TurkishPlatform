@@ -29,19 +29,25 @@ namespace TurkishPlatform.Controllers
 		{
 			Restaurant r = db.Restaurants.Include("Country").FirstOrDefault(x => x.RestaurantId == id);
 			ViewBag.RestaurantId = r.RestaurantId;
-			ViewBag.Comment = db.RestaurantComments.Where(x => x.RestaurantId == id);
+			ViewBag.Comment = db.RestaurantComments.Where(x => x.RestaurantId == id).ToList();
 
 			return View(r);
 		}
 
 		[HttpPost]
-		public ActionResult RestaurantDetail(RestaurantComment newComment, int RestauranId)
+		public ActionResult RestaurantDetail(string Content, int id)
 		{
-			newComment.RestaurantId = RestauranId;
-			db.RestaurantComments.Add(newComment);
+			
+			RestaurantComment rComment = new RestaurantComment();
+		
+			rComment.Content = Content;
+			rComment.RestaurantId = id;
+			rComment.User.UserId = Convert.ToInt32(Session["EnterID"]);
+
+			db.RestaurantComments.Add(rComment);
 			db.SaveChanges();
 
-			return View(newComment);
+			return View(rComment);
 		}
 	}
 }
