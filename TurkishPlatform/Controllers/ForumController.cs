@@ -11,8 +11,18 @@ namespace TurkishPlatform.Controllers
     {
         PlatformContext Db = new PlatformContext();
         // GET: Forum
+        
         public ActionResult Index()
         {
+            ViewBag.Categories = Db.ForumCommentCategories.ToList();
+            int? Start = 0;
+            return View(Start);
+        }
+
+        public ActionResult TopicTitle(int CountryID)
+        {
+            var TopicTitleList = Db.ForumTopicTitles.Where(x => x.CommentCategoryId == CountryID).ToList();
+            
             return View();
         }
     }
