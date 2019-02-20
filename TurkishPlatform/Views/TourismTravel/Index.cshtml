@@ -11,7 +11,7 @@
 
 
 @section CSS{
-    <img src="~/Content/Restaurant/img/favicon.png" />
+    @*<img src="~/Content/Restaurant/img/favicon.png" />*@
     <link href="~/Content/Restaurant/css/fontawesome-all.min.css" rel="stylesheet" />
     <link href="~/Content/Restaurant/css/main.css" rel="stylesheet" />
     <link href="~/Content/Restaurant/css/normalize.css" rel="stylesheet" />
@@ -37,22 +37,23 @@
                 <div class="product-box-layout3" style="margin-left: 220px;
     width: 118%;">
                     <figure class="item-figure">
-                        <a href="single-recipe1.html"> 
-                            <img src="~/Uploads/Tourism/hasankeyf.jpg" /> 
+                        <a href="single-recipe1.html">
+                            <img src="~/Uploads/Tourism/hasankeyf.jpg" />
                         </a>
                     </figure>
                     <div class="item-content text-center">
-                        
-                        <h3 class="item-title restName text-center" style="margin-top: -81px;">  @*href="/Restaurant/RestaurantDetail/?id=@item.LocationId"* @*@  @item.LocationName </h3>
-                       
+
+                        <h3 class="item-title restName text-center" style="margin-top: -102px; position:absolute; margin-left: 137px;">  @*href="/Restaurant/RestaurantDetail/?id=@item.LocationId"* @*@  @item.LocationName </h3>
+
                         <p>
-                           @item.Content
+                            @item.Content
                         </p>
-                    @{ 
-                        int Id = (int)Session["EnterID"];
-                    }
-                        <a href="/TourismTravel/TourismTravelDetails/?id=@item.CountryId&UserId=@Id&locationId=@item.LocationId"  style="margin-left:35%;color:black"><b>Ayrıntılarını Gör</b></a>
-                       
+                        @{
+                            var Id = Session["EnterID"];
+                            //&UserId = @Id
+                        }
+                        <a href="/TourismTravel/TourismTravelDetails/?id=@item.CountryId&UserId=@Id&locationId=@item.LocationId" style="margin-left:35%;color:black"><b>Ayrıntılarını Gör</b></a>
+
                     </div>
                 </div>
             </div>
@@ -81,11 +82,11 @@
                         <img src="~/Uploads/Tourism/3.jpg" alt="Social" />
                     </a>
                 </li>
-                 
+
                 <li>
                     <a href="single-recipe1.html">
-    <img src="~/Uploads/Tourism/4.jpg" alt="Social" />
-</a>
+                        <img src="~/Uploads/Tourism/4.jpg" alt="Social" />
+                    </a>
                 </li>
                 <li>
                     <a href="single-recipe1.html">
