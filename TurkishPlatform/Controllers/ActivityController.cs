@@ -19,7 +19,7 @@ namespace TurkishPlatform.Controllers
             PlatformContext db = new PlatformContext();
 
             //ViewBag.ParticipationF = db.Activities.Where(x => x.Participation == false).Count();
-       
+
             return View(db.Activities.ToList());
         }
         [HttpPost]
@@ -41,64 +41,86 @@ namespace TurkishPlatform.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            PlatformContext db = new PlatformContext();
-            
-            ViewBag.Ukeler = db.Activities.ToList();
+            //int id = (int) Session["CountryId"];
+            if ((Session["EnterID"] != null) || (Session["EnterID"] != null))
+            { 
+                PlatformContext db = new PlatformContext();
 
-            //ViewBag.PossibleParents = db.Activities.ToList();
-            return View();
+                ViewBag.Ukeler = db.Activities.ToList();
+
+                //ViewBag.PossibleParents = db.Activities.ToList();
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "User");
+
+            }
+
         }
+        
         [HttpPost]
         public ActionResult Create(string name, DateTime date, DateTime StartTime, DateTime FinishTime, HttpPostedFileBase Image, string Content, string Address, int Kontejyan)
         {
-            PlatformContext db = new PlatformContext();
-           
-                string klasor = Server.MapPath("/Uploads/Activity/");
-            Image.SaveAs(klasor + Image.FileName);
-
-            Activity activity = new Activity();
-            activity.Address = Address;
-            activity.Title = name;
-            activity.StartTime = StartTime;
-            activity.FinishTime = FinishTime;
-            activity.Date = date;
-            activity.CountryId = 2;
-            activity.Content = Content;
-            activity.ImageURL = "/Uploads/Activity/" + Image.FileName;
-            activity.UserId = 35;
-            activity.NumberofParticipations = Kontejyan;
 
 
-
-            if (ModelState.IsValid)
-            {
-                try
+            if ( (Session["EnterID"] != null) || (Session["EnterID"] != null))
                 {
-                    db.Activities.Add(activity);
+
+                PlatformContext db = new PlatformContext();
+                string klasor = Server.MapPath("/Uploads/Activity/");
+                Image.SaveAs(klasor + Image.FileName);
+                Activity activity = new Activity();
+                activity.Address = Address;
+                activity.Title = name;
+                activity.StartTime = StartTime;
+                activity.FinishTime = FinishTime;
+                activity.Date = date;
+                activity.CountryId = (int)Session["CountryId"];
+                activity.Content = Content;
+                activity.ImageURL = "/Uploads/Activity/" + Image.FileName;
+                activity.UserId = (int)Session["EnterID"];
+                activity.NumberofParticipations = Kontejyan;
+
+                if (ModelState.IsValid)
+                {
                     try
                     {
-                        db.SaveChanges();
+                        db.Activities.Add(activity);
+                        try
+                        {
+                            db.SaveChanges();
+                        }
+                        catch (DbUpdateException ex1)
+                        {
+                            var b = ex1.InnerException;
+
+                        }
+
+
                     }
-                    catch (DbUpdateException ex1)
+                    catch (DbEntityValidationException ex)
+
                     {
-                        var b = ex1.InnerException;
-
+                        var a = ex.EntityValidationErrors;
                     }
 
-
-                }
-                catch (DbEntityValidationException ex)
-
-                {
-                    var a = ex.EntityValidationErrors;
+                    return RedirectToAction("Index");
                 }
 
-                return RedirectToAction("Index");
+                //ViewBag.PossibleParents = db.Activities.ToList();
+                return View();
             }
+            else
+            {
+                return RedirectToAction("Index", "User");
 
-            //ViewBag.PossibleParents = db.Activities.ToList();
-            return View();
+            }
         }
+
+       
+
+
         [HttpGet]
         public ActionResult ActivityDetails(int id, HttpPostedFileBase Image, int kullaniciId)
         {

@@ -35,4 +35,5 @@ namespace TurkishPlatform.Models
         public string ImageURL { get; set; }
 
     }
+    
 }
