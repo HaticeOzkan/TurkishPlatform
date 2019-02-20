@@ -207,7 +207,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Activity.png" />
     <Content Include="Content\ActivityDetails.js" />
+    <Content Include="Content\Advice.png" />
+    <Content Include="Content\forum.png" />
     <Content Include="Content\Login\Camp.jpg" />
     <Content Include="Content\Menu\bootstrap.css" />
     <Content Include="Content\Menu\bootstrap.min.css" />
@@ -456,6 +459,8 @@
     <Content Include="Content\Restaurant\webfonts\fa-regular-400.svg" />
     <Content Include="Content\Restaurant\webfonts\fa-solid-900.html" />
     <Content Include="Content\Restaurant\webfonts\fa-solid-900.svg" />
+    <Content Include="Content\Restourant.png" />
+    <Content Include="Content\Tourism.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
