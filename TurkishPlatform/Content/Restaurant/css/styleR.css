@@ -80,10 +80,11 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 400;
-  font-family: 'Lora', serif;
-  margin: 0 0 20px 0;
-  color: #111111;
+	font-weight: 400;
+	font-family: 'Lora', serif;
+	margin: 0 0 -40px 0;
+	color: #111111;
+	margin-left: -440px;
 }
 h1 {
   line-height: 1.2;

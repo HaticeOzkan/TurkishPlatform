@@ -194,26 +194,28 @@
 </section>
 
 <section class="commentList">
-    @foreach (RestaurantComment item in ViewBag.Comment)
-    {
-        <div class="comment">
-            @if (Session["NameSurname"] != null)
-            {
-                <h2>@item.User.NameSurname</h2>
-            }
-            <br />
-            <p>@item.Content</p>
-        </div>
-        <hr />
-    }
+	@foreach (RestaurantComment item in ViewBag.Comment)
+	{
+		<div class="comment">
+			@if (Session["NameSurname"] != null)
+			{
+				<h2>@item.User.NameSurname</h2>
+			}
+			<br />
+			<p>@item.Content</p>
+		</div>
+		<hr />
+	}
 
-    <form method="post">
-        <div class="newComment">
-            <textarea class="addComment" placeholder="Comment.."></textarea>
-        </div>
-        <br />
-        <button class="send">Send</button>
-    </form>
+	<a href="#">Delete</a>
+
+	<form method="post">
+		<div class="newComment">
+			<textarea class="addComment" placeholder="Comment.."></textarea>
+		</div>
+		<br />
+		<button class="send">Send</button>
+	</form>
 </section>
 
 @section Scripts{
