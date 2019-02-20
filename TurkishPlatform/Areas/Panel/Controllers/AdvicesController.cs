@@ -48,7 +48,7 @@ namespace TurkishPlatform.Areas.Panel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "AdviceId,Title,Content,ImageURL,Date,CountryId")] Advice advice)
+        public ActionResult Create([Bind(Include = "AdviceId,Title,Content,ImageURL,Date,CountryId,AdviceTopicID")] Advice advice)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +82,7 @@ namespace TurkishPlatform.Areas.Panel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "AdviceId,Title,Content,ImageURL,Date,CountryId")] Advice advice)
+        public ActionResult Edit([Bind(Include = "AdviceId,Title,Content,ImageURL,Date,CountryId,AdviceTopicID")] Advice advice)
         {
             if (ModelState.IsValid)
             {

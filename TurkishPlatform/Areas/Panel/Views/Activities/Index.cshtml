@@ -5,7 +5,7 @@
 }
 
 <h2>Index</h2>
-<br /><br />
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -13,6 +13,9 @@
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Country.CountryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.NameSurname)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ImageURL)
@@ -27,7 +30,22 @@
             @Html.DisplayNameFor(model => model.Date)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Remaining)
+            @Html.DisplayNameFor(model => model.StartTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FinishTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Permission)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Participation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumberofParticipations)
         </th>
         <th></th>
     </tr>
@@ -36,6 +54,9 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Country.CountryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.NameSurname)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ImageURL)
@@ -50,7 +71,22 @@
             @Html.DisplayFor(modelItem => item.Date)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Remaining)
+            @Html.DisplayFor(modelItem => item.StartTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FinishTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Permission)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Participation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberofParticipations)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ActivityId }) |

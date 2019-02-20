@@ -1,588 +1,114 @@
 ﻿
-
-@using TurkishPlatform.Models
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+
 <style>
-    @@import url('https://fonts.googleapis.com/css?family=Pacifico');
-    @@import url('https://fonts.googleapis.com/css?family=Lato');
-    @@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
-    @@import url('https://fonts.googleapis.com/css?family=Zeyada');
-
-    *, :after, :before {
-        -moz-box-sizing: border-box;
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box
-    }
-
-    .wrapper {
-        margin: 0 -5px;
-        text-align: center;
-        width: 730px;
-    }
-
-    .bubble {
-        margin: 0 auto;
-        width: 80px;
-        text-align: center;
-        background-color: rgba(229,229,229,1);
-        padding: 10px;
-        display: inline-block;
-        vertical-align: top;
-        margin-right: -1px;
-        position: relative;
-        box-sizing: content-box;
-    }
-
-        .bubble .details {
-            visibility: hidden;
-            opacity: 0;
-            transition: visibility 0s linear 0.5s,opacity 0.5s linear;
-            width: 80px;
-            margin-bottom: 10px;
-            margin-top: -40px;
-            background: rgba(255,255,255,.2);
-            font: 10px 'Roboto Condensed';
-            text-transform: uppercase;
-            border-radius: 0 0 5px 5px;
-            -webkit-transition: all 500ms ease-in-out;
-            -moz-transition: all 500ms ease-in-out;
-            -ms-transition: all 500ms ease-in-out;
-            -o-transition: all 500ms ease-in-out;
-            transition: all 500ms ease-in-out;
-        }
-
-        .bubble:hover .details {
-            visibility: visible;
-            opacity: 1;
-            transition-delay: 0s;
-            margin-top: -10px;
-            -webkit-transition: all 500ms ease-in-out;
-            -moz-transition: all 500ms ease-in-out;
-            -ms-transition: all 500ms ease-in-out;
-            -o-transition: all 500ms ease-in-out;
-            transition: all 500ms ease-in-out;
-        }
-
-    .filter-me {
-        filter: blur(1px) grayscale(100%);
-        -webkit-filter: blur(1px) grayscale(100%);
-        -webkit-transition: all 500ms ease-in;
-        -moz-transition: all 500ms ease-in;
-        -ms-transition: all 500ms ease-in;
-        -o-transition: all 500ms ease-in;
-        transition: all 500ms ease-in;
-    }
-
-        .filter-me:hover {
-            filter: blur(0px) grayscale(20%);
-            -webkit-filter: blur(0px) grayscale(20%);
-            -webkit-transition: all 500ms ease-in;
-            -moz-transition: all 500ms ease-in;
-            -ms-transition: all 500ms ease-in;
-            -o-transition: all 500ms ease-in;
-            transition: all 500ms ease-in;
-        }
-
-        .filter-me img {
-            display: inline-block;
-            border-radius: 50%;
-            -webkit-border-radius: 50%;
-            width: 39px;
-            border: 0;
-            -webkit-transition: all 500ms ease-in;
-            -moz-transition: all 500ms ease-in;
-            -ms-transition: all 500ms ease-in;
-            -o-transition: all 500ms ease-in;
-            transition: all 500ms ease-in;
-        }
-
-            .filter-me img:first-child {
-                margin-right: -5px;
-                transform: rotate(10deg);
-            }
-
-            .filter-me img:last-child {
-                transform: rotate(-7deg);
-            }
-
-        .filter-me:hover img:first-child {
-            margin-right: -5px;
-            transform: rotate(-10deg);
-        }
-
-        .filter-me:hover img:last-child {
-            transform: rotate(7deg);
-        }
-
-        .filter-me:hover img {
-            border-radius: 10px;
-            -webkit-border-radius: 10px;
-            -webkit-transition: all 500ms ease-in;
-            -moz-transition: all 500ms ease-in;
-            -ms-transition: all 500ms ease-in;
-            -o-transition: all 500ms ease-in;
-            transition: all 500ms ease-in;
-        }
-
-    /* MAISONS - font + mep */
-    .house {
-        font-family: Permanent Marker;
-        font-size: 18px;
-        text-shadow: 1px 1px 0px rgba(255,255,255,0.5);
-        border-bottom: 1px solid;
-        margin-bottom: 5px;
-    }
-
-    /* CLASSEMENT */
-    .first {
-        height: 220px;
-    }
-
-    .second {
-        height: 200px;
-    }
-
-    .third {
-        height: 180px;
-    }
-
-    .fourth {
-        height: 160px;
-    }
-
-    .fifth {
-        height: 140px;
-    }
-
-    .sixth {
-        height: 120px;
-    }
-
-    .seventh {
-        height: 100px;
-    }
-
-    /* COULEURS MAISONS -- ILH */
-    .cabot {
-        color: #CC72BD;
-    }
-
-    .dunster {
-        color: #B39B00;
-    }
-
-    .eliot {
-        color: #509EED;
-    }
-
-    .lowell {
-        color: #965BEF;
-    }
-
-    .mather {
-        color: #76AD23;
-    }
-
-    .quincy {
-        color: #ED7B34;
-    }
-
-    .winthrop {
-        color: #C92724;
-    }
-
-    /* BACKGROUND MAISONS */
-    .bubble.cabot {
-        background-color: rgba(204, 114, 189,0.3);
-    }
-
-    .bubble.dunster {
-        background-color: rgba(176, 155, 0,0.3);
-    }
-
-    .bubble.eliot {
-        background-color: rgba(80, 158, 237,0.3);
-    }
-
-    .bubble.lowell {
-        background-color: rgba(150, 91, 239,0.3);
-    }
-
-    .bubble.mather {
-        background-color: rgba(118, 173, 35,0.3);
-    }
-
-    .bubble.quincy {
-        background-color: rgba(237, 123, 52, 0.3);
-    }
-
-    .bubble.winthrop {
-        background-color: rgba(201, 39, 36, 0.3);
-    }
-
-    .arrow_bottom {
-        box-sizing: border-box;
-        border-top: 20px solid;
-        border-left: 50px solid transparent;
-        border-right: 50px solid transparent;
-        position: absolute;
-        bottom: -20px;
-        left: 0px;
-        opacity: 0.3;
-    }
-
-    /* POINTS */
-    .points {
-        font-family: 'Lato';
-        font-size: 14px;
-        opacity: 0.5;
-        color: #222;
-    }
-    /*    --------------------------------------------------
-    :: General
-    -------------------------------------------------- */
     body {
-        font-family: 'Open Sans', sans-serif;
-        color: #353535;
+        background: #212C38;
+        padding: 100px;
     }
 
-    .content h1 {
+    .homes-list {
+        margin: 0 auto;
+        list-style-type: none;
+        width: 960px;
         text-align: center;
     }
 
-    .content .content-footer p {
-        color: #6d6d6d;
-        font-size: 12px;
-        text-align: center;
-    }
-
-        .content .content-footer p a {
-            color: inherit;
-            font-weight: bold;
-        }
-
-    /*	--------------------------------------------------
-    :: Table Filter
-    -------------------------------------------------- */
-    .panel {
-        border: 1px solid #ddd;
-        background-color: #fcfcfc;
-    }
-
-        .panel .btn-group {
-            margin: 15px 0 30px;
-        }
-
-            .panel .btn-group .btn {
-                transition: background-color .3s ease;
-            }
-
-    .table-filter {
-        background-color: #fff;
-        border-bottom: 1px solid #eee;
-    }
-
-        .table-filter tbody tr:hover {
-            cursor: pointer;
-            background-color: #eee;
-        }
-
-        .table-filter tbody tr td {
+        .homes-list li {
             padding: 10px;
-            vertical-align: middle;
-            border-top-color: #eee;
-        }
-
-        .table-filter tbody tr.selected td {
-            background-color: #eee;
-        }
-
-        .table-filter tr td:first-child {
-            width: 38px;
-        }
-
-        .table-filter tr td:nth-child(2) {
-            width: 35px;
-        }
-
-    .ckbox {
-        position: relative;
-    }
-
-        .ckbox input[type="checkbox"] {
-            opacity: 0;
-        }
-
-        .ckbox label {
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-            .ckbox label:before {
-                content: '';
-                top: 1px;
-                left: 0;
-                width: 18px;
-                height: 18px;
-                display: block;
-                position: absolute;
-                border-radius: 2px;
-                border: 1px solid #bbb;
-                background-color: #fff;
-            }
-
-        .ckbox input[type="checkbox"]:checked + label:before {
-            border-color: #2BBCDE;
-            background-color: #2BBCDE;
-        }
-
-        .ckbox input[type="checkbox"]:checked + label:after {
-            top: 3px;
-            left: 3.5px;
-            content: '\e013';
+            font-family: helvetica;
             color: #fff;
-            font-size: 11px;
-            font-family: 'Glyphicons Halflings';
-            position: absolute;
+            font-weight: lighter;
+            font-size: 28px;
+            line-height: 28px;
+            margin: 2px;
+            padding: 20px 30px;
+            float: left;
+            cursor: pointer;
+            opacity: 0.85;
+            transition: opacity 0.1s ease, padding 0.1s ease;
         }
 
-    .table-filter .star {
-        color: #ccc;
-        text-align: center;
-        display: block;
-    }
-
-        .table-filter .star.star-checked {
-            color: #F0AD4E;
-        }
-
-        .table-filter .star:hover {
-            color: #ccc;
-        }
-
-        .table-filter .star.star-checked:hover {
-            color: #F0AD4E;
-        }
-
-    .table-filter .media-photo {
-        width: 35px;
-    }
-
-    .table-filter .media-body {
-        display: block;
-        /* Had to use this style to force the div to expand (wasn't necessary with my bootstrap version 3.3.6) */
-    }
-
-    .table-filter .media-meta {
-        font-size: 11px;
-        color: #999;
-    }
-
-    .table-filter .media .title {
-        color: #2BBCDE;
-        font-size: 14px;
-        font-weight: bold;
-        line-height: normal;
-        margin: 0;
-    }
-
-        .table-filter .media .title span {
-            font-size: .8em;
-            margin-right: 20px;
-        }
-
-            .table-filter .media .title span.pagado {
-                color: #5cb85c;
+            .homes-list li:after {
+                overflow: hidden;
+                content: "20 homes";
+                display: inline-block;
+                vertical-align: middle;
+                font-size: 14px;
+                font-weight: bold;
+                margin-left: 0;
+                width: 0;
+                opacity: 0;
+                white-space: nowrap;
+                transition: width 0.2s ease, opacity 0.1s ease;
+                /* pill */
+                box-sizing: border-box;
+                background-color: rgba(0,0,0,0.1);
+                padding: 5px 0 2px;
+                border-radius: 4px;
+                line-height: 1;
+                border: 1px solid rgba(0,0,0,0.04)
+                /**/
             }
 
-            .table-filter .media .title span.pendiente {
-                color: #f0ad4e;
+            .homes-list li:hover {
+                position: relative;
+                z-index: 2;
+                opacity: 1;
+                padding: 20px;
             }
 
-            .table-filter .media .title span.cancelado {
-                color: #d9534f;
-            }
+                .homes-list li:hover:after {
+                    margin-left: 15px;
+                    width: 82px;
+                    opacity: 1;
+                }
 
-    .table-filter .media .summary {
-        font-size: 14px;
-    }
-    /***********************List group***********************/
-    .material_list_group .material_list_group_item {
-        color: #fff;
-        font-weight: 400;
-        border-radius: 0;
-        background-color: #4092d9;
-        -webkit-transition: background-color 0.2s ease-out 0s;
-        transition: background-color 0.2s ease-out 0s;
-    }
-
-        .material_list_group .material_list_group_item:hover {
-            background-color: #336ea1;
+        .homes-list .single-storey {
+            background: #F6672E;
         }
 
-    .material_list_group .disabled:hover {
-        background-color: #4092d9;
-        color: #ffffff;
-    }
+        .homes-list .double-storey {
+            background-color: #009BD4;
+        }
 
-    .material_list_group .material_badge {
-        background-color: #fff;
-        border-color: #ffffff;
-    }
+        .homes-list .house-and-land {
+            background-color: #9FC53A;
+        }
+
+        .homes-list .develop-subdivide {
+            background-color: #FFB200;
+        }
+
+        .homes-list .land-estate {
+            background-color: #8F5A9F;
+        }
+
+        .homes-list .apartments {
+            background-color: #4EC9BE;
+        }
+
+        .homes-list .custom-built {
+            background-color: #B7AEAC;
+        }
+
+        .homes-list .luxury-homes {
+            background-color: #3A537C;
+        }
 </style>
-<div class="row" style="width:500px; margin:auto">
-    @*Buraya kategoriler eklenecek*@
-    <div class="wrapper">
-        @foreach (ForumCommentCategory item in ViewBag.CategoryList)
-        {
 
-            <div class="bubble cabot third del" rel="@item.CategoryId">
-                <div class="details">
-                    @item.Explain<br>
-                    flood + #FFF
-                </div>
-                <div class="filter-me">
-                    <img src="~/Content/Menu/images/ForumImage/hastane1.jpg" />@*//burayı kaydederken seçmemiz gerekecek şimdilik koydum resim*@
-                </div>
-                <div class="house cabot">@item.CategoryName</div>
-                <span class="points">@item.ForumTopicTitles.Count() Tane Konu</span>
-                <div class="arrow_bottom"></div>
-            </div>
-        }
-
-        <br /><br />
-    </div>
-</div>
-<div class="row">
-    <div class="col-xs-9">
-        <br /><br />
-        <div class="Topic" style="color:khaki"></div>
-
-
-        <div class="container">
-            <div class="row">
-
-                <section class="content">
-                
-                    <div class="col-md-6 col-md-offset-2">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <div class="pull-right">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-warning btn-filter" data-target="pendiente">Konu Başlat</button>
-
-                                    </div>
-                                </div>
-                                <div class="table-container">
-                                    <table class="table table-filter">
-                                        <tbody></tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </section>
-
-            </div>
-        </div>
-
-    </div> 
-    <div class="col-xs-3 Title">
-
-    </div>
-    </div>
-    <script>
-        $(document).ready(function () {
-
-            $(".del").click(function () {
-
-                var btn = $(this);//bu butonun id sini alalım
-                var ID = btn.attr("rel");//id bize rel attr den gelecek
-                $.ajax({
-                    //nereye istek atacağız?
-                    url: "/Forum/Topics/" + ID,
-                    method: "GET",//BUYUK HARFLE YAZMALIYIM AJAXIM POST METODUYLA GİDECEK
-                    success: function (TitleList) {
-
-
-                        $('.Title').find('ul').remove();
-                        for (var i = 0; i < TitleList.length; i++) {
-
-                            var sablon = `<ul class="list-group material_list_group">
-                                 <li class="list-group-item material_list_group_item " rel="`+ TitleList[i].TitleId + `">` + TitleList[i].Text + `</li>
-
-                                </ul>`;
-                           
-                            $('.Title').append(sablon);
-                        }
-                        //$('.Title').append('<h2 rel="' + TitleList[i].TitleId + '">' + TitleList[i].Text + '</h2>');
-
-                    }//donus aldıgımızda napacaz? biz diğer taraftan true false dndurmuştuk ondan bahsetmek için temsili isim verdik fonksiyon parametresine
-                });
-            });//del classına sahip olan herhangiirşeye tıklandıgında şu işi yap
-
-        });//readin
-        $(document).on("click", ".Title li", function () {
-            var btn = $(this);
-            var ID = btn.attr("rel");
-            $.ajax({
-                url: "/Forum/Title/" + ID,
-                method: "GET",
-                success: function (TopicList) {
-                    $("table tbody").find('*').remove();
-                    for (var i = 0; i < TopicList.length; i++) {
-
-                        var sablon = `<tr data-status='pagado'>
-
-                <td>
-                    <div class='media'>
-                      
-                         
-                      
-                        <div class='media-body'>
-                            <span class='media-meta pull-right'>Febrero 13, 2016</span>
-                            <h4 class='title'></h4>
-                            <p class='summary'> <a style="background-color:white; color:Black;" href='/Forum/Comment/`+ TopicList[i].TopicId + `' class='pull-left'>` + TopicList[i].TopicTitle + `  </a></p>
-                        </div>
-                    </div>
-                </td>
-            </tr>`;
-                        //$('.Topic').append('<a style="display:inline-block" href=Forum/Comment?ID ="' + TopicList[i].TopicId + '">' + TopicList[i].TopicTitle + '</a>');
-                        //$('.Topic').append('<br /><br />')
-                     
-                        $("table tbody").append(sablon);
-
-
-                    }
-                }
-            });
-
-        });
-        $(document).ready(function () {
-
-
-            $('.ckbox label').on('click', function () {
-                $(this).parents('tr').toggleClass('selected');
-            });
-
-            $('.btn-filter').on('click', function () {
-                var $target = $(this).data('target');
-                if ($target != 'all') {
-                    $('.table tr').css('display', 'none');
-                    $('.table tr[data-status="' + $target + '"]').fadeIn('slow');
-                } else {
-                    $('.table tr').css('display', 'none').fadeIn('slow');
-                }
-            });
-
-        });
-
-    </script>
+<ul  class="homes-list">
+    <li class="single-storey">Eğitim ve İş</li>
+    <li class="double-storey">Sağlık Hizmetleri</li>
+    <li class="house-and-land">Bütçeye Uygun Mekanlar</li>
+    <li class="develop-subdivide">Emlak Hizmetleri</li>
+    <li class="land-estate">Pasaport ve Vize</li>
+    <li class="apartments">Hukuki Konular</li>
+    <li class="custom-built">Bunların Dışında</li>
+</ul>
 
 
