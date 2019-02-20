@@ -7,14 +7,6 @@
 }
 
 
-<div class="newDetail">
-    @{
-        if (ViewBag.RestaurantId == Model.RestaurantId)
-        {
-
-        }
-    }
-</div>
 
 @section CSS {
     <!-- Favicon -->
@@ -196,26 +188,30 @@
 <section class="commentList">
 	@foreach (RestaurantComment item in ViewBag.Comment)
 	{
-		<div class="comment">
-			@if (Session["NameSurname"] != null)
-			{
-				<h2>@item.User.NameSurname</h2>
-			}
-			<br />
-			<p>@item.Content</p>
-		</div>
+	<div class="comment">
+		<h2>@item.User.NameSurname</h2>
+		<br />
+		<p>@item.Content</p>
+
+		@if (Session["EnterID"] != null)
+		{
+
+			<form method="post">
+				<div class="newComment">
+					<input type="hidden" value="@ViewBag.RestaurantId" name="RestaurantId" />
+					<textarea name="Content" class="addComment" placeholder="Comment.."></textarea>
+				</div>
+				<br />
+				<button class="send">Send</button>
+			</form>
+		}
+	</div>
 		<hr />
 	}
 
 	<a href="#">Delete</a>
 
-	<form method="post">
-		<div class="newComment">
-			<textarea class="addComment" placeholder="Comment.."></textarea>
-		</div>
-		<br />
-		<button class="send">Send</button>
-	</form>
+	
 </section>
 
 @section Scripts{
