@@ -1,4 +1,5 @@
-﻿
+﻿@using TurkishPlatform.Models
+@model int?
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,10 +7,7 @@
 
 
 <style>
-    body {
-        background: #212C38;
-        padding: 100px;
-    }
+   
 
     .homes-list {
         margin: 0 auto;
@@ -27,7 +25,7 @@
             line-height: 28px;
             margin: 2px;
             padding: 20px 30px;
-            float: left;
+           
             cursor: pointer;
             opacity: 0.85;
             transition: opacity 0.1s ease, padding 0.1s ease;
@@ -68,47 +66,50 @@
                     opacity: 1;
                 }
 
-        .homes-list .single-storey {
+        .homes-list ._1 {
             background: #F6672E;
         }
 
-        .homes-list .double-storey {
+        .homes-list ._2 {
             background-color: #009BD4;
         }
 
-        .homes-list .house-and-land {
+        .homes-list ._3 {
             background-color: #9FC53A;
         }
 
-        .homes-list .develop-subdivide {
+        .homes-list ._4 {
             background-color: #FFB200;
         }
 
-        .homes-list .land-estate {
+        .homes-list ._5 {
             background-color: #8F5A9F;
         }
 
-        .homes-list .apartments {
+        .homes-list ._6 {
             background-color: #4EC9BE;
         }
 
-        .homes-list .custom-built {
+        .homes-list ._7 {
             background-color: #B7AEAC;
         }
 
-        .homes-list .luxury-homes {
+        .homes-list ._8 {
             background-color: #3A537C;
         }
 </style>
 
-<ul  class="homes-list">
-    <li class="single-storey">Eğitim ve İş</li>
-    <li class="double-storey">Sağlık Hizmetleri</li>
-    <li class="house-and-land">Bütçeye Uygun Mekanlar</li>
-    <li class="develop-subdivide">Emlak Hizmetleri</li>
-    <li class="land-estate">Pasaport ve Vize</li>
-    <li class="apartments">Hukuki Konular</li>
-    <li class="custom-built">Bunların Dışında</li>
+<ul class="homes-list">
+
+    @foreach (ForumCommentCategory item in ViewBag.Categories)
+    {
+       <a href="/Forum/TopicTitle/@item.CategoryId"><li class="_@(Model+1)">@item.CategoryName</li></a> 
+      
+    }
+
+
 </ul>
+<br /><br /><br />
+
 
 

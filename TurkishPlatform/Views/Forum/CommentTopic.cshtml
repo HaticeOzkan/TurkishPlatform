@@ -1,0 +1,55 @@
+﻿@using TurkishPlatform.Models
+@{
+    ViewBag.Title = "CommentTopic";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .sidebarservices {
+        /*position: absolute; gerek yok*/
+        width: 100%;
+        /*float: left; satırda tek*/
+        border: 1px solid blue;
+    }
+
+        .sidebarservices .head {
+            text-align: center;
+            font-size: 15pt;
+            background-color: firebrick;
+            color: white;
+        }
+
+    .head:hover {
+        background: gray !important;
+        cursor: initial;
+    }
+
+    .sidebarservices li {
+        list-style: none;
+        background-color: indianred;
+        margin: 5px 10px;
+        text-align: left;
+        padding: 10px 0 10px 20px;
+        border-radius: 5px 5px;
+        cursor: pointer;
+    }
+
+        .sidebarservices li a {
+            text-decoration: none;
+            color: black;
+            font-family: Century Gothic, sans-serif;
+            background-color: indianred;
+        }
+
+</style>
+
+<ul class="sidebarservices">
+    <li class="head">List of Services</li>
+    @foreach (ForumCommentTopic item in ViewBag.CommentTitle)
+    {
+        <li><a href="/Forum/Comment/@item.TopicId">@item.TopicTitle</a></li>
+    }
+
+
+</ul>
+
+

@@ -11,9 +11,32 @@ namespace TurkishPlatform.Controllers
     {
         PlatformContext Db = new PlatformContext();
         // GET: Forum
+        
         public ActionResult Index()
         {
+            ViewBag.Categories = Db.ForumCommentCategories.ToList();
+            int? Start = 0;
+            return View(Start);
+            //rootcomficd ebelli bir düzen var sonunda 'id' olarak ismi dogru yazarsan / dan sonra ? yazıp işte ismini yazmana gerek kalmaz ../../id=.. de ordan id diye karşıla ama başka bir isim kullanaksan ../..?x=y diye bu sefer kontrollersa x diyebilirsin id yerine  
+        }
+    
+        public ActionResult TopicTitle(int id)
+        {
+            ViewBag.TopicTitleList = Db.ForumTopicTitles.Where(x => x.CommentCategoryId == id).ToList();
+            
             return View();
         }
+        public ActionResult CommentTopic(int id)//Soruları getireceğim
+        {
+            ViewBag.CommentTitle = Db.ForumCommentTopics.Where(x => x.ForumTopicTitleId ==id).ToList();
+            return View();
+        }
+        public ActionResult Comment(int id)
+        {
+            ViewBag.Comment = Db.ForumComments.Where(x => x.CommentTopicId == id).ToList();
+            return View();
+        }
+        
+      
     }
 }
