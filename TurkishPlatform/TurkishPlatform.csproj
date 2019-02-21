@@ -631,6 +631,9 @@
     <Content Include="Views\User\ForgotPassword.cshtml" />
     <Content Include="Views\User\RenewalPassword.cshtml" />
     <Content Include="Views\Forum\Index.cshtml" />
+    <Content Include="Views\Forum\TopicTitle.cshtml" />
+    <Content Include="Views\Forum\CommentTopic.cshtml" />
+    <Content Include="Views\Forum\Comment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

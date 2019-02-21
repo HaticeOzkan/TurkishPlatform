@@ -7,10 +7,7 @@
 
 
 <style>
-    body {
-        background: #212C38;
-        padding: 100px;
-    }
+   
 
     .homes-list {
         margin: 0 auto;
@@ -28,7 +25,7 @@
             line-height: 28px;
             margin: 2px;
             padding: 20px 30px;
-            float: left;
+           
             cursor: pointer;
             opacity: 0.85;
             transition: opacity 0.1s ease, padding 0.1s ease;
@@ -107,10 +104,12 @@
     @foreach (ForumCommentCategory item in ViewBag.Categories)
     {
        <a href="/Forum/TopicTitle/@item.CategoryId"><li class="_@(Model+1)">@item.CategoryName</li></a> 
-        
+      
     }
 
 
 </ul>
+<br /><br /><br />
+
 
 
