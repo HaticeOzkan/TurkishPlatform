@@ -1,5 +1,4 @@
 ﻿@using TurkishPlatform.Models
-@model int?
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -33,7 +32,7 @@
 
             .homes-list li:after {
                 overflow: hidden;
-                content: "20 homes";
+               
                 display: inline-block;
                 vertical-align: middle;
                 font-size: 14px;
@@ -76,7 +75,7 @@
     @foreach (ForumCommentCategory item in ViewBag.Categories)
     {
        <a style="text-decoration:none;" href="/Forum/TopicTitle/@item.CategoryId"><li class="_1">@item.CategoryName</li></a> 
-      
+
     }
 
 

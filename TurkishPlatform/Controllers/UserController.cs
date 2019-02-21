@@ -134,7 +134,7 @@ namespace TurkishPlatform.Controllers
 
         public JsonResult Registery(User user)
         {
-            user.ImageURL= Session["ImageURL"].ToString();
+           // user.ImageURL= Session["ImageURL"].ToString();
     
             if (ModelState.IsValid)
             {              
