@@ -32,6 +32,7 @@ namespace TurkishPlatform.Models
         public virtual List<ForumComment> ForumComments { get; set; }
         public virtual List<RestaurantComment> RestaurantComments { get; set; }
         public virtual List<File> Files { get; set; }
+        public virtual List<Contact> Contacts { get; set; }
         public string ImageURL { get; set; }
 
     }

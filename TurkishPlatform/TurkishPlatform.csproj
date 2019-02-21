@@ -196,6 +196,7 @@
     <Compile Include="Models\Activity.cs" />
     <Compile Include="Models\AdminProfil.cs" />
     <Compile Include="Models\Advice.cs" />
+    <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\File.cs" />
     <Compile Include="Models\PlatformContext.cs" />
