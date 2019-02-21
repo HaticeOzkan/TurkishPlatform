@@ -35,7 +35,7 @@ namespace TurkishPlatform.Controllers
                         IsTrue = true;
                         Session["CountryId"] = item.CountryNo;                      
                         Session["EnterID"] = item.UserId;
-
+                      
                         Session["Image"] = item.ImageURL;
                         Session["Email"] = item.Email;
                         Session["Gender"] = item.Gender;
