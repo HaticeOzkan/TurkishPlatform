@@ -59,13 +59,13 @@
 
 
 
-            <asp:TextBox ID="Mesaj" TextMode="MultiLine" Rows="5" CssClass="form-control" runat="server"></asp:TextBox>
-            <asp:Button ID="Button1" runat="server" Text="Button" CssClass="btn btn-success" OnClick="Button1_Click" />
+            <asp:TextBox ID="Mesaj" TextMode="MultiLine" Rows="5" CssClass="form-control" ></asp:TextBox>
+            <asp:Button ID="Button1"  Text="Button" CssClass="btn btn-success" OnClick="Button1_Click" />
            
 
          
             @if (ViewBag.c) {  
-           <asp:Button ID="Button1"  id="delete" runat="server"    CssClass="btn btn-success" OnClick="Button1_Click" />
+           <asp:Button ID="Button1"  Class="btn btn-success delete" OnClick="Button1_Click" />
             }
             else
             {
@@ -79,13 +79,16 @@
 
 </div>
 <script>
-    $("#delete").click(function () {
+    debugger
+    $(".delete").click(function () {
+        debugger
         var _this = $(this);
         var id = $(this).attr("mesajid");
         $.ajax({   
-            url: "/TourismTravel/DeleteComment?deleteid="+ id,
+            url: "/TourismTravel/DeleteComment?deleteid=" + id,
             type: "POST",
             success: function (IsitOk) {
+                debugger
                 if (IsitOk) {
                     _this.parent().slideUp("slow");
                 }
