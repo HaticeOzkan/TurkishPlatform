@@ -65,45 +65,17 @@
                     width: 82px;
                     opacity: 1;
                 }
-
         .homes-list ._1 {
-            background: #F6672E;
+            background-color: #6A2C36;
         }
 
-        .homes-list ._2 {
-            background-color: #009BD4;
-        }
-
-        .homes-list ._3 {
-            background-color: #9FC53A;
-        }
-
-        .homes-list ._4 {
-            background-color: #FFB200;
-        }
-
-        .homes-list ._5 {
-            background-color: #8F5A9F;
-        }
-
-        .homes-list ._6 {
-            background-color: #4EC9BE;
-        }
-
-        .homes-list ._7 {
-            background-color: #B7AEAC;
-        }
-
-        .homes-list ._8 {
-            background-color: #3A537C;
-        }
 </style>
 
 <ul class="homes-list">
 
     @foreach (ForumCommentCategory item in ViewBag.Categories)
     {
-       <a href="/Forum/TopicTitle/@item.CategoryId"><li class="_@(Model+1)">@item.CategoryName</li></a> 
+       <a style="text-decoration:none;" href="/Forum/TopicTitle/@item.CategoryId"><li class="_1">@item.CategoryName</li></a> 
       
     }
 

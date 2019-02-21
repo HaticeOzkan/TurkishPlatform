@@ -14,7 +14,7 @@ namespace TurkishPlatform.Models
 		[Column(TypeName = "text")]
 		[Required]
 		public string Content { get; set; }
-        
+        [NotMapped]
 		public DateTime Date { get; set; }
 		[ForeignKey("UserId")]
 		public virtual User ByUser { get; set; }

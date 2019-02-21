@@ -14,7 +14,7 @@
         .sidebarservices .head {
             text-align: center;
             font-size: 15pt;
-            background-color: firebrick;
+            background-color: #6A2C36;
             color: white;
         }
 
@@ -25,7 +25,7 @@
 
     .sidebarservices li {
         list-style: none;
-        background-color: indianred;
+        background-color: #581F27;
         margin: 5px 10px;
         text-align: left;
         padding: 10px 0 10px 20px;
@@ -37,7 +37,7 @@
             text-decoration: none;
             color: black;
             font-family: Century Gothic, sans-serif;
-            background-color: indianred;
+            background-color: #581F27;
         }
 
 </style>
@@ -46,7 +46,7 @@
     <li class="head">List of Services</li>
     @foreach (ForumCommentTopic item in ViewBag.CommentTitle)
     {
-        <li><a href="/Forum/Comment/@item.TopicId">@item.TopicTitle</a></li>
+        <li><a style="display:block;" href="/Forum/Comment/@item.TopicId">@item.TopicTitle</a></li>//display block yaptık kapladı içini direk içine basınca geliyor
     }
 
 
