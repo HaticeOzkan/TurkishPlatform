@@ -32,6 +32,8 @@
     <!-- Modernizr Js -->
     <script src="/Content/Restaurant/js/modernizr-3.6.0.min.js"></script>
 
+    <link href="~/Content/Restaurant/css/comment.css" rel="stylesheet" />
+
     <style>
         .single-recipe-layout1 {
             margin-left: 150px;
@@ -51,10 +53,10 @@
             height: 100px;
         }
 
-        .send {
+        /*.send {
             margin-left: 400px;
             width: 100px;
-        }
+        }*/
     </style>
 }
 
@@ -185,34 +187,55 @@
     </div>
 </section>
 
+
+@foreach (RestaurantComment item in ViewBag.Comment)
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1">
+                <div class="thumbnail">
+                    <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <strong>@item.User.NameSurname</strong> <span class="text-muted">commented 5 days ago</span>
+                        @if (item.UserId == Convert.ToInt32(Session["EnterID"])) //yorum yapan kişinin id'si
+                        {
+                            <button yorumid="@item.CommentId" class="yorumSil btn btn-warning">Sil</button>
+                        }
+                    </div>
+                    <div class="panel-body">
+                        @item.Content
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
 <section class="commentList">
-	@foreach (RestaurantComment item in ViewBag.Comment)
-	{
-		<div class="comment">
-			<h2>@item.User.NameSurname</h2>
-			<br />
-			<p>@item.Content</p>
+    @if (Session["EnterID"] != null)
+    {
 
-
-		</div>
-		<hr />
-	}
-	@if (Session["EnterID"] != null)
-	{
-
-		<form method="post">
-			<div class="newComment">
-				<input type="hidden" value="@ViewBag.RestaurantId" name="RestaurantId" />
-				<textarea name="Content" class="addComment" placeholder="Comment.."></textarea>
-			</div>
-			<br />
-			<button class="send">Send</button>
-		</form>
-	}
-	<a href="#">Delete</a>
-
+        <form method="post">
+            <div class="newComment">
+                <input type="hidden" value="@ViewBag.RestaurantId" name="RestaurantId" />
+                <textarea name="Content" class="addComment" placeholder="Comment.."></textarea>
+            </div>
+            <br />
+            <button class="btn btn-danger send">Gönder</button>
+        </form>
+    }
 
 </section>
+
 
 @section Scripts{
     <script>
@@ -233,5 +256,25 @@
         $('.stop').on('click', function () {
             owl.trigger('stop.owl.autoplay')
         })
+    </script>
+
+
+    <script> @*yorum sil*@
+        $(".yorumSil").click(function () {
+            var _this = $(this);
+            var id = $(this).attr("yorumid");
+            $.ajax({
+                url: "/Restaurant/DeleteComment?deleteid=" + id,
+                type: "POST",
+                success: function (IsitOk) {
+                    if (IsitOk) {
+                        _this.parent().slideUp("slow");
+                    }
+                    else {
+                        alert("Bir hata oluştu. Daha sonra tekrar deneyin!")
+                    }
+                }
+            })
+        });
     </script>
 }

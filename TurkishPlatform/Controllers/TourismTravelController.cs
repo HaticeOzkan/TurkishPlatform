@@ -61,8 +61,6 @@ namespace TurkishPlatform.Controllers
 
         public JsonResult DeleteComment(int deleteid)
         {
-        
-
             PlatformContext db = new PlatformContext();
             LocationComment delete = db.LocationComments.FirstOrDefault(x => x.CommentId == deleteid);
             db.LocationComments.Remove(delete);
