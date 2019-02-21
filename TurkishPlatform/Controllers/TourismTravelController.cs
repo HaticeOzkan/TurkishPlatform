@@ -50,7 +50,7 @@ namespace TurkishPlatform.Controllers
                 db.SaveChanges();
             } 
 
-            ViewBag.user = db.Users.Find(id);
+            ViewBag.user = db.Users.Find(UserId);
             ViewBag.Comment = db.LocationComments.ToList();
             ViewBag.Tourism = db.Tourisms.Where(x => x.CountryId == id);
             Tourism countries = (from c in db.Tourisms where c.CountryId == id select c).FirstOrDefault();
@@ -64,7 +64,7 @@ namespace TurkishPlatform.Controllers
         
 
             PlatformContext db = new PlatformContext();
-            LocationComment delete = db.LocationComments.FirstOrDefault(x => x.LocationId == deleteid);
+            LocationComment delete = db.LocationComments.FirstOrDefault(x => x.CommentId == deleteid);
             db.LocationComments.Remove(delete);
             db.SaveChanges();
             return Json(2);
