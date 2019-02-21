@@ -46,7 +46,7 @@
     <li class="head">List of Services</li>
     @foreach (ForumCommentTopic item in ViewBag.CommentTitle)
     {
-        <li><a style="display:block;" href="/Forum/Comment/@item.TopicId">@item.TopicTitle</a></li>//display block yaptık kapladı içini direk içine basınca geliyor
+        <li><a style="display:block; font-weight:bold;" href="/Forum/Comment/@item.TopicId">@item.TopicTitle</a></li>//display block yaptık kapladı içini direk içine basınca geliyor
     }
 
 
