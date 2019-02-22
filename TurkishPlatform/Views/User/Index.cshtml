@@ -15,7 +15,6 @@
         font-family: 'Mukta', sans-serif;
         height: 100vh;
         min-height: 550px;
-  
         background-repeat: no-repeat;
         background-image: url('../../Content/Login/UserIndex.jpg');
         background-size: cover;
@@ -215,7 +214,7 @@
                     <p>@ViewBag.Message</p>
                 }
                 @*Burada input kısımları form içine aldım action actiona bişi demedim controllerda girilen email ve şifreyi control edip istediğim sayfaya yönlendireceğim ve methodunu belirttim inputların name ini verdim
-            bu belirrtiğimiz name leri logincontrollerda parametre olarak alacak*@
+                    bu belirrtiğimiz name leri logincontrollerda parametre olarak alacak*@
             </form>
             <a href="/User/ForgotPassword">Forgot password?</a>@*Burası yonlenmeli*@
         </div>
@@ -230,7 +229,7 @@
             <div class="register-show">
                 <h2>REGISTER</h2>@*/image seçilecek chexbox konulacak*@
                 <div class="form-group">
-                    <input placeholder="UserName" class="form-control" name="NameSurname"/>
+                    <input placeholder="UserName" class="form-control" name="NameSurname" />
                 </div>
                 <div class="form-group">
                     <input placeholder="Email" class="form-control" name="Email">
@@ -246,121 +245,125 @@
                         <label>Female</label><input type="radio" name="Gender" value="0" style="display:inline-block;" />
                         <label>Male</label> <input type="radio" name="Gender" value="1" style="display:inline-block;" />
                     </div>
-                    <select style="width:90px; height:30px; margin-left:30px;" name="CountryNo" >
+                    <select style="width:90px; height:30px; margin-left:30px;" name="CountryNo">
                         @foreach (Country item in ViewBag.Countries)
-                        {
-                            <option value="@item.CountryId">@item.CountryName</option>
-                        }
+        {
+                <option value="@item.CountryId">@item.CountryName</option>
+}
                     </select>
-                    <div style="margin-left:30px;" class="form-group">
-                        @*kopayaldıgımız spandan geldigel bende olmayan ları ekliyom gerek olmayanları eklemiyom *@
-                        <!-- The fileinput-button span is used to style the file input field as button -->
-                        <span class="btn btn-success fileinput-button">
-                            <i class="glyphicon glyphicon-plus"></i>
-                            <span>Select files...</span>
-                            <!-- The file input field used as target for the filupload widget files[] vardı name dee   -->
-                            <input id="fileupload" type="file" name="UserImage" >@*//kaydedilen resimler dosyaya kaydediliyor veritabanına değil*@
-                         
-                        </span> @*kopayaldıgımız yerden geldi*@
-                        <div id="progress" class="progress">
-                            <div class="progress-bar progress-bar-success"></div>
-                            <div id="files" class="files"></div>
-                        </div>
+                  
+    <div style="margin-left:30px;" class="form-group">
+
+                    @*kopayaldıgımız spandan geldigel bende olmayan ları ekliyom gerek olmayanları eklemiyom *@
+                    <!-- The fileinput-button span is used to style the file input field as button -->
+                    <span class="btn btn-success fileinput-button">
+                        <i class="glyphicon glyphicon-plus"></i>
+                        <span>Select files...</span>
+                        <!-- The file input field used as target for the filupload widget files[] vardı name dee   -->
+                        <input id="fileupload" type="file" name="UserImage">@*//kaydedilen resimler dosyaya kaydediliyor veritabanına değil*@
+
+                    </span> @*kopayaldıgımız yerden geldi*@
+                    <div id="progress" class="progress">
+                        <div class="progress-bar progress-bar-success"></div>
+                        <div id="files" class="files"></div>
                     </div>
                 </div>
-                <button class="btn btn-success del" type="button">Register</button>
-            </div>
-        </form>
+
+                </div>
+
+                    <button class="btn btn-success del" type="button">Register</button>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-<script>
+    <script>
 
-    $(document).ready(function () {
-        $('.login-info-box').fadeOut();
-        $('.login-show').addClass('show-log-panel');
-    });
-
-
-    $('.login-reg-panel input[type="radio"]').on('change', function () {
-        if ($('#log-login-show').is(':checked')) {
-            $('.register-info-box').fadeOut();
-            $('.login-info-box').fadeIn();
-
-            $('.white-panel').addClass('right-log');
-            $('.register-show').addClass('show-log-panel');
-            $('.login-show').removeClass('show-log-panel');
-
-        }
-        else if ($('#log-reg-show').is(':checked')) {
-            $('.register-info-box').fadeIn();
+        $(document).ready(function () {
             $('.login-info-box').fadeOut();
-
-            $('.white-panel').removeClass('right-log');
-
             $('.login-show').addClass('show-log-panel');
-            $('.register-show').removeClass('show-log-panel');
-        }
-    });
+        });
 
 
-</script>
-<script src="~/Content/jQuery-File-Upload-9.28.0/js/vendor/jquery.ui.widget.js"></script>
-<script src="~/Content/jQuery-File-Upload-9.28.0/js/jquery.iframe-transport.js"></script>
-<script src="~/Content/jQuery-File-Upload-9.28.0/js/jquery.fileupload.js"></script>
-<script>
-    /*jslint unparam: true */
-    /*global window, $ */
-   
-    $(function () {//IMAGE JSONRESULTA GİDEN YER
-        'use strict';
-       
-        // Change this to the location of your server-side upload handler:
-        var url = "/User/AddImage";//window.location.hostname === 'blueimp.github.io' ? //JSON RESULT İSMİM
-        //    '//jquery-file-upload.appspot.com/' : 'server/php/';//burda bizim sayamıza gitmeli değiştirdik
-        $('#fileupload').fileupload({
-            url: url,
-            dataType: 'json',
-            done: function (e, data) {
-                $.each(data.result.files, function (index, file) {
-                    $('<p/>').text(file.name).appendTo('#files');
-                });
-            },
-            progressall: function (e, data) {
-                var progress = parseInt(data.loaded / data.total * 100, 10);
-                $('#progress .progress-bar').css(
-                    'width',
-                    progress + '%'
-                );
+        $('.login-reg-panel input[type="radio"]').on('change', function () {
+            if ($('#log-login-show').is(':checked')) {
+                $('.register-info-box').fadeOut();
+                $('.login-info-box').fadeIn();
+
+                $('.white-panel').addClass('right-log');
+                $('.register-show').addClass('show-log-panel');
+                $('.login-show').removeClass('show-log-panel');
+
             }
-        }).prop('disabled', !$.support.fileInput)
-            .parent().addClass($.support.fileInput ? undefined : 'disabled');
-    });
-  
-    $(document).ready(function () {
-        $('.del').click(function () {
+            else if ($('#log-reg-show').is(':checked')) {
+                $('.register-info-box').fadeIn();
+                $('.login-info-box').fadeOut();
 
-           var Form= $('#FormID').serialize();
-            $.ajax({
-                url: "/User/Registery",
-                data: Form,
-                method: "POST",
-                success: function (OlduMu) {
-                    if (OlduMu) {
-                        alert("Kayıt Başarılı");
-                        
-                    }
-                    else {
-                        alert("Bir Hata Oluştu");
-                    }
+                $('.white-panel').removeClass('right-log');
+
+                $('.login-show').addClass('show-log-panel');
+                $('.register-show').removeClass('show-log-panel');
+            }
+        });
+
+
+    </script>
+    <script src="~/Content/jQuery-File-Upload-9.28.0/js/vendor/jquery.ui.widget.js"></script>
+    <script src="~/Content/jQuery-File-Upload-9.28.0/js/jquery.iframe-transport.js"></script>
+    <script src="~/Content/jQuery-File-Upload-9.28.0/js/jquery.fileupload.js"></script>
+    <script>
+        /*jslint unparam: true */
+        /*global window, $ */
+
+        $(function () {//IMAGE JSONRESULTA GİDEN YER
+            'use strict';
+
+            // Change this to the location of your server-side upload handler:
+            var url = "/User/AddImage";//window.location.hostname === 'blueimp.github.io' ? //JSON RESULT İSMİM
+            //    '//jquery-file-upload.appspot.com/' : 'server/php/';//burda bizim sayamıza gitmeli değiştirdik
+            $('#fileupload').fileupload({
+                url: url,
+                dataType: 'json',
+                done: function (e, data) {
+                    $.each(data.result.files, function (index, file) {
+                        $('<p/>').text(file.name).appendTo('#files');
+                    });
+                },
+                progressall: function (e, data) {
+                    var progress = parseInt(data.loaded / data.total * 100, 10);
+                    $('#progress .progress-bar').css(
+                        'width',
+                        progress + '%'
+                    );
                 }
+            }).prop('disabled', !$.support.fileInput)
+                .parent().addClass($.support.fileInput ? undefined : 'disabled');
+        });
+
+        $(document).ready(function () {
+            $('.del').click(function () {
+
+                var Form = $('#FormID').serialize();
+                $.ajax({
+                    url: "/User/Registery",
+                    data: Form,
+                    method: "POST",
+                    success: function (OlduMu) {
+                        if (OlduMu) {
+                            alert("Kayıt Başarılı");
+
+                        }
+                        else {
+                            alert("Bir Hata Oluştu");
+                        }
+                    }
+                });
             });
         });
-    });
 
 
 
 
-</script>
+    </script>

@@ -11,22 +11,22 @@
     <title>_Layout</title>
     <style>
 
-            .container .img {
-                text-align: center;
-            }
+        .container .img {
+            text-align: center;
+        }
 
-            .container .details {
-                border-left: 3px solid #ded4da;
-            }
+        .container .details {
+            border-left: 3px solid #ded4da;
+        }
 
-                .container .details p {
-                    font-size: 15px;
-                    font-weight: bold;
-                }
+            .container .details p {
+                font-size: 15px;
+                font-weight: bold;
+            }
     </style>
 
 
-     <link rel="shortcut icon" href="/Content/images/favicon.ico" /> 
+    <link rel="shortcut icon" href="/Content/images/favicon.ico" />
 
     <link rel="stylesheet" href="/Content/Menu/css/bootstrap.css" type="text/css" />
     <link rel="stylesheet" href="/Content/Menu/css/style.css" type="text/css" />
@@ -63,8 +63,8 @@
                 </ul>
                 <div class="container">
                     <div class="header animated tada">
-                    
-                    
+
+
                     </div>
                 </div>
             </div>
@@ -83,12 +83,34 @@
                         <nav class="gn-menu-wrapper">
                             <div class="gn-scroller">
                                 <ul class="gn-menu">
+                                    
+                                    <li>
+                                        @if (Session["NameSurname"] != null)
+        {
+                                <div class="row" style=" background-color: #FAF0E6;">
+                                    <div class="col-lg-2"></div>
+                                    <div class="col-lg-4">
+                                        <a style="height:80px; width:80px;" href="/UserProfile/Index/@Session["EnterID"]"><img style="width:80px; height:80px;" src="@Session["ImageURL"]" class="img-rounded"></a>@*//fotografa basınca profil sayfası popup olarak gelsin*@
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <h5 style="color:black; display:inline-block;">@Session["NameSurname"]</h5>
+                                    </div>
+                                    <div class="col-lg-2"></div>
+                                </div>
+
+}
+else
+{
+                                <a href="/User/Index/">Login</a>
+}
+                                    </li>
                                     <li><a href="/Home/Index" class="gn-icon fa-heart">Home</a></li>
                                     <li><a href="/Contact/Index" class="gn-icon fa-comment">Contact</a></li>
                                     <li><a href="/About/Index" class="gn-icon fa-comment">About</a></li>
                                     <li><a href="/Forum/Index" class="gn-icon fa-heart">Forum</a></li>
                                     <li><a href="/Activity/Index" class="gn-icon fa-heart">Activities</a></li>
                                     <li><a href="#nenerede" class="gn-icon fa-users">What Where?</a></li>
+
                                     <li>
                                         <ul class="gn-submenu">
                                             <li><a href="/Restaurant/Index" class="gn-icon fa-chevron-right">Restaurant</a></li>
@@ -101,34 +123,7 @@
                             </div><!--end gn-scroller-->
                         </nav>
                     </li>
-                    <li>
-                        @if (Session["NameSurname"] != null)
-                        {
-                            <div class="container" style="margin-left:600px;">
-                                <div class="row" style="position:relative; bottom:40px; left:200px;">
-                                    <div class="col-xs-4"></div>
-                                    <div class="col-xs-4"></div>
-                                    
-                                    <div class="col-xs-4" >
-                                        <div class="row">
-                                            <a style="height:80px; width:80px; border-radius:80px; display:inline-block;" href="/UserProfile/Index/@Session["EnterID"]"><img style="height:80px; width:80px; border-radius:80px;  -webkit-transform: rotate(90deg);" src="/@Session["Image"]" class="img-rounded"></a>@*//fotografa basınca profil sayfası popup olarak gelsin*@
-                                            <div>
-                                                <h5 style="color:black; display:inline-block;">@Session["NameSurname"]</h5>
-                                              
-                                            </div>
-                                           
-                                        </div>
-                                    </div>
-                                  
-                                </div>
-                            </div>
-                        }
-                        else
-                        {
-                            <a href="/User/Index/">Login</a>
-                        }
 
-                    </li>
                     <li class="back"><a class="gn-icon fa-angle-double-up" href="#top"></a></li>
                 </ul>
             </div><!--end container-->
@@ -173,17 +168,17 @@
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 
     <script>
-    /* -- NAVIGATION -- */
-    jQuery('.gn-menu a').on('click');
-    new gnMenu(document.getElementById('gn-menu'));
+        /* -- NAVIGATION -- */
+        jQuery('.gn-menu a').on('click');
+        new gnMenu(document.getElementById('gn-menu'));
 
-    /* -- SCROLLING -- */
-    jQuery('body').scrollspy({ target: '#gn-menu' });
+        /* -- SCROLLING -- */
+        jQuery('body').scrollspy({ target: '#gn-menu' });
 
-    /* -- SLIDESHOW -- */
-    $(function () {
-        cbpBGSlideshow.init();
-    });
+        /* -- SLIDESHOW -- */
+        $(function () {
+            cbpBGSlideshow.init();
+        });
 
     </script>
 

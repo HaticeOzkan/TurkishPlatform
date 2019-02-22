@@ -139,9 +139,30 @@ namespace TurkishPlatform.Controllers
                                select b.UserId).FirstOrDefault();
             ViewBag.Id = id;
             ViewBag.KullaniciId = KullaniciId;
+
+
+
             Activity Activities = (from a in db.Activities
                                    where a.ActivityId == id & a.UserId == kullaniciId
                                    select a).FirstOrDefault();
+
+
+            ViewBag.Fparticipating = from F in db.Activities
+                                     where F.ActivityId == id
+                                     group F by F.Participation == false into False
+                                     select new
+                                     {
+                                         FalseCount = False.Count()
+                                     };
+
+
+            ViewBag.Tparticipating = from F in db.Activities
+                                     where F.ActivityId == id
+                                     group F by F.Participation == true into True
+                                     select new
+                                     {
+                                         FalseCount = True.Count()
+                                     };
             return View(Activities);
 
         }
@@ -162,26 +183,34 @@ namespace TurkishPlatform.Controllers
             Activity Activities = (from a in db.Activities
                                    where a.ActivityId == id & a.UserId == kullaniciId
                                    select a).FirstOrDefault();
+
+             
+
+        
             return View(Activities);
 
         }
 
         //[HttpPost]
 
-        public JsonResult AcceptDeny(int id, int kullaniciId, int sonuc)
+        public JsonResult AcceptDeny(int id,  int sonuc)
         {
             PlatformContext db = new PlatformContext();
             Activity a = new Activity();
+            int kullaniciId = (int)Session["EnterID"];
+
             if (sonuc == 1)
             {
-                var update = db.Activities.FirstOrDefault(x => x.ActivityId == id && x.UserId == kullaniciId);
+                var update = db.Activities.FirstOrDefault(x => x.ActivityId == id);
+                var u = db.Users.Find(kullaniciId);
+                update.Participants.Add(u);
                 update.Participation = true;
+                db.Entry(update).State = EntityState.Modified;
                 db.SaveChanges();
                 //a.Participation = true;
                 //a.ActivityId = id;
                 //a.UserId = kullaniciId;
                 return Json(a);
-
             }
             else
             {
