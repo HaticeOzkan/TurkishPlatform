@@ -14,12 +14,18 @@ namespace TurkishPlatform.Controllers
         
         public ActionResult Index()
         {
+            
             if (Session["CountryId"] == null)
-            ViewBag.Categories = Db.ForumCommentCategories.Where(x => x.CountryId == 2);
+            {
+                ViewBag.Categories = Db.ForumCommentCategories.Where(x => x.CountryId == 2).ToList();
+            }
             else
-                ViewBag.Categories = Db.ForumCommentCategories.Where(x => x.CountryId == (int)Session["CountryId"]);
-            int? Start = 0;
-            return View(Start);
+            {
+                int ID = (int)Session["CountryId"];
+                ViewBag.Categories =Db.ForumCommentCategories.Where(x => x.CountryId == ID).ToList();
+            }              
+           
+            return View();
             //rootcomficd ebelli bir düzen var sonunda 'id' olarak ismi dogru yazarsan / dan sonra ? yazıp işte ismini yazmana gerek kalmaz ../../id=.. de ordan id diye karşıla ama başka bir isim kullanaksan ../..?x=y diye bu sefer kontrollersa x diyebilirsin id yerine  
         }
     
@@ -34,21 +40,28 @@ namespace TurkishPlatform.Controllers
             ViewBag.CommentTitle = Db.ForumCommentTopics.Where(x => x.ForumTopicTitleId ==id).ToList();
             return View();
         }
-        [HttpGet]
-        public ActionResult Comment(int id)
+      
+      
+        public ActionResult Comment(string Content, int id, int? DeleteID)
         {
+            if (DeleteID != null)
+            {
+                ForumComment Comment = Db.ForumComments.Find(DeleteID);
+                Db.ForumComments.Remove(Comment);
+                Db.SaveChanges();
+            }        
+            if (Content != null)
+            {
+                ForumComment NewComment = new ForumComment();
+                int UserID = (int)Session["EnterID"];
+                User ByUser = Db.Users.Find(UserID);
+                NewComment.ByUser = ByUser;          
+                NewComment.Content = Content;
+                NewComment.CommentTopicId = id;
+                Db.ForumComments.Add(NewComment);
+                Db.SaveChanges();
+            }
             ViewBag.Comment = Db.ForumComments.Where(x => x.CommentTopicId == id).ToList();
-            return View();
-        }
-        [HttpPost]
-        public ActionResult Comment(string Content, int id)
-        {
-            ViewBag.Comment = Db.ForumComments.Where(x => x.CommentTopicId == id).ToList();
-            ForumComment NewComment = new ForumComment();
-            NewComment.ByUser.UserId =(int) Session["EnterID"];
-            NewComment.Content = Content;
-            NewComment.CommentTopicId = id;
-           
             return View();
         }
 
