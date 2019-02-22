@@ -212,7 +212,9 @@
     <Content Include="Content\ActivityDetails.js" />
     <Content Include="Content\Advice.png" />
     <Content Include="Content\forum.png" />
+    <Content Include="Content\Login\.jpg" />
     <Content Include="Content\Login\Camp.jpg" />
+    <Content Include="Content\Login\Image.jpg" />
     <Content Include="Content\Menu\bootstrap.css" />
     <Content Include="Content\Menu\bootstrap.min.css" />
     <Content Include="Content\Menu\css\animate.css" />
