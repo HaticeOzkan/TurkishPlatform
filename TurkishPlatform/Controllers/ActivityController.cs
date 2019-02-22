@@ -18,7 +18,12 @@ namespace TurkishPlatform.Controllers
         {
             PlatformContext db = new PlatformContext();
 
-            //ViewBag.ParticipationF = db.Activities.Where(x => x.Participation == false).Count();
+//            select count(*)
+//from activities where Participation = 0
+//group by Participation
+
+
+           //ViewBag.ParticipationF = db.Activities.Where(x => x.Participation == false).Count();
 
             return View(db.Activities.ToList());
         }

@@ -167,9 +167,7 @@
     <Compile Include="Areas\Panel\Controllers\UsersController.cs" />
     <Compile Include="Areas\Panel\Models\AdminView.cs" />
     <Compile Include="Areas\Panel\PanelAreaRegistration.cs" />
-    <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\ActivityController.cs" />
-    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\ForumController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RestaurantController.cs" />
@@ -215,7 +213,9 @@
     <Content Include="Content\ActivityDetails.js" />
     <Content Include="Content\Advice.png" />
     <Content Include="Content\forum.png" />
-    <Content Include="Content\Login\UserIndex.jpg" />
+    <Content Include="Content\Login\.jpg" />
+    <Content Include="Content\Login\Camp.jpg" />
+    <Content Include="Content\Login\Image.jpg" />
     <Content Include="Content\Menu\bootstrap.css" />
     <Content Include="Content\Menu\bootstrap.min.css" />
     <Content Include="Content\Menu\css\animate.css" />
@@ -267,7 +267,6 @@
     <Content Include="Content\Menu\js\responsiveslides.js" />
     <Content Include="Content\Restaurant\css\animate.min.css" />
     <Content Include="Content\Restaurant\css\bootstrap.min.css" />
-    <Content Include="Content\Restaurant\css\comment.css" />
     <Content Include="Content\Restaurant\css\fontawesome-all.min.css" />
     <Content Include="Content\Restaurant\css\main.css" />
     <Content Include="Content\Restaurant\css\normalize.css" />
@@ -467,7 +466,6 @@
     <Content Include="Content\Restourant.png" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\Tourism.png" />
-    <Content Include="Content\UserIndex.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -640,9 +638,12 @@
     <Content Include="Views\Forum\TopicTitle.cshtml" />
     <Content Include="Views\Forum\CommentTopic.cshtml" />
     <Content Include="Views\Forum\Comment.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\UserProfile\Index.cshtml" />
+=======
+>>>>>>> 08e79288ad8b69c507563e8f61b1d2f22a6214bf
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

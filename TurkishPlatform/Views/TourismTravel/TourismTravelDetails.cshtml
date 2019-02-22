@@ -31,33 +31,44 @@
     </style>
     <style>
         .thumbnail {
-    padding:0px;
-}
-.panel {
-    position:relative;
-}
-.panel>.panel-heading:after,.panel>.panel-heading:before{
-	position:absolute;
-	top:11px;left:-16px;
-	right:100%;
-	width:0;
-	height:0;
-	display:block;
-	content:" ";
-	border-color:transparent;
-	border-style:solid solid outset;
-	pointer-events:none;
-}
-.panel>.panel-heading:after{
-	border-width:7px;
-	border-right-color:#f7f7f7;
-	margin-top:1px;
-	margin-left:2px;
-}
-.panel>.panel-heading:before{
-	border-right-color:#ddd;
-	border-width:8px;
-}
+            padding: 0px;
+        }
+
+        .panel {
+            position: relative;
+        }
+
+            .panel > .panel-heading:after, .panel > .panel-heading:before {
+                position: absolute;
+                top: 11px;
+                left: -16px;
+                right: 100%;
+                width: 0;
+                height: 0;
+                display: block;
+                content: " ";
+                border-color: transparent;
+                border-style: solid solid outset;
+                pointer-events: none;
+            }
+
+            .panel > .panel-heading:after {
+                border-width: 7px;
+                border-right-color: #f7f7f7;
+                margin-top: 1px;
+                margin-left: 2px;
+            }
+
+            .panel > .panel-heading:before {
+                border-right-color: #ddd;
+                border-width: 8px;
+            }
+    </style>
+    <style>
+        .yorum {
+            margin-left: 116px;
+            width: 1530px;
+        }
     </style>
 }
 <div class="container">
@@ -72,30 +83,44 @@
             }
         </div>
         <div class="mesaj">
+            <h2  style="margin-left:100px;">Yorumlar</h2>
             @foreach (LocationComment item in ViewBag.Comment)
             {
                 if (ViewBag.Comment != null)
                 {
-                    <div class="row">
+                    <div class="row yorum">
+                        <div class="col-lg-1"></div>
                         <div class="col-sm-1">
-                            <div class="thumbnail">
-                                <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
-                            </div>
+                            @if (item.User.ImageURL == null)
+                            {
+                                <div class="thumbnail">
+                                    <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="thumbnail">
+                                    <img class="img-responsive user-photo" src="/@item.User.ImageURL" alt="Product" style="width:50px">
+                                </div>
+                            }
                         </div>
                         <div class="col-sm-5">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <strong>@item.User.NameSurname</strong> <span class="text-muted">commented 5 days ago</span>
-                                    @if (item.UserId == ViewBag.Name)
-                                    {
-                                        <span class="sil btn btn-danger delete" mesajid="@item.CommentId"> Sil</span> }
+
                                     <div class="panel panel-default">
                                         <div class="panel-body">
 
                                             <p>@item.Content</p>
                                         </div>
+                                       
                                     </div>
-                                    </div>
+                                    @if (item.UserId == ViewBag.Name)
+                                    {
+                                        <span class="sil btn btn-danger delete" mesajid="@item.CommentId"> Sil</span>
+                                    }
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -103,14 +128,14 @@
 
             }
 
-            }
+             
         </div>
 
 
         <div class="col-md-4 text-center " style="">
-            
+
             <TextBox ID="Mesaj" TextMode="MultiLine" Rows="5" CssClass="form-control"></TextBox>
-         
+
             @if (!ViewBag.c)
             {
                 <form method="post">
@@ -125,7 +150,7 @@
 </div>
 
 <script>
-    debugger
+    //debugger
     $(".delete").click(function () {
         //debugger
         var _this = $(this);

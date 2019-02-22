@@ -271,7 +271,7 @@
 
                 var sonuc = 1;
                 $.ajax({
-                    url: "/Activity/AcceptDeny/?id=" +@Model.ActivityId +"&kullaniciId=" + 3 + "&sonuc=" + 1 + "   ",
+                    url: "/Activity/AcceptDeny/?id=" +@Model.ActivityId +"&kullaniciId=" + Session["EnterID"] + "&sonuc=" + Session["CountryId"] + "   ",
                     //data: {"id": @Model.ActivityId,"kullaniciId": 1, "sonuc": 1 },
                     type: "POST",
                     dataType: "json",
