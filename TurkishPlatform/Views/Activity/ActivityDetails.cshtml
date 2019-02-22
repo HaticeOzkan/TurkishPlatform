@@ -268,10 +268,11 @@
 
 
             $("#katil").click(function () {
-
+                 
                 var sonuc = 1;
+                
                 $.ajax({
-                    url: "/Activity/AcceptDeny/?id=" +@Model.ActivityId +"&kullaniciId=" + Session["EnterID"] + "&sonuc=" + Session["CountryId"] + "   ",
+                    url: "/Activity/AcceptDeny/?id=" +@Model.ActivityId + "&sonuc=" + 1 + " ",
                     //data: {"id": @Model.ActivityId,"kullaniciId": 1, "sonuc": 1 },
                     type: "POST",
                     dataType: "json",
@@ -288,11 +289,11 @@
             });
 
             $("#Katilmiyorum").click(function () {
+                
                 var sonuc = 0;
-
-
+                 
                 $.ajax({
-                    url: "/Activity/AcceptDeny/?deleteid=" +@Model.ActivityId +"&kullaniciId=" + 3 + "&sonuc=" + 0 + "   ",
+                    url: "/Activity/AcceptDeny/?deleteid=" +@Model.ActivityId +"&sonuc=" + 0 + "   ",
 
                     type: "POST",
                     dataType: "json",
