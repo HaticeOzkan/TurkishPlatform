@@ -42,7 +42,9 @@ namespace TurkishPlatform.Controllers
 
             rComment.Content = Content;
             rComment.RestaurantId = id;
-            rComment.UserId = Convert.ToInt32(Session["EnterID"]);
+			int idUser = Convert.ToInt32(Session["EnterID"]);
+			rComment.User = db.Users.Find(idUser);
+			//rComment.UserId = idUser; //üstteki yerine bunu yazdık.
 
             db.RestaurantComments.Add(rComment);
             db.SaveChanges();

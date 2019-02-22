@@ -73,6 +73,7 @@ body {
 }
 p {
   margin: 0 0 20px 0;
+  margin-top:40px;
 }
 h1,
 h2,
@@ -163,9 +164,8 @@ a:focus {
   outline: 0 none;
 }
 img {
-  /*max-width: 100%;*/
-  /*height: auto;*/
-  height:340px;
+  max-width: 100%;
+  height: auto;
 }
 ul {
   list-style: outside none none;
@@ -4045,6 +4045,7 @@ ul {
   -ms-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+  margin-left:425px;
 }
 .product-box-layout3 .item-content .item-title:hover a {
   color: #ff4a52;

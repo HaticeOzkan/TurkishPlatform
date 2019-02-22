@@ -10,9 +10,9 @@ namespace TurkishPlatform.Models
     public class Contact
     {
         [Key]
-        public int ContactId { get; set; }
+        public int ContactID { get; set; }
 
-        public string content { get; set; }
+        public string Content { get; set; }
 
         [ForeignKey("User")]
         public int UserId { get; set; }
