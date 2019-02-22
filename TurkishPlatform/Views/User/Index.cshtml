@@ -316,12 +316,12 @@
     <script>
         /*jslint unparam: true */
         /*global window, $ */
-
+        $(document).ready(function () {
         $(function () {//IMAGE JSONRESULTA GİDEN YER
             'use strict';
 
             // Change this to the location of your server-side upload handler:
-            var url = "/User/AddImage";//window.location.hostname === 'blueimp.github.io' ? //JSON RESULT İSMİM
+            var url = "/User/Registery";//window.location.hostname === 'blueimp.github.io' ? //JSON RESULT İSMİM
             //    '//jquery-file-upload.appspot.com/' : 'server/php/';//burda bizim sayamıza gitmeli değiştirdik
             $('#fileupload').fileupload({
                 url: url,
@@ -342,7 +342,7 @@
                 .parent().addClass($.support.fileInput ? undefined : 'disabled');
         });
 
-        $(document).ready(function () {
+       
             $('.del').click(function () {
 
                 var Form = $('#FormID').serialize();

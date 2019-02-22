@@ -201,7 +201,6 @@
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\ContactViewModel.cs" />
     <Compile Include="Models\Country.cs" />
-    <Compile Include="Models\File.cs" />
     <Compile Include="Models\PlatformContext.cs" />
     <Compile Include="Models\Restaurant.cs" />
     <Compile Include="Models\ForumComment.cs" />
@@ -643,7 +642,6 @@
     <Content Include="Views\Forum\Comment.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
-
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

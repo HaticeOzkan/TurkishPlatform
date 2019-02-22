@@ -123,12 +123,12 @@ namespace TurkishPlatform.Controllers
             {
                 
                 Db.Users.Add(user);               
-                Db.SaveChanges();
+                Db.SaveChanges();//burada id kaydedildi
 
-                Session["UserID"] = user.UserId;
+                Session["UserID"] = user.UserId;//burada id yi sessiona kaydetti
 
-                UploadImage(UserImage);
-                user.ImageURL = "/Content/Login/"+user.UserId + ".jpg";
+                UploadImage(UserImage);//burda resmi keydetti resim yolunu sessiona aldı
+                user.ImageURL = Session["ImageURL"].ToString();
                 Db.Entry(user).State = System.Data.Entity.EntityState.Modified;
                 Db.SaveChanges();
 
@@ -140,18 +140,11 @@ namespace TurkishPlatform.Controllers
 
         void UploadImage(HttpPostedFileBase UserImage)
         {
-            if (UserImage != null && UserImage.ContentLength != 0)
+            if (UserImage != null && UserImage.ContentLength != 0)//image dolu ise
             {
-                var path = Server.MapPath("/Content/Login/");
-                UserImage.SaveAs(path + Session["userID"] + ".jpg");
-                FileList flist = new FileList();
-                var files = flist.files;
-                File f = new File();
-                f.name = UserImage.FileName;
-                f.url = "/Content/Login/" + Session["UserID"] + ".jpg";//KAYDOLUCAGI KISIM
-                Session["ImageURL"] = f.url;
-                f.thumbnailUrl = f.url;
-                files.Add(f);
+                var path = Server.MapPath("/Content/Login/");//server mappath dan o dasyadan alacak olan resmin yolu
+                UserImage.SaveAs(path + Session["userID"] + ".jpg");//nereye kaydedecez                          
+                Session["ImageURL"] = "/Content/Login/" + Session["UserID"] + ".jpg";//kaydolucagı yer i sessiona aldım          
               
             }
         }
