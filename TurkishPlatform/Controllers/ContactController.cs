@@ -3,15 +3,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TurkishPlatform.Models;
 
 namespace TurkishPlatform.Controllers
 {
     public class ContactController : Controller
     {
-        // GET: Contact
-        public ActionResult Index()
+		PlatformContext db = new PlatformContext();
+        
+		public ActionResult Index()
+		{
+			return View();
+		}
+
+		[HttpPost]
+        public ActionResult Index(ContactViewModel msg)
         {
-            return View();
+			Contact contact = new Contact();
+
+			if (ModelState.IsValid)
+			{
+				contact.Content = msg.Message;
+				int idUser = Convert.ToInt32(Session["EnterID"]);
+				contact.User = db.Users.Find(idUser);
+				ViewBag.Warning = "Mesajınız gönderildi, teşekkürler :)";
+
+				db.Contacts.Add(contact);
+				db.SaveChanges();
+			}
+
+			return View();
         }
     }
 }

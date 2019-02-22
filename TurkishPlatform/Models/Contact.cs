@@ -15,7 +15,7 @@ namespace TurkishPlatform.Models
         public string Content { get; set; }
 
         [ForeignKey("User")]
-        public int UserId { get; set; }
+        public int? UserId { get; set; }
         public virtual User User { get; set; }
         public DateTime ContactTime { get; set; }
         public Contact()

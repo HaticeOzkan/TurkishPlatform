@@ -200,6 +200,7 @@
     <Compile Include="Models\AdminProfil.cs" />
     <Compile Include="Models\Advice.cs" />
     <Compile Include="Models\Contact.cs" />
+    <Compile Include="Models\ContactViewModel.cs" />
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\File.cs" />
     <Compile Include="Models\PlatformContext.cs" />
@@ -214,6 +215,7 @@
     <Content Include="Content\Activity.png" />
     <Content Include="Content\ActivityDetails.js" />
     <Content Include="Content\Advice.png" />
+    <Content Include="Content\Contact\ContactPage.css" />
     <Content Include="Content\forum.png" />
     <Content Include="Content\Login\.jpg" />
     <Content Include="Content\Login\Camp.jpg" />

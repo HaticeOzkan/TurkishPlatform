@@ -23,6 +23,7 @@ namespace TurkishPlatform.Models
         public virtual DbSet<LocationComment> LocationComments { get; set; }
         public virtual DbSet<AdminProfil> AdminProfils { get; set; }
         public virtual DbSet<ForumTopicTitle> ForumTopicTitles { get; set; }
+		public virtual DbSet<Contact> Contacts { get; set; }
         
        
     }
