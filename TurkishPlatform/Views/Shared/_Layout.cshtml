@@ -83,26 +83,27 @@
                         <nav class="gn-menu-wrapper">
                             <div class="gn-scroller">
                                 <ul class="gn-menu">
-                                    
+
                                     <li>
                                         @if (Session["NameSurname"] != null)
-        {
-                                <div class="row" style=" background-color: #FAF0E6;">
-                                    <div class="col-lg-2"></div>
-                                    <div class="col-lg-4">
-                                        <a style="height:80px; width:80px;" href="/UserProfile/Index/@Session["EnterID"]"><img style="width:80px; height:80px;" src="@Session["ImageURL"]" class="img-rounded"></a>@*//fotografa basınca profil sayfası popup olarak gelsin*@
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <h5 style="color:black; display:inline-block;">@Session["NameSurname"]</h5>
-                                    </div>
-                                    <div class="col-lg-2"></div>
-                                </div>
+                                        {
+                                            <div class="row" style=" background-color: #FAF0E6;">
+                                                <div class="col-lg-2"></div>
+                                                <div class="col-lg-4">
+                                                    <a style="height:80px; width:80px;" href="Profile/Index/@Session["EnterID"]" class="del"><img style="width:80px; height:80px;" src="@Session["ImageURL"]" class="img-rounded"></a>@*//fotografa basınca profil sayfası popup olarak gelsin*@
+                                                   
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <h5 style="color:black; display:inline-block;">@Session["NameSurname"]</h5>
+                                                </div>
+                                                <div class="col-lg-2"></div>
+                                            </div>
 
-}
-else
-{
-                                <a href="/User/Index/">Login</a>
-}
+                                        }
+                                        else
+                                        {
+                                            <a href="/User/Index/">Login</a>
+                                        }
                                     </li>
                                     <li><a href="/Home/Index" class="gn-icon fa-heart">Home</a></li>
                                     <li><a href="/Contact/Index" class="gn-icon fa-comment">Contact</a></li>
@@ -180,6 +181,14 @@ else
             cbpBGSlideshow.init();
         });
 
+        $(document).ready(function () {
+            $('.del').click(function () {
+
+            });
+
+
+
+        });
     </script>
 
     @RenderSection("Scripts", false)

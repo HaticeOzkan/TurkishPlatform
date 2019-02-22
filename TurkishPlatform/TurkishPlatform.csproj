@@ -160,6 +160,7 @@
     <Compile Include="Areas\Panel\Controllers\LocationCommentsController.cs" />
     <Compile Include="Areas\Panel\Controllers\LocationImagesController.cs" />
     <Compile Include="Areas\Panel\Controllers\LoginController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Areas\Panel\Controllers\RestaurantCommentsController.cs" />
     <Compile Include="Areas\Panel\Controllers\RestaurantImagesController.cs" />
     <Compile Include="Areas\Panel\Controllers\RestaurantsController.cs" />
@@ -582,12 +583,8 @@
     <Content Include="Areas\Panel\Views\Tourism\Details.cshtml" />
     <Content Include="Areas\Panel\Views\Tourism\Edit.cshtml" />
     <Content Include="Areas\Panel\Views\Tourism\Index.cshtml" />
-    <Content Include="Areas\Panel\Views\Users1\Create.cshtml" />
-    <Content Include="Areas\Panel\Views\Users1\Delete.cshtml" />
-    <Content Include="Areas\Panel\Views\Users1\Details.cshtml" />
-    <Content Include="Areas\Panel\Views\Users1\Edit.cshtml" />
-    <Content Include="Areas\Panel\Views\Users1\Index.cshtml" />
     <Content Include="Areas\Panel\Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Profile\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
