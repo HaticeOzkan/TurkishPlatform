@@ -641,10 +641,7 @@
     <Content Include="Views\Forum\Comment.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
-<<<<<<< HEAD
-=======
-    <Content Include="Views\UserProfile\Index.cshtml" />
->>>>>>> 33dfac8f05c2ba1bb8d06ab39e164f1272fed1bf
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
