@@ -30,18 +30,15 @@ namespace TurkishPlatform.Controllers
                 if (Email == item.Email)
                 {
                     if (Password == item.Password)
-                    {
-                       
+                    {                       
                         IsTrue = true;
                         Session["CountryId"] = item.CountryNo;                      
-                        Session["EnterID"] = item.UserId;
-                      
+                        Session["EnterID"] = item.UserId;                      
                         Session["Image"] = item.ImageURL;
                         Session["Email"] = item.Email;
                         Session["Gender"] = item.Gender;
                         Session["NameSurname"] = item.NameSurname;                       
-                        return RedirectToAction("Index", "Home");
-                        
+                        return RedirectToAction("Index", "Home");                        
                     }
                 }
             }
@@ -123,7 +120,7 @@ namespace TurkishPlatform.Controllers
                 var files = flist.files;
                 File f = new File();
                 f.name = UserImage.FileName;
-                f.url = "Content/Login/Image.jpg";//KAYDOLUCAGI KISIM
+             //   f.url = "Content/Login/"++".jpg";//KAYDOLUCAGI KISIM
                 Session["ImageURL"] = f.url;
                 f.thumbnailUrl = f.url;
                 files.Add(f);
@@ -134,7 +131,7 @@ namespace TurkishPlatform.Controllers
 
         public JsonResult Registery(User user)
         {
-           // user.ImageURL= Session["ImageURL"].ToString();
+           user.ImageURL= Session["ImageURL"].ToString();
     
             if (ModelState.IsValid)
             {              
