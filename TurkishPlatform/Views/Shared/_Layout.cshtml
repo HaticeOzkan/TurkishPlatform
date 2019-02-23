@@ -125,6 +125,7 @@
             padding: 5px 10px;
             font-size: 1.25em;
         }
+       
     </style>
 
 
@@ -178,14 +179,17 @@
         @*MENU*@
         <section>
             <div class="container">
+                
                 <ul id="gn-menu" class="gn-menu-main">
-                    @*//Burası en baş kısım buraya profil koyacagım*@
+                   <!--Çıkışşş-->
                     <li class="gn-trigger">
                         <div class="trigger"><a class="gn-icon gn-icon-menu"><span>Menu</span></a></div>
+                        <a href="/Home/Logout" class="btn" style="background-color: rgb(189,148,104); height:30px; width:70px; color:wheat !important; position:relative; left:1500px; bottom:35px; color:white ">Çıkış</a>
+                       
                         <nav class="gn-menu-wrapper">
                             <div class="gn-scroller">
                                 <ul class="gn-menu">
-
+                                    <!--Profil-->
                                     <li>
                                         @if (Session["NameSurname"] != null)
                                         {
@@ -237,7 +241,7 @@
             <div class="col-lg-9">  @RenderBody()</div>
             <div class="col-lg-3">               
                 <div class="panel panel-default">
-                   
+                   <!--Score Bölümü-->
                     @foreach (ScoreViewModel item in (List<ScoreViewModel>)Session["TopFive"])
                     {
                         <ul class="list-group" id="contact-list">
@@ -247,13 +251,10 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-9">
                                     <span class="name">@item.NameSurname</span><br />
-                                    <span class="name">@item.Score Puan!</span><br />
-                                  
-
+                                    <span class="name">@item.Score Puan!</span><br />                                
                                 </div>
                                 <div class="clearfix"></div>
                             </li>
-
                         </ul>
                     }
                 </div>

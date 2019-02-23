@@ -1,12 +1,9 @@
-﻿
+﻿@using TurkishPlatform.Models
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
-<html>
-<head>
     <title>Home</title>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -123,6 +120,26 @@
             bottom: 0;
             left: 75%;
         }
+
+        .custom-combobox {
+            position: relative;
+            display: inline-block;
+        }
+
+        .custom-combobox-toggle {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin-left: -1px;
+            padding: 0;
+        }
+
+        .custom-combobox-input {
+            margin: 0;
+            padding-top: 2px;
+            padding-bottom: 5px;
+            padding-right: 5px;
+        }
     </style>
     <style>
 
@@ -184,10 +201,30 @@
             filter: blur(3px) grayscale(100%);
         }
     </style>
-</head>
 
-<body>
+    <!--Ülke Seçimi-->
+    <!------------------------------------------------------------>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <br />  
+        <div class="ui-widget" style="position:relative; right:500px; bottom:170px;">
+            <label style="color: rgb(189,148,104);">Ülke Seçimi</label>
+           
+            <form method="post" name="formum">
+                <select id="CombxCountry" name="CombxCountry" onchange="formum.submit()">
+                    @foreach (CountryViewModel item in (List<CountryViewModel>)Session["CountryList"])
+                    {
+                        <option for value="@item.CountryID">@item.CountryName</option>
+                    }
 
+                </select>
+            </form>
+           
+        </div>
+
+ 
+
+    <!------------------------------------------------------------>
     <div class="container">
         <h2 class="zoom">Gurbetçilerimizin Ortak Platformu</h2>
         <br />
@@ -310,6 +347,10 @@
     </div>
 
 
-</body>
+<script>
+    $("#x").change(function () {
 
-</html>
+        $("input[type=submit]").click();
+
+    });
+</script>

@@ -202,6 +202,7 @@
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\ContactViewModel.cs" />
     <Compile Include="Models\Country.cs" />
+    <Compile Include="Models\CountryViewModel.cs" />
     <Compile Include="Models\PlatformContext.cs" />
     <Compile Include="Models\Restaurant.cs" />
     <Compile Include="Models\ForumComment.cs" />

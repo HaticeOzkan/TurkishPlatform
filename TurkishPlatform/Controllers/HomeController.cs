@@ -9,14 +9,40 @@ namespace TurkishPlatform.Controllers
 {
 	public class HomeController : Controller
 	{
+       
         PlatformContext Db = new PlatformContext();
-		public ActionResult Index()
+     
+		public ActionResult Index(string CombxCountry)
 		{
-            Session["TopFive"] = ViewListFill();
+            Session["ChooseCountry"] = CombxCountry;
+            Session["TopFive"] = ScoreViewListFill();
+            Session["CountryList"] = CountryViewListFill();
             return View();
 		}
-        private List<ScoreViewModel> ViewListFill()
-        {
+
+        private List<CountryViewModel> CountryViewListFill()
+        {//ülkeleri seçenilmeleri için ülkeleri Layoutta combobax şeklinde getirmem için name ve id lerine ihtiyaxım  vardı bende viewmodel oluşturdum
+            List<CountryViewModel> countryViewModels = new List<CountryViewModel>();
+            var List = (from C in Db.Countries select new { C.CountryName, C.CountryId }).ToList();
+            foreach (var item in List)
+            {
+                CountryViewModel NewView = new CountryViewModel();
+                NewView.CountryName = item.CountryName;
+                NewView.CountryID = item.CountryId;
+                countryViewModels.Add(NewView);
+            }
+            return countryViewModels;
+        }
+
+        public ActionResult Logout()
+        {//çıkıs yaparken session bilgilerimi sildim
+            Session.Abandon();
+            Session.Clear();
+            
+            return RedirectToAction("Index");
+        }
+        private List<ScoreViewModel> ScoreViewListFill()
+        {//score lara layout da göstermek için viewmodel oluşturdum
             List<ScoreViewModel> scoreViewModels = new List<ScoreViewModel>();
             var List = (from S in Db.Users where S.Score != 0 orderby S.Score descending select new { S.Score, S.NameSurname, S.ImageURL, S.UserId, S.CountryNo }).Take(5).ToList();
             foreach (var item in List)

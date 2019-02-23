@@ -15,11 +15,16 @@ namespace TurkishPlatform.Controllers
         public ActionResult Index()
         {
             
-            if (Session["CountryId"] == null)
+            if (Session["CountryId"] == null  && Session["ChooseCountry"]==null)
             {
                 ViewBag.Categories = Db.ForumCommentCategories.Where(x => x.CountryId == 2).ToList();
             }
-            else
+            else if(Session["ChooseCountry"] != null)
+            {
+                int CountryID =(int)Session["ChooseCountry"];
+                ViewBag.Categories = Db.ForumCommentCategories.Where(x => x.CountryId == CountryID).ToList();
+            }
+            else 
             {
                 int ID = (int)Session["CountryId"];
                 ViewBag.Categories =Db.ForumCommentCategories.Where(x => x.CountryId == ID).ToList();
