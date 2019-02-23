@@ -206,6 +206,7 @@
     <Compile Include="Models\Restaurant.cs" />
     <Compile Include="Models\ForumComment.cs" />
     <Compile Include="Models\RestaurantViewModel.cs" />
+    <Compile Include="Models\ScoreViewModel.cs" />
     <Compile Include="Models\Tourism.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -590,6 +591,7 @@
     <Content Include="Uploads\LayoutIcon\iconfinder_home_126572 %281%29.png" />
     <Content Include="Uploads\LayoutIcon\iconfinder_ic_forum_48px_3669421.png" />
     <Content Include="Views\Profile\Index.cshtml" />
+    <Content Include="Areas\Panel\Views\Shared\_LoginView.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -644,6 +646,7 @@
     <Content Include="Views\Forum\Comment.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Forum\StartSubject.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "StartSubject";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    #send {
+        padding: 20px;
+        width: 450px;
+        height: auto;
+        float: left;
+    }
+
+    #prev-msg {
+        float: right;
+        width: 30%;
+        height: auto;
+        padding: 20px;
+    }
+
+    textarea {
+        border-radius: 5px;
+    }
+
+    .space {
+        padding-bottom: 25px;
+        color: white;
+    }
+
+    input {
+        border-radius: 3px;
+    }
+</style>
+
+
+<form method="post">
+
+    <div id="send" style="position:relative; left:300px; bottom:5px;">
+        <h2 style="font-weight:bold; color:indianred;">Start Subject</h2>
+        <textarea rows="1" type="text" placeholder="Subject" cols="50" name="Title"></textarea>
+        <br /><br />
+        <textarea placeholder="Message" rows="10" cols="50" name="Content"></textarea>
+        <br /><br />
+        <button class="btn btn-success" style=" position:relative; right:348px;">Send</button>
+    </div>
+    
+</form>
+
