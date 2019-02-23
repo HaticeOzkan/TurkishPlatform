@@ -120,8 +120,6 @@
         bottom: 0;
         left: 75%;
     }
-
-   
 </style>
 <style>
 
@@ -182,8 +180,44 @@
     .img_section6:hover figure img {
         filter: blur(3px) grayscale(100%);
     }
-</style>
+    .custom-combobox {
+        position: relative;
+        display: inline-block;
+    }
 
+    .custom-combobox-toggle {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin-left: -1px;
+        padding: 0;
+    }
+
+    .custom-combobox-input {
+        margin: 0;
+        padding-top: 2px;
+        padding-bottom: 5px;
+        padding-right: 5px;
+    }
+</style>
+<!--Ülke Seçimi-->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<br />
+<div>
+    <label style="color: rgb(189,148,104);">Ülke Seçimi</label>
+    <form method="post" name="formum" action="/Home/Index">
+        <select style="width:500px;" id="CombxCountry" name="CombxCountry" onchange="formum.submit()">
+            @foreach (CountryViewModel item in (List<CountryViewModel>)Session["CountryList"])
+            {
+                <option for value="@item.CountryID">@item.CountryName</option>
+            }
+
+        </select>
+    </form>
+
+</div>
+<!------------------------------------------------------------>
 
 <div class="container">
     <h2 class="zoom">Gurbetçilerimizin Ortak Platformu</h2>

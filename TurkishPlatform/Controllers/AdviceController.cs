@@ -17,11 +17,7 @@ namespace TurkishPlatform.Controllers
             return View();
         }
 
-<<<<<<< HEAD
-        public ActionResult Content()
-=======
-        public ActionResult Contents()
->>>>>>> afcc95ed4cda52096032ac384c59d7c9407f59ed
+        public ActionResult Content
         {
             return View();
         }
