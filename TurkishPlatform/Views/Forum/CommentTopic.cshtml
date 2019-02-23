@@ -8,24 +8,24 @@
         /*position: absolute; gerek yok*/
         width: 100%;
         /*float: left; satırda tek*/
-        border: 1px solid blue;
+       
     }
 
         .sidebarservices .head {
             text-align: center;
             font-size: 15pt;
-            background-color: #6A2C36;
+            background-color: rgb(189,148,104);
             color: white;
         }
 
     .head:hover {
-        background: gray !important;
+        
         cursor: initial;
     }
 
     .sidebarservices li {
         list-style: none;
-        background-color: #581F27;
+        background-color: rgb(189,148,104);
         margin: 5px 10px;
         text-align: left;
         padding: 10px 0 10px 20px;
@@ -37,16 +37,19 @@
             text-decoration: none;
             color: black;
             font-family: Century Gothic, sans-serif;
-            background-color: #581F27;
+            background-color: rgb(189,148,104);
         }
 
 </style>
-
+@if (Session["NameSurname"] != null)
+{
+    <a href="/Forum/StartSubject/@ViewBag.TopicTitleID" class="btn" style="background-color:rgb(189,148,104); color:wheat; position:relative; left:10px;">Konu Başlat</a>
+}
 <ul class="sidebarservices">
-    <li class="head">List of Services</li>
+    <li class="head">Konu Başlıkları</li>
     @foreach (ForumCommentTopic item in ViewBag.CommentTitle)
     {
-        <li><a style="display:block; font-weight:bold;" href="/Forum/Comment/@item.TopicId">@item.TopicTitle</a></li>//display block yaptık kapladı içini direk içine basınca geliyor
+        <li class="head"><a style="display:block; font-weight:bold;" href="/Forum/Comment/@item.TopicId">@item.TopicTitle</a></li>//display block yaptık kapladı içini direk içine basınca geliyor
     }
 
 

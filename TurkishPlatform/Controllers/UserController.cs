@@ -21,6 +21,7 @@ namespace TurkishPlatform.Controllers
         [ValidateAntiForgeryToken]//Güvenlik için bunu koymazsak postta javascript atakları yapıp verilerimize ulaşılabilir bunu koydugumuz çin view kısmına formdan sonra  @Html.AntiForgeryToken() koymalıyız
         public ActionResult Index(string Email, string Password)
         {
+           
             ViewBag.Countries = Db.Countries.ToList();
             bool? IsTrue = false;
             User User = new User();
@@ -38,8 +39,7 @@ namespace TurkishPlatform.Controllers
                         Session["Email"] = item.Email;
                         Session["Gender"] = item.Gender;
                         Session["NameSurname"] = item.NameSurname;
-                         Session["TopFive"]= ViewListFill();
-                      
+                                            
                         return RedirectToAction("Index", "Home");                        
                     }
                 }
@@ -48,22 +48,7 @@ namespace TurkishPlatform.Controllers
             return View(IsTrue);
         }
 
-        private List<ScoreViewModel> ViewListFill()
-        {
-            List<ScoreViewModel> scoreViewModels = new List<ScoreViewModel>();
-            var List = (from S in Db.Users orderby S.Score descending select new { S.Score, S.NameSurname, S.ImageURL, S.UserId, S.CountryNo }).Take(5).ToList();
-            foreach (var item in List)
-            {
-                ScoreViewModel NewScore = new ScoreViewModel();
-                NewScore.CountryNo = item.CountryNo;
-                NewScore.ImageURL = item.ImageURL;
-                NewScore.NameSurname = item.NameSurname;
-                NewScore.Score = item.Score;
-                NewScore.UserID = item.UserId;
-                scoreViewModels.Add(NewScore);
-            }
-            return scoreViewModels;
-        }
+      
 
         [HttpGet]
         public ActionResult Index()

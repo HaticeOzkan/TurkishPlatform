@@ -270,10 +270,13 @@
                 </div>
                 <div class="info">
                     <div>
-                        <h1 style="color:black;">@Model.NameSurname</h1>
+                        <h2 style="color:black; padding:5px;">@Model.NameSurname</h2>
                     </div>
                     <div>
-                        <h2 style="color:black;">@ViewBag.CountryName</h2>
+                        <h3 style="color:black; padding:5px;">@ViewBag.CountryName</h3>
+                    </div>
+                    <div>
+                        <h4 style="color:black;">@Model.Score Puan!</h4>
                     </div>
 
                     <div class="desc">Katıldığı Aktivite sayısı: @Model.Activities.Count()</div>
@@ -284,9 +287,13 @@
                     <br />
                     <div class="desc">Forum Mesaj Sayısı:@Model.ForumComments.Count()</div>
                     <br />
-                    <div class="desc">Yardımcı olduysa puanla!</div>
-                    <br />
-                    <a href="/?ProfilID=@Model.UserId&&ScorePuan=10">Puan Ver</a>
+                    @if ((string)Session["NameSurname"] != Model.NameSurname)
+                    {
+                        <div class="desc">Yardımcı olduysa puanla!</div>
+                        <br />
+                        <a href="/?ProfilID=@Model.UserId&&ScorePuan=10">Puan Ver</a>
+                    }
+
                 </div>
              
             </div>
