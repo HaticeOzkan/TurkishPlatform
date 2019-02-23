@@ -125,6 +125,25 @@
             padding: 5px 10px;
             font-size: 1.25em;
         }
+        .custom-combobox {
+            position: relative;
+            display: inline-block;
+        }
+
+        .custom-combobox-toggle {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin-left: -1px;
+            padding: 0;
+        }
+
+        .custom-combobox-input {
+            margin: 0;
+            padding-top: 2px;
+            padding-bottom: 5px;
+            padding-right: 5px;
+        }
        
     </style>
 
@@ -185,51 +204,26 @@
                     <li class="gn-trigger">
                         <div class="trigger"><a class="gn-icon gn-icon-menu"><span>Menu</span></a></div>
                         <a href="/Home/Logout" class="btn" style="background-color: rgb(189,148,104); height:30px; width:70px; color:wheat !important; position:relative; left:1500px; bottom:35px; color:white ">Çıkış</a>
-                       
-                        <nav class="gn-menu-wrapper">
-                            <div class="gn-scroller">
-                                <ul class="gn-menu">
-                                    <!--Profil-->
-                                    <li>
-                                        @if (Session["NameSurname"] != null)
+                        <!--Ülke Seçimi-->
+                        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+                        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+                        <br />
+                        <div class="ui-widget" style="position:relative; right:500px; bottom:170px;">
+                            <label style="color: rgb(189,148,104);">Ülke Seçimi</label>
+                            @using (Html.BeginForm("Logout", "Home"))
+                            {
+                                <form method="post" name="formum">
+                                    <select id="CombxCountry" name="CombxCountry" onchange="formum.submit()">
+                                        @foreach (CountryViewModel item in (List<CountryViewModel>)Session["CountryList"])
                                         {
-                                            <div class="row" style="background-color: #FAF0E6;">
-                                                <div class="col-lg-2"></div>
-                                                <div class="col-lg-4">
-                                                    <a style="height:80px; width:80px;" href="Profile/Index/@Session["EnterID"]" class="del"><img style="width:80px; height:80px;" src="@Session["Image"]" class="img-rounded"></a>@*//fotografa basınca profil sayfası popup olarak gelsin*@
-
-                                                </div>
-                                                <div class="col-lg-4">
-                                                    <h5 style="color:black; display:inline-block;">@Session["NameSurname"]</h5>
-                                                </div>
-                                                <div class="col-lg-2"></div>
-                                            </div>
-
+                                            <option for value="@item.CountryID">@item.CountryName</option>
                                         }
-                                        else
-                                        {
-                                            <a href="/User/Index/">Login</a>
-                                        }
-                                    </li>
-                                    <li><a href="/Home/Index" class="gn-icon fa-heart">Home</a></li>
-                                    
-                                    <li><a href="/Contact/Index" class="gn-icon fa-comment">İletişim</a></li>
-                                    <li><a href="/About/Index" class="gn-icon fa-comment">About</a></li>
-                                    <li><a href="/Forum/Index" class="gn-icon fa-heart">Forum</a></li>
-                                    <li><a href="/Activity/Index" class="gn-icon fa-heart">Activities</a></li>
-                                    <li><a href="#nenerede" class="gn-icon fa-users">What Where?</a></li>
 
-                                    <li>
-                                        <ul class="gn-submenu">
-                                            <li><a href="/Restaurant/Index" class="gn-icon fa-chevron-right">Restaurant</a></li>
-                                            <li><a href="/TourismTravel/Index" class="gn-icon fa-chevron-right">Tourism</a></li>
-                                            <li><a href="/Advices/Index" class="gn-icon fa-chevron-right">Advices</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="/Contact/Index" class="gn-icon fa-book">Contact</a></li>
-                                </ul>
-                            </div><!--end gn-scroller-->
-                        </nav>
+                                    </select>
+                                </form>
+                            }
+                        </div>
+                        <!------------------------------------------------------------>
                     </li>
 
                     <li class="back"><a class="gn-icon fa-angle-double-up" href="#top"></a></li>
