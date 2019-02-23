@@ -21,7 +21,6 @@ namespace TurkishPlatform.Controllers
         [ValidateAntiForgeryToken]//Güvenlik için bunu koymazsak postta javascript atakları yapıp verilerimize ulaşılabilir bunu koydugumuz çin view kısmına formdan sonra  @Html.AntiForgeryToken() koymalıyız
         public ActionResult Index(string Email, string Password)
         {
-           
             ViewBag.Countries = Db.Countries.ToList();
             bool? IsTrue = false;
             User User = new User();
@@ -31,15 +30,14 @@ namespace TurkishPlatform.Controllers
                 if (Email == item.Email)
                 {
                     if (Password == item.Password)
-                    {                   
+                    {                       
                         IsTrue = true;
                         Session["CountryId"] = item.CountryNo;                      
                         Session["EnterID"] = item.UserId;                      
                         Session["Image"] = item.ImageURL;
                         Session["Email"] = item.Email;
                         Session["Gender"] = item.Gender;
-                        Session["NameSurname"] = item.NameSurname;
-                                            
+                        Session["NameSurname"] = item.NameSurname;                       
                         return RedirectToAction("Index", "Home");                        
                     }
                 }
@@ -47,13 +45,10 @@ namespace TurkishPlatform.Controllers
             ViewBag.Message = "Sorry. Your password or name was incorrect. Please double-check your password.";
             return View(IsTrue);
         }
-
-      
-
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult Index(string error)
         {
-            ScoreViewModel scoreViewModel = new ScoreViewModel();
+            ViewBag.error = error;
             ViewBag.Countries = Db.Countries.ToList();
 
             return View();

@@ -586,6 +586,11 @@
     <Content Include="Areas\Panel\Views\Tourism\Edit.cshtml" />
     <Content Include="Areas\Panel\Views\Tourism\Index.cshtml" />
     <Content Include="Areas\Panel\Views\Shared\_Layout.cshtml" />
+    <Content Include="Uploads\LayoutIcon\iconfinder_about_2639759.png" />
+    <Content Include="Uploads\LayoutIcon\iconfinder_activity_3324973.png" />
+    <Content Include="Uploads\LayoutIcon\iconfinder_Contat_Us_4-Incoming_Call_4211829.png" />
+    <Content Include="Uploads\LayoutIcon\iconfinder_home_126572 %281%29.png" />
+    <Content Include="Uploads\LayoutIcon\iconfinder_ic_forum_48px_3669421.png" />
     <Content Include="Views\Profile\Index.cshtml" />
     <Content Include="Areas\Panel\Views\Shared\_LoginView.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
