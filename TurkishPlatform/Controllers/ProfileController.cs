@@ -11,21 +11,22 @@ namespace TurkishPlatform.Controllers
     {
         PlatformContext Db = new PlatformContext();
         // GET: Panel/Profile
-        [HttpGet]
-        public ActionResult Index(int id)
+       
+        public ActionResult Index(int? id,int? PersonID)
         {
             User User = Db.Users.Find(id);
+            if (PersonID != null)
+            {
+                User User2 = Db.Users.Find(PersonID);
+                //User User = Db.Users.Find(PersonID);
+                User2.Score = User2.Score + 10;
+                Db.Entry(User2).State = System.Data.Entity.EntityState.Modified;
+                Db.SaveChanges();
+                return RedirectToAction("Index", "Home");
+            }
             ViewBag.CountryName = (Db.Countries.Where(x => x.CountryId == User.CountryNo).Select(x => x.CountryName)).FirstOrDefault();
             return View(User);
         }
-        [HttpPost]
-        public ActionResult Index(int ProfilID, int ScorePuan)
-        {
-            User User = Db.Users.Find(ProfilID);
-            User.Score = User.Score + ScorePuan;
-            Db.Entry(User).State = System.Data.Entity.EntityState.Modified;
-            Db.SaveChanges();
-            return RedirectToAction("Index","Home");
-        }
+       
     }
 }
