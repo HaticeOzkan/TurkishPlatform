@@ -46,8 +46,9 @@ namespace TurkishPlatform.Controllers
             return View(IsTrue);
         }
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult Index(string error)
         {
+            ViewBag.error = error;
             ViewBag.Countries = Db.Countries.ToList();
 
             return View();

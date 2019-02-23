@@ -36,7 +36,7 @@
 
         #ActivityDetails {
             background-color: #FAF0E6;
-            height: 1000px;
+            
             width: 700px;
             position: absolute;
             top: -10%;
@@ -87,8 +87,10 @@
         }*/
 
         .buttonHolder {
-            margin: 80px auto;
+            /*margin: 80px auto;*/
+            position:relative;
             width: 400px;
+            left: 260px
         }
 
         #ActivityDetails h1 {
@@ -194,12 +196,12 @@
 
         #katil {
             margin-left: -430px;
-            margin-top: 839px;
+            
         }
 
         #Katilmiyorum {
             margin-left: -246px;
-            margin-top: 839px;
+            
         }
         /*#bilmiyorum{
                 margin-left:-200px;
@@ -236,28 +238,26 @@
 
             <img id="resim111" alt="Independence Day" src="@item.ImageURL" />
 
+            <div>
+                <p><b>İçerik: </b>  @item.Content</p>
+                <p> <b>Etkinlik Günü</b> @item.Date.ToShortDateString()</p>
+                 
+                <p><b>Başlama Saati:</b>  @item.StartTime.Hour:@item.StartTime.Minute </p>
+                <p><b>Bitiş Saati:</b>  @item.FinishTime.Hour:@item.FinishTime.Minute</p>
+                <p><b>Adres:</b> @item.Address</p>
 
-            <p><b>İçerik: </b>  @item.Content</p>
-            <p> <b>Etkinlik Günü</b> @item.Date.ToShortDateString()</p>
+                <form method="post">
+                    <div class="buttonHolder">
+                       <h4 style="margin-left: -430px;color:#043434; margin-top: 67px;">Katılıyorum</h4>
+                        <span id="katil" name="katiliyorum" class="button tick"></span>
+                      <h4 style="margin-left: -48px;color:#043434;margin-top: 77px">Katılmıyorum</h4>
+                        <span id="Katilmiyorum" class="button cross"></span>
+                    </div>
+                    <br>
+                </form>
 
-
-            <p><b>Başlama Saati:</b>  @item.StartTime.Hour:@item.StartTime.Minute </p>
-            <p><b>Bitiş Saati:</b>  @item.FinishTime.Hour:@item.FinishTime.Minute</p>
-            <p><b>Adres:</b> @item.Address</p>
-
-            <form method="post">
-                <div class="buttonHolder">
-                    <span id="katil" name="katiliyorum" class="button tick"></span>
-                    <span id="Katilmiyorum" class="button cross"></span>
-
-                    @*<a href="#" id="bilmiyorum" class="button heart"></a>*@
-                    @*<a href="#" id="bilmiyorum" class="button flower"></a>*@
-                </div>
-
-                <!------ Include the above in your HEAD tag ---------->
-                <br>
-
-            </form>
+            </div>
+          
         }
 
     </div>
@@ -279,7 +279,7 @@
                     data: { KatilmaId: sonuc },
                     success: function (data) {
                         if (sonuc == 1) {
-                            debugger;
+                           
                             sonuc = 1; 
                             $("#aa").text("Kaydınız oluştu") 
                         } 
@@ -293,18 +293,16 @@
                 var sonuc = 0;
                  
                 $.ajax({
-                    url: "/Activity/AcceptDeny/?deleteid=" +@Model.ActivityId +"&sonuc=" + 0 + "   ",
-
+                    url: "/Activity/AcceptDeny/?id=" +@Model.ActivityId +"&sonuc=" + 0 + "   ",
                     type: "POST",
                     dataType: "json",
                     data: { KatilmaId: sonuc },
                     success: function (data) {
                         debugger;
                         if (sonuc == 0) {
-
+                            sonuc = 0;
                             $("#aa").text("Katılmıyorsunuz")
                         }
-
                     }
                 });
 

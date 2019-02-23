@@ -328,8 +328,7 @@
         }
 @*</head>*@
 @*<body  >*@
-    <div style="margin-top: 0px;
-}  ">
+    <div style="margin-top: 0px;">
         <div class="topnav">
             @*<a @*class="active"*@ @*href="#">Geçmiş Etkinlikler</a>*@
 
@@ -347,6 +346,16 @@
         <div class="container">
             <div class="row">
                 <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
+                    <br />
+                    <div class="alert alert-success">
+                        @if (ViewBag.error == null)
+                        {
+                            <span style="font-size:20px"> @ViewBag.aaa</span>}
+                        else
+                        {
+                        <span>@ViewBag.error</span>}
+                    </div>
+                    <br />
                     <ul class="event-list">
                         @foreach (var item in Model)
                         {
@@ -375,25 +384,20 @@
                                     <div class="info">
                                         <h2 class="title">@item.Title</h2>
                                         <br />
-                                        @*<p class="desc">@item.Content </p>*@
+                                      
                                         <p>Etkinliğe kalan  @toplamGun gün </p>
                                         <a href="/Activity/ActivityDetails?id=@item.ActivityId&kullaniciId=@item.UserId" style="color:black; margin:163px ;background-color:#F5F5F5">
                                             Etkinlik Ayrıntılarını Gör
                                         </a>
                                         <h3>@item.Date.ToShortDateString() </h3>
                                         <ul>
-                                            <li style="width:40%;">@item.Participants.Count <span class="glyphicon glyphicon-ok"></span></li>
-                                            @*<li style="width:40%;">@ViewBag.Tparticipating <span class="glyphicon glyphicon-remove"></span></li>*@
-                                            @*<li style="width:34%;">3 <span class="fa fa-question"></span></li>*@
+                                            <li style="width:40%;">Katılımcı Sayısı: @item.Participants.Count <span class="glyphicon glyphicon-ok"></span></li>
+                                 
                                         </ul>
                                     </div>
 
                                     <div class="social">
-                                        @*<ul>
-                                            <li class="facebook" style="width:33%;"><a href="#facebook"><span class="fa fa-facebook"></span></a></li>
-                                            <li class="twitter" style="width:34%;"><a href="#twitter"><span class="fa fa-twitter"></span></a></li>
-                                            <li class="google-plus" style="width:33%;"><a href="#google-plus"><span class="fa fa-google-plus"></span></a></li>
-                                        </ul>*@
+                                      
                                     </div>
 
                                 </li>
