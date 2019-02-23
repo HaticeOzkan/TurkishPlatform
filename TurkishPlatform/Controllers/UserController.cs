@@ -115,7 +115,6 @@ namespace TurkishPlatform.Controllers
         //    //UploadImage(UserImage);
         //    return Json(false);
         //}
-
         public JsonResult Registery(User user, HttpPostedFileBase UserImage)
         {
           
