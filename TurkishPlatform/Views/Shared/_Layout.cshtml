@@ -1,4 +1,5 @@
-﻿
+﻿@using TurkishPlatform.Models
+
 @{
     Layout = null;
 }
@@ -23,6 +24,108 @@
                 font-size: 15px;
                 font-weight: bold;
             }
+
+        @@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+
+        .panel > .list-group .list-group-item:first-child {
+            /*border-top: 1px solid rgb(204, 204, 204);*/
+        }
+
+        @@media (max-width: 767px) {
+            .visible-xs {
+                display: inline-block !important;
+            }
+
+            .block {
+                display: block !important;
+                width: 100%;
+                height: 1px !important;
+            }
+        }
+
+        #back-to-bootsnipp {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+        }
+
+
+        .c-search > .form-control {
+            border-radius: 0px;
+            border-width: 0px;
+            border-bottom-width: 1px;
+            font-size: 1.3em;
+            padding: 12px 12px;
+            height: 44px;
+            outline: none !important;
+        }
+
+            .c-search > .form-control:focus {
+                outline: 0px !important;
+                -webkit-appearance: none;
+                box-shadow: none;
+            }
+
+        .c-search > .input-group-btn .btn {
+            border-radius: 0px;
+            border-width: 0px;
+            border-left-width: 1px;
+            border-bottom-width: 1px;
+            height: 44px;
+        }
+
+
+        .c-list {
+            padding: 0px;
+            min-height: 44px;
+        }
+
+        .title {
+            display: inline-block;
+            font-size: 1.7em;
+            font-weight: bold;
+            padding: 5px 15px;
+        }
+
+        ul.c-controls {
+            list-style: none;
+            margin: 0px;
+            min-height: 44px;
+        }
+
+            ul.c-controls li {
+                margin-top: 8px;
+                float: left;
+            }
+
+                ul.c-controls li a {
+                    font-size: 1.7em;
+                    padding: 11px 10px 6px;
+                }
+
+                    ul.c-controls li a i {
+                        min-width: 24px;
+                        text-align: center;
+                    }
+
+                    ul.c-controls li a:hover {
+                        background-color: rgba(51, 51, 51, 0.2);
+                    }
+
+        .c-toggle {
+            font-size: 1.7em;
+        }
+
+        .name {
+            font-size: 1.7em;
+            font-weight: 700;
+        }
+
+        .c-info {
+            padding: 5px 10px;
+            font-size: 1.25em;
+        }
+       
     </style>
 
 
@@ -76,36 +179,41 @@
         @*MENU*@
         <section>
             <div class="container">
+                
                 <ul id="gn-menu" class="gn-menu-main">
-                    @*//Burası en baş kısım buraya profil koyacagım*@
+                   <!--Çıkışşş-->
                     <li class="gn-trigger">
                         <div class="trigger"><a class="gn-icon gn-icon-menu"><span>Menu</span></a></div>
+                        <a href="/Home/Logout" class="btn" style="background-color: rgb(189,148,104); height:30px; width:70px; color:wheat !important; position:relative; left:1500px; bottom:35px; color:white ">Çıkış</a>
+                       
                         <nav class="gn-menu-wrapper">
                             <div class="gn-scroller">
                                 <ul class="gn-menu">
-                                    
+                                    <!--Profil-->
                                     <li>
                                         @if (Session["NameSurname"] != null)
-        {
-                                <div class="row" style=" background-color: #FAF0E6;">
-                                    <div class="col-lg-2"></div>
-                                    <div class="col-lg-4">
-                                        <a style="height:80px; width:80px;" href="/UserProfile/Index/@Session["EnterID"]"><img style="width:80px; height:80px;" src="@Session["ImageURL"]" class="img-rounded"></a>@*//fotografa basınca profil sayfası popup olarak gelsin*@
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <h5 style="color:black; display:inline-block;">@Session["NameSurname"]</h5>
-                                    </div>
-                                    <div class="col-lg-2"></div>
-                                </div>
+                                        {
+                                            <div class="row" style="background-color: #FAF0E6;">
+                                                <div class="col-lg-2"></div>
+                                                <div class="col-lg-4">
+                                                    <a style="height:80px; width:80px;" href="Profile/Index/@Session["EnterID"]" class="del"><img style="width:80px; height:80px;" src="@Session["Image"]" class="img-rounded"></a>@*//fotografa basınca profil sayfası popup olarak gelsin*@
 
-}
-else
-{
-                                <a href="/User/Index/">Login</a>
-}
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <h5 style="color:black; display:inline-block;">@Session["NameSurname"]</h5>
+                                                </div>
+                                                <div class="col-lg-2"></div>
+                                            </div>
+
+                                        }
+                                        else
+                                        {
+                                            <a href="/User/Index/">Login</a>
+                                        }
                                     </li>
                                     <li><a href="/Home/Index" class="gn-icon fa-heart">Home</a></li>
-                                    <li><a href="/Contact/Index" class="gn-icon fa-comment">Contact</a></li>
+                                    
+                                    <li><a href="/Contact/Index" class="gn-icon fa-comment">İletişim</a></li>
                                     <li><a href="/About/Index" class="gn-icon fa-comment">About</a></li>
                                     <li><a href="/Forum/Index" class="gn-icon fa-heart">Forum</a></li>
                                     <li><a href="/Activity/Index" class="gn-icon fa-heart">Activities</a></li>
@@ -130,10 +238,30 @@ else
 
         </section> @*END MENU*@
 
-        <section>
-            @RenderBody()
-        </section>
-
+        <div class="row">
+            <div class="col-lg-9">  @RenderBody()</div>
+            <div class="col-lg-3">               
+                @*<div class="panel panel-default">
+                   <!--Score Bölümü-->
+                    @foreach (ScoreViewModel item in (List<ScoreViewModel>)Session["TopFive"])
+                    {
+                        <ul class="list-group" id="contact-list">
+                            <li class="list-group-item">
+                                <div class="col-xs-12 col-sm-3">
+                                    <a href="/Profile/Index/@item.UserID"><img src="@item.ImageURL" class="img-responsive img-circle" /></a>
+                                </div>
+                                <div class="col-xs-12 col-sm-9">
+                                    <span class="name">@item.NameSurname</span><br />
+                                    <span class="name">@item.Score Puan!</span><br />                                
+                                </div>
+                                <div class="clearfix"></div>
+                            </li>
+                        </ul>
+                    }
+                </div>*@
+              
+            </div>
+        </div>
         <footer class="copyright">
             <div>
                 @RenderSection("Footer", false)
@@ -180,6 +308,14 @@ else
             cbpBGSlideshow.init();
         });
 
+        $(document).ready(function () {
+            $('.del').click(function () {
+
+            });
+
+
+
+        });
     </script>
 
     @RenderSection("Scripts", false)

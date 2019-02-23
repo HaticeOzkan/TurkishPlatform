@@ -14,10 +14,11 @@ namespace TurkishPlatform.Controllers
     {
         // GET: Activity
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult Index(string error,string a)
         {
             PlatformContext db = new PlatformContext();
-
+            ViewBag.aaa = "Etkinlikler";
+            ViewBag.error = error;
 //            select count(*)
 //from activities where Participation = 0
 //group by Participation
@@ -58,7 +59,10 @@ namespace TurkishPlatform.Controllers
             }
             else
             {
-                return RedirectToAction("Index", "User");
+                return RedirectToAction("Index", "User", new
+                {
+                    error = "Etkinlik oluşturmak için Girş Yapmanız Gerekmektedir."
+                }); 
 
             }
 
@@ -110,7 +114,10 @@ namespace TurkishPlatform.Controllers
                         var a = ex.EntityValidationErrors;
                     }
 
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index",new {
+
+                        error="Kaydınız oluşmutur.Yetkili kişi tarafından onaylandıktan sonra görünecektir"
+                    });
                 }
 
                 //ViewBag.PossibleParents = db.Activities.ToList();
@@ -129,41 +136,35 @@ namespace TurkishPlatform.Controllers
         [HttpGet]
         public ActionResult ActivityDetails(int id, HttpPostedFileBase Image, int kullaniciId)
         {
-
-            PlatformContext db = new PlatformContext();
-            int AvtivityId = (from b in db.Activities
-                              where b.ActivityId == id
-                              select b.ActivityId).FirstOrDefault();
-            int KullaniciId = (from b in db.Activities
-                               where b.UserId == kullaniciId
-                               select b.UserId).FirstOrDefault();
-            ViewBag.Id = id;
-            ViewBag.KullaniciId = KullaniciId;
-
-
-
-            Activity Activities = (from a in db.Activities
-                                   where a.ActivityId == id & a.UserId == kullaniciId
-                                   select a).FirstOrDefault();
+            if ((Session["EnterID"] != null) || (Session["EnterID"] != null))
+            {
+                PlatformContext db = new PlatformContext();
+                int AvtivityId = (from b in db.Activities
+                                  where b.ActivityId == id
+                                  select b.ActivityId).FirstOrDefault();
+                int KullaniciId = (from b in db.Activities
+                                   where b.UserId == kullaniciId
+                                   select b.UserId).FirstOrDefault();
+                ViewBag.Id = id;
+                ViewBag.KullaniciId = KullaniciId;
 
 
-            ViewBag.Fparticipating = from F in db.Activities
-                                     where F.ActivityId == id
-                                     group F by F.Participation == false into False
-                                     select new
-                                     {
-                                         FalseCount = False.Count()
-                                     };
 
+                Activity Activities = (from a in db.Activities
+                                       where a.ActivityId == id & a.UserId == kullaniciId
+                                       select a).FirstOrDefault();
+                 
+                return View(Activities);
+            }
+            else
+            {
+                return RedirectToAction("Index", "User", new
+                {
+                    error = "Etkinlik Ayrıntılarını Görmek İçin Giriş Yapmalısınız"
+                });
+ 
 
-            ViewBag.Tparticipating = from F in db.Activities
-                                     where F.ActivityId == id
-                                     group F by F.Participation == true into True
-                                     select new
-                                     {
-                                         FalseCount = True.Count()
-                                     };
-            return View(Activities);
+            }
 
         }
 

@@ -160,6 +160,7 @@
     <Compile Include="Areas\Panel\Controllers\LocationCommentsController.cs" />
     <Compile Include="Areas\Panel\Controllers\LocationImagesController.cs" />
     <Compile Include="Areas\Panel\Controllers\LoginController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Areas\Panel\Controllers\RestaurantCommentsController.cs" />
     <Compile Include="Areas\Panel\Controllers\RestaurantImagesController.cs" />
     <Compile Include="Areas\Panel\Controllers\RestaurantsController.cs" />
@@ -202,11 +203,12 @@
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\ContactViewModel.cs" />
     <Compile Include="Models\Country.cs" />
-    <Compile Include="Models\File.cs" />
+    <Compile Include="Models\CountryViewModel.cs" />
     <Compile Include="Models\PlatformContext.cs" />
     <Compile Include="Models\Restaurant.cs" />
     <Compile Include="Models\ForumComment.cs" />
     <Compile Include="Models\RestaurantViewModel.cs" />
+    <Compile Include="Models\ScoreViewModel.cs" />
     <Compile Include="Models\Tourism.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -627,29 +629,14 @@
     <Content Include="Areas\Panel\Views\Tourism\Details.cshtml" />
     <Content Include="Areas\Panel\Views\Tourism\Edit.cshtml" />
     <Content Include="Areas\Panel\Views\Tourism\Index.cshtml" />
-    <Content Include="Areas\Panel\Views\Users1\Create.cshtml" />
-    <Content Include="Areas\Panel\Views\Users1\Delete.cshtml" />
-    <Content Include="Areas\Panel\Views\Users1\Details.cshtml" />
-    <Content Include="Areas\Panel\Views\Users1\Edit.cshtml" />
-    <Content Include="Areas\Panel\Views\Users1\Index.cshtml" />
     <Content Include="Areas\Panel\Views\Shared\_Layout.cshtml" />
-    <Content Include="Content\jQuery-File-Upload-9.28.0\.gitignore" />
-    <Content Include="Content\jQuery-File-Upload-9.28.0\.jshintrc" />
-    <Content Include="Content\jQuery-File-Upload-9.28.0\.npmignore" />
-    <Content Include="Content\jQuery-File-Upload-9.28.0\bower.json" />
-    <Content Include="Content\jQuery-File-Upload-9.28.0\CONTRIBUTING.md" />
-    <Content Include="Content\jQuery-File-Upload-9.28.0\package.json" />
-    <Content Include="Content\jQuery-File-Upload-9.28.0\README.md" />
-    <Content Include="Content\jQuery-File-Upload-9.28.0\SECURITY.md" />
-    <Content Include="Content\jQuery-File-Upload-9.28.0\server\gae-go\app.yaml" />
-    <Content Include="Content\jQuery-File-Upload-9.28.0\server\gae-go\main.go" />
-    <Content Include="Content\jQuery-File-Upload-9.28.0\server\gae-python\app.yaml" />
-    <Content Include="Content\jQuery-File-Upload-9.28.0\server\gae-python\main.py" />
-    <Content Include="Content\jQuery-File-Upload-9.28.0\server\php\docker-compose.yml" />
-    <Content Include="Content\jQuery-File-Upload-9.28.0\server\php\Dockerfile" />
-    <Content Include="Content\jQuery-File-Upload-9.28.0\server\php\files\.gitignore" />
-    <Content Include="Content\jQuery-File-Upload-9.28.0\server\php\files\.htaccess" />
-    <Content Include="Content\jQuery-File-Upload-9.28.0\VULNERABILITIES.md" />
+    <Content Include="Uploads\LayoutIcon\iconfinder_about_2639759.png" />
+    <Content Include="Uploads\LayoutIcon\iconfinder_activity_3324973.png" />
+    <Content Include="Uploads\LayoutIcon\iconfinder_Contat_Us_4-Incoming_Call_4211829.png" />
+    <Content Include="Uploads\LayoutIcon\iconfinder_home_126572 %281%29.png" />
+    <Content Include="Uploads\LayoutIcon\iconfinder_ic_forum_48px_3669421.png" />
+    <Content Include="Views\Profile\Index.cshtml" />
+    <Content Include="Areas\Panel\Views\Shared\_LoginView.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -704,6 +691,7 @@
     <Content Include="Views\Forum\Comment.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
