@@ -206,6 +206,7 @@
     <Compile Include="Models\Restaurant.cs" />
     <Compile Include="Models\ForumComment.cs" />
     <Compile Include="Models\RestaurantViewModel.cs" />
+    <Compile Include="Models\ScoreViewModel.cs" />
     <Compile Include="Models\Tourism.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -585,6 +586,7 @@
     <Content Include="Areas\Panel\Views\Tourism\Index.cshtml" />
     <Content Include="Areas\Panel\Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Profile\Index.cshtml" />
+    <Content Include="Areas\Panel\Views\Shared\_LoginView.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

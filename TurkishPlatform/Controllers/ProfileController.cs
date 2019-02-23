@@ -15,6 +15,7 @@ namespace TurkishPlatform.Controllers
         public ActionResult Index(int id)
         {
             User User = Db.Users.Find(id);
+            ViewBag.CountryName = (Db.Countries.Where(x => x.CountryId == User.CountryNo).Select(x => x.CountryName)).FirstOrDefault();
             return View(User);
         }
         [HttpPost]

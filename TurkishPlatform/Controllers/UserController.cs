@@ -30,14 +30,16 @@ namespace TurkishPlatform.Controllers
                 if (Email == item.Email)
                 {
                     if (Password == item.Password)
-                    {                       
+                    {                   
                         IsTrue = true;
                         Session["CountryId"] = item.CountryNo;                      
                         Session["EnterID"] = item.UserId;                      
                         Session["Image"] = item.ImageURL;
                         Session["Email"] = item.Email;
                         Session["Gender"] = item.Gender;
-                        Session["NameSurname"] = item.NameSurname;                       
+                        Session["NameSurname"] = item.NameSurname;
+                         Session["TopFive"]= ViewListFill();
+                      
                         return RedirectToAction("Index", "Home");                        
                     }
                 }
@@ -45,9 +47,28 @@ namespace TurkishPlatform.Controllers
             ViewBag.Message = "Sorry. Your password or name was incorrect. Please double-check your password.";
             return View(IsTrue);
         }
+
+        private List<ScoreViewModel> ViewListFill()
+        {
+            List<ScoreViewModel> scoreViewModels = new List<ScoreViewModel>();
+            var List = (from S in Db.Users orderby S.Score descending select new { S.Score, S.NameSurname, S.ImageURL, S.UserId, S.CountryNo }).Take(5).ToList();
+            foreach (var item in List)
+            {
+                ScoreViewModel NewScore = new ScoreViewModel();
+                NewScore.CountryNo = item.CountryNo;
+                NewScore.ImageURL = item.ImageURL;
+                NewScore.NameSurname = item.NameSurname;
+                NewScore.Score = item.Score;
+                NewScore.UserID = item.UserId;
+                scoreViewModels.Add(NewScore);
+            }
+            return scoreViewModels;
+        }
+
         [HttpGet]
         public ActionResult Index()
         {
+            ScoreViewModel scoreViewModel = new ScoreViewModel();
             ViewBag.Countries = Db.Countries.ToList();
 
             return View();
