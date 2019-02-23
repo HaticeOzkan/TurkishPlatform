@@ -184,51 +184,7 @@
     }
 </style>
 
-<nav class="gn-menu-wrapper">
-    <div class="gn-scroller">
-        <ul class="gn-menu">
-           
-            <!--Profil-->
-            <li>
-                @if (Session["NameSurname"] != null)
-                {
-                    <div class="row" style="background-color: #FAF0E6;">
-                        <div class="col-lg-2"></div>
-                        <div class="col-lg-4">
-                            <a style="height:80px; width:80px;" href="Profile/Index/@Session["EnterID"]" class="del"><img style="width:80px; height:80px;" src="@Session["Image"]" class="img-rounded"></a>
 
-                        </div>
-                        <div class="col-lg-4">
-                            <h5 style="color:black; display:inline-block;">@Session["NameSurname"]</h5>
-                        </div>
-                        <div class="col-lg-2"></div>
-                    </div>
-
-                }
-                else
-                {
-                    <a href="/User/Index/">Login</a>
-                }
-            </li>
-            <li><a href="/Home/Index" class="gn-icon fa-heart">Home</a></li>
-
-            <li><a href="/Contact/Index" class="gn-icon fa-comment">İletişim</a></li>
-            <li><a href="/About/Index" class="gn-icon fa-comment">About</a></li>
-            <li><a href="/Forum/Index" class="gn-icon fa-heart">Forum</a></li>
-            <li><a href="/Activity/Index" class="gn-icon fa-heart">Activities</a></li>
-            <li><a href="#nenerede" class="gn-icon fa-users">What Where?</a></li>
-
-            <li>
-                <ul class="gn-submenu">
-                    <li><a href="/Restaurant/Index" class="gn-icon fa-chevron-right">Restaurant</a></li>
-                    <li><a href="/TourismTravel/Index" class="gn-icon fa-chevron-right">Tourism</a></li>
-                    <li><a href="/Advices/Index" class="gn-icon fa-chevron-right">Advices</a></li>
-                </ul>
-            </li>
-            <li><a href="/Contact/Index" class="gn-icon fa-book">Contact</a></li>
-        </ul>
-    </div><!--end gn-scroller-->
-</nav>
 <div class="container">
     <h2 class="zoom">Gurbetçilerimizin Ortak Platformu</h2>
     <br />
