@@ -34,7 +34,7 @@ namespace TurkishPlatform.Models
 	public class AdviceTopic
 	{
 		[Key]
-		public string CategoryId { get; set; }
+		public int CategoryId { get; set; }
 		[Required]
 		[MaxLength(200)]
 		public string CategoryName { get; set; }

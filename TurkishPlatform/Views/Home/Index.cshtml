@@ -1,327 +1,372 @@
-﻿
+﻿@using TurkishPlatform.Models
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Home</title>
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
-    <style>
-        body * { /*padding: 10px 200px;*/
+<title>Home</title>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
+<style>
+    body * { /*padding: 10px 200px;*/
+        text-align: center;
+        font-family: 'Open Sans', sans-serif;
+        /*font-family: 'Shadows Into Light', cursive;*/ font-size: 20px;
+    }
+
+    h2 {
+        font-size: 55px;
+    }
+
+    .social {
+        position: relative;
+        height: 3em;
+        width: 13.5em;
+        margin: 150px 450px;
+    }
+
+        .social li {
+            display: block;
+            height: 4em;
+            line-height: 4em;
+            margin: -2.2em;
+            position: absolute;
+            -webkit-transition: -webkit-transform .7s;
+            -moz-transition: -moz-transform .7s;
+            -ms-transition: -ms-transform .7s;
+            -o-transition: -o-transform .7s;
+            transition: transform .7s;
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            -o-transform: rotate(45deg);
+            transform: rotate(45deg);
             text-align: center;
-            font-family: 'Open Sans', sans-serif;
-            /*font-family: 'Shadows Into Light', cursive;*/ font-size: 20px;
+            width: 4em;
         }
 
-        h2 {
-            font-size: 55px;
+        .social a {
+            color: #fffdf0;
+            display: block;
+            height: 4em;
+            line-height: 6em;
+            text-align: center;
+            -webkit-transform: rotate(-45deg);
+            -moz-transform: rotate(-45deg);
+            -ms-transform: rotate(-45deg);
+            -o-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+            width: 4em;
         }
 
-        .social {
-            position: relative;
-            height: 3em;
-            width: 13.5em;
-            margin: 150px 450px;
+        .social li:hover {
+            -webkit-transform: scale(1.3,1.3) rotate(45deg);
+            -moz-transform: scale(1.3,1.3) rotate(45deg);
+            -ms-transform: scale(1.3,1.3) rotate(45deg);
+            -o-transform: scale(1.3,1.3) rotate(45deg);
+            transform: scale(1.3,1.3) rotate(45deg);
         }
 
-            .social li {
-                display: block;
-                height: 4em;
-                line-height: 4em;
-                margin: -2.2em;
-                position: absolute;
-                -webkit-transition: -webkit-transform .7s;
-                -moz-transition: -moz-transform .7s;
-                -ms-transition: -ms-transform .7s;
-                -o-transition: -o-transform .7s;
-                transition: transform .7s;
-                -webkit-transform: rotate(45deg);
-                -moz-transform: rotate(45deg);
-                -ms-transform: rotate(45deg);
-                -o-transform: rotate(45deg);
-                transform: rotate(45deg);
-                text-align: center;
-                width: 4em;
-            }
+    .facebook {
+        background: #155b9d;
+        left: 0;
+        top: 0%;
+    }
 
-            .social a {
-                color: #fffdf0;
-                display: block;
-                height: 4em;
-                line-height: 6em;
-                text-align: center;
-                -webkit-transform: rotate(-45deg);
-                -moz-transform: rotate(-45deg);
-                -ms-transform: rotate(-45deg);
-                -o-transform: rotate(-45deg);
-                transform: rotate(-45deg);
-                width: 4em;
-            }
+    .twitter {
+        background: #1a9ec4;
+        bottom: 0;
+        left: 25%;
+    }
 
-            .social li:hover {
-                -webkit-transform: scale(1.3,1.3) rotate(45deg);
-                -moz-transform: scale(1.3,1.3) rotate(45deg);
-                -ms-transform: scale(1.3,1.3) rotate(45deg);
-                -o-transform: scale(1.3,1.3) rotate(45deg);
-                transform: scale(1.3,1.3) rotate(45deg);
-            }
+    .facebook2 {
+        background: #155b9d;
+        left: 50%;
+        top: 0%;
+    }
 
-        .facebook {
-            background: #155b9d;
-            left: 0;
-            top: 0%;
-        }
+    .twitter2 {
+        background: #1a9ec4;
+        bottom: 0;
+        left: 25%;
+    }
 
-        .twitter {
-            background: #1a9ec4;
-            bottom: 0;
-            left: 25%;
-        }
+    .pinterest {
+        background: #e11a30;
+        left: 50%;
+        top: 0%;
+    }
 
-        .facebook2 {
-            background: #155b9d;
-            left: 50%;
-            top: 0%;
-        }
+    .behance {
+        background: #3f7aa3;
+        bottom: 0;
+        left: 75%;
+    }
 
-        .twitter2 {
-            background: #1a9ec4;
-            bottom: 0;
-            left: 25%;
-        }
+    .behance2 {
+        background: #3f7aa3;
+        top: 0%;
+        left: 50%;
+    }
 
-        .pinterest {
-            background: #e11a30;
-            left: 50%;
-            top: 0%;
-        }
+    .behance3 {
+        background: #3f7aa3;
+        bottom: 0;
+        left: 75%;
+    }
 
-        .behance {
-            background: #3f7aa3;
-            bottom: 0;
-            left: 75%;
-        }
+   
+</style>
+<style>
 
-        .behance2 {
-            background: #3f7aa3;
-            top: 0%;
-            left: 50%;
-        }
+    .img_section figure:hover img {
+        transform: scale(1.3);
+    }
 
-        .behance3 {
-            background: #3f7aa3;
-            bottom: 0;
-            left: 75%;
-        }
-    </style>
-    <style>
+    h2.zoom {
+        padding-bottom: 33px;
+        padding-left: 25px;
+    }
 
-        .img_section figure:hover img {
-            transform: scale(1.3);
-        }
+    .img_section2 figure img {
+        width: 300px;
+        height: auto;
+        transition: .3s ease-in-out;
+    }
 
-        h2.zoom {
-            padding-bottom: 33px;
-            padding-left: 25px;
-        }
+    .img_section2:hover figure img {
+        width: 350px;
+    }
 
-        .img_section2 figure img {
-            width: 300px;
-            height: auto;
-            transition: .3s ease-in-out;
-        }
+    .img_section3 figure img {
+        margin-left: 30px;
+        width: 300px;
+        transition: .3s ease-in-out;
+    }
 
-        .img_section2:hover figure img {
-            width: 350px;
-        }
+    .img_section3:hover figure img {
+        margin-left: 0;
+    }
 
-        .img_section3 figure img {
-            margin-left: 30px;
-            width: 300px;
-            transition: .3s ease-in-out;
-        }
+    .img_section4 figure img {
+        transform: scale(1);
+        transition: .3s ease-in-out;
+    }
 
-        .img_section3:hover figure img {
-            margin-left: 0;
-        }
+    .img_section4:hover figure img {
+        transform: rotate(10deg) scale(1);
+    }
 
-        .img_section4 figure img {
-            transform: scale(1);
-            transition: .3s ease-in-out;
-        }
+    .img_section5 figure img {
+        filter: blur(3px);
+        transition: .3s ease-in-out;
+    }
 
-        .img_section4:hover figure img {
-            transform: rotate(10deg) scale(1);
-        }
+    .img_section5:hover figure img {
+        filter: blur(0);
+    }
 
-        .img_section5 figure img {
-            filter: blur(3px);
-            transition: .3s ease-in-out;
-        }
+    .img_section6 figure img {
+        filter: grayscale(0) blur(0);
+        transition: .3s ease-in-out;
+        height: 300;
+        width: 200;
+    }
 
-        .img_section5:hover figure img {
-            filter: blur(0);
-        }
+    .img_section6:hover figure img {
+        filter: blur(3px) grayscale(100%);
+    }
+</style>
 
-        .img_section6 figure img {
-            filter: grayscale(0) blur(0);
-            transition: .3s ease-in-out;
-            height: 300;
-            width: 200;
-        }
-
-        .img_section6:hover figure img {
-            filter: blur(3px) grayscale(100%);
-        }
-    </style>
-</head>
-
-<body>
-
-    <div class="container">
-        <h2 class="zoom">Gurbetçilerimizin Ortak Platformu</h2>
-        <br />
-        <div class="row">
-            <div class="col-4">
-                <br /><br />
-                <h1 style="font-size:50px">Yeme İçme</h1>
-                <p style="color:black">Yaşadığınız Ülkedeki helal restoranları öğrenebilir ve bunlar hakkındaki yorumları okuyup değerlendirmeler yapabilirsiniz.</p>
-            </div>
-
-            <div class="col-8">
-                <div class="img_section4">
-
-                    <a href="/Restaurant/Index">
-                        <figure>
-                            <img style="height:500px;" src="~/Content/Restourant.png" />
-                        </figure>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-
-       
-        <br /><br /><br /><br />
-        <div class="row">
-            <div class="col-8">
-                <div class="img_section">
-                    <a href="/Forum/Index">
-                        <figure>
-                            <img style="height:500px; width:500px;" src="~/Content/forum.png" />
-                        </figure>
-                    </a>
-                </div>
-            </div>
-            <div class="col-4">
-                <h1 style="font-size:50px">Forum</h1>
-                <p style="color:black">Bulunduğunuz ülkedeki diğer gurbetçilerimizle iletişime geçebilir, Merak ettiğiniz her konuda yardım alabilir ve yardıma ihtiyacı olan kişilerin sorularını yanıtlayabilirsiniz.</p>
-            </div>
-
-        </div>
-
-       
-        <br /><br /><br /><br />
-
-        <div class="row">
-          
-            <div class="col-4">
-                <h1 style="font-size:50px">Hadi Gezelim!</h1>
-                <p style="color:black">Bulunduğunuz ülkedeki gezilip görülebilecek mekanları öğrenebilir, mekanlar ile ilgili önerilerde bulunabilirsiniz.</p>
-            </div>
-
-            <div class="col-8">
-                <div class="img_section4">
-                    <a href="TourismTravel/Index">
-                        <figure>
-                            <img style="height:500px;" src="~/Content/Tourism.png" />
-                        </figure>
-                    </a>
-                </div>
-            </div>
-
-
-
-        </div>
-         
-        <br /><br /><br /><br />
-        <div class="row">
-          
-            <div class="col-8">
-
-                <div class="img_section">
-                    <a href="/Activity/Index">
-                        <figure>
-                            <img style="height:500px;" src="~/Content/Activity.png" />
-                        </figure>
-                    </a>
-
-                </div>
-            </div>
-
-            <div class="col-4">
-                <h1 style="font-size:50px">Hadi Buluşalım!</h1>
-                <p style="color:black">Yaşadığınız ülkedeki diğer Türklerle etkinliklere katılabilir,etkinlik organize edebilir ve çevre edinip sosyalleşebilirsiniz. </p>
-            </div>
-
-
-        </div>
-
-      
-        <br /><br /><br /><br />
-
-        <div class="row">
+<nav class="gn-menu-wrapper">
+    <div class="gn-scroller">
+        <ul class="gn-menu">
            
-            <div class="col-4">
-                <h1 style="font-size:50px">Tavsiyeler</h1>
-                <p style="color:black">Bulunduğunuz ükedeki egitim ve iş olanakları,saglık hizmetleri, bütçenize uygun alışveriş mekanları, emlak hizmetleri, pasaport vize işlemleri ve hukuki konular hakkında her türlü paylaşıma ulaşabilirsiniz. </p>
-            </div>
+            <!--Profil-->
+            <li>
+                @if (Session["NameSurname"] != null)
+                {
+                    <div class="row" style="background-color: #FAF0E6;">
+                        <div class="col-lg-2"></div>
+                        <div class="col-lg-4">
+                            <a style="height:80px; width:80px;" href="Profile/Index/@Session["EnterID"]" class="del"><img style="width:80px; height:80px;" src="@Session["Image"]" class="img-rounded"></a>@*//fotografa basınca profil sayfası popup olarak gelsin*@
 
-            <div class="col-8">
-                <div class="img_section4">
-                    <a href="/Advice/Index">
-                        <figure>
-                            <img style="height:500px;" src="~/Content/Advice.png" />
-                        </figure>
-                    </a>
-                </div>
-            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <h5 style="color:black; display:inline-block;">@Session["NameSurname"]</h5>
+                        </div>
+                        <div class="col-lg-2"></div>
+                    </div>
 
+                }
+                else
+                {
+                    <a href="/User/Index/">Login</a>
+                }
+            </li>
+            <li><a href="/Home/Index" class="gn-icon fa-heart">Home</a></li>
 
+            <li><a href="/Contact/Index" class="gn-icon fa-comment">İletişim</a></li>
+            <li><a href="/About/Index" class="gn-icon fa-comment">About</a></li>
+            <li><a href="/Forum/Index" class="gn-icon fa-heart">Forum</a></li>
+            <li><a href="/Activity/Index" class="gn-icon fa-heart">Activities</a></li>
+            <li><a href="#nenerede" class="gn-icon fa-users">What Where?</a></li>
+
+            <li>
+                <ul class="gn-submenu">
+                    <li><a href="/Restaurant/Index" class="gn-icon fa-chevron-right">Restaurant</a></li>
+                    <li><a href="/TourismTravel/Index" class="gn-icon fa-chevron-right">Tourism</a></li>
+                    <li><a href="/Advices/Index" class="gn-icon fa-chevron-right">Advices</a></li>
+                </ul>
+            </li>
+            <li><a href="/Contact/Index" class="gn-icon fa-book">Contact</a></li>
+        </ul>
+    </div><!--end gn-scroller-->
+</nav>
+<div class="container">
+    <h2 class="zoom">Gurbetçilerimizin Ortak Platformu</h2>
+    <br />
+    <div class="row">
+        <div class="col-4">
+            <br /><br />
+            <h1 style="font-size:50px">Yeme İçme</h1>
+            <p style="color:black">Yaşadığınız Ülkedeki helal restoranları öğrenebilir ve bunlar hakkındaki yorumları okuyup değerlendirmeler yapabilirsiniz.</p>
         </div>
-       
-        <br /><br /><br /><br />
 
-        <div class="row">
-            <div class="col-md-12">
-                <h2>Sosyal medya hesaplarımız</h2>
-                <div class="col-md-6 .col-md-offset-3">
-                    <ul class="social">
-                        <li class="facebook"><a href="http://facebook.com/alterowo"><i class="fa fa-facebook fa-3x"></i></a></li>
-                        <li class="twitter"><a href="http://twitter.com/Kyokushinowa"><i class="fa fa-twitter fa-3x"></i></a></li>
-                        <li class="pinterest"><a href="https://www.behance.net/Kurnikowa"><i class="fa fa-behance fa-3x"></i></a></li>
-                    </ul>
-                </div>
+        <div class="col-8">
+            <div class="img_section4">
+
+                <a href="/Restaurant/Index">
+                    <figure>
+                        <img style="height:500px;" src="~/Content/Restourant.png" />
+                    </figure>
+                </a>
             </div>
-            @*<i class="fa fa-angellist fa-4x"></i>*@
         </div>
-        
-        <br /><br />
+    </div>
+
+
+
+    <br /><br /><br /><br />
+    <div class="row">
+        <div class="col-8">
+            <div class="img_section">
+                <a href="/Forum/Index">
+                    <figure>
+                        <img style="height:500px; width:500px;" src="~/Content/forum.png" />
+                    </figure>
+                </a>
+            </div>
+        </div>
+        <div class="col-4">
+            <h1 style="font-size:50px">Forum</h1>
+            <p style="color:black">Bulunduğunuz ülkedeki diğer gurbetçilerimizle iletişime geçebilir, Merak ettiğiniz her konuda yardım alabilir ve yardıma ihtiyacı olan kişilerin sorularını yanıtlayabilirsiniz.</p>
+        </div>
+
+    </div>
+
+
+    <br /><br /><br /><br />
+
+    <div class="row">
+
+        <div class="col-4">
+            <h1 style="font-size:50px">Hadi Gezelim!</h1>
+            <p style="color:black">Bulunduğunuz ülkedeki gezilip görülebilecek mekanları öğrenebilir, mekanlar ile ilgili önerilerde bulunabilirsiniz.</p>
+        </div>
+
+        <div class="col-8">
+            <div class="img_section4">
+                <a href="TourismTravel/Index">
+                    <figure>
+                        <img style="height:500px;" src="~/Content/Tourism.png" />
+                    </figure>
+                </a>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <br /><br /><br /><br />
+    <div class="row">
+
+        <div class="col-8">
+
+            <div class="img_section">
+                <a href="/Activity/Index">
+                    <figure>
+                        <img style="height:500px;" src="~/Content/Activity.png" />
+                    </figure>
+                </a>
+
+            </div>
+        </div>
+
+        <div class="col-4">
+            <h1 style="font-size:50px">Hadi Buluşalım!</h1>
+            <p style="color:black">Yaşadığınız ülkedeki diğer Türklerle etkinliklere katılabilir,etkinlik organize edebilir ve çevre edinip sosyalleşebilirsiniz. </p>
+        </div>
 
 
     </div>
 
 
-</body>
+    <br /><br /><br /><br />
 
-</html>
+    <div class="row">
+
+        <div class="col-4">
+            <h1 style="font-size:50px">Tavsiyeler</h1>
+            <p style="color:black">Bulunduğunuz ükedeki egitim ve iş olanakları,saglık hizmetleri, bütçenize uygun alışveriş mekanları, emlak hizmetleri, pasaport vize işlemleri ve hukuki konular hakkında her türlü paylaşıma ulaşabilirsiniz. </p>
+        </div>
+
+        <div class="col-8">
+            <div class="img_section4">
+                <a href="/Advice/Index">
+                    <figure>
+                        <img style="height:500px;" src="~/Content/Advice.png" />
+                    </figure>
+                </a>
+            </div>
+        </div>
+
+
+    </div>
+
+    <br /><br /><br /><br />
+
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Sosyal medya hesaplarımız</h2>
+            <div class="col-md-6 .col-md-offset-3">
+                <ul class="social">
+                    <li class="facebook"><a href="http://facebook.com/alterowo"><i class="fa fa-facebook fa-3x"></i></a></li>
+                    <li class="twitter"><a href="http://twitter.com/Kyokushinowa"><i class="fa fa-twitter fa-3x"></i></a></li>
+                    <li class="pinterest"><a href="https://www.behance.net/Kurnikowa"><i class="fa fa-behance fa-3x"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        @*<i class="fa fa-angellist fa-4x"></i>*@
+    </div>
+
+    <br /><br />
+
+
+</div>
+
+
+<script>
+    $("#x").change(function () {
+
+        $("input[type=submit]").click();
+
+    });
+</script>
