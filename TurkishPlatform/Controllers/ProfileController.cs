@@ -19,7 +19,7 @@ namespace TurkishPlatform.Controllers
             {
                 User User2 = Db.Users.Find(PersonID);
                 //User User = Db.Users.Find(PersonID);
-                User2.Score = User2.Score + 10;
+                User2.Score = User2.Score + 1;
                 Db.Entry(User2).State = System.Data.Entity.EntityState.Modified;
                 Db.SaveChanges();
                 return RedirectToAction("Index", "Home");
