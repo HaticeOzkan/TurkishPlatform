@@ -13,6 +13,7 @@ namespace TurkishPlatform.Controllers
 
         public ActionResult Index()
         {
+            Session["TopFive"] = Repository.ScoreViewListFill();
             ViewBag.Topics = db.AdviceTopics.ToList();
             return View();
         }

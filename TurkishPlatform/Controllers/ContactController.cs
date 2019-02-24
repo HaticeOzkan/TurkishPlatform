@@ -10,10 +10,11 @@ namespace TurkishPlatform.Controllers
     public class ContactController : Controller
     {
 		PlatformContext db = new PlatformContext();
-        
+        [HttpGet]
 		public ActionResult Index()
 		{
-			return View();
+            Session["TopFive"] = Repository.ScoreViewListFill();
+            return View();
 		}
 
 		[HttpPost]
