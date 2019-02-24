@@ -137,21 +137,16 @@
 
         <div class="message-wrap col-lg-8">
             <div class="msg-wrap">
-                @foreach (ForumComment item in ViewBag.Comment)
-                {
+                
                     <div class="media msg ">
-                        <a class="pull-left" href="/Profile/Index/@item.ByUser.UserId">
-                            <img src="@item.ByUser.ImageURL" style="width: 50px; height: 50px; -webkit-transform: rotate(90deg); " />
-                        </a>
                         <div class="media-body" style="text-align:left;">
-                            <small class="pull-right time"><i class="fa fa-clock-o"></i> @item.Date</small>
-                            <h5 class="media-heading">@item.ByUser.NameSurname</h5>
+                            @*<small class="pull-right time"><i class="fa fa-clock-o"></i> @item.Date</small>
+                            <h5 class="media-heading">@item.AdviceTopic</h5>*@
                             <small class="col-lg-10">
-                                @item.Content
+                                @ViewBag.Advice
                             </small>
                         </div>
                     </div>
-                }
 
             </div>
         </div>
