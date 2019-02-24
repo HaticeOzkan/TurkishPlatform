@@ -14,6 +14,7 @@ namespace TurkishPlatform.Controllers
        
         public ActionResult Index(int? id,int? PersonID)
         {//profilde ilk kişinin profiline gidiliyor id ile daha sonra puan verilirse kişiye kişinin id si tekrar alınıyor person id ile yardım ettiği kişi sayısı arttırılıyor 
+            PlatformContext db = new PlatformContext();
             User User = Db.Users.Find(id);
             if (PersonID != null)
             {

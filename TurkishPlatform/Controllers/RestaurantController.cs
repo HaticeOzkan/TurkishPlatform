@@ -13,6 +13,7 @@ namespace TurkishPlatform.Controllers
         PlatformContext db = new PlatformContext();
         public ActionResult Index()
         {
+            Session["TopFive"] = Repository.ScoreViewListFill();
             RestaurantViewModel data = new RestaurantViewModel();
             data.RestaurantId = db.Restaurants.Select(x => x.RestaurantId).FirstOrDefault();
             data.RestaurantName = db.Restaurants.Select(x => x.RestaurantName).FirstOrDefault();

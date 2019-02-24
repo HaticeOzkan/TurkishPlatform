@@ -16,6 +16,7 @@ namespace TurkishPlatform.Controllers
         [HttpGet]
         public ActionResult Index(string error,int? countryId)
         {
+            Session["TopFive"] = Repository.ScoreViewListFill();
             PlatformContext db = new PlatformContext();
 
             var u = db.Activities.Find(countryId);
@@ -42,7 +43,7 @@ namespace TurkishPlatform.Controllers
         }
         [HttpPost]
         public ActionResult Index(string Search)
-        {
+        {         
             PlatformContext db = new PlatformContext();
             var activity = from m in db.Activities
                            select m;

@@ -9,19 +9,18 @@ namespace TurkishPlatform.Controllers
 {
     public class TourismTravelController : Controller
     {
+        PlatformContext db = new PlatformContext();
         // GET: TourismTravel
         public ActionResult Index()
         {
-            PlatformContext db = new PlatformContext();
+            Session["TopFive"] = Repository.ScoreViewListFill();            
             ViewBag.AllTourism = db.Tourisms.ToList();
-
             return View(db.Tourisms.ToList());
         }
 
         [HttpGet]
         public ActionResult TourismTravelDetails(int id, int? UserId, int locationId)
-        {
-            PlatformContext db = new PlatformContext();
+        {          
             ViewBag.Name = UserId;
             ViewBag.c = (Session["EnterID"] == null); 
             ViewBag.user = db.Users.Find(id);
@@ -35,8 +34,7 @@ namespace TurkishPlatform.Controllers
 
         [HttpPost]
         public ActionResult TourismTravelDetails(string comment, int id, int? UserId, int locationId)
-        {
-            PlatformContext db = new PlatformContext();
+        {         
             ViewBag.c = (Session["EnterID"] == null);
             ViewBag.Name = UserId;
                 //int a = (int)Session["EnterID"];
@@ -57,12 +55,8 @@ namespace TurkishPlatform.Controllers
             ViewBag.Comments = db.LocationComments.Where(x => x.LocationId == locationId & x.UserId == UserId);
             return View(countries);
         }
-
-
         public JsonResult DeleteComment(int deleteid)
         {
-        
-            PlatformContext db = new PlatformContext();
             LocationComment delete = db.LocationComments.FirstOrDefault(x => x.CommentId == deleteid);
             db.LocationComments.Remove(delete);
             db.SaveChanges();

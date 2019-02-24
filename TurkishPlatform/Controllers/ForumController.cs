@@ -14,17 +14,18 @@ namespace TurkishPlatform.Controllers
 
         public ActionResult Index()
         {
+            Session["TopFive"] = Repository.ScoreViewListFill();
             //hiç ülke seçilmemişse ve giriş yapılmamışsa 3 id li ülkeyi getirir
-            if (Session["CountryId"] == null && Session["ChooseCountry"] == null)
+            if (Session["CountryId"] == null && (int)Session["ChooseCountry"] == 0)
             {
                 ViewBag.Categories = Db.ForumCommentCategories.Where(x => x.CountryId == 2).ToList();
             }//eğer seçim yapılmışsa seçilen ülkeyi getirir
-            else if (Session["ChooseCountry"] != null)
+            else if ((int)Session["ChooseCountry"] != 0)
             {
                 int CountryID = (int)Session["ChooseCountry"];
                 ViewBag.Categories = Db.ForumCommentCategories.Where(x => x.CountryId == CountryID).ToList();
             }
-            else //seçim yapılmamışsa ve giriş yapılmışsada default kişinin ülkesi gelir
+            else //seçim yapılmamışsa ve giriş yapılmışsada 
             {
                 int ID = (int)Session["CountryId"];
                 ViewBag.Categories = Db.ForumCommentCategories.Where(x => x.CountryId == ID).ToList();
