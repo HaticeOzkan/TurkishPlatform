@@ -211,9 +211,14 @@
     <Compile Include="Models\ScoreViewModel.cs" />
     <Compile Include="Models\Tourism.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\TurkishPlatform.dll" />
+    <Content Include="bin\TurkishPlatform.pdb" />
     <Content Include="Content\Activity.png" />
     <Content Include="Content\ActivityDetails.js" />
     <Content Include="Content\Advice.png" />
@@ -692,6 +697,8 @@
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Advice\Contents.cshtml" />
+    <Content Include="Views\Forum\StartSubject.cshtml" />
+    <Content Include="Views\Advice\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

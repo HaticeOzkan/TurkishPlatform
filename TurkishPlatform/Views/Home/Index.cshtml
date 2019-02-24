@@ -120,8 +120,6 @@
         bottom: 0;
         left: 75%;
     }
-
-   
 </style>
 <style>
 
@@ -182,53 +180,45 @@
     .img_section6:hover figure img {
         filter: blur(3px) grayscale(100%);
     }
+    .custom-combobox {
+        position: relative;
+        display: inline-block;
+    }
+
+    .custom-combobox-toggle {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin-left: -1px;
+        padding: 0;
+    }
+
+    .custom-combobox-input {
+        margin: 0;
+        padding-top: 2px;
+        padding-bottom: 5px;
+        padding-right: 5px;
+    }
 </style>
+<!--Ülke Seçimi-->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<br />
+<div>
+    <label style="color: rgb(189,148,104);">Ülke Seçimi</label>
+    <form method="post" name="formum" action="/Home/Index">
+        <select style="width:500px;" id="CombxCountry" name="CombxCountry" onchange="formum.submit()">
+            @foreach (CountryViewModel item in (List<CountryViewModel>)Session["CountryList"])
+            {
+                <option for value="@item.CountryID">@item.CountryName</option>
+            }
 
-<nav class="gn-menu-wrapper">
-    <div class="gn-scroller">
-        <ul class="gn-menu">
-           
-            <!--Profil-->
-            <li>
-                @if (Session["NameSurname"] != null)
-                {
-                    <div class="row" style="background-color: #FAF0E6;">
-                        <div class="col-lg-2"></div>
-                        <div class="col-lg-4">
-                            <a style="height:80px; width:80px;" href="Profile/Index/@Session["EnterID"]" class="del"><img style="width:80px; height:80px;" src="@Session["Image"]" class="img-rounded"></a>@*//fotografa basınca profil sayfası popup olarak gelsin*@
+        </select>
+    </form>
 
-                        </div>
-                        <div class="col-lg-4">
-                            <h5 style="color:black; display:inline-block;">@Session["NameSurname"]</h5>
-                        </div>
-                        <div class="col-lg-2"></div>
-                    </div>
+</div>
+<!------------------------------------------------------------>
 
-                }
-                else
-                {
-                    <a href="/User/Index/">Login</a>
-                }
-            </li>
-            <li><a href="/Home/Index" class="gn-icon fa-heart">Home</a></li>
-
-            <li><a href="/Contact/Index" class="gn-icon fa-comment">İletişim</a></li>
-            <li><a href="/About/Index" class="gn-icon fa-comment">About</a></li>
-            <li><a href="/Forum/Index" class="gn-icon fa-heart">Forum</a></li>
-            <li><a href="/Activity/Index" class="gn-icon fa-heart">Activities</a></li>
-            <li><a href="#nenerede" class="gn-icon fa-users">What Where?</a></li>
-
-            <li>
-                <ul class="gn-submenu">
-                    <li><a href="/Restaurant/Index" class="gn-icon fa-chevron-right">Restaurant</a></li>
-                    <li><a href="/TourismTravel/Index" class="gn-icon fa-chevron-right">Tourism</a></li>
-                    <li><a href="/Advices/Index" class="gn-icon fa-chevron-right">Advices</a></li>
-                </ul>
-            </li>
-            <li><a href="/Contact/Index" class="gn-icon fa-book">Contact</a></li>
-        </ul>
-    </div><!--end gn-scroller-->
-</nav>
 <div class="container">
     <h2 class="zoom">Gurbetçilerimizin Ortak Platformu</h2>
     <br />
@@ -363,10 +353,3 @@
 </div>
 
 
-<script>
-    $("#x").change(function () {
-
-        $("input[type=submit]").click();
-
-    });
-</script>
