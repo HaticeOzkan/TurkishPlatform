@@ -224,6 +224,7 @@
     <Content Include="Content\Advice.png" />
     <Content Include="Content\Contact\ContactPage.css" />
     <Content Include="Content\forum.png" />
+    <Content Include="Content\Happy.jpg" />
     <Content Include="Content\jQuery-File-Upload-9.28.0\angularjs.html" />
     <Content Include="Content\jQuery-File-Upload-9.28.0\basic-plus.html" />
     <Content Include="Content\jQuery-File-Upload-9.28.0\basic.html" />
