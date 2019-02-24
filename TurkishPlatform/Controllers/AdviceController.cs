@@ -17,9 +17,17 @@ namespace TurkishPlatform.Controllers
             return View();
         }
 
+        [HttpGet]
         public ActionResult Contents()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Contents(int id)
+        {
+            Advice adv = db.Advices.Find(id);
+            return View(adv);
         }
     }
 }
