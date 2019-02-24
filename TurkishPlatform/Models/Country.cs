@@ -18,7 +18,7 @@ namespace TurkishPlatform.Models
         public virtual List<Restaurant> Restaurants { get; set; }
         public virtual List<Tourism> Tourisms { get; set; }
         public virtual List<ForumCommentCategory> Topics { get; set; } 
-        public virtual List<Advice> Advices { get; set; }
+        public virtual List<AdviceTopic> AdviceTopics { get; set; }
 
     }
 }

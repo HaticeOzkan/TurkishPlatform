@@ -221,7 +221,7 @@
                                     <ul class="gn-submenu">
                                         <li><a href="/Restaurant/Index" class="gn-icon fa-chevron-right">Restaurant</a></li>
                                         <li><a href="/TourismTravel/Index" class="gn-icon fa-chevron-right">Tourism</a></li>
-                                        <li><a href="/Advices/Index" class="gn-icon fa-chevron-right">Advices</a></li>
+                                        <li><a href="/Advice/Index" class="gn-icon fa-chevron-right">Advices</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="/Contact/Index" class="gn-icon fa-book">Contact</a></li>
@@ -244,7 +244,7 @@
         <div class="row">
             <div class="col-lg-9">  @RenderBody()</div>
             <div class="col-lg-3">               
-                <div class="panel panel-default">
+                @*<div class="panel panel-default">
                    <!--Score Bölümü-->
                     @foreach (ScoreViewModel item in (List<ScoreViewModel>)Session["TopFive"])
                     {
@@ -265,7 +265,7 @@
                             </li>
                         </ul>
                     }
-                </div>
+                </div>*@
               
             </div>
         </div>

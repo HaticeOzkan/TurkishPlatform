@@ -13,13 +13,30 @@ namespace TurkishPlatform.Controllers
 
         public ActionResult Index()
         {
-            ViewBag.Topics = db.AdviceTopics.ToList();
+            if (Session["ChooseCountry"] == null && Session["CountryId"] == null)
+            {
+                ViewBag.Topics = db.AdviceTopics.Where(x => x.CategoryId == 4).ToList();
+            }
+            else if (Session["ChooseCountry"] != null)
+            {
+                int IdCountry = (int)Session["ChooseCountry"];
+                ViewBag.Topics = db.AdviceTopics.Where(x => x.CountryId == IdCountry).ToList();
+            }
+            else
+            {
+                int IdC = (int)Session["CountryId"];
+                ViewBag.Topics = db.AdviceTopics.Where(x => x.CountryId == IdC).ToList();
+            }
+
             return View();
+            
         }
 
-        public ActionResult Content
+        [HttpPost]
+        public ActionResult Contents(int id)
         {
-            return View();
+            Advice adv = db.Advices.Find(id);
+            return View(adv);
         }
     }
 }

@@ -17,8 +17,7 @@ namespace TurkishPlatform.Areas.Panel.Controllers
         // GET: Panel/Advices
         public ActionResult Index()
         {
-            var advices = db.Advices.Include(a => a.Country);
-            return View(advices.ToList());
+            return View(db.Advices.ToList());
         }
 
         // GET: Panel/Advices/Details/5
@@ -39,7 +38,6 @@ namespace TurkishPlatform.Areas.Panel.Controllers
         // GET: Panel/Advices/Create
         public ActionResult Create()
         {
-            ViewBag.CountryId = new SelectList(db.Countries, "CountryId", "CountryName");
             return View();
         }
 
@@ -48,7 +46,7 @@ namespace TurkishPlatform.Areas.Panel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "AdviceId,Title,Content,ImageURL,Date,CountryId,AdviceTopicID")] Advice advice)
+        public ActionResult Create([Bind(Include = "AdviceId,Title,Content,ImageURL,Date,AdviceTopicID")] Advice advice)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +55,6 @@ namespace TurkishPlatform.Areas.Panel.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CountryId = new SelectList(db.Countries, "CountryId", "CountryName", advice.CountryId);
             return View(advice);
         }
 
@@ -73,7 +70,6 @@ namespace TurkishPlatform.Areas.Panel.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.CountryId = new SelectList(db.Countries, "CountryId", "CountryName", advice.CountryId);
             return View(advice);
         }
 
@@ -82,7 +78,7 @@ namespace TurkishPlatform.Areas.Panel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "AdviceId,Title,Content,ImageURL,Date,CountryId,AdviceTopicID")] Advice advice)
+        public ActionResult Edit([Bind(Include = "AdviceId,Title,Content,ImageURL,Date,AdviceTopicID")] Advice advice)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +86,6 @@ namespace TurkishPlatform.Areas.Panel.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CountryId = new SelectList(db.Countries, "CountryId", "CountryName", advice.CountryId);
             return View(advice);
         }
 
