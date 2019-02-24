@@ -7,7 +7,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Tourism</h2>
+ 
 
 
 @section CSS{
@@ -35,15 +35,15 @@
         {
             <div class="col-md-6 resim text-center">
                 <div class="product-box-layout3" style="margin-left: 220px;
-    width: 118%;">
-                    <figure class="item-figure">
+    width: 118%;margin-top: 13px;">
+                    <figure class="item-figure" style="margin-top: -59px;">
                         <a href="#">
                             <img src="~/Uploads/Tourism/hasankeyf.jpg" />
                         </a>
                     </figure>
                     <div class="item-content text-center">
 
-                        <h3 class="item-title restName text-center" style="margin-top: -102px; position:absolute; margin-left: 137px;">  @*href="/Restaurant/RestaurantDetail/?id=@item.LocationId"* @*@  @item.LocationName </h3>
+                        <h3 class="item-title restName text-center" style="margin-top:-59px; position:absolute; margin-left:22px;">  @*href="/Restaurant/RestaurantDetail/?id=@item.LocationId"* @*@  @item.LocationName </h3>
 
                         <p style="margin-right:10px;margin-left: -64px">
                             @item.Content
@@ -52,7 +52,7 @@
                             var Id = Session["EnterID"];
                             //&UserId = @Id
                         }
-                        <a href="/TourismTravel/TourismTravelDetails/?id=@item.CountryId&UserId=@Id&locationId=@item.LocationId" style="margin-left:35%;color:black"><b>Ayrıntılarını Gör</b></a>
+                        <a href="/TourismTravel/TourismTravelDetails/?id=@item.CountryId&UserId=@Id&locationId=@item.LocationId" style="margin-left:9%;color:black"><b>Ayrıntılarını Gör</b></a>
 
                     </div>
                 </div>

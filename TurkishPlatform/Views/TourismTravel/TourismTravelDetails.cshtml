@@ -94,14 +94,14 @@
                             @if (item.User.ImageURL == null)
                             {
                                 <div class="thumbnail">
-                                    <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+                                    <a href="/Profile/Index/@item.UserId"><img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png"></a>
                                 </div>
                             }
                             else
                             {
                                 <div class="thumbnail">
-                                    <img class="img-responsive user-photo" src="@item.User.ImageURL" alt="Product" style="width:50px">
-                                </div>
+                                    <a href="/Profile/Index/@item.UserId">   <img class="img-responsive user-photo" src="@item.User.ImageURL" alt="Product" style="width:50px"></a>
+</div>
                             }
                         </div>
                         <div class="col-sm-5">
