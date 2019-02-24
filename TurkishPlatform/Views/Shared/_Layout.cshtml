@@ -231,8 +231,12 @@
                     <!--Çıkışşş-->
                     <li class="gn-trigger">
                         <div class="trigger"><a class="gn-icon gn-icon-menu"><span>Menu</span></a></div>
-                        <a href="/Home/Logout" class="btn" style="background-color: rgb(189,148,104); height:30px; width:70px; color:wheat !important; position:relative; left:1500px; bottom:35px; color:white ">Çıkış</a>
-                       
+                        @if (Session["NameSurname"] != null)
+                        {
+                            <a href="/Home/Logout" class="btn" style="background-color: rgb(189,148,104); height:30px; width:70px; color:wheat !important; position:relative; left:1500px; bottom:35px; color:white ">Çıkış</a>
+                        }
+
+
                     </li>
 
                     <li class="back"><a class="gn-icon fa-angle-double-up" href="#top"></a></li>
