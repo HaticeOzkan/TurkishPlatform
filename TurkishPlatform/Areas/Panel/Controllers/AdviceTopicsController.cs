@@ -17,11 +17,12 @@ namespace TurkishPlatform.Areas.Panel.Controllers
         // GET: Panel/AdviceTopics
         public ActionResult Index()
         {
-            return View(db.AdviceTopics.ToList());
+            var adviceTopics = db.AdviceTopics.Include(a => a.Country);
+            return View(adviceTopics.ToList());
         }
 
         // GET: Panel/AdviceTopics/Details/5
-        public ActionResult Details(string id)
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
@@ -38,6 +39,7 @@ namespace TurkishPlatform.Areas.Panel.Controllers
         // GET: Panel/AdviceTopics/Create
         public ActionResult Create()
         {
+            ViewBag.CountryId = new SelectList(db.Countries, "CountryId", "CountryName");
             return View();
         }
 
@@ -46,7 +48,7 @@ namespace TurkishPlatform.Areas.Panel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CategoryId,CategoryName")] AdviceTopic adviceTopic)
+        public ActionResult Create([Bind(Include = "CategoryId,CategoryName,CountryId")] AdviceTopic adviceTopic)
         {
             if (ModelState.IsValid)
             {
@@ -55,11 +57,12 @@ namespace TurkishPlatform.Areas.Panel.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.CountryId = new SelectList(db.Countries, "CountryId", "CountryName", adviceTopic.CountryId);
             return View(adviceTopic);
         }
 
         // GET: Panel/AdviceTopics/Edit/5
-        public ActionResult Edit(string id)
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -70,6 +73,7 @@ namespace TurkishPlatform.Areas.Panel.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.CountryId = new SelectList(db.Countries, "CountryId", "CountryName", adviceTopic.CountryId);
             return View(adviceTopic);
         }
 
@@ -78,7 +82,7 @@ namespace TurkishPlatform.Areas.Panel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CategoryId,CategoryName")] AdviceTopic adviceTopic)
+        public ActionResult Edit([Bind(Include = "CategoryId,CategoryName,CountryId")] AdviceTopic adviceTopic)
         {
             if (ModelState.IsValid)
             {
@@ -86,11 +90,12 @@ namespace TurkishPlatform.Areas.Panel.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.CountryId = new SelectList(db.Countries, "CountryId", "CountryName", adviceTopic.CountryId);
             return View(adviceTopic);
         }
 
         // GET: Panel/AdviceTopics/Delete/5
-        public ActionResult Delete(string id)
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
@@ -107,7 +112,7 @@ namespace TurkishPlatform.Areas.Panel.Controllers
         // POST: Panel/AdviceTopics/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(int id)
         {
             AdviceTopic adviceTopic = db.AdviceTopics.Find(id);
             db.AdviceTopics.Remove(adviceTopic);

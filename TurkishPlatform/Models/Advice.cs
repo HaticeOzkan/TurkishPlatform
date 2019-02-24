@@ -19,9 +19,6 @@ namespace TurkishPlatform.Models
 		public string Content { get; set; }
 		public string ImageURL { get; set; }
 		public DateTime Date { get; set; }
-		[ForeignKey("CountryId")]
-		public Country Country { get; set; }
-		public int CountryId { get; set; }
 		public AdviceTopic AdviceTopic { get; set; }
         public int AdviceTopicID { get; set; }
 
@@ -38,6 +35,9 @@ namespace TurkishPlatform.Models
 		[Required]
 		[MaxLength(200)]
 		public string CategoryName { get; set; }
-	    List<Advice> Advices { get; set; }
+        [ForeignKey("CountryId")]
+        public Country Country { get; set; }
+        public int CountryId { get; set; }
+        public virtual List<Advice> Advices { get; set; }
 	}
 }

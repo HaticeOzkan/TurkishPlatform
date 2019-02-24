@@ -221,7 +221,7 @@
                                     <ul class="gn-submenu">
                                         <li><a href="/Restaurant/Index" class="gn-icon fa-chevron-right">Restaurant</a></li>
                                         <li><a href="/TourismTravel/Index" class="gn-icon fa-chevron-right">Tourism</a></li>
-                                        <li><a href="/Advices/Index" class="gn-icon fa-chevron-right">Advices</a></li>
+                                        <li><a href="/Advice/Index" class="gn-icon fa-chevron-right">Advices</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="/Contact/Index" class="gn-icon fa-book">Contact</a></li>
@@ -254,8 +254,12 @@
                                     <a href="/Profile/Index/@item.UserID"><img src="@item.ImageURL" class="img-responsive img-circle" /></a>
                                 </div>
                                 <div class="col-xs-12 col-sm-9">
-                                    <span class="name">@item.NameSurname</span><br />
-                                    <span class="name">@item.Score Puan!</span><br />                                
+                                    <div class="row">
+                                        <span style="font-size:20px;" class="name">@item.NameSurname @item.Score kişiye yardımcı oldu</span><br />
+                                   
+                                    
+                                    </div>
+                                                             
                                 </div>
                                 <div class="clearfix"></div>
                             </li>

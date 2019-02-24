@@ -13,8 +13,8 @@ namespace TurkishPlatform.Controllers
         PlatformContext Db = new PlatformContext();
      
 		public ActionResult Index(string CombxCountry)
-		{
-            Session["ChooseCountry"] = CombxCountry;
+		{//anasayfada ilk ulke ülke comboboxsını dolduruyorum ülke seçimini ve en çok yardım eden 5 kişiyi alıyorum
+            Session["ChooseCountry"] =Convert.ToInt32(CombxCountry);
             Session["TopFive"] = ScoreViewListFill();
             Session["CountryList"] = CountryViewListFill();
             return View();
