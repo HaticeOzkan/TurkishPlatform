@@ -5,6 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <style>
+    
     .card {
         padding-top: 20px;
         margin: 10px 0 20px 0;
@@ -199,7 +200,7 @@
     }
 
         .card.hovercard .cardheader {
-            background: url("http://lorempixel.com/850/280/nature/4/");
+           
             background-size: cover;
             height: 135px;
         }
@@ -259,8 +260,8 @@
     }
 </style>
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-<div class="container">
-    <div style="width:700px; margin:auto;" >
+<div class="container" style="background-image: url('../../Content/Happy.jpg'); background-size:cover;">
+    <div style="width:700px; margin:auto; " >
         <div >
             <div class="card hovercard">
                 <div class="cardheader">
@@ -268,7 +269,7 @@
                 <div class="avatar">
                     <img src="@Model.ImageURL">
                 </div>
-                <div class="info">
+                <div class="info" >
                     <div>
                         <h2 style="color:black; padding:5px;">@Model.NameSurname</h2>
                     </div>
@@ -276,7 +277,7 @@
                         <h3 style="color:black; padding:5px;">@ViewBag.CountryName</h3>
                     </div>
                     <div>
-                        <h4 style="color:black;">@Model.Score Puan!</h4>
+                        <h4 style="color:black;">@Model.Score kişiye yardımcı oldu!</h4>
                     </div>
 
                     <div class="desc">Katıldığı Aktivite sayısı: @Model.Activities.Count()</div>
@@ -295,7 +296,7 @@
                     }
 
                 </div>
-             
+
             </div>
         </div>
     </div>

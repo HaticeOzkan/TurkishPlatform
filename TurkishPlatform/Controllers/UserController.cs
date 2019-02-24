@@ -23,25 +23,22 @@ namespace TurkishPlatform.Controllers
         {
             ViewBag.Countries = Db.Countries.ToList();
             bool? IsTrue = false;
-            User User = new User();
-            List<User> ListProfile = Db.Users.ToList();
-            foreach (var item in ListProfile)
+            bool Control = Db.Users.Any(x => x.Email == Email);//bu emaile sahip user varmı control ediliyor     
+            if (Control == true)
             {
-                if (Email == item.Email)
-                {
-                    if (Password == item.Password)
-                    {                       
+                User User = Db.Users.Where(x => x.Email == Email).FirstOrDefault();             
+                    if (Password == User.Password)
+                    {//kullanıcı giriş yaparken bilgilerini tutuyorum
                         IsTrue = true;
-                        Session["CountryId"] = item.CountryNo;                      
-                        Session["EnterID"] = item.UserId;                      
-                        Session["Image"] = item.ImageURL;
-                        Session["Email"] = item.Email;
-                        Session["Gender"] = item.Gender;
-                        Session["NameSurname"] = item.NameSurname;                       
-                        return RedirectToAction("Index", "Home");                        
+                        Session["CountryId"] = User.CountryNo;
+                        Session["EnterID"] = User.UserId;
+                        Session["Image"] = User.ImageURL;
+                        Session["Email"] = User.Email;
+                        Session["Gender"] = User.Gender;
+                        Session["NameSurname"] = User.NameSurname;
+                        return RedirectToAction("Index", "Home");
                     }
-                }
-            }
+                }       
             ViewBag.Message = "Sorry. Your password or name was incorrect. Please double-check your password.";
             return View(IsTrue);
         }
@@ -109,29 +106,18 @@ namespace TurkishPlatform.Controllers
 
             return View();
         }
-        //şimdi yeni bir şifre girdi onu guncellemem için kişinin id si lazım ki o kişiyi getireyim ajax kullandım
-        //public JsonResult AddImage(HttpPostedFileBase UserImage)//buraya alırken file[] dizi olması sıkıntı oldu recipe image yaptık
-        //{
-        //    //UploadImage(UserImage);
-        //    return Json(false);
-        //}
+        //şimdi yeni bir şifre girdi onu guncellemem için kişinin id si lazım ki o kişiyi getireyim ajax kullandım       
         public JsonResult Registery(User user, HttpPostedFileBase UserImage)
-        {
-          
-    
+        {          
             if (ModelState.IsValid)
-            {
-                
+            {               
                 Db.Users.Add(user);               
                 Db.SaveChanges();//burada id kaydedildi
-
                 Session["UserID"] = user.UserId;//burada id yi sessiona kaydetti
-
                 UploadImage(UserImage);//burda resmi keydetti resim yolunu sessiona aldı
                 user.ImageURL = Session["ImageURL"].ToString();
                 Db.Entry(user).State = System.Data.Entity.EntityState.Modified;
                 Db.SaveChanges();
-
                 Session["ImageURL"] = user.ImageURL;
                 return Json(true);
             }

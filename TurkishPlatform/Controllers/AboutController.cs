@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TurkishPlatform.Models;
 
 namespace TurkishPlatform.Controllers
 {
@@ -11,6 +12,7 @@ namespace TurkishPlatform.Controllers
         // GET: About
         public ActionResult Index()
         {
+            Session["TopFive"] = Repository.ScoreViewListFill();
             return View();
         }
     }
