@@ -14,9 +14,21 @@ namespace TurkishPlatform.Controllers
     {
         // GET: Activity
         [HttpGet]
-        public ActionResult Index(string error,string a)
+        public ActionResult Index(string error,int? countryId)
         {
             PlatformContext db = new PlatformContext();
+
+            var u = db.Activities.Find(countryId);
+            if (countryId != null)
+            {
+
+            }
+            else
+            {
+
+            }
+
+           
             ViewBag.aaa = "Etkinlikler";
             ViewBag.error = error;
 //            select count(*)
