@@ -151,12 +151,15 @@ h6 {
 2. Default Css
 =========================================================================*/
 a {
-  text-decoration: none;
+	text-decoration: none;
+	font-size: 25px;
+	color: rebeccapurple;
 }
 a:active,
 a:hover,
 a:focus {
   text-decoration: none;
+  color:black;
 }
 a:active,
 a:hover,
@@ -5416,7 +5419,7 @@ ul {
   }
 }
 .single-recipe-layout1 .item-feature ul li .feature-wrap {
-  background-color: #f2f2f2;
+  /*background-color: #f2f2f2;*/
   display: flex;
   justify-content: center;
 }
@@ -5430,12 +5433,13 @@ ul {
   font-size: 24px;
   line-height: 1;
 }
-.single-recipe-layout1 .item-feature ul li .feature-icon i,
-.single-recipe-layout1 .item-feature ul li .feature-icon i:before {
-  font-size: 30px;
-  font-weight: 600;
-  color: #a8a8a8;
-}
+	.single-recipe-layout1 .item-feature ul li .feature-icon i,
+	.single-recipe-layout1 .item-feature ul li .feature-icon i:before {
+		font-size: 30px;
+		font-weight: 600;
+		color: #a8a8a8;
+		margin-left: 100px;
+	}
 .single-recipe-layout1 .item-feature ul li .feature-title {
   font-size: 18px;
   color: #111111;
