@@ -21,8 +21,6 @@
     <link rel="stylesheet" href="/Content/Restaurant/css/animate.min.css">
     <!-- Fontawesome CSS -->
     <link rel="stylesheet" href="/Content/Restaurant/css/fontawesome-all.min.css">
-    <!-- Flaticon CSS -->
-    @*<link rel="stylesheet" href="/Content/Restaurant/css/fonts/flaticon.css">*@
     <!-- Owl Carousel -->
     <link href="~/Content/Restaurant/Owl-Carousel/assets/owl.carousel.min.css" rel="stylesheet" />
     <link href="~/Content/Restaurant/Owl-Carousel/assets/owl.theme.green.min.css" rel="stylesheet" />
@@ -76,7 +74,6 @@
             <div class="row gutters-60">
                 <div class="col-lg-8">
                     <div class="single-recipe-layout1">
-                        @*<div class="ctg-name">PASTA</div>*@
                         <h2 class="item-title">@Model.RestaurantName</h2>
                         <br /><br />
                         <div class="row mb-4">
@@ -95,16 +92,6 @@
                                             </span>
                                         </a>
                                     </li>
-                                    @*<li class="single-meta">
-                                        <ul class="item-rating">
-                                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                                            <li class="star-fill"><i class="fas fa-star"></i></li>
-                                            <li class="star-empty"><i class="fas fa-star"></i></li>
-                                            <li><span>9<span> / 10</span></span> </li>
-                                        </ul>
-                                    </li>*@
                                 </ul>
                             </div>
                             <div class="col-xl-3 col-12">
@@ -124,8 +111,6 @@
                             </div>
                         </div>
                         <div class="item-figure">
-                            @*OWL-CAROUSEL EKLE!!*@
-
                             <div class="owl-carousel owl-theme">
                                 <div class="item resimOwl">
                                     <img src="~/Content/Restaurant/img/product/product13.jpg" />
@@ -185,15 +170,6 @@
                             structured data markup.More off this less hello salamander lied porpoise much over
                             tightly circa horse tapedey innocuously side crudey mightily rigorous plot life.
                         </p>
-                        @*<p class="item-description">
-                            Salamander lied porpoise much over tightly circa horse taped so
-                            innocuously side crudey
-                            mightily rigorous plot life. New homes in particular are subject.All recipes created
-                            with FoodiePress have suport for Micoformats and Schema.org is a collaboration byo
-                            improve.s convallis mi et tellus vehicula convallis. Etiam odio eros, viverra id dui
-                            inrutrum cursus ex. Curabitur et consequatenim.
-                        </p>*@
-
                     </div>
                 </div>
             </div>
@@ -299,24 +275,5 @@
             })
 		});
 
-		//$(".delete").click(function () {
-		//	//debugger
-		//	var _this = $(this);
-		//	var id = $(this).attr("mesajid");
-		//	$.ajax({
-		//		url: "/TourismTravel/DeleteComment?deleteid=" + id,
-		//		type: "POST",
-		//		success: function (IsitOk) {
-		//			//debugger
-		//			if (IsitOk) {
-		//				_this.parent().slideUp("slow");
-		//			}
-		//			else {
-		//				alert("bir hata oluştu")
-		//			}
-		//		}
-		//	})
-
-		//});
     </script>
 }
