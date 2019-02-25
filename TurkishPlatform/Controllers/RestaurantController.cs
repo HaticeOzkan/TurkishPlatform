@@ -31,6 +31,9 @@ namespace TurkishPlatform.Controllers
             Restaurant r = db.Restaurants.Include("Country").FirstOrDefault(x => x.RestaurantId == id);
             ViewBag.RestaurantId = r.RestaurantId;
             ViewBag.Comment = db.RestaurantComments.Where(x => x.RestaurantId == id).ToList();
+            ViewBag.Country = from c in db.Countries
+                              where c.CountryId == (int)Session["ChooseCountry"]
+                              select c.CountryName;
 
             return View(r);
         }
