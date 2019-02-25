@@ -263,7 +263,6 @@
                     <span style="background-color:rgb(189,148,104);" class="btn fileinput-button">
                         <i class="glyphicon glyphicon-plus"></i>
                         <span>Select files...</span>
-                        <!-- The file input field used as target for the filupload widget files[] vardı name dee   -->
                         <input id="fileupload" type="file" name="UserImage">@*//kaydedilen resimler dosyaya kaydediliyor veritabanına değil*@
 
                     </span> @*kopayaldıgımız yerden geldi*@
@@ -318,13 +317,10 @@
     <script src="~/Content/jQuery-File-Upload-9.28.0/js/jquery.iframe-transport.js"></script>
     <script src="~/Content/jQuery-File-Upload-9.28.0/js/jquery.fileupload.js"></script>
     <script>
-        /*jslint unparam: true */
-        /*global window, $ */
         $(document).ready(function () {
         $(function () {//IMAGE JSONRESULTA GİDEN YER
             'use strict';
 
-            // Change this to the location of your server-side upload handler:
             var url = "/User/Registery";//window.location.hostname === 'blueimp.github.io' ? //JSON RESULT İSMİM
             //    '//jquery-file-upload.appspot.com/' : 'server/php/';//burda bizim sayamıza gitmeli değiştirdik
             $('#fileupload').fileupload({

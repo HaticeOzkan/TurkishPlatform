@@ -173,7 +173,7 @@ img {
 ul {
   list-style: outside none none;
   margin: 0 !important;
-  padding: 4px !important;
+  /*padding: 4px !important;*/
 }
 [class^="flaticon-"]:before,
 [class*=" flaticon-"]:before,
@@ -4016,7 +4016,7 @@ ul {
   width: 50%;
   text-align: left;
   padding: 0;
-  margin-left: 95px;
+  margin-left: 10px;
 }
 @media only screen and (max-width: 1199px) {
   .product-box-layout3 .item-content {

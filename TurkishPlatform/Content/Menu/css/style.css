@@ -220,7 +220,7 @@ label {
 .gn-menu-main ul {
 	margin: 0;
 	padding: 0;
-	background: white;
+	/*background: white;*/
 	color: #6E6E86;
 	list-style: none;
 	text-transform: none;
