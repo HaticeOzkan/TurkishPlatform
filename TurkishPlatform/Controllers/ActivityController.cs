@@ -17,29 +17,42 @@ namespace TurkishPlatform.Controllers
         public ActionResult Index(string error,int? countryId)
         {
             Session["TopFive"] = Repository.ScoreViewListFill();
+
             PlatformContext db = new PlatformContext();
 
             var u = db.Activities.Find(countryId);
-            if (countryId != null)
-            {
 
+
+            Session["TopFive"] = Repository.ScoreViewListFill();
+
+            if (Session["CountryId"] == null && (int)Session["ChooseCountry"] == 0) { 
+                ViewBag.Activities = db.Activities.Where(x => x.CountryId == 4).ToList();
+            }
+             else if ((int)Session["ChooseCountry"] != 0)
+            {
+                int IdCountry = (int)Session["ChooseCountry"];
+                ViewBag.Activities = db.Activities.Where(x => x.CountryId == IdCountry).ToList();
             }
             else
             {
-
+                int IdC = (int)Session["CountryId"];
+                ViewBag.Activities = db.Activities.Where(x => x.CountryId == IdC).ToList();
             }
 
-           
+
+
+
+
             ViewBag.aaa = "Etkinlikler";
             ViewBag.error = error;
-//            select count(*)
-//from activities where Participation = 0
-//group by Participation
+            //            select count(*)
+            //from activities where Participation = 0
+            //group by Participation
 
 
-           //ViewBag.ParticipationF = db.Activities.Where(x => x.Participation == false).Count();
+             return View();
 
-            return View(db.Activities.ToList());
+           //return View(db.Activities.ToList());
         }
         [HttpPost]
         public ActionResult Index(string Search)
