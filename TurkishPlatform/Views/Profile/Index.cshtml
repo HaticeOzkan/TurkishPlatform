@@ -288,7 +288,7 @@
                     <br />
                     <div class="desc">Forum Mesaj Sayısı:@Model.ForumComments.Count()</div>
                     <br />
-                    @if ((string)Session["NameSurname"] != Model.NameSurname)
+                    @if ((string)Session["NameSurname"] != Model.NameSurname && (string)Session["NameSurname"]!=null)
                     {
                         <div class="desc">Yardımcı olduysa puanla!</div>
                         <br />
