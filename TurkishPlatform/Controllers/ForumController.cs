@@ -25,7 +25,7 @@ namespace TurkishPlatform.Controllers
                 int CountryID = (int)Session["ChooseCountry"];
                 ViewBag.Categories = Db.ForumCommentCategories.Where(x => x.CountryId == CountryID).ToList();
             }
-            else //seçim yapılmamışsa ve giriş yapılmışsada 
+            else //seçim ve giriş yapılmışsa
             {
                 int ID = (int)Session["CountryId"];
                 ViewBag.Categories = Db.ForumCommentCategories.Where(x => x.CountryId == ID).ToList();
