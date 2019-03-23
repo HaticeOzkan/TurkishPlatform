@@ -11,7 +11,6 @@
 
 
 @section CSS{
-    @*<img src="~/Content/Restaurant/img/favicon.png" />*@
     <link href="~/Content/Restaurant/css/fontawesome-all.min.css" rel="stylesheet" />
     <link href="~/Content/Restaurant/css/main.css" rel="stylesheet" />
     <link href="~/Content/Restaurant/css/normalize.css" rel="stylesheet" />
@@ -43,7 +42,7 @@
                     </figure>
                     <div class="item-content text-center">
 
-                        <h3 class="item-title restName text-center" style="margin-top:-59px; position:absolute; margin-left:22px;">  @*href="/Restaurant/RestaurantDetail/?id=@item.LocationId"* @*@  @item.LocationName </h3>
+                        <h3 class="item-title restName text-center" style="margin-top:-59px; position:absolute; margin-left:22px;"> @item.LocationName </h3>
 
                         <p style="margin-right:10px;margin-left: -64px">
                             @item.Content
@@ -63,7 +62,6 @@
 
 <div>
     @section Footer{
-        <!-- Instagram Start Here -->
         <section class="instagram-feed-wrap">
             <div class="instagram-feed-title"><a href="#"><i class="fab fa-instagram"></i>Follow On Instagram</a></div>
             <ul class="instagram-feed-figure">
@@ -105,7 +103,6 @@
                 </li>
             </ul>
         </section>
-        <!-- Instagram End Here -->
     }
 </div>
 

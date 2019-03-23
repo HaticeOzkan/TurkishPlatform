@@ -65,76 +65,57 @@
     <form class="form-horizontal" method="post" enctype="multipart/form-data" id="background">
         @Html.AntiForgeryToken()
         <fieldset style="margin-top: -99px;">
-            <!-- Form Name -->
-            <h2 class="text-center" style="margin-top:50px"> <b> Etkinlik Oluştur </b></h2>
+            <h2 class="text-center" style="margin-top:90px"> <b> Etkinlik Oluştur </b></h2>
 
             <hr style="width:500px; color:black" />
-            <!-- Text input-->
             <div class="form-group" style="margin-top:50px;">
-                @*<label id="label" class="col-md-4 control-label text-center" for="event_name">Etkinlik İsmi</label><br /><br />*@
                 <div class="col-md-4">
                     <input id="event_name" name="name" type="text" required placeholder="Etkinlik İsmi" style="height:50px" class="form-control input-md text-center" />
 
                 </div>
             </div>
 
-            <!-- Text input-->
             <div class="form-group">
-                @*<label id="label" class="col-md-4 control-label" for="textinput">Etkinlik Günü</label><br /><br />*@
                 <div class="col-md-4">
                     @*bunu kaldırıp değişiklik vererek yapabilirsn*@
                     <input id="textinput" name="date" type="text" required onclick="this.type='date'" onblur="this.type=date" style="height:50px" placeholder="Etkinlik Günü" class="form-control input-md text-center">
-                    @*<span class="help-block">help</span>*@
                 </div>
             </div>
 
             <div class="form-group">
-                @*<label id="label" class="col-md-4 control-label" for="textinput">Kontejyan</label>*@@*<br /><br /><br />*@
                 <div class="col-md-4">
                     <input id="textinput" required name="Kontejyan" type="number" style="height:50px" placeholder="Kontejyan" class="form-control input-md text-center">
-                    @*<span class="help-block">help</span>*@
                 </div>
             </div>
-            <!-- Text input-->
             <div class="form-group">
-                @*<label id="label" class="col-md-4 control-label" for="textinput">Başlama Saati</label><br /><br /><br />*@
                 <div class="col-md-4">
                     <input id="textinput" name="StartTime" type="text" onclick="this.type='time'" onblur="this.type='text'" style="height:50px" placeholder="Başlangıç Saati" class="form-control input-md text-center a">
-                    @*<span class="help-block">help</span>*@
                 </div>
             </div>
-            <!-- Text input-->
             <div class="form-group">
-                @*<label id="label" class="col-md-4 control-label" for="textinput">Bitiş Saati</label><br /><br /><br />*@
                 <div class="col-md-4">
                     <input id="textinput" name="FinishTime" type="text" required onclick="this.type='time'" onblur="this.type='text'" style="height:50px" placeholder="Bitiş Saati" class="form-control input-md text-center">
-                    @*<span class="help-block">help</span>*@
                 </div>
             </div>
-            <!-- Textarea -->
             <div class="form-group">
-                @*<label id="label" class="col-md-4 control-label" for="textarea">Resim Seç</label>*@@*<br /><br /><br />*@
                 <div class="text-center" style="width:550px;text-align-last: center; ">
-                    <input id="textinput" required name="Image" type="file" placeholder="Resim" style="height:50px;margin-left: 657px; width: 610px;" class="form-control input-md text-center">
+                    <input id="textinput" required name="Image" type="file" placeholder="Resim" style="height:50px;margin-left: 389px;
+    width: 359px;" class="form-control input-md text-center">
                 </div>
             </div>
 
-            <!-- Textarea -->
             <div class="form-group">
-                @*<label id="label" class="col-md-4 control-label" for="textarea">İçerik</label><br /><br /><br /><br />*@
                 <div class="col-md-4">
                     <textarea class="form-control text-center" id="textarea" placeholder="İcerik" required name="Content" style="height:150px"></textarea>
                 </div>
             </div>
-            <!-- Textarea -->
             <div class="form-group">
-                @*<label id="label" class="col-md-4 control-label" for="textarea" >Adres</label><br /><br /><br />*@
                 <div class="col-md-4">
                     <textarea class="form-control text-center" id="textarea" name="Address" style="height:150px" required placeholder="Adres"></textarea>
                 </div>
             </div>
             <div class="form-group">
-                <button class="btn btn-success" name="Insert" style="width:32%;  margin-right:656px;">Kaydet</button>
+                <button class="btn btn-success" name="Insert" style="width:32%;  margin-right:406px;">Kaydet</button>
 
             </div>
 

@@ -11,7 +11,9 @@
     <meta name="viewport" content="width=device-width" />
     <title>_Layout</title>
     <style>
-
+        body {
+            background-color: #FAF0E6 !important;
+        }
         .container .img {
             text-align: center;
         }
@@ -26,10 +28,6 @@
             }
 
         @@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
-
-        .panel > .list-group .list-group-item:first-child {
-            /*border-top: 1px solid rgb(204, 204, 204);*/
-        }
 
         @@media (max-width: 767px) {
             .visible-xs {
@@ -125,8 +123,6 @@
             padding: 5px 10px;
             font-size: 1.25em;
         }
-      
-       
     </style>
 
 
@@ -146,7 +142,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>
-    @*<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>*@
     <script src="/Content/Menu/js/modernizr.min.js"></script>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -180,7 +175,7 @@
         @*MENU*@
         <section>
             <div class="container">
-                
+
                 <ul id="gn-menu" class="gn-menu-main">
                     <nav class="gn-menu-wrapper">
 
@@ -211,7 +206,7 @@
                                 </li>
                                 <li><a href="/Home/Index" class="gn-icon fa-heart">Home</a></li>
 
-                                <li><a href="/Contact/Index" class="gn-icon fa-comment">İletişim</a></li>
+                                @*<li><a href="/Contact/Index" class="gn-icon fa-comment">İletişim</a></li>*@
                                 <li><a href="/About/Index" class="gn-icon fa-comment">About</a></li>
                                 <li><a href="/Forum/Index" class="gn-icon fa-heart">Forum</a></li>
                                 <li><a href="/Activity/Index" class="gn-icon fa-heart">Activities</a></li>
@@ -226,47 +221,48 @@
                                 </li>
                                 <li><a href="/Contact/Index" class="gn-icon fa-book">Contact</a></li>
                             </ul>
-                        </div><!--end gn-scroller-->
+                        </div>
                     </nav>
                     <!--Çıkışşş-->
                     <li class="gn-trigger">
                         <div class="trigger"><a class="gn-icon gn-icon-menu"><span>Menu</span></a></div>
-                        <a href="/Home/Logout" class="btn" style="background-color: rgb(189,148,104); height:30px; width:70px; color:wheat !important; position:relative; left:1500px; bottom:35px; color:white ">Çıkış</a>
-                       
+                        @if (Session["NameSurname"] != null)
+                        {
+                            <a href="/Home/Logout" class="btn" style="background-color: rgb(189,148,104); height:30px; width:70px; color:wheat !important; position:relative; left:1500px; bottom:35px; color:white ">Çıkış</a>
+                        }
+
+
                     </li>
 
                     <li class="back"><a class="gn-icon fa-angle-double-up" href="#top"></a></li>
                 </ul>
-            </div><!--end container-->
 
-        </section> @*END MENU*@
+        </section>
 
-        <div class="row">
+        <div class="row" style="border:none;">
             <div class="col-lg-9">  @RenderBody()</div>
-            <div class="col-lg-3"  >               
-                <div class="panel panel-default">
-                   <!--Score Bölümü-->
-                    @foreach (ScoreViewModel item in (List<ScoreViewModel>)Session["TopFive"])
-                    {
-                        <ul class="list-group" id="contact-list">
-                            <li class="list-group-item">
+            <div class="col-lg-3">
+                <div class="panel panel-default" style="border:none;">
+                    <!--Score Bölümü-->
+                    <ul class="list-group" id="contact-list" style="border:none; ">
+                        @foreach (ScoreViewModel item in (List<ScoreViewModel>)Session["TopFive"])
+                        {
+
+                            <li style="border:none; background-color:#FAF0E6; border-color:none;" class="list-group-item">
                                 <div class="col-xs-12 col-sm-3">
                                     <a href="/Profile/Index/@item.UserID"><img src="@item.ImageURL" class="img-responsive img-circle" /></a>
                                 </div>
                                 <div class="col-xs-12 col-sm-9">
                                     <div class="row">
-                                        <span style="font-size:20px;" class="name">@item.NameSurname @item.Score kişiye yardımcı oldu</span><br />
-                                   
-                                    
-                                    </div>
-                                                             
+                                        <span style="font-size:15px;" class="name">@item.NameSurname @item.Score kişiye önderide bulundu.</span><br />
+                                   </div>
                                 </div>
                                 <div class="clearfix"></div>
                             </li>
-                        </ul>
-                    }
+                        }
+                    </ul>
                 </div>
-              
+
             </div>
         </div>
         <footer class="copyright">
@@ -281,11 +277,7 @@
     <script src="/Content/Restaurant/js/jquery-3.3.1.min.js"></script>
     <script src="/Content/Restaurant/js/popper.min.js"></script>
     <script src="/Content/Restaurant/js/plugins.js"></script>
-    @*<script src="/Content/Restaurant/js/owl.carousel.min.js"></script>*@
     <script src="/Content/Restaurant/js/smoothscroll.min.js"></script>
-
-    @*<script type="text/javascript" src="/Content/Menu/js/jquery-1.11.1.min.js"></script>*@
-    @*<script type="text/javascript" src="/Content/Menu/js/bootstrap.min.js"></script>*@
     <script type="text/javascript" src="/Content/Menu/js/main.js"></script>
     <script type="text/javascript" src="/Content/Menu/js/jquery.easing.1.3.js"></script>
     <script type="text/javascript" src="/Content/Menu/js/jquery.scrollTo-1.4.2-min.js"></script>
@@ -326,145 +318,6 @@
     </script>
 
     @RenderSection("Scripts", false)
-    <script>
-        //$(function () {
-        //    $.widget("custom.combobox", {
-        //        _create: function () {
-        //            this.wrapper = $("<span>")
-        //                .addClass("custom-combobox")
-        //                .insertAfter(this.element);
-
-        //            this.element.hide();
-        //            this._createAutocomplete();
-        //            this._createShowAllButton();
-        //        },
-
-        //        _createAutocomplete: function () {
-        //            var selected = this.element.children(":selected"),
-        //                value = selected.val() ? selected.text() : "";
-
-        //            this.input = $("<input>")
-        //                .appendTo(this.wrapper)
-        //                .val(value)
-        //                .attr("title", "")
-        //                .addClass("custom-combobox-input ui-widget ui-widget-content ui-state-default ui-corner-left")
-        //                .autocomplete({
-        //                    delay: 0,
-        //                    minLength: 0,
-        //                    source: $.proxy(this, "_source")
-        //                })
-        //                .tooltip({
-        //                    classes: {
-        //                        "ui-tooltip": "ui-state-highlight"
-        //                    }
-        //                });
-
-        //            this._on(this.input, {
-        //                autocompleteselect: function (event, ui) {
-        //                    ui.item.option.selected = true;
-        //                    this._trigger("select", event, {
-        //                        item: ui.item.option
-        //                    });
-        //                },
-
-        //                autocompletechange: "_removeIfInvalid"
-        //            });
-        //        },
-
-        //        _createShowAllButton: function () {
-        //            var input = this.input,
-        //                wasOpen = false
-
-        //            $("<a>")
-        //                .attr("tabIndex", -1)
-        //                .attr("title", "Show All Items")
-        //                .attr("height", "")
-        //                .tooltip()
-        //                .appendTo(this.wrapper)
-        //                .button({
-        //                    icons: {
-        //                        primary: "ui-icon-triangle-1-s"
-        //                    },
-        //                    text: "false"
-        //                })
-        //                .removeClass("ui-corner-all")
-        //                .addClass("custom-combobox-toggle ui-corner-right")
-        //                .on("mousedown", function () {
-        //                    wasOpen = input.autocomplete("widget").is(":visible");
-        //                })
-        //                .on("click", function () {
-        //                    input.trigger("focus");
-
-        //                    // Close if already visible
-        //                    if (wasOpen) {
-        //                        return;
-        //                    }
-
-        //                    // Pass empty string as value to search for, displaying all results
-        //                    input.autocomplete("search", "");
-        //                });
-        //        },
-
-        //        _source: function (request, response) {
-        //            var matcher = new RegExp($.ui.autocomplete.escapeRegex(request.term), "i");
-        //            response(this.element.children("option").map(function () {
-        //                var text = $(this).text();
-        //                if (this.value && (!request.term || matcher.test(text)))
-        //                    return {
-        //                        label: text,
-        //                        value: text,
-        //                        option: this
-        //                    };
-        //            }));
-        //        },
-
-        //        _removeIfInvalid: function (event, ui) {
-
-        //            // Selected an item, nothing to do
-        //            if (ui.item) {
-        //                return;
-        //            }
-
-        //            // Search for a match (case-insensitive)
-        //            var value = this.input.val(),
-        //                valueLowerCase = value.toLowerCase(),
-        //                valid = false;
-        //            this.element.children("option").each(function () {
-        //                if ($(this).text().toLowerCase() === valueLowerCase) {
-        //                    this.selected = valid = true;
-        //                    return false;
-        //                }
-        //            });
-
-        //            // Found a match, nothing to do
-        //            if (valid) {
-        //                return;
-        //            }
-
-        //            // Remove invalid value
-        //            this.input
-        //                .val("")
-        //                .attr("title", value + " didn't match any item")
-        //                .tooltip("open");
-        //            this.element.val("");
-        //            this._delay(function () {
-        //                this.input.tooltip("close").attr("title", "");
-        //            }, 2500);
-        //            this.input.autocomplete("instance").term = "";
-        //        },
-
-        //        _destroy: function () {
-        //            this.wrapper.remove();
-        //            this.element.show();
-        //        }
-        //    });
-
-        //    $("#combobox").combobox();
-        //    $("#toggle").on("click", function () {
-        //        $("#combobox").toggle();
-        //    });
-        //});
-    </script>
-
+   
 </body>
 </html>

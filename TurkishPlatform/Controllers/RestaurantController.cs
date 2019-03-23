@@ -32,11 +32,24 @@ namespace TurkishPlatform.Controllers
             ViewBag.RestaurantId = r.RestaurantId;
             ViewBag.Comment = db.RestaurantComments.Where(x => x.RestaurantId == id).ToList();
             ViewBag.Country = from c in db.Countries
-                              where c.CountryId == (int)Session["ChooseCountry"]
-                              select c.CountryName;
+                              where c.CountryId == FindCountryId()
+							  select c.CountryName;
 
-            return View(r);
-        }
+
+			int FindCountryId()
+			{
+				if (Session["CountryId"] == null && (int)Session["ChooseCountry"] == 0)
+					return 4;
+
+				else if ((int)Session["ChooseCountry"] != 0)
+					return (int)Session["ChooseCountry"];
+
+				else
+					return (int)Session["CountryId"];
+			}
+
+			return View(r);
+		}
 
         [HttpPost]
         public ActionResult RestaurantDetail(string Content, int id)

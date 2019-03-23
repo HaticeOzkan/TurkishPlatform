@@ -74,7 +74,8 @@
 <div class="container">
     <div class="row">
         <div class="resim"></div>
-        <div class="icerik">
+        <div class="icerik" style="   width: 1000px;
+    margin-left: 93px;">
             @foreach (Tourism item in ViewBag.Tourism)
 
             {  <p>@item.Content</p>
@@ -107,7 +108,7 @@
                         <div class="col-sm-5">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <strong>@item.User.NameSurname</strong> <span class="text-muted">commented 5 days ago</span>
+                                    <strong>@item.User.NameSurname</strong> <span class="text-muted"> </span>
 
                                     <div class="panel panel-default">
                                         <div class="panel-body">
@@ -175,7 +176,6 @@
 
 <div>
     @section Footer{
-        <!-- Instagram Start Here -->
         <section class="instagram-feed-wrap">
             <div class="instagram-feed-title"><a href="#"><i class="fab fa-instagram"></i>Follow On Instagram</a></div>
             <ul class="instagram-feed-figure">
@@ -217,7 +217,6 @@
                 </li>
             </ul>
         </section>
-        <!-- Instagram End Here -->
     }
 </div>
 
